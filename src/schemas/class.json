@@ -1,0 +1,160 @@
+{
+    "Main" : {
+      "uid" : {
+        "type" : "UID",
+        "config" : {
+          "label" : "Class uid"
+        }
+      },
+      "class_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Class Title"
+        }
+      },
+      "class_location" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "class_location_option" : {
+              "type" : "Select",
+              "config" : {
+                "options" : [ "Online", "In Edinburgh" ],
+                "label" : "Class Location Option"
+              }
+            }
+          },
+          "label" : "Class Location"
+        }
+      },
+      "class_main_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Class Main Image"
+        }
+      },
+      "class_duration" : {
+        "type" : "Select",
+        "config" : {
+          "options" : [ "6 weeks", "Intensive weekend", "50-minute sessions", "Drop-in sessions every week" ],
+          "label" : "Class Duration"
+        }
+      },
+      "class_schedule" : {
+        "type" : "Select",
+        "config" : {
+          "options" : [ "Every Friday, 5pm - 6pm BST, UK", "Every Friday, 6pm - 8pm BST, UK", "Times on request", "Times vary based on package selected" ],
+          "label" : "Class Schedule"
+        }
+      },
+      "class_dates" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "class_date" : {
+              "type" : "Date",
+              "config" : {
+                "label" : "Class Date"
+              }
+            }
+          },
+          "label" : "Class Dates"
+        }
+      },
+      "class_summary" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Class Summary"
+        }
+      },
+      "class_discovery" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Class Discovery"
+        }
+      },
+      "class_curriculum" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Class Curriculum"
+        }
+      },
+      "class_details" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Class Details"
+        }
+      },
+      "class_price_options" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "price_option_title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label" : "Price Option Title"
+              }
+            },
+            "price" : {
+              "type" : "Number",
+              "config" : {
+                "label" : "Price"
+              }
+            }
+          },
+          "label" : "Class Price Options"
+        }
+      },
+      "class_booking_instructions" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Class Booking Instructions"
+        }
+      },
+      "class_reviews" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "review_content" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label" : "Review Content"
+              }
+            },
+            "review_date" : {
+              "type" : "Date",
+              "config" : {
+                "label" : "Review Date"
+              }
+            },
+            "reviewer_name" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label" : "Reviewer Name"
+              }
+            }
+          },
+          "label" : "Class Reviews"
+        }
+      },
+      "class_faqs" : {
+        "type" : "Link",
+        "config" : {
+          "select" : "document",
+          "customtypes" : [ "faqs" ],
+          "label" : "Class FAQs"
+        }
+      }
+    }
+  }

@@ -1,0 +1,33 @@
+{
+    "Main" : {
+      "display_name" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Display Name"
+        }
+      },
+      "social_link" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "social_title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label" : "Social Title"
+              }
+            },
+            "social_link1" : {
+              "type" : "Link",
+              "config" : {
+                "allowTargetBlank" : true,
+                "label" : "Social Link"
+              }
+            }
+          },
+          "label" : "Social Link"
+        }
+      }
+    }
+  }

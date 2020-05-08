@@ -1,0 +1,32 @@
+{
+    "Main" : {
+      "general_reviews" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "review_content" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label" : "Review Content"
+              }
+            },
+            "review_date" : {
+              "type" : "Date",
+              "config" : {
+                "label" : "Review Date"
+              }
+            },
+            "reviewer_name" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label" : "Reviewer Name"
+              }
+            }
+          },
+          "label" : "General Reviews"
+        }
+      }
+    }
+  }
