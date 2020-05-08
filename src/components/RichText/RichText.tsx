@@ -1,17 +1,21 @@
 import React from "react"
+import styled from "styled-components"
+import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 
 export interface RichTextProps {
-  element?: 'div' | 'section';
   content: string
 }
 
-const RichText = ({ element = 'div', content }) => {
-  const Element = element;
-  console.log(typeof content);
-  return <Element 
-  dangerouslySetInnerHTML={{ __html: content }}
-  ></Element>
+const RichText = ({ content }) => {
+  return (
+    <RichTextWrapper
+      dangerouslySetInnerHTML={{ __html: content }}
+    ></RichTextWrapper>
+  )
 }
 
+const RichTextWrapper = styled.div`
+  ${BodyTextStyles}
+`
 
 export default RichText

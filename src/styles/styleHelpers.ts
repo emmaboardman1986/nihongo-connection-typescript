@@ -10,4 +10,11 @@ export const setFont = {
 export const setColor = {
     brandBlack: "#000",
     brandWhite: "#fff",
+    brandGrey: "#898484"
 }
+
+// ALIGNMENT
+
+export const setFlex = ({ x = "center", y = "center" } = {}) => {
+    return `display: flex;align-items:${y};justify-content:${x}`
+  }
