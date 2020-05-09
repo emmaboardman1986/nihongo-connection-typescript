@@ -3,8 +3,6 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { ClassCardStyles, ClassCardWrapperStyles, ClassCardImageStyles, ClassCardLabelStyles, ClassCardTextStyles } from "./ClassCardStyles"
 import Heading from "../../typography/Heading"
-import FlexContainer from "../../utilities/FlexContainer"
-import { setFlex, setFlexDirection } from "../../../styles/styleHelpers"
 
 const ClassCard = () => {
   const ref = useRef()
@@ -46,7 +44,6 @@ ${ClassCardImageStyles};`
 
 const ClassCardLabel = styled.span`
 ${ClassCardLabelStyles};
-padding: 0.25rem;
 `
 
 const ClassCardText = styled.div`

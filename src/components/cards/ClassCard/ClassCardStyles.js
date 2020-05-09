@@ -43,6 +43,7 @@ top: 1rem;
 left: 1rem;
 background-color: ${setColor.brandWhite};
 border-radius: ${setBorder.borderRadius};
+padding: 0.25rem;
 `
 
 export const ClassCardImageStyles = css`
