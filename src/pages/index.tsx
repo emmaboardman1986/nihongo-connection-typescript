@@ -6,6 +6,7 @@ import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import Button from "../components/Button"
 import ClassCard from "../components/cards/ClassCard"
+import CardContainer from "../components/cards/CardContainer"
 
 interface Props {
   readonly data: PageQueryData
@@ -25,7 +26,11 @@ const HomePage: React.FC<Props> = ({ data }) => {
       </Section>
       <Section>
         <Heading element="h2">{data.prismicHomepa.data.homepage_1st_section_title.text}</Heading>
-        <ClassCard></ClassCard>>
+        <CardContainer>
+        <ClassCard></ClassCard>
+        <ClassCard></ClassCard>
+        <ClassCard></ClassCard>
+        </CardContainer>
       </Section>
       <Section>
         <Heading element="h2">{data.prismicHomepa.data.homepage_2nd_section_title.text}</Heading>

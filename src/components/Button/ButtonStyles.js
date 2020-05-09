@@ -8,7 +8,7 @@ export const ButtonStyles = css`
   min-height: 44px;
   border-radius: 16px;
   width: 160px;
-  ${setFlex()};
+  ${setFlex({align:"center", justify:"center"})};
   a {
       text-decoration: none;
       color: ${setColor.brandWhite};

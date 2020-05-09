@@ -1,15 +1,16 @@
-import {css} from 'styled-components'
-import { setFont, setColor } from '../../../styles/styleHelpers'
+import { css } from "styled-components"
+import { setFont, setColor, setMargin } from "../../../styles/styleHelpers"
 
 export const BodyTextStyles = css`
   font-family: ${setFont.fontPrimaryRegular};
   font-size: 1rem;
-  line-height: 1.25rem;
+  line-height: 1.4rem;
   color: ${setColor.brandBlack};
   p {
-      padding: 0.25rem 0;
-      &:last-of-type{
-          padding-bottom: 0;
-      }
+    margin-top: ${setMargin.bodyTextMargin};
+    &:last-of-type {
+      margin-bottom: ${setMargin.bodyTextMargin};
+    }
   }
 `
+

@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from "react-helmet"
 import TitleFont from "../../../static/fonts/Poppins-Medium.woff2"
 import BodyFont from "../../../static/fonts/Poppins-Regular.woff2"
+import "../../../static/reboot.css"
 
 
 const Layout = ({children}) => (
