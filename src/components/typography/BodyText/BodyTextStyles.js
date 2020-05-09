@@ -8,5 +8,8 @@ export const BodyTextStyles = css`
   color: ${setColor.brandBlack};
   p {
       padding: 0.25rem 0;
+      &:last-of-type{
+          padding-bottom: 0;
+      }
   }
 `

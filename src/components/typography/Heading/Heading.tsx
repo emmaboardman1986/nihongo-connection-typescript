@@ -7,8 +7,8 @@ export interface HeadingProps {
   text: string
 }
 
-const Heading = ({ element = "h1", text }) => {
-  return <HeadingWrapper as={element}>{text}</HeadingWrapper>
+const Heading = ({ element = "h1", children }) => {
+  return <HeadingWrapper as={element}>{children}</HeadingWrapper>
 }
 
 const HeadingWrapper = styled.div`

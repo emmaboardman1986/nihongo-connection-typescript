@@ -1,9 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/Layout"
 import RichText from "../components/RichText"
 import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import Button from "../components/Button"
+import ClassCard from "../components/cards/ClassCard"
 
 interface Props {
   readonly data: PageQueryData
@@ -11,9 +13,9 @@ interface Props {
 
 const HomePage: React.FC<Props> = ({ data }) => {
   return (
-    <>
+    <Layout>
       <Section>
-        <Heading element="h1" text={data.prismicHomepa.data.homepage_title.text}></Heading>
+        <Heading element="h1">{data.prismicHomepa.data.homepage_title.text}</Heading>
         <RichText
           element="div"
           content={data.prismicHomepa.data.homepage_summary.html}
@@ -22,10 +24,38 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <Button link="/explore" name={data.prismicHomepa.data.homepage_cta_button_text.text}></Button>
       </Section>
       <Section>
-        <Heading element="h2" text={data.prismicHomepa.data.homepage_1st_section_title.text}></Heading>
-        <p>Class Cards</p>
+        <Heading element="h2">{data.prismicHomepa.data.homepage_1st_section_title.text}</Heading>
+        <ClassCard></ClassCard>>
       </Section>
-    </>
+      <Section>
+        <Heading element="h2">{data.prismicHomepa.data.homepage_2nd_section_title.text}</Heading>
+        <p>Review Cards</p>
+      </Section>
+      <Section>
+        <Heading element="h2">{data.prismicHomepa.data.homepage_3rd_section_title.text}</Heading>
+        <RichText
+          element="div"
+          content={data.prismicHomepa.data.homepage_3rd_section_content.html}
+        ></RichText>
+       
+      </Section>
+      <Section>
+        <Heading element="h2">{data.prismicHomepa.data.homepage_4th_section_title.text}</Heading>
+        <RichText
+          element="div"
+          content={data.prismicHomepa.data.homepage_4th_section_content.html}
+        ></RichText>
+       
+      </Section>
+      <Section>
+        <Heading element="h2">{data.prismicHomepa.data.homepage_5th_section_title.text}</Heading>
+        <RichText
+          element="div"
+          content={data.prismicHomepa.data.homepage_5th_section_content.html}
+        ></RichText>
+       
+      </Section>
+    </Layout>
   )
 }
 
@@ -40,19 +70,19 @@ interface PageQueryData {
           text: string
         }
         homepage_3rd_section_content: {
-          text: string
+          html: string
         }
         homepage_3rd_section_title: {
           text: string
         }
         homepage_4th_section_content: {
-          text: string
+          html: string
         }
         homepage_4th_section_title: {
           text: string
         }
         homepage_5th_section_content: {
-          text: string
+          html: string
         }
         homepage_5th_section_title: {
           text: string
@@ -83,19 +113,19 @@ export const pageQuery = graphql`
           text
         }
         homepage_3rd_section_content {
-          text
+          html
         }
         homepage_3rd_section_title {
           text
         }
         homepage_4th_section_content {
-          text
+          html
         }
         homepage_4th_section_title {
           text
         }
         homepage_5th_section_content {
-          text
+          html
         }
         homepage_5th_section_title {
           text
