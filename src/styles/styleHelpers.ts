@@ -7,12 +7,18 @@ export const setFont = {
     fontPrimaryRegular: '"Poppins-Regular", sans-serif',
   }
 
+  export const setFontSize = {
+    reduced: '0.85rem',
+    standard: '1rem',
+  }
+
 // COLORS
 
 export const setColor = {
     brandBlack: "#000",
     brandWhite: "#fff",
-    brandGrey: "#898484"
+    brandGrey: "#898484",
+    brandGreyLight: "lightgrey"
 }
 
 // BORDERS & SHADOWS
@@ -31,14 +37,16 @@ export const setBoxShadow = {
 // PADDING 
 
 export const setPadding = {
-  commonPadding: "1rem"
+  commonPadding: "1rem",
+  largePadding: "1.5rem",
 }
 
 // MARGINS (temp)
 
 export const setMargin = {
   bodyTextMargin: "1.25rem",
-  headingTextMargin: "1.5rem"
+  reducedBodyTextMargin: "0.8rem",
+  headingTextMargin: "1.7rem"
 }
 
 // ALIGNMENT

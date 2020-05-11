@@ -5,7 +5,7 @@ export const CardContainerStyles = css`
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  padding: ${setPadding.commonPadding} 0;
+  padding-bottom: 6px;
   @supports (display: grid) {
     display: grid;
     grid-template-columns: repeat(auto-fill, 15rem);

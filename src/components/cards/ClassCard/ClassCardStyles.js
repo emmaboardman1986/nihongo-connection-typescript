@@ -6,7 +6,8 @@ import {
   setFlex,
   setFlexDirection,
   setMargin,
-  setColor
+  setColor,
+  setPadding,
 } from "../../../styles/styleHelpers"
 
 export const ClassCardStyles = css`
@@ -38,12 +39,12 @@ export const ClassCardWrapperStyles = css`
 `
 
 export const ClassCardLabelStyles = css`
-position: absolute;
-top: 1rem;
-left: 1rem;
-background-color: ${setColor.brandWhite};
-border-radius: ${setBorder.borderRadius};
-padding: 0.25rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: ${setColor.brandWhite};
+  border-radius: ${setBorder.borderRadius};
+  padding: 0.25rem;
 `
 
 export const ClassCardImageStyles = css`
@@ -56,6 +57,8 @@ export const ClassCardImageStyles = css`
   }
 `
 export const ClassCardTextStyles = css`
+  padding: ${setPadding.commonPadding};
+  box-sizing: border-box;
   ${setFlex()};
   ${setFlexDirection({ direction: "column" })};
   max-width: 60ch;
