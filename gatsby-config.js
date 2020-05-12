@@ -13,6 +13,7 @@ module.exports = {
         schemas: {
           homepa: require("./src/schemas/homepa.json"),
           class: require("./src/schemas/class.json"),
+          explore_page: require("./src/schemas/explore_page.json"),
         },
       },
     },

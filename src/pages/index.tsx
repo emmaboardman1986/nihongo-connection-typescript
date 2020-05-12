@@ -17,7 +17,7 @@ interface Props {
 
 const HomePage: React.FC<Props> = ({ data }) => {
   const popularClasses = data.allPrismicClass.edges
-  console.log(popularClasses)
+ 
 
   return (
     <Layout>
