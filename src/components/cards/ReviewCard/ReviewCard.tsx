@@ -10,6 +10,7 @@ export interface ReviewCardProps {
   content: string
   date: string
   name?: string
+  id?: string
 }
 
 const ReviewCard = ({ content, date, name, id }) => {

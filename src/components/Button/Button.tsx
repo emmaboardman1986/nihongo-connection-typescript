@@ -6,7 +6,7 @@ import { ButtonStyles, SecondaryButtonStyles } from "./ButtonStyles"
 export interface ButtonProps {
   name: string
   link: string
-  alignCenter: boolean,
+  alignCenter?: boolean,
   variant?: "primary" | "secondary"
 }
 

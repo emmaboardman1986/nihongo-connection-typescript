@@ -6,7 +6,7 @@ import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import Button from "../components/Button"
 import ClassCard from "../components/cards/ClassCard"
-import ReviewCard from "../components/cards/ReviewCard"
+import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 import CardContainer from "../components/cards/CardContainer"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
@@ -16,8 +16,6 @@ interface Props {
 }
 
 const HomePage: React.FC<Props> = ({ data }) => {
-  const featuredReviews =
-    data.allPrismicGeneralReviews.edges[0].node.data.general_reviews
   const popularClasses = data.allPrismicClass.edges
   console.log(popularClasses)
 
@@ -28,7 +26,6 @@ const HomePage: React.FC<Props> = ({ data }) => {
           {data.prismicHomepa.data.homepage_title.text}
         </Heading>
         <RichText
-          element="div"
           content={data.prismicHomepa.data.homepage_summary.html}
         ></RichText>
         <VerticalSpacing size="large" />
@@ -45,7 +42,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <CardContainer>
           {popularClasses.map((popularClass, index) => {
             let classData = popularClass.node.data
-            console.log(classData);
+
             return (
               <ClassCard
                 key={index}
@@ -53,10 +50,17 @@ const HomePage: React.FC<Props> = ({ data }) => {
                 duration={classData.class_duration}
                 location={classData.class_location[0].class_location_option}
                 schedule={classData.class_schedule}
-                thumbnailURL={classData.class_main_image.thumbnails.thumbnail.url}
-                thumbnailAlt={classData.class_main_image.thumbnails.thumbnail.alt}
-                start_date={classData.class_dates.length > 0 ? classData.class_dates[0].class_date : "this Friday!"}
-
+                thumbnailURL={
+                  classData.class_main_image.thumbnails.thumbnail.url
+                }
+                thumbnailAlt={
+                  classData.class_main_image.thumbnails.thumbnail.alt
+                }
+                start_date={
+                  classData.class_dates.length > 0
+                    ? classData.class_dates[0].class_date
+                    : "this Friday!"
+                }
               ></ClassCard>
             )
           })}
@@ -68,37 +72,13 @@ const HomePage: React.FC<Props> = ({ data }) => {
           variant="secondary"
         ></Button>
       </Section>
-      <Section>
-        <Heading element="h2">
-          {data.prismicHomepa.data.homepage_2nd_section_title.text}
-        </Heading>
-        <CardContainer>
-          {featuredReviews.map((review, index) => (
-            <ReviewCard
-              content={review.review_content[0].text}
-              key={index}
-              date={review.review_date}
-              name={
-                review.reviewer_name.length > 0
-                  ? review.reviewer_name[0].text
-                  : null
-              }
-            ></ReviewCard>
-          ))}
-        </CardContainer>
-        <VerticalSpacing size="x-large" />
-        <Button
-          link="/reviews"
-          name="See all Reviews"
-          variant="secondary"
-        ></Button>
-      </Section>
+      <ReviewCarouselSection></ReviewCarouselSection>
+
       <Section>
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_3rd_section_title.text}
         </Heading>
         <RichText
-          element="div"
           content={data.prismicHomepa.data.homepage_3rd_section_content.html}
         ></RichText>
       </Section>
@@ -107,7 +87,6 @@ const HomePage: React.FC<Props> = ({ data }) => {
           {data.prismicHomepa.data.homepage_4th_section_title.text}
         </Heading>
         <RichText
-          element="div"
           content={data.prismicHomepa.data.homepage_4th_section_content.html}
         ></RichText>
       </Section>
@@ -116,7 +95,6 @@ const HomePage: React.FC<Props> = ({ data }) => {
           {data.prismicHomepa.data.homepage_5th_section_title.text}
         </Heading>
         <RichText
-          element="div"
           content={data.prismicHomepa.data.homepage_5th_section_content.html}
         ></RichText>
       </Section>
@@ -163,26 +141,7 @@ interface PageQueryData {
         }
       }
     }
-    allPrismicGeneralReviews(filter: {
-      data: { general_reviews: { elemMatch: { featured: { eq: true } } } }
-    }): {
-      edges: {
-        node: {
-          id: string
-          data: {
-            general_reviews: {
-              review_content: {
-                text: string
-              }
-              review_date(formatString: "MMMM DD, YYYY"): string
-              reviewer_name: {
-                text: string
-              }
-            }
-          }
-        }
-      }
-    }
+
     allPrismicClass(filter: {
       data: { class_popular: { eq: true } }
     }): {
@@ -255,28 +214,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPrismicGeneralReviews(
-      filter: {
-        data: { general_reviews: { elemMatch: { featured: { eq: true } } } }
-      }
-    ) {
-      edges {
-        node {
-          id
-          data {
-            general_reviews {
-              review_content {
-                text
-              }
-              review_date(formatString: "MMMM DD, YYYY")
-              reviewer_name {
-                text
-              }
-            }
-          }
-        }
-      }
-    }
+
     allPrismicClass(filter: { data: { class_popular: { eq: true } } }) {
       edges {
         node {
