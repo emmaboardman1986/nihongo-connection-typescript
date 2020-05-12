@@ -16,6 +16,8 @@ border: ${setBorder.borderSmTransparent};
 border-radius: ${setBorder.borderRadius};
 box-shadow: ${setBoxShadow.clickAffordance};
 cursor: pointer;
+white-space: initial;
+height: 100%;
 &:hover {
     border: ${setBorder.borderSmBlack};
     box-shadow: ${setBoxShadow.clickAffordanceHover};
@@ -44,7 +46,8 @@ export const ClassCardLabelStyles = css`
   left: 1rem;
   background-color: ${setColor.brandWhite};
   border-radius: ${setBorder.borderRadius};
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border: ${setBorder.borderSmBlack};
 `
 
 export const ClassCardImageStyles = css`
@@ -63,6 +66,16 @@ export const ClassCardTextStyles = css`
   ${setFlexDirection({ direction: "column" })};
   max-width: 60ch;
   flex-grow: 1;
+  h3 {
+    margin-bottom: ${setMargin.reducedheadingTextMargin};
+  }
+  li {
+    padding: 0.25rem 0;
+  }
+  small {
+    display: block;
+    line-height: 1.2rem;
+  }
   p:last-child {
     margin-top: auto;
   }

@@ -3,7 +3,6 @@ require("dotenv").config({
 })
 
 module.exports = {
-
   plugins: [
     {
       resolve: `gatsby-source-prismic`,
@@ -12,19 +11,21 @@ module.exports = {
         accessToken: `${process.env.API_KEY}`,
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
         schemas: {
-          homepa: require('./src/schemas/homepa.json'),
-          class: require('./src/schemas/class.json'),
-        }
+          homepa: require("./src/schemas/homepa.json"),
+          class: require("./src/schemas/class.json"),
+        },
       },
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "fonts",
-        path: `${__dirname}/static/fonts/`
-      }
-    }
+        path: `${__dirname}/static/fonts/`,
+      },
+    },
   ],
 }

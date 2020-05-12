@@ -46,7 +46,8 @@ export const setPadding = {
 export const setMargin = {
   bodyTextMargin: "1.25rem",
   reducedBodyTextMargin: "0.8rem",
-  headingTextMargin: "1.7rem"
+  headingTextMargin: "1.7rem",
+  reducedheadingTextMargin: "0.7rem"
 }
 
 // ALIGNMENT

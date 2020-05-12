@@ -1,10 +1,34 @@
 import React, { useRef } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { ClassCardStyles, ClassCardWrapperStyles, ClassCardImageStyles, ClassCardLabelStyles, ClassCardTextStyles } from "./ClassCardStyles"
+import {
+  ClassCardStyles,
+  ClassCardWrapperStyles,
+  ClassCardImageStyles,
+  ClassCardLabelStyles,
+  ClassCardTextStyles,
+} from "./ClassCardStyles"
 import Heading from "../../typography/Heading"
 
-const ClassCard = () => {
+export interface ReviewCardProps {
+  location: string
+  thumbnailURL?: string
+  thumbnailAlt?: string
+  duration: string
+  title: string
+  schedule: string
+  start_date?: string
+}
+
+const ClassCard = ({
+  location,
+  thumbnailURL,
+  thumbnailAlt = "",
+  duration,
+  title,
+  schedule,
+  start_date,
+}) => {
   const ref = useRef()
   const handleCardClick = e => {
     if (ref !== e.target) {
@@ -14,21 +38,31 @@ const ClassCard = () => {
   return (
     <ClassCardWrapper onClick={handleCardClick}>
       <ClassCardImage>
-        <ClassCardLabel><small>Class Location</small></ClassCardLabel>
-        <img
-          src="https://i.ibb.co/FhWkjPM/case-study-js-experience.png"
-          alt=""
-        ></img>
+        <ClassCardLabel>
+          <small>{location}</small>
+        </ClassCardLabel>
+        <img src={thumbnailURL} alt={thumbnailAlt}></img>
       </ClassCardImage>
       <ClassCardText>
         <Heading element="h3">
           <Link to="#" ref={ref}>
-            Class Title
+            {title}
           </Link>
         </Heading>
-        <p>Class Duration</p>
-        <p>Class Schedule</p>
-        <p>Class Start Date</p>
+
+        <ul>
+          <li>
+            <small>{duration}</small>
+          </li>
+          <li>
+            <small>{schedule}</small>
+          </li>
+          <li>
+            <small>
+              <strong>Next class: {start_date}</strong>
+            </small>
+          </li>
+        </ul>
       </ClassCardText>
     </ClassCardWrapper>
   )
@@ -40,14 +74,15 @@ const ClassCardWrapper = styled.div`
 `
 
 const ClassCardImage = styled.div`
-${ClassCardImageStyles};`
+  ${ClassCardImageStyles};
+`
 
 const ClassCardLabel = styled.span`
-${ClassCardLabelStyles};
+  ${ClassCardLabelStyles};
 `
 
 const ClassCardText = styled.div`
- ${ClassCardTextStyles};
+  ${ClassCardTextStyles};
 `
 
 export default ClassCard

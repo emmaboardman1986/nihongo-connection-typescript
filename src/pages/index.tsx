@@ -18,8 +18,9 @@ interface Props {
 const HomePage: React.FC<Props> = ({ data }) => {
   const featuredReviews =
     data.allPrismicGeneralReviews.edges[0].node.data.general_reviews
+  const popularClasses = data.allPrismicClass.edges
+  console.log(popularClasses)
 
-  console.log(featuredReviews)
   return (
     <Layout>
       <Section>
@@ -35,16 +36,30 @@ const HomePage: React.FC<Props> = ({ data }) => {
           link="/explore"
           name={data.prismicHomepa.data.homepage_cta_button_text.text}
         ></Button>
-      
       </Section>
       <Section>
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_1st_section_title.text}
         </Heading>
+
         <CardContainer>
-          <ClassCard></ClassCard>
-          <ClassCard></ClassCard>
-          <ClassCard></ClassCard>
+          {popularClasses.map((popularClass, index) => {
+            let classData = popularClass.node.data
+            console.log(classData);
+            return (
+              <ClassCard
+                key={index}
+                title={classData.class_title.text}
+                duration={classData.class_duration}
+                location={classData.class_location[0].class_location_option}
+                schedule={classData.class_schedule}
+                thumbnailURL={classData.class_main_image.thumbnails.thumbnail.url}
+                thumbnailAlt={classData.class_main_image.thumbnails.thumbnail.alt}
+                start_date={classData.class_dates.length > 0 ? classData.class_dates[0].class_date : "this Friday!"}
+
+              ></ClassCard>
+            )
+          })}
         </CardContainer>
         <VerticalSpacing size="large" />
         <Button
@@ -52,7 +67,6 @@ const HomePage: React.FC<Props> = ({ data }) => {
           name="See all Classes"
           variant="secondary"
         ></Button>
-      
       </Section>
       <Section>
         <Heading element="h2">
@@ -78,7 +92,6 @@ const HomePage: React.FC<Props> = ({ data }) => {
           name="See all Reviews"
           variant="secondary"
         ></Button>
-   
       </Section>
       <Section>
         <Heading element="h2">
@@ -170,6 +183,36 @@ interface PageQueryData {
         }
       }
     }
+    allPrismicClass(filter: {
+      data: { class_popular: { eq: true } }
+    }): {
+      edges: {
+        node: {
+          id: string
+          data: {
+            class_title: {
+              text: string
+            }
+            class_main_image: {
+              thumbnails: {
+                thumbnail: {
+                  url: string
+                  alt: string
+                }
+              }
+            }
+            class_duration: string
+            class_location: {
+              class_location_option: string
+            }
+            class_dates: {
+              class_date(locale: "en-GB"): string
+            }
+            class_schedule: string
+          }
+        }
+      }
+    }
   }
 }
 
@@ -230,6 +273,34 @@ export const pageQuery = graphql`
                 text
               }
             }
+          }
+        }
+      }
+    }
+    allPrismicClass(filter: { data: { class_popular: { eq: true } } }) {
+      edges {
+        node {
+          id
+          data {
+            class_title {
+              text
+            }
+            class_main_image {
+              thumbnails {
+                thumbnail {
+                  url
+                  alt
+                }
+              }
+            }
+            class_duration
+            class_location {
+              class_location_option
+            }
+            class_dates {
+              class_date(locale: "en-GB")
+            }
+            class_schedule
           }
         }
       }
