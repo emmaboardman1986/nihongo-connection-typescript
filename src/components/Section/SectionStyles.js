@@ -1,6 +1,6 @@
 import { css } from "styled-components"
-import { setPadding } from "../../styles/styleHelpers"
+import { setSpacing } from "../../styles/styleHelpers"
 
 export const SectionStyles = css`
-  padding: ${setPadding.commonPadding};
+  padding: ${setSpacing.base};
 `

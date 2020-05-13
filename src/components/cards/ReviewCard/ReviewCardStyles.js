@@ -5,7 +5,7 @@ import {
   setFlex,
   setFlexDirection,
   setFontSize,
-  setPadding,
+  setSpacing,
   setColor,
 } from "../../../styles/styleHelpers"
 
@@ -14,7 +14,7 @@ export const ReviewCardStyles = css`
   ${BodyTextStyles};
   box-sizing: border-box;
   font-size: ${setFontSize.reduced};
-  padding: ${setPadding.largePadding};
+  padding: ${setSpacing.xLoose};
   background-color: ${setColor.brandGreyLight};
   ${setFlex({ align: "flex-end" })};
   ${setFlexDirection({ direction: "column" })};

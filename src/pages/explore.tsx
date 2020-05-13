@@ -1,23 +1,33 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import ClassCard from "../components/cards/ClassCard"
 import CardContainer from "../components/cards/CardContainer"
+import FlexContainer from "../components/utilities/FlexContainer"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 import RichText from "../components/RichText"
+import Button from "../components/Button"
 
 interface Props {
   readonly data: ExplorePageQueryData
 }
 
 const ExplorePage: React.FC<Props> = ({ data }) => {
+  const [filteredResults, setFilteredResults] = useState([])
   const allClasses = data.allPrismicClass.edges
   const explorePageCopy = data.allPrismicExplorePage.edges[0].node.data
 
-  console.log(allClasses)
-  console.log(explorePageCopy)
+  console.log("all classes", allClasses)
+
+  const handleFilterClick = () => {
+    const result = allClasses.filter(
+      classItem =>
+        classItem.node.data.class_location[0].class_location_option === "Online"
+    )
+    setFilteredResults(result)
+  }
   return (
     <Layout>
       <Section>
@@ -30,12 +40,62 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
       </Section>
       <Section>
         <Heading element="h2">Filter Classes</Heading>
+        <h3 onClick={handleFilterClick}>filter</h3>
+        <CardContainer>
+          {filteredResults && filteredResults.length > 0
+            ? filteredResults.map((classItem, index) => {
+                let classData = classItem.node.data
+                return (
+                  <ClassCard
+                    key={index}
+                    title={classData.class_title.text}
+                    duration={classData.class_duration}
+                    location={classData.class_location[0].class_location_option}
+                    schedule={classData.class_schedule}
+                    thumbnailURL={
+                      classData.class_main_image.thumbnails.thumbnail.url
+                    }
+                    thumbnailAlt={
+                      classData.class_main_image.thumbnails.thumbnail.alt
+                    }
+                    start_date={
+                      classData.class_dates.length > 0
+                        ? classData.class_dates[0].class_date
+                        : "this Friday!"
+                    }
+                  ></ClassCard>
+                )
+              })
+            : allClasses.map((classItem, index) => {
+                let classData = classItem.node.data
+                return (
+                  <ClassCard
+                    key={index}
+                    title={classData.class_title.text}
+                    duration={classData.class_duration}
+                    location={classData.class_location[0].class_location_option}
+                    schedule={classData.class_schedule}
+                    thumbnailURL={
+                      classData.class_main_image.thumbnails.thumbnail.url
+                    }
+                    thumbnailAlt={
+                      classData.class_main_image.thumbnails.thumbnail.alt
+                    }
+                    start_date={
+                      classData.class_dates.length > 0
+                        ? classData.class_dates[0].class_date
+                        : "this Friday!"
+                    }
+                  ></ClassCard>
+                )
+              })}
+        </CardContainer>
       </Section>
       <Section>
         <Heading element="h2">
           {explorePageCopy.explore_page_all_classes_title.text}
         </Heading>
-        <CardContainer noHorizontalScroll>
+        <FlexContainer>
           {allClasses.map((classItem, index) => {
             let classData = classItem.node.data
             return (
@@ -59,7 +119,7 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
               ></ClassCard>
             )
           })}
-        </CardContainer>
+        </FlexContainer>
       </Section>
 
       <ReviewCarouselSection></ReviewCarouselSection>

@@ -1,67 +1,98 @@
 import { css } from "styled-components"
 
+// SIZING
+export const calcRem = (pixelValue) => {
+  return pixelValue / 16 + "rem";
+}
+
 // FONTS
-
 export const setFont = {
-    fontPrimaryMedium: '"Poppins-Medium", sans-serif',
-    fontPrimaryRegular: '"Poppins-Regular", sans-serif',
-  }
+  fontPrimaryMedium: '"Poppins-Medium", sans-serif',
+  fontPrimaryRegular: '"Poppins-Regular", sans-serif',
+}
 
-  export const setFontSize = {
-    reduced: '0.85rem',
-    standard: '1rem',
-  }
+export const setFontSize = {
+  xSmall: calcRem(12),
+  small: calcRem(14),
+  medium: calcRem(16),
+  large: calcRem(18),
+  xLarge: calcRem(20),
+  x2Large: calcRem(24),
+  x3Large: calcRem(30),
+  x4Large: calcRem(36)
+}
+
+export const setSpacing = {
+  none: "0",
+  xTight: calcRem(4),
+  tight: calcRem(8),
+  baseTight: calcRem(12),
+  base: calcRem(16),
+  loose: calcRem(20),
+  xLoose: calcRem(32)
+}
 
 // COLORS
-
 export const setColor = {
-    brandBlack: "#000",
-    brandWhite: "#fff",
-    brandGrey: "#898484",
-    brandGreyLight: "lightgrey"
+  brandPrimary: {
+    100: "hsl(357, 85%, 95%)",
+    200: "hsl(357, 94%, 85%)",
+    300: "hsl(357, 100%, 65%)",
+    400: "hsl(357, 85%, 54%)",
+    500: "hsl(357, 85%, 45%)",
+    600: "hsl(357, 95%, 35%)",
+    700: "hsl(357, 84%, 25%)",
+    800: "hsl(357, 84%, 15%)",
+    900: "hsl(357, 85%, 5%)"
+  },
+  brandMonochrome: {
+    0: "#fff",
+    100: "hsl(0, 3%, 85%)",
+    200: "hsl(0, 2%, 75%)",
+    300: "hsl(0, 2%, 65%)",
+    400: "hsl(0, 2%, 55%)",
+    500: "hsl(0, 2%, 45%)",
+    600: "hsl(0, 2%, 35%)",
+    700: "hsl(0, 2%, 25%)",
+    800: "hsl(0, 3%, 15%)",
+    900: "hsl(0, 4%, 5%)"
+  },
+  brandAccent: {
+
+  }
+
 }
+
+
 
 // BORDERS & SHADOWS
-
 export const setBorder = {
-  borderRadius: "6px",
+  borderRadius: "10px",
   borderSmTransparent: "1px solid transparent",
-  borderSmBlack: `1px solid ${setColor.brandBlack}`,
+  borderSmBlack: `1px solid ${setColor.brandMonochrome[900]}`,
 }
 
-export const setBoxShadow = {
-  clickAffordance: "6px 6px 0 0px",
-  clickAffordanceHover: "6px 6px 0 3px"
-}
 
-// PADDING 
-
-export const setPadding = {
-  commonPadding: "1rem",
-  largePadding: "1.5rem",
-}
-
-// MARGINS (temp)
-
-export const setMargin = {
-  bodyTextMargin: "1.25rem",
-  reducedBodyTextMargin: "0.8rem",
-  headingTextMargin: "1.7rem",
-  reducedheadingTextMargin: "0.7rem"
+export const setShadow = {
+  elevate: {
+    0: "2px 2px 1px hsla(0,0%,0%, 1)",
+    100: "4px 4px 1px hsla(0,0%,0%, 1)"
+  },
+  depress: {
+    100: "2px 2px 1px hsla(0,0%,0%, 1)"
+  }
 }
 
 // ALIGNMENT
-
 export const setFlex = ({ align = "stretch", justify = "flex-start" } = {}) => {
-    return `display: flex;align-items:${align};justify-content:${justify}`
-  }
+  return `display: flex;align-items:${align};justify-content:${justify}`
+}
 
-  export const setFlexDirection = ({ direction = "row" } = {}) => {
-    return `flex-direction: ${direction};`
-  }
+export const setFlexDirection = ({ direction = "row" } = {}) => {
+  return `flex-direction: ${direction};`
+}
 
 // MEDIA QUERIES
-
 export const breakpoints = {
   xs: "480px",
   sm: "768px",
