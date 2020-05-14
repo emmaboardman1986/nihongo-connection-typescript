@@ -31,6 +31,28 @@
         "label": "Class Location"
       }
     },
+    "class_target": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Student",
+          "Teacher"
+        ],
+        "default_value": "Student",
+        "label": "Class target"
+      }
+    },
+    "class_learning_style": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Intensive",
+          "Regular",
+          "Drop-in"
+        ],
+        "label": "Class Learning Style"
+      }
+    },
     "class_popular": {
       "type": "Boolean",
       "config": {
@@ -42,19 +64,19 @@
       "type": "Image",
       "config": {
         "constraint": {
-          "width": 1500,
-          "height": 500
+          "width": 960,
+          "height": 540
         },
         "thumbnails": [
           {
             "name": "Tablet",
-            "width": 900,
-            "height": 500
+            "width": 480,
+            "height": 270
           },
           {
             "name": "thumbnail",
-            "width": 200,
-            "height": 100
+            "width": 240,
+            "height": 135
           }
         ],
         "label": "Class Main Image"
@@ -64,7 +86,8 @@
       "type": "Select",
       "config": {
         "options": [
-          "6 weeks",
+          "6-week course",
+          "8-week course",
           "Intensive weekend",
           "50-minute sessions",
           "Drop-in sessions every week"
@@ -76,8 +99,8 @@
       "type": "Select",
       "config": {
         "options": [
-          "Every Friday, 5pm - 6pm BST, UK",
-          "Every Friday, 6pm - 8pm BST, UK",
+          "Every Friday, 5pm - 6pm BST",
+          "Every Friday, 6pm - 8pm BST",
           "Times on request",
           "Times vary based on package selected"
         ],

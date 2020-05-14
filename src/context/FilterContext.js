@@ -9,7 +9,12 @@ let reducer = (state, {filter, filterValue}) => {
 
 const initialState = {
     showOnline: false,
-    showInEdinburgh: false
+    showInEdinburgh: false,
+    showStudent: false,
+    showTeacher: false,
+    showIntensive: false,
+    showRegular: false,
+    showDropIn: false
 }
 
 const FilterContext = React.createContext(initialState);

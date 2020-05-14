@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import Heading from "../components/typography/Heading"
@@ -10,72 +10,101 @@ import RichText from "../components/RichText"
 import Filter from "../components/Filter"
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 
-import { FilterProvider } from "../context/FilterContext"
+import { FilterContext } from "../context/FilterContext"
 
 interface Props {
   readonly data: ExplorePageQueryData
 }
 
 const ExplorePage: React.FC<Props> = ({ data }) => {
-  const [filteredResults, setFilteredResults] = useState([])
   const allClasses = data.allPrismicClass.edges
+  const [classes, setClasses] = useState([])
+
   const explorePageCopy = data.allPrismicExplorePage.edges[0].node.data
 
-  const handleFilterClick = e => {
-    const result = allClasses.filter(
-      classItem =>
-        classItem.node.data.class_location[0].class_location_option === e
-    )
-    setFilteredResults(result)
-  }
+  const { state, dispatch } = useContext(FilterContext)
+
+  useEffect(() => {
+    const {
+      showStudent,
+      showTeacher,
+      showOnline,
+      showInEdinburgh,
+      showRegular,
+      showIntensive,
+      showDropIn,
+    } = state
+    let result
+    let resultStudent = []
+    let resultTeacher = []
+    let resultOnline = []
+    let resultEdinburgh = []
+    let resultIntensive = []
+    let resultRegular = []
+    let resultDropIn = []
+    if (showStudent) {
+      resultStudent = allClasses.filter(
+        classItem => classItem.node.data.class_target === "Student"
+      )
+    }
+    if (showTeacher) {
+      resultStudent = allClasses.filter(
+        classItem => classItem.node.data.class_target === "Teacher"
+      )
+    }
+    if (showOnline) {
+      resultOnline = allClasses.filter(
+        classItem =>
+          classItem.node.data.class_location[0].class_location_option ===
+          "Online"
+      )
+    }
+    if (showInEdinburgh) {
+      resultEdinburgh = allClasses.filter(
+        classItem =>
+          classItem.node.data.class_location[0].class_location_option ===
+          "In Edinburgh"
+      )
+    }
+    if (showIntensive) {
+      resultStudent = allClasses.filter(
+        classItem => classItem.node.data.class_learning_style === "Intensive"
+      )
+    }
+    if (showRegular) {
+      resultStudent = allClasses.filter(
+        classItem => classItem.node.data.class_learning_style === "Regular"
+      )
+    }
+    if (showDropIn) {
+      resultStudent = allClasses.filter(
+        classItem => classItem.node.data.class_learning_style === "Drop-in"
+      )
+    }
+
+    result = [...resultStudent, ...resultTeacher, ...resultOnline, ...resultEdinburgh, ...resultStudent, ...resultIntensive, ...resultRegular, ...resultDropIn]
+
+    setClasses(result)
+  }, [state])
+
+  console.log("classes", classes)
+
   return (
     <Layout>
-      <FilterProvider>
-        <Section>
-          <Heading element="h1">
-            {explorePageCopy.explore_page_title.text}
-          </Heading>
-          <RichText
-            content={explorePageCopy.explore_page_introduction.html}
-          ></RichText>
-        </Section>
-        <Section>
-          <Filter></Filter>><VerticalSpacing></VerticalSpacing>
-          <CardContainer>
-            {filteredResults &&
-              filteredResults.length > 0 &&
-              filteredResults.map((classItem, index) => {
-                let classData = classItem.node.data
-                return (
-                  <ClassCard
-                    key={index}
-                    title={classData.class_title.text}
-                    duration={classData.class_duration}
-                    location={classData.class_location[0].class_location_option}
-                    schedule={classData.class_schedule}
-                    thumbnailURL={
-                      classData.class_main_image.thumbnails.thumbnail.url
-                    }
-                    thumbnailAlt={
-                      classData.class_main_image.thumbnails.thumbnail.alt
-                    }
-                    start_date={
-                      classData.class_dates.length > 0
-                        ? classData.class_dates[0].class_date
-                        : "this Friday!"
-                    }
-                  ></ClassCard>
-                )
-              })}
-          </CardContainer>
-        </Section>
-        <Section>
-          <span id="all-courses"></span>
-          <Heading element="h2">
-            {explorePageCopy.explore_page_all_classes_title.text}
-          </Heading>
-          <CardContainer noHorizontalScroll>
-            {allClasses.map((classItem, index) => {
+      <Section>
+        <Heading element="h1">
+          {explorePageCopy.explore_page_title.text}
+        </Heading>
+        <RichText
+          content={explorePageCopy.explore_page_introduction.html}
+        ></RichText>
+      </Section>
+      <Section>
+        <Filter></Filter>
+        <CardContainer noHorizontalScroll>
+          {classes &&
+            classes.length > 0 &&
+            classes.map((classItem, index) => {
               let classData = classItem.node.data
               return (
                 <ClassCard
@@ -98,11 +127,41 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
                 ></ClassCard>
               )
             })}
-          </CardContainer>
-        </Section>
+        </CardContainer>
+      </Section>
+      <Section>
+        <span id="all-courses"></span>
+        <Heading element="h2">
+          {explorePageCopy.explore_page_all_classes_title.text}
+        </Heading>
+        <CardContainer noHorizontalScroll>
+          {allClasses.map((classItem, index) => {
+            let classData = classItem.node.data
+            return (
+              <ClassCard
+                key={index}
+                title={classData.class_title.text}
+                duration={classData.class_duration}
+                location={classData.class_location[0].class_location_option}
+                schedule={classData.class_schedule}
+                thumbnailURL={
+                  classData.class_main_image.thumbnails.thumbnail.url
+                }
+                thumbnailAlt={
+                  classData.class_main_image.thumbnails.thumbnail.alt
+                }
+                start_date={
+                  classData.class_dates.length > 0
+                    ? classData.class_dates[0].class_date
+                    : "this Friday!"
+                }
+              ></ClassCard>
+            )
+          })}
+        </CardContainer>
+      </Section>
 
-        <ReviewCarouselSection></ReviewCarouselSection>
-      </FilterProvider>
+      <ReviewCarouselSection></ReviewCarouselSection>
     </Layout>
   )
 }
@@ -133,6 +192,8 @@ interface ExplorePageQueryData {
               class_date(locale: "en-GB"): string
             }
             class_schedule: string
+            class_learning_style: string
+            class_target: string
           }
         }
       }
@@ -183,6 +244,8 @@ export const explorePageQuery = graphql`
               class_date(locale: "en-GB")
             }
             class_schedule
+            class_learning_style
+            class_target
           }
         }
       }

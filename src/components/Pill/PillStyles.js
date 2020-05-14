@@ -19,11 +19,9 @@ export const PillStyles = css`
   a {
     text-decoration: none;
   }
-  [aria-pressed="true"] {
+  &[aria-pressed="true"] {
   color: ${setColor.brandMonochrome[0]};
   font-size: ${setFontSize.medium};
   background-color: ${setColor.brandPrimary[400]};
-  box-shadow: inset 0 0 0 0.15rem #000, 
-              inset 0.25em 0.25em 0 #fff;
 }
 `
