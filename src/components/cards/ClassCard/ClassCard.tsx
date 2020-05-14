@@ -9,6 +9,7 @@ import {
   ClassCardTextStyles,
 } from "./ClassCardStyles"
 import Heading from "../../typography/Heading"
+import FlexContainer from "../../utilities/FlexContainer"
 
 export interface ReviewCardProps {
   location: string
@@ -45,12 +46,11 @@ const ClassCard = ({
       </ClassCardImage>
       <ClassCardText>
         <Heading element="h3">
-          <Link to="#" ref={ref}>
+          <Link to="/class-id" ref={ref}>
             {title}
           </Link>
         </Heading>
-
-        <ul>
+        <FlexContainer element="ul" flexDirection={{_: "column"}} justifyContent={{_: "flex-end"}}>
           <li>
             <small>{duration}</small>
           </li>
@@ -62,7 +62,7 @@ const ClassCard = ({
               <strong>Next class: {start_date}</strong>
             </small>
           </li>
-        </ul>
+        </FlexContainer>
       </ClassCardText>
     </ClassCardWrapper>
   )

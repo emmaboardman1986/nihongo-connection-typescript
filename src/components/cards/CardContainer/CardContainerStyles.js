@@ -10,10 +10,11 @@ export const CardContainerStyles = css`
   padding-right: 6px;
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: ${props =>
+    ${'' /* grid-template-columns: ${props =>
       props.noHorizontalScroll
         ? "repeat(auto-fill, 100%)"
-        : "repeat(auto-fill, 15rem)"};
+        : "repeat(auto-fill, 15rem)"}; */}
+    grid-template-columns: repeat(auto-fill, 15rem);
     grid-gap: 1.5rem;
     grid-auto-flow: ${props => (props.noHorizontalScroll ? "row" : "column")};
     grid-auto-columns: 15rem;
@@ -23,5 +24,6 @@ export const CardContainerStyles = css`
   }
   li {
     list-style: none;
+    height: 100%;
   }
 `

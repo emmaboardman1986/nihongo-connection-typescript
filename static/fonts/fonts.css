@@ -13,3 +13,11 @@
     font-weight: 500;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Axiforma-Black';
+    src: url('Axiforma-Black.woff2') format('woff2'),
+        url('Axiforma-Black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}

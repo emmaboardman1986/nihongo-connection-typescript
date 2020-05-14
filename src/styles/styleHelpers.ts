@@ -9,6 +9,7 @@ export const calcRem = (pixelValue) => {
 export const setFont = {
   fontPrimaryMedium: '"Poppins-Medium", sans-serif',
   fontPrimaryRegular: '"Poppins-Regular", sans-serif',
+  fontSecondaryBlack: '"Axiforma-Black", sans-serif',
 }
 
 export const setFontSize = {
@@ -57,9 +58,19 @@ export const setColor = {
     800: "hsl(0, 3%, 15%)",
     900: "hsl(0, 4%, 5%)"
   },
-  brandAccent: {
+  brandSecondary: {
+    100: "hsl(220, 85%, 95%)",
+    200: "hsl(220, 94%, 85%)",
+    300: "hsl(220, 100%, 65%)",
+    400: "hsl(220, 85%, 54%)",
+    500: "hsl(220, 85%, 45%)",
+    600: "hsl(220, 95%, 35%)",
+    700: "hsl(220, 84%, 25%)",
+    800: "hsl(220, 84%, 15%)",
+    900: "hsl(220, 85%, 5%)"
+  },
+  
 
-  }
 
 }
 

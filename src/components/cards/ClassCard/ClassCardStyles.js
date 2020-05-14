@@ -5,7 +5,6 @@ import {
   setShadow,
   setFlex,
   setFlexDirection,
-  setMargin,
   setColor,
   setSpacing,
 } from "../../../styles/styleHelpers"
@@ -20,14 +19,17 @@ cursor: pointer;
 white-space: initial;
 height: 100%;
 &:hover {
-    border: ${setBorder.borderSmBlack};
+  border: 2px solid black;
     box-shadow: ${setShadow.depress[100]};
 }
-a:focus {
-    text-decoration: underline;
+a {
+  text-decoration: none;
+  &:focus {
+      text-decoration: underline;
+  }
 }
 &:focus-within {
-    border: ${setBorder.borderSmBlack};
+  border: 2px solid black;
     box-shadow: ${setShadow.depress[100]};
     a:focus {
         text-decoration: none;
@@ -83,6 +85,7 @@ export const ClassCardTextStyles = css`
   }
   li {
     padding: 0.25rem 0;
+    height: initial;
   }
   small {
     color: ${setColor.brandPrimary[700]};
@@ -97,8 +100,5 @@ export const ClassCardTextStyles = css`
   }
   li:last-child {
     margin-top: auto;
-  }
-  li:nth-last-child(2) {
-    margin-bottom: ${setSpacing.tight};
   }
 `

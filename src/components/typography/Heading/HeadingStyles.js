@@ -4,7 +4,7 @@ import { setFont, setColor, setSpacing } from '../../../styles/styleHelpers'
 
 
 export const HeadingStyles = css`
-margin-top: ${setSpacing.xLoose};
+margin-top: ${setSpacing.loose};
 margin-bottom: ${setSpacing.loose};
 `
 

@@ -5,10 +5,12 @@ import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import ClassCard from "../components/cards/ClassCard"
 import CardContainer from "../components/cards/CardContainer"
-import FlexContainer from "../components/utilities/FlexContainer"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 import RichText from "../components/RichText"
-import Button from "../components/Button"
+import Filter from "../components/Filter"
+import VerticalSpacing from "../components/utilities/VerticalSpacing"
+
+import { FilterProvider } from "../context/FilterContext"
 
 interface Props {
   readonly data: ExplorePageQueryData
@@ -19,54 +21,30 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
   const allClasses = data.allPrismicClass.edges
   const explorePageCopy = data.allPrismicExplorePage.edges[0].node.data
 
-  console.log("all classes", allClasses)
-
-  const handleFilterClick = () => {
+  const handleFilterClick = e => {
     const result = allClasses.filter(
       classItem =>
-        classItem.node.data.class_location[0].class_location_option === "Online"
+        classItem.node.data.class_location[0].class_location_option === e
     )
     setFilteredResults(result)
   }
   return (
     <Layout>
-      <Section>
-        <Heading element="h1">
-          {explorePageCopy.explore_page_title.text}
-        </Heading>
-        <RichText
-          content={explorePageCopy.explore_page_introduction.html}
-        ></RichText>
-      </Section>
-      <Section>
-        <Heading element="h2">Filter Classes</Heading>
-        <h3 onClick={handleFilterClick}>filter</h3>
-        <CardContainer>
-          {filteredResults && filteredResults.length > 0
-            ? filteredResults.map((classItem, index) => {
-                let classData = classItem.node.data
-                return (
-                  <ClassCard
-                    key={index}
-                    title={classData.class_title.text}
-                    duration={classData.class_duration}
-                    location={classData.class_location[0].class_location_option}
-                    schedule={classData.class_schedule}
-                    thumbnailURL={
-                      classData.class_main_image.thumbnails.thumbnail.url
-                    }
-                    thumbnailAlt={
-                      classData.class_main_image.thumbnails.thumbnail.alt
-                    }
-                    start_date={
-                      classData.class_dates.length > 0
-                        ? classData.class_dates[0].class_date
-                        : "this Friday!"
-                    }
-                  ></ClassCard>
-                )
-              })
-            : allClasses.map((classItem, index) => {
+      <FilterProvider>
+        <Section>
+          <Heading element="h1">
+            {explorePageCopy.explore_page_title.text}
+          </Heading>
+          <RichText
+            content={explorePageCopy.explore_page_introduction.html}
+          ></RichText>
+        </Section>
+        <Section>
+          <Filter></Filter>><VerticalSpacing></VerticalSpacing>
+          <CardContainer>
+            {filteredResults &&
+              filteredResults.length > 0 &&
+              filteredResults.map((classItem, index) => {
                 let classData = classItem.node.data
                 return (
                   <ClassCard
@@ -89,40 +67,42 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
                   ></ClassCard>
                 )
               })}
-        </CardContainer>
-      </Section>
-      <Section>
-        <Heading element="h2">
-          {explorePageCopy.explore_page_all_classes_title.text}
-        </Heading>
-        <FlexContainer>
-          {allClasses.map((classItem, index) => {
-            let classData = classItem.node.data
-            return (
-              <ClassCard
-                key={index}
-                title={classData.class_title.text}
-                duration={classData.class_duration}
-                location={classData.class_location[0].class_location_option}
-                schedule={classData.class_schedule}
-                thumbnailURL={
-                  classData.class_main_image.thumbnails.thumbnail.url
-                }
-                thumbnailAlt={
-                  classData.class_main_image.thumbnails.thumbnail.alt
-                }
-                start_date={
-                  classData.class_dates.length > 0
-                    ? classData.class_dates[0].class_date
-                    : "this Friday!"
-                }
-              ></ClassCard>
-            )
-          })}
-        </FlexContainer>
-      </Section>
+          </CardContainer>
+        </Section>
+        <Section>
+          <span id="all-courses"></span>
+          <Heading element="h2">
+            {explorePageCopy.explore_page_all_classes_title.text}
+          </Heading>
+          <CardContainer noHorizontalScroll>
+            {allClasses.map((classItem, index) => {
+              let classData = classItem.node.data
+              return (
+                <ClassCard
+                  key={index}
+                  title={classData.class_title.text}
+                  duration={classData.class_duration}
+                  location={classData.class_location[0].class_location_option}
+                  schedule={classData.class_schedule}
+                  thumbnailURL={
+                    classData.class_main_image.thumbnails.thumbnail.url
+                  }
+                  thumbnailAlt={
+                    classData.class_main_image.thumbnails.thumbnail.alt
+                  }
+                  start_date={
+                    classData.class_dates.length > 0
+                      ? classData.class_dates[0].class_date
+                      : "this Friday!"
+                  }
+                ></ClassCard>
+              )
+            })}
+          </CardContainer>
+        </Section>
 
-      <ReviewCarouselSection></ReviewCarouselSection>
+        <ReviewCarouselSection></ReviewCarouselSection>
+      </FilterProvider>
     </Layout>
   )
 }
