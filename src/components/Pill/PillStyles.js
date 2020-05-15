@@ -1,6 +1,6 @@
 import { css } from "styled-components"
 import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
-import { setColor, setFlex, setBorder, setFont, setFontSize, setShadow } from "../../styles/styleHelpers"
+import { setColor, setFlex, setBorder, setFont, setFontSize, setShadow, setSpacing } from "../../styles/styleHelpers"
 
 export const PillStyles = css`
   ${BodyTextStyles};
@@ -8,17 +8,14 @@ export const PillStyles = css`
   color: ${setColor.brandMonochrome[900]};
   font-size: ${setFontSize.medium};
   background-color: ${setColor.brandMonochrome[0]};
-  min-height: 44px;
+  min-height: 55px;
   box-shadow: ${setShadow.elevate[0]};
   border-radius: calc(${setBorder.borderRadius} * 2.5);
-  width: 160px;
+  width: 140px;
   border: 2px solid ${setColor.brandPrimary[900]};
-  ${props =>
-    props.alignCenter ? "margin-left: auto; margin-right: auto;" : null};
+  margin-top: ${setSpacing.baseTight};
+  margin-right: ${setSpacing.baseTight};
   ${setFlex({ align: "center", justify: "center" })};
-  a {
-    text-decoration: none;
-  }
   &[aria-pressed="true"] {
   color: ${setColor.brandMonochrome[0]};
   font-size: ${setFontSize.medium};

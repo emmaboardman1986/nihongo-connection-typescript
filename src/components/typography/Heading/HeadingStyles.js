@@ -12,7 +12,7 @@ export const H1Styles = css`
   font-family: ${setFont.fontPrimaryMedium};
   font-size: 1.5rem;
   line-height: 1.9rem;
-  color: ${setColor.brandPrimary[800]};
+  color: ${setColor.brandMonochrome[800]};
 `
 
 export const H2Styles = css`

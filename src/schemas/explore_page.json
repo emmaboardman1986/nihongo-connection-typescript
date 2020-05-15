@@ -1,25 +1,32 @@
 {
-    "Main" : {
-      "explore_page_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Explore page title"
-        }
-      },
-      "explore_page_introduction" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-          "label" : "Explore page introduction"
-        }
-      },
-      "explore_page_all_classes_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Explore page all classes title"
-        }
+  "Main": {
+    "explore_page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Explore page title"
+      }
+    },
+    "explore_page_introduction": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Explore page introduction"
+      }
+    },
+    "explore_page_all_classes_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Explore page all classes title"
+      }
+    },
+    "explore_page_no_results": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Explore page no results"
       }
     }
   }
+}

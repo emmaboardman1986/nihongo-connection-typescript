@@ -7,14 +7,20 @@ export interface PillProps {
   ariaPressed: boolean
 }
 
-const Pill = ({ name, text, onClick, ariaPressed = false}) => {
+const Pill = ({ name, text, onClick, ariaPressed = false }) => {
   return (
-    <PillWrapper onClick={onClick} aria-pressed={ariaPressed} type="button" name={name}>
-     {text}
-    </PillWrapper>
+    <>
+      <PillWrapper
+        onClick={onClick}
+        aria-pressed={ariaPressed}
+        type="button"
+        name={name}
+      >
+        {text}
+      </PillWrapper>
+    </>
   )
 }
-
 
 const PillWrapper = styled.button`
   ${PillStyles}

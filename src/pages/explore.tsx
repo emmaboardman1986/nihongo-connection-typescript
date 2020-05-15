@@ -1,16 +1,12 @@
 import React, { useState, useContext, useEffect } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
-import ClassCard from "../components/cards/ClassCard"
-import CardContainer from "../components/cards/CardContainer"
-import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 import RichText from "../components/RichText"
-import Filter from "../components/Filter"
-import VerticalSpacing from "../components/utilities/VerticalSpacing"
 
-import { FilterContext } from "../context/FilterContext"
+import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import FilterContainer from "../components/filters/FilterContainer"
 
 interface Props {
   readonly data: ExplorePageQueryData
@@ -18,76 +14,7 @@ interface Props {
 
 const ExplorePage: React.FC<Props> = ({ data }) => {
   const allClasses = data.allPrismicClass.edges
-  const [classes, setClasses] = useState([])
-
   const explorePageCopy = data.allPrismicExplorePage.edges[0].node.data
-
-  const { state, dispatch } = useContext(FilterContext)
-
-  useEffect(() => {
-    const {
-      showStudent,
-      showTeacher,
-      showOnline,
-      showInEdinburgh,
-      showRegular,
-      showIntensive,
-      showDropIn,
-    } = state
-    let result
-    let resultStudent = []
-    let resultTeacher = []
-    let resultOnline = []
-    let resultEdinburgh = []
-    let resultIntensive = []
-    let resultRegular = []
-    let resultDropIn = []
-    if (showStudent) {
-      resultStudent = allClasses.filter(
-        classItem => classItem.node.data.class_target === "Student"
-      )
-    }
-    if (showTeacher) {
-      resultStudent = allClasses.filter(
-        classItem => classItem.node.data.class_target === "Teacher"
-      )
-    }
-    if (showOnline) {
-      resultOnline = allClasses.filter(
-        classItem =>
-          classItem.node.data.class_location[0].class_location_option ===
-          "Online"
-      )
-    }
-    if (showInEdinburgh) {
-      resultEdinburgh = allClasses.filter(
-        classItem =>
-          classItem.node.data.class_location[0].class_location_option ===
-          "In Edinburgh"
-      )
-    }
-    if (showIntensive) {
-      resultStudent = allClasses.filter(
-        classItem => classItem.node.data.class_learning_style === "Intensive"
-      )
-    }
-    if (showRegular) {
-      resultStudent = allClasses.filter(
-        classItem => classItem.node.data.class_learning_style === "Regular"
-      )
-    }
-    if (showDropIn) {
-      resultStudent = allClasses.filter(
-        classItem => classItem.node.data.class_learning_style === "Drop-in"
-      )
-    }
-
-    result = [...resultStudent, ...resultTeacher, ...resultOnline, ...resultEdinburgh, ...resultStudent, ...resultIntensive, ...resultRegular, ...resultDropIn]
-
-    setClasses(result)
-  }, [state])
-
-  console.log("classes", classes)
 
   return (
     <Layout>
@@ -98,70 +25,12 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
         <RichText
           content={explorePageCopy.explore_page_introduction.html}
         ></RichText>
-      </Section>
-      <Section>
-        <Filter></Filter>
-        <CardContainer noHorizontalScroll>
-          {classes &&
-            classes.length > 0 &&
-            classes.map((classItem, index) => {
-              let classData = classItem.node.data
-              return (
-                <ClassCard
-                  key={index}
-                  title={classData.class_title.text}
-                  duration={classData.class_duration}
-                  location={classData.class_location[0].class_location_option}
-                  schedule={classData.class_schedule}
-                  thumbnailURL={
-                    classData.class_main_image.thumbnails.thumbnail.url
-                  }
-                  thumbnailAlt={
-                    classData.class_main_image.thumbnails.thumbnail.alt
-                  }
-                  start_date={
-                    classData.class_dates.length > 0
-                      ? classData.class_dates[0].class_date
-                      : "this Friday!"
-                  }
-                ></ClassCard>
-              )
-            })}
-        </CardContainer>
-      </Section>
-      <Section>
-        <span id="all-courses"></span>
-        <Heading element="h2">
-          {explorePageCopy.explore_page_all_classes_title.text}
-        </Heading>
-        <CardContainer noHorizontalScroll>
-          {allClasses.map((classItem, index) => {
-            let classData = classItem.node.data
-            return (
-              <ClassCard
-                key={index}
-                title={classData.class_title.text}
-                duration={classData.class_duration}
-                location={classData.class_location[0].class_location_option}
-                schedule={classData.class_schedule}
-                thumbnailURL={
-                  classData.class_main_image.thumbnails.thumbnail.url
-                }
-                thumbnailAlt={
-                  classData.class_main_image.thumbnails.thumbnail.alt
-                }
-                start_date={
-                  classData.class_dates.length > 0
-                    ? classData.class_dates[0].class_date
-                    : "this Friday!"
-                }
-              ></ClassCard>
-            )
-          })}
-        </CardContainer>
-      </Section>
+        <VerticalSpacing size="large"></VerticalSpacing>
+        <FilterContainer listings={allClasses}></FilterContainer>
 
-      <ReviewCarouselSection></ReviewCarouselSection>
+        <VerticalSpacing size="x-large"></VerticalSpacing>
+      </Section>
+      {/* <ReviewCarouselSection></ReviewCarouselSection> */}
     </Layout>
   )
 }
@@ -210,6 +79,9 @@ interface ExplorePageQueryData {
             }
             explore_page_title: {
               text: string
+            }
+            explore_page_no_results: {
+              html: string
             }
           }
         }
@@ -263,22 +135,8 @@ export const explorePageQuery = graphql`
             explore_page_title {
               text
             }
-          }
-        }
-      }
-    }
-    allPrismicExplorePage {
-      edges {
-        node {
-          data {
-            explore_page_all_classes_title {
-              text
-            }
-            explore_page_introduction {
+            explore_page_no_results {
               html
-            }
-            explore_page_title {
-              text
             }
           }
         }
