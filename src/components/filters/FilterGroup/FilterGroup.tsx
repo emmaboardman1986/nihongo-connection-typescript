@@ -16,19 +16,29 @@ export interface FilterGroupProps {
 
 const FilterGroup = ({ filter }) => {
   const { dispatch } = useContext(FilterContext)
+  const [filterCategory, filterDetails] = filter
+  const filterOptions = Object.entries(filterDetails.options)
 
   return (
     <FilterGroupWrapper>
-      <FilterGroupTitle>{filter.displayName}</FilterGroupTitle>
+      <FilterGroupTitle>{filterDetails.displayName}</FilterGroupTitle>
       <FilterGroupContents>
-        {filter.options.map((option, index) => {
+        {filterOptions.map((option, index) => {
+          let [optionKey, optionDetails] = option
           return (
             <Pill
               key={index}
-              name={option.name}
-              text={option.displayName}
-              onClick={() => dispatch({ type: filter.category, payload: option })}
-              ariaPressed={option.value}
+              text={optionDetails.displayName}
+              onClick={() =>
+                dispatch({
+                  type: "toggle",
+                  payload: {
+                    option,
+                    filterCategory,
+                  },
+                })
+              }
+              ariaPressed={optionDetails.value}
             ></Pill>
           )
         })}
