@@ -7,44 +7,80 @@ import { FilterContext } from "../../../context/FilterContext"
 
 
 
-const FilterContainer = ({ listings }) => {
+const FilterContainer = ({ classes }) => {
     const { state } = useContext(FilterContext);
-    const [filteredClasses, setFilteredClasses] = useState([])
- 
-    return (<FilterContainerWrapper>
-        <Filter filters={state}>
 
-        </Filter>
-        {/* {
-            filteredClasses.length > 0 ? (
-
-                <FilterResults locationFilter={filters[1]} formatFilter={filters[2]}>
-
-                    <p style={{ margin: "2rem" }}>Showing {filteredClasses.length} results</p>
-                    <CardContainer
-                        cardType="class"
-                        cardContent={filteredClasses}
-                        noHorizontalScroll
-                    ></CardContainer>
-
-                </FilterResults>
-
-            ) : (
-                    <FilterResults locationFilter={filters[1]} formatFilter={filters[2]}>
-
-                        <p style={{ margin: "2rem" }}>Showing all {listings.length} results</p>
-                        <CardContainer
-                            cardType="class"
-                            cardContent={listings}
-                            noHorizontalScroll
-                        ></CardContainer>
-
-                    </FilterResults>
-                )
-        } */}
+    const collectTrueFilters = () => {
+        let updatedFilter = {};
+        for (var filterCategory in state) {
+            updatedFilter[filterCategory] = [];
+            for (var option in state[filterCategory].options) {
+                if (state[filterCategory].options[option]["value"]) {
+                    updatedFilter[filterCategory].push(
+                        state[filterCategory].options[option]["displayName"]
+                    );
+                }
+            }
+        }
+        return updatedFilter;
+    };
 
 
-    </FilterContainerWrapper>)
+    const returnFilterMatches = (filter, filterGroup, classes) => {
+        let filterGroupResults = [];
+        if (filter[filterGroup].length > 0) {
+            filter[filterGroup].map(value => {
+                classes.map(classItem => {
+                    if (
+                        classItem.node.data[filterGroup] === value
+                    ) {
+                        filterGroupResults.push(classItem);
+                    }
+                })
+            })
+        }
+        else {
+            filterGroupResults = classes;
+        }
+        return filterGroupResults;
+    }
+
+    const applyFilter = (classes, filter) => {
+        var targetGroupResults = [];
+        var locationGroupResults = [];
+        var formatGroupResults = [];
+        for (var filterGroup in filter) {
+            if (filterGroup === "class_target") {
+                targetGroupResults = returnFilterMatches(filter, filterGroup, classes)
+            }
+            if (filterGroup === "class_location") {
+                locationGroupResults = returnFilterMatches(filter, filterGroup, targetGroupResults)
+            }
+            if (filterGroup === "class_learning_style") {
+                formatGroupResults = returnFilterMatches(filter, filterGroup, locationGroupResults)
+            }
+
+        }
+        return formatGroupResults;
+    };
+
+
+    let filteredClasses = applyFilter(classes, collectTrueFilters());
+
+    return (
+        <FilterContainerWrapper>
+            <Filter filters={state}>
+            </Filter>
+            <FilterResults>
+                <p style={{ margin: "2rem" }}>Showing {filteredClasses.length} results</p>
+                <CardContainer
+                    cardType="class"
+                    cardContent={filteredClasses}
+                    noHorizontalScroll
+                ></CardContainer>
+            </FilterResults>
+        </FilterContainerWrapper>
+    )
 }
 
 const FilterContainerWrapper = styled.div``

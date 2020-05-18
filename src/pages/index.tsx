@@ -161,9 +161,7 @@ interface PageQueryData {
               }
             }
             class_duration: string
-            class_location: {
-              class_location_option: string
-            }
+            class_location: string
             class_dates: {
               class_date(locale: "en-GB"): string
             }
@@ -232,9 +230,7 @@ export const pageQuery = graphql`
               }
             }
             class_duration
-            class_location {
-              class_location_option
-            }
+            class_location
             class_dates {
               class_date(locale: "en-GB")
             }

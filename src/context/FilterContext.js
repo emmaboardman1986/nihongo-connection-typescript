@@ -27,7 +27,7 @@ const reducer = (state = {}, action) => {
 }
 
 const initialState = {
-    target: {
+    class_target: {
         displayName: "I am...",
         options: {
             showLearning: {
@@ -40,7 +40,7 @@ const initialState = {
             }
         }
     },
-    location: {
+    class_location: {
         displayName: "I want to take classes...",
         options: {
             showOnline: {
@@ -48,12 +48,12 @@ const initialState = {
                 displayName: "Online"
             },
             showInEdinburgh: {
-                value: true,
+                value: false,
                 displayName: "In Edinburgh"
             }
         }
     },
-    format: {
+    class_learning_style: {
         displayName: "I would prefer..",
         options: {
             showIntensive: {
@@ -61,7 +61,7 @@ const initialState = {
                 displayName: "Intensive Learning"
             },
             showRegular: {
-                value: true,
+                value: false,
                 displayName: "Regular Classes"
             },
             showDropIn: {
