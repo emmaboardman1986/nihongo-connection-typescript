@@ -15,7 +15,7 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll }) => {
             return (
               <li key={index}>
                 <ClassCard
-                   uid={classItem.node.uid}
+                  uid={classItem.node.uid}
                   title={classData.class_title.text}
                   duration={classData.class_duration}
                   location={classData.class_location}

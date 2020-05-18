@@ -41,7 +41,7 @@ interface ExplorePageQueryData {
     allPrismicClass: {
       edges: {
         node: {
-          id: string
+          uid: string
           data: {
             class_title: {
               text: string
@@ -94,7 +94,7 @@ export const explorePageQuery = graphql`
     allPrismicClass {
       edges {
         node {
-          id
+          uid
           data {
             class_title {
               text

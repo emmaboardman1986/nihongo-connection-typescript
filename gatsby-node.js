@@ -17,7 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
     result.data.allPrismicClass.edges.forEach(({ node }) => {
         createPage({
           path: node.uid,
-          component: path.resolve(`./src/templates/class.js`),
+          component: path.resolve(`./src/templates/class.tsx`),
           context: {
             uid: node.uid
           },
