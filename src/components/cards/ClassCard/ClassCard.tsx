@@ -19,6 +19,7 @@ export interface ReviewCardProps {
   title: string
   schedule: string
   start_date?: string
+  uid: string
 }
 
 const ClassCard = ({
@@ -29,6 +30,7 @@ const ClassCard = ({
   title,
   schedule,
   start_date,
+  uid
 }) => {
   const ref = useRef()
   const handleCardClick = e => {
@@ -46,7 +48,7 @@ const ClassCard = ({
       </ClassCardImage>
       <ClassCardText>
         <Heading element="h3">
-          <Link to="/class-id" ref={ref}>
+          <Link to={`/${uid}`} ref={ref}>
             {title}
           </Link>
         </Heading>

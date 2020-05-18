@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import RichText from "../components/RichText"
+import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 import FilterContainer from "../components/filters/FilterContainer"
@@ -30,7 +31,7 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
 
         <VerticalSpacing size="x-large"></VerticalSpacing>
       </Section>
-      {/* <ReviewCarouselSection></ReviewCarouselSection> */}
+      <ReviewCarouselSection></ReviewCarouselSection>
     </Layout>
   )
 }

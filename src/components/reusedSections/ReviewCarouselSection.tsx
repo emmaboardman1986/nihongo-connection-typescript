@@ -48,20 +48,7 @@ const ReviewCarouselSection = () => {
       <Heading element="h2">
         {data.allPrismicGeneralReviews.edges[0].node.data.page_title[0].text}
       </Heading>
-      <CardContainer>
-        {featuredReviews.map((review, index) => (
-          <ReviewCard
-            content={review.review_content[0].text}
-            key={index}
-            date={review.review_date}
-            name={
-              review.reviewer_name.length > 0
-                ? review.reviewer_name[0].text
-                : null
-            }
-            id={review.id}
-          ></ReviewCard>
-        ))}
+      <CardContainer cardContent={featuredReviews} cardType="review">
       </CardContainer>
 
       <VerticalSpacing size="x-large" />

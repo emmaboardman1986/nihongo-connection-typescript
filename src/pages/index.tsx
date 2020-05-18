@@ -39,31 +39,8 @@ const HomePage: React.FC<Props> = ({ data }) => {
           {data.prismicHomepa.data.homepage_1st_section_title.text}
         </Heading>
 
-        <CardContainer>
-          {popularClasses.map((popularClass, index) => {
-            let classData = popularClass.node.data
-
-            return (
-              <ClassCard
-                key={index}
-                title={classData.class_title.text}
-                duration={classData.class_duration}
-                location={classData.class_location[0].class_location_option}
-                schedule={classData.class_schedule}
-                thumbnailURL={
-                  classData.class_main_image.thumbnails.thumbnail.url
-                }
-                thumbnailAlt={
-                  classData.class_main_image.thumbnails.thumbnail.alt
-                }
-                start_date={
-                  classData.class_dates.length > 0
-                    ? classData.class_dates[0].class_date
-                    : "this Friday!"
-                }
-              ></ClassCard>
-            )
-          })}
+        <CardContainer cardContent={popularClasses} cardType="class">
+         
         </CardContainer>
         <VerticalSpacing size="large" />
         <Button
@@ -147,7 +124,7 @@ interface PageQueryData {
     }): {
       edges: {
         node: {
-          id: string
+          uid: string
           data: {
             class_title: {
               text: string
@@ -216,7 +193,7 @@ export const pageQuery = graphql`
     allPrismicClass(filter: { data: { class_popular: { eq: true } } }) {
       edges {
         node {
-          id
+          uid
           data {
             class_title {
               text

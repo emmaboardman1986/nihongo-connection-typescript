@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import Filter from "../Filter"
 import CardContainer from "../../cards/CardContainer"
@@ -26,9 +26,14 @@ const FilterContainer = ({ classes }) => {
     };
 
 
+
+
     const returnFilterMatches = (filter, filterGroup, classes) => {
         let filterGroupResults = [];
         if (filter[filterGroup].length > 0) {
+
+
+
             filter[filterGroup].map(value => {
                 classes.map(classItem => {
                     if (
@@ -66,6 +71,8 @@ const FilterContainer = ({ classes }) => {
 
 
     let filteredClasses = applyFilter(classes, collectTrueFilters());
+
+    console.log("filtered", filteredClasses)
 
     return (
         <FilterContainerWrapper>
