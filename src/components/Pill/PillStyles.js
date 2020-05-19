@@ -7,11 +7,11 @@ export const PillStyles = css`
   font-family: ${setFont.fontSecondaryBlack};
   color: ${setColor.brandMonochrome[900]};
   font-size: ${setFontSize.medium};
-  background-color: ${setColor.brandMonochrome[0]};
+  background-color: ${setColor.brandPrimary[100]};
   min-height: 55px;
   box-shadow: ${setShadow.elevate[0]};
   border-radius: calc(${setBorder.borderRadius} * 2.5);
-  width: 140px;
+  width: 144px;
   border: 2px solid ${setColor.brandPrimary[900]};
   margin-top: ${setSpacing.baseTight};
   margin-right: ${setSpacing.baseTight};

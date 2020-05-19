@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import Header from "../Header"
 import TitleFont from "../../../static/fonts/Poppins-Medium.woff2"
 import BodyFont from "../../../static/fonts/Poppins-Regular.woff2"
+import Footer from "../../../src/components/Footer"
 import "../../../static/reboot.css"
 
 
@@ -28,7 +29,7 @@ const Layout = ({children}) => (
     <main style={{marginTop: "70px"}}className="content" role="main">
       {children}
     </main>
-   <footer></footer>
+   <Footer></Footer>
   </>
 )
 

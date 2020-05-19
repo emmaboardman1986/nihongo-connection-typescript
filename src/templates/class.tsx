@@ -1,9 +1,8 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import Section from "../components/Section"
 import Heading from "../components/typography/Heading"
 import RichText from "../components/RichText"
-import VerticalSpacing from "../components/utilities/VerticalSpacing"
 import BodyText from "../components/typography/BodyText"
 
 export default function ClassPage({ data }) {

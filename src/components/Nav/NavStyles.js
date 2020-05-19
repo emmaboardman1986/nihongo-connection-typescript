@@ -25,7 +25,7 @@ export const NavListItemWrapperStyles = css`
 padding: ${setSpacing.loose};
 list-style: none;
 border-top: ${setBorder.borderSmPrimary};
-background-color: ${setColor.brandPrimary[200]};
+background-color: ${setColor.brandPrimary[100]};
 a {
     padding: ${setSpacing.base} 0;
     text-decoration: none;
@@ -63,7 +63,7 @@ ul {
     height: 100%;
     box-sizing: border-box;
     overflow-y: initial;
-    background-color: ${setColor.brandPrimary[200]};
+    background-color: ${setColor.brandPrimary[100]};
     margin-left: ${setSpacing.loose};
     margin-top: ${setSpacing.tight};
     li {

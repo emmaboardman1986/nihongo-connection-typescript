@@ -1,9 +1,7 @@
 import React, { useReducer } from "react";
 
 
-let reducer = (state, action) => {
-  console.log(action.payload);
-  console.log(state);
+let reducer = (state, action) => { 
   switch (action.type) {
     case "toggle":
       return {
@@ -34,7 +32,6 @@ const initialState = {
   }
 }
 
-console.log(initialState);
 
 const NavContext = React.createContext(initialState);
 
