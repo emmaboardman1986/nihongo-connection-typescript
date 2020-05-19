@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { setFlex, setColor, setFontSize } from "../../../styles/styleHelpers"
+import { setFlex, setColor, setFontSize, setFont } from "../../../styles/styleHelpers"
 import { BodyTextStyles } from "../../typography/BodyText/BodyTextStyles"
 
 
@@ -16,5 +16,6 @@ export const FilterGroupTitleStyles = css`
  ${BodyTextStyles};
  color: ${setColor.brandMonochrome[700]};
  font-size: ${setFontSize.small};
+ font-family: ${setFont.fontPrimaryMedium};
 `
 

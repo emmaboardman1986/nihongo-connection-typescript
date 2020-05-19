@@ -2,6 +2,10 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import Filter from "../Filter"
 import CardContainer from "../../cards/CardContainer"
+import BodyText from "../../typography/BodyText"
+import Heading from "../../typography/Heading"
+import VerticalSpacing from "../../utilities/VerticalSpacing"
+
 
 import { FilterContext } from "../../../context/FilterContext"
 
@@ -72,14 +76,16 @@ const FilterContainer = ({ classes }) => {
 
     let filteredClasses = applyFilter(classes, collectTrueFilters());
 
-    console.log("filtered", filteredClasses)
-
     return (
         <FilterContainerWrapper>
+            <Heading element="h2" className="visually-hidden">Class Filters</Heading>
             <Filter filters={state}>
             </Filter>
             <FilterResults>
-                <p style={{ margin: "2rem" }}>Showing {filteredClasses.length} results</p>
+                <VerticalSpacing></VerticalSpacing>
+                <Heading element="h2" className="visually-hidden">Class List</Heading>
+                <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> classes:</BodyText>
+                <VerticalSpacing></VerticalSpacing>
                 <CardContainer
                     cardType="class"
                     cardContent={filteredClasses}

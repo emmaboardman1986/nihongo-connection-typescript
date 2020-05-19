@@ -5,11 +5,12 @@ import RichText from "../components/RichText"
 import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import Button from "../components/Button"
-import ClassCard from "../components/cards/ClassCard"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 import CardContainer from "../components/cards/CardContainer"
+import SectionResponsiveImage from "../components/SectionResponsiveImage"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import { breakpoints } from "../styles/styleHelpers"
 
 interface Props {
   readonly data: PageQueryData
@@ -17,8 +18,6 @@ interface Props {
 
 const HomePage: React.FC<Props> = ({ data }) => {
   const popularClasses = data.allPrismicClass.edges
- 
-
   return (
     <Layout>
       <Section>
@@ -38,11 +37,13 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_1st_section_title.text}
         </Heading>
+        <VerticalSpacing size="x-small" />
 
-        <CardContainer cardContent={popularClasses} cardType="class">
-         
-        </CardContainer>
-        <VerticalSpacing size="large" />
+        <CardContainer
+          cardContent={popularClasses}
+          cardType="class"
+        ></CardContainer>
+        <VerticalSpacing size="x-large" />
         <Button
           link="/explore"
           name="See all Classes"
@@ -58,22 +59,32 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <RichText
           content={data.prismicHomepa.data.homepage_3rd_section_content.html}
         ></RichText>
-      </Section>
-      <Section>
+        <VerticalSpacing />
+        <SectionResponsiveImage
+          imgObj={data.prismicHomepa.data.homepage_3rd_section_image}
+        ></SectionResponsiveImage>
+         <VerticalSpacing />
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_4th_section_title.text}
         </Heading>
         <RichText
           content={data.prismicHomepa.data.homepage_4th_section_content.html}
         ></RichText>
-      </Section>
-      <Section>
+        <VerticalSpacing />
+        <SectionResponsiveImage
+          imgObj={data.prismicHomepa.data.homepage_4th_section_image}
+        ></SectionResponsiveImage>
+      <VerticalSpacing />
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_5th_section_title.text}
         </Heading>
         <RichText
           content={data.prismicHomepa.data.homepage_5th_section_content.html}
         ></RichText>
+        <VerticalSpacing />
+        <SectionResponsiveImage
+          imgObj={data.prismicHomepa.data.homepage_5th_section_image}
+        ></SectionResponsiveImage>
       </Section>
     </Layout>
   )
@@ -95,17 +106,53 @@ interface PageQueryData {
         homepage_3rd_section_title: {
           text: string
         }
+        homepage_3rd_section_image: {
+          alt: string
+          url: string
+          thumbnails: {
+            Tablet: {
+              url: string
+            }
+            thumbnail: {
+              url: string
+            }
+          }
+        }
         homepage_4th_section_content: {
           html: string
         }
         homepage_4th_section_title: {
           text: string
         }
+        homepage_4th_section_image: {
+          alt: string
+          url: string
+          thumbnails: {
+            Tablet: {
+              url: string
+            }
+            thumbnail: {
+              url: string
+            }
+          }
+        }
         homepage_5th_section_content: {
           html: string
         }
         homepage_5th_section_title: {
           text: string
+        }
+        homepage_5th_section_image: {
+          alt: string
+          url: string
+          thumbnails: {
+            Tablet: {
+              url: string
+            }
+            thumbnail: {
+              url: string
+            }
+          }
         }
         homepage_cta_button_text: {
           text: string
@@ -166,17 +213,53 @@ export const pageQuery = graphql`
         homepage_3rd_section_title {
           text
         }
+        homepage_3rd_section_image {
+          alt
+          url
+          thumbnails {
+            Tablet {
+              url
+            }
+            thumbnail {
+              url
+            }
+          }
+        }
         homepage_4th_section_content {
           html
         }
         homepage_4th_section_title {
           text
         }
+        homepage_4th_section_image {
+          alt
+          url
+          thumbnails {
+            Tablet {
+              url
+            }
+            thumbnail {
+              url
+            }
+          }
+        }
         homepage_5th_section_content {
           html
         }
         homepage_5th_section_title {
           text
+        }
+        homepage_5th_section_image {
+          alt
+          url
+          thumbnails {
+            Tablet {
+              url
+            }
+            thumbnail {
+              url
+            }
+          }
         }
         homepage_cta_button_text {
           text

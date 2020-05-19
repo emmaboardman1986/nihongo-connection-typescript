@@ -19,6 +19,6 @@ export const PillStyles = css`
   &[aria-pressed="true"] {
   color: ${setColor.brandMonochrome[0]};
   font-size: ${setFontSize.medium};
-  background-color: ${setColor.brandPrimary[400]};
+  background-color: ${setColor.brandSecondary[400]};
 }
 `

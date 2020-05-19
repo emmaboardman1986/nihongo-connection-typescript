@@ -14,22 +14,23 @@ ${BodyTextStyles};
 background-color: ${setColor.brandMonochrome[0]};
 border-radius: ${setBorder.borderRadius};
 box-shadow: ${setShadow.elevate[100]};
-border: 2px solid black;
+border: ${setBorder.borderSmBlack};
 cursor: pointer;
 white-space: initial;
 height: 100%;
 &:hover {
-  border: 2px solid black;
+  border: ${setBorder.borderSmBlack};
     box-shadow: ${setShadow.depress[100]};
 }
 a {
+  color: inherit;
   text-decoration: none;
   &:focus {
       text-decoration: underline;
   }
 }
 &:focus-within {
-  border: 2px solid black;
+  border:  ${setBorder.borderSmBlack};
     box-shadow: ${setShadow.depress[100]};
     a:focus {
         text-decoration: none;
@@ -47,12 +48,13 @@ export const ClassCardLabelStyles = css`
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: ${setColor.brandMonochrome[0]};
+  background-color: ${setColor.brandPrimary[600]};
   border-radius: ${setBorder.borderRadius};
   padding: 0.25rem 0.5rem;
-  border: ${setBorder.borderSmBlack};
+  border: 2px solid white;
+  z-index: 1;
   small {
-    color: ${setColor.brandMonochrome[900]};
+    color: ${setColor.brandMonochrome[0]};
   }
 `
 
@@ -63,9 +65,11 @@ export const ClassCardImageStyles = css`
   img {
     border-top-right-radius: ${setBorder.borderRadius};
     border-top-left-radius: ${setBorder.borderRadius};
+    border-top: ${setBorder.borderSmBlack};
     object-fit: cover;
     height: 100%;
     width: 100%;
+    filter: saturate(1) brightness(1) contrast(2);
   }
 `
 export const ClassCardTextStyles = css`
@@ -80,7 +84,7 @@ export const ClassCardTextStyles = css`
     margin-bottom: ${setSpacing.tight};
   }
   a {
-    color: ${setColor.brandPrimary[800]};
+    color: inherit};
     text-decoration: none;
   }
   li {
@@ -88,7 +92,7 @@ export const ClassCardTextStyles = css`
     height: initial;
   }
   small {
-    color: ${setColor.brandPrimary[700]};
+    color: ${setColor.brandPrimary[800]};
     display: block;
     line-height: 1.2rem;
     strong {

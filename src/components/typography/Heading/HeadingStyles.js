@@ -19,5 +19,12 @@ export const H2Styles = css`
   font-family: ${setFont.fontPrimaryMedium};
   font-size: 1.5rem;
   line-height: 1.8rem;
-  color: ${setColor.brandPrimary[800]};
+  color: ${setColor.brandPrimary[700]};
+`
+
+export const H3Styles = css`
+  font-family: ${setFont.fontSecondaryBlack};
+  font-size: 1rem;
+  line-height: 1.4rem;
+  color: ${setColor.brandMonochrome[900]};
 `

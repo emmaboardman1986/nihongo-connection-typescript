@@ -1,7 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import CardContainer from "../cards/CardContainer"
-import ReviewCard from "../cards/ReviewCard"
 import Section from "../Section"
 import Button from "../Button"
 import VerticalSpacing from "../utilities/VerticalSpacing"
@@ -40,18 +39,16 @@ const ReviewCarouselSection = () => {
 
   const featuredReviews =
     data.allPrismicGeneralReviews.edges[0].node.data.general_reviews
-
-    console.log(data);
-
     return (
     <Section>
       <Heading element="h2">
         {data.allPrismicGeneralReviews.edges[0].node.data.page_title[0].text}
       </Heading>
+      <VerticalSpacing size="x-small" />
       <CardContainer cardContent={featuredReviews} cardType="review">
       </CardContainer>
 
-      <VerticalSpacing size="x-large" />
+      <VerticalSpacing size="large" />
       <Button
         link="/reviews"
         name="See all Reviews"

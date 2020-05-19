@@ -8,7 +8,6 @@ import BodyText from "../components/typography/BodyText"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
-  console.log(classInfo)
   return (
     <Layout>
       <Section>

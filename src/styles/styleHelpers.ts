@@ -36,6 +36,17 @@ export const setSpacing = {
 // COLORS
 export const setColor = {
   brandPrimary: {
+    100: "hsl(220, 85%, 95%)",
+    200: "hsl(220, 94%, 85%)",
+    300: "hsl(220, 100%, 65%)",
+    400: "hsl(220, 85%, 54%)",
+    500: "hsl(220, 85%, 45%)",
+    600: "hsl(220, 95%, 35%)",
+    700: "hsl(220, 84%, 25%)",
+    800: "hsl(220, 84%, 15%)",
+    900: "hsl(220, 85%, 5%)"
+  },
+  brandSecondary: {
     100: "hsl(357, 85%, 95%)",
     200: "hsl(357, 94%, 85%)",
     300: "hsl(357, 100%, 65%)",
@@ -58,19 +69,6 @@ export const setColor = {
     800: "hsl(0, 3%, 15%)",
     900: "hsl(0, 4%, 5%)"
   },
-  brandSecondary: {
-    100: "hsl(220, 85%, 95%)",
-    200: "hsl(220, 94%, 85%)",
-    300: "hsl(220, 100%, 65%)",
-    400: "hsl(220, 85%, 54%)",
-    500: "hsl(220, 85%, 45%)",
-    600: "hsl(220, 95%, 35%)",
-    700: "hsl(220, 84%, 25%)",
-    800: "hsl(220, 84%, 15%)",
-    900: "hsl(220, 85%, 5%)"
-  },
-  
-
 
 }
 
@@ -79,18 +77,19 @@ export const setColor = {
 // BORDERS & SHADOWS
 export const setBorder = {
   borderRadius: "10px",
-  borderSmTransparent: "1px solid transparent",
-  borderSmBlack: `1px solid ${setColor.brandMonochrome[900]}`,
+  borderSmTransparent: "2px solid transparent",
+  borderSmBlack: `2px solid ${setColor.brandMonochrome[900]}`,
+  borderSmPrimary: `2px solid ${setColor.brandPrimary[700]}`,
 }
 
 
 export const setShadow = {
   elevate: {
-    0: "2px 2px 1px hsla(0,0%,0%, 1)",
-    100: "4px 4px 1px hsla(0,0%,0%, 1)"
+    0: `2px 2px 1px ${setColor.brandMonochrome[800]}`,
+    100: `4px 4px 1px  ${setColor.brandMonochrome[800]}`
   },
   depress: {
-    100: "2px 2px 1px hsla(0,0%,0%, 1)"
+    100: `2px 2px 1px ${setColor.brandMonochrome[800]}`
   }
 }
 

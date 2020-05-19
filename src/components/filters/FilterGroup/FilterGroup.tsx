@@ -6,6 +6,7 @@ import {
   FilterGroupStyles,
   FilterGroupTitleStyles,
 } from "./FilterGroupStyles"
+import VerticalSpacing from "../../utilities/VerticalSpacing"
 
 import { FilterContext } from "../../../context/FilterContext"
 
@@ -43,6 +44,7 @@ const FilterGroup = ({ filter }) => {
           )
         })}
       </FilterGroupContents>
+      <VerticalSpacing size="large"></VerticalSpacing>
     </FilterGroupWrapper>
   )
 }
