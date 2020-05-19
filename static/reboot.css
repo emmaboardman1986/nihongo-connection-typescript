@@ -5,7 +5,8 @@ p,
 li,
 ul,
 blockquote,
-fieldset {
+fieldset,
+button {
     padding: 0;
     margin: 0;
 }

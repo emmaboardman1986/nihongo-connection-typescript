@@ -1,4 +1,4 @@
-import {css} from 'styled-components'
+import { css } from 'styled-components'
 import { setFont, setColor, setSpacing, setFlex } from '../../styles/styleHelpers'
 
 
@@ -7,15 +7,22 @@ export const HeaderStyles = css`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${setColor.brandMonochrome[0]};
+  background-color: ${setColor.brandPrimary[600]};
   z-index: 10;
   padding: ${setSpacing.loose};
   height: 70px;
   box-sizing: border-box;
-  ${setFlex({justify: "center", align: "center"})};`
+  ${setFlex({ align: "center", justify: "center" })};`
+
 
 export const HeaderLogoStyles = css`
+a {
+  z-index: 99;
+  text-decoration: none;
   font-family: ${setFont.fontSecondaryBlack};
   font-size: 1.2rem;
-  color: ${setColor.brandMonochrome[900]};
+  color: ${setColor.brandMonochrome[0]};
+  margin-left: ${setSpacing.loose};
+}
+  
 `

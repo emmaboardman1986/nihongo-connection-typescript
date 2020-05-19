@@ -1,13 +1,21 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
-import { NavWrapperStyles, NavListGroupWrapperStyles, NavListItemWrapperStyles, NavListItemHasChildStyles, BurgerButtonWrapperStyles, BurgerButtonSpanWrapperStyles } from "./NavStyles"
+import {
+  NavWrapperStyles,
+  NavListGroupWrapperStyles,
+  NavListItemWrapperStyles,
+  NavListItemHasChildStyles,
+  BurgerButtonWrapperStyles,
+  BurgerButtonSpanWrapperStyles,
+} from "./NavStyles"
 import { NavContext } from "../../context/NavContext"
 
 const Nav = React.forwardRef((props, ref) => {
+  const [isMenuExpanded, setIsMenuExpanded] = useState(false)
   const navMenuItems = [
     {
       name: "Explore Classes",
-      link: "/explore"
+      link: "/explore",
     },
     {
       name: "For Japanese Learners",
@@ -16,41 +24,41 @@ const Nav = React.forwardRef((props, ref) => {
       items: [
         {
           name: "Beginner's Level 1",
-          link: "/beginners-level-1"
+          link: "/beginners-level-1",
         },
         {
           name: "Beginner's Level 2",
-          link: "/beginners-level-2"
+          link: "/beginners-level-2",
         },
         {
           name: "Beginner's Level 3",
-          link: "/beginners-level-3"
+          link: "/beginners-level-3",
         },
         {
           name: "Friday Study Club",
-          link: "/friday-study-club"
+          link: "/friday-study-club",
         },
         {
           name: "1:1 Lessons",
-          link: "/one-to-one-lessons"
+          link: "/one-to-one-lessons",
         },
         {
           name: "JLPT Bootcamp",
-          link: "/jlpt-bootcamp"
+          link: "/jlpt-bootcamp",
         },
         {
           name: "Beginner's Bootcamp",
-          link: "/beginners-bootcamp"
+          link: "/beginners-bootcamp",
         },
         {
           name: "Nihongo Confidence",
-          link: "/nihongo-confidence"
+          link: "/nihongo-confidence",
         },
         {
           name: "Nihongo Confidence (Lite)",
-          link: "/nihongo-confidence-lite"
+          link: "/nihongo-confidence-lite",
         },
-      ]
+      ],
     },
     {
       name: "For Japanese Teachers",
@@ -59,9 +67,9 @@ const Nav = React.forwardRef((props, ref) => {
       items: [
         {
           name: "Business Coaching",
-          link: "/teacher-coaching"
-        }
-      ]
+          link: "/teacher-coaching",
+        },
+      ],
     },
     {
       name: "Reviews",
@@ -75,12 +83,12 @@ const Nav = React.forwardRef((props, ref) => {
       name: "Get in Touch",
       link: "/contact",
     },
-  ];
+  ]
 
   return (
     <NavWrapper ref={ref}>
-      <BurgerButton></BurgerButton>
-      <NavListGroup>
+      <BurgerButton isMenuExpanded={isMenuExpanded} setIsMenuExpanded={setIsMenuExpanded}></BurgerButton>
+      <NavListGroup hidden={!isMenuExpanded}>
         {navMenuItems.map((item, index) => (
           <NavListItem {...item} key={index} />
         ))}
@@ -105,16 +113,16 @@ const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
         <span></span>
         <span></span>
       </BurgerButtonSpanWrapper>
-     
     </BurgerButtonWrapper>
   )
 }
 
 const BurgerButtonWrapper = styled.button`
-${BurgerButtonWrapperStyles}`;
+  ${BurgerButtonWrapperStyles}
+`
 
 const BurgerButtonSpanWrapper = styled.div`
-${BurgerButtonSpanWrapperStyles};
+  ${BurgerButtonSpanWrapperStyles};
 `
 
 const NavListGroup = ({ hidden, children }) => {
@@ -141,9 +149,7 @@ const NavListItem = ({ name, id, link, items = [] }) => {
             {name}
           </a>
 
-          <NavListGroup 
-          hidden={!state.isDropDownExpanded[id]}
-          >
+          <NavListGroup hidden={!state.isDropDownExpanded[id]}>
             {items.map((item, index) => (
               <NavListItem {...item} key={index} />
             ))}
@@ -157,7 +163,8 @@ const NavListItem = ({ name, id, link, items = [] }) => {
 }
 
 const NavListItemWrapper = styled.li`
-${NavListItemWrapperStyles}
-${props => props.hasSubGroup && NavListItemHasChildStyles};`
+  ${NavListItemWrapperStyles}
+  ${props => props.hasSubGroup && NavListItemHasChildStyles};
+`
 
 export default Nav

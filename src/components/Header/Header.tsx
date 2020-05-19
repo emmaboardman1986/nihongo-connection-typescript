@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { HeaderStyles, HeaderLogoStyles } from "./HeaderStyles"
 import Nav from "../Nav"
-import { NavContext } from "../../context/NavContext"
 
 export interface HeaderProps {
   
@@ -11,7 +11,7 @@ export interface HeaderProps {
 const Header = ({}) => {
   return <HeaderWrapper>
       <Nav></Nav>
-      <HeaderLogo>Nihongo Connection</HeaderLogo>
+      <HeaderLogo><Link to="/">Nihongo Connection</Link></HeaderLogo>
   </HeaderWrapper>
 }
 
