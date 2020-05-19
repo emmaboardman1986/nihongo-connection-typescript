@@ -12,10 +12,10 @@ export const HeaderStyles = css`
   padding: ${setSpacing.loose};
   height: 70px;
   box-sizing: border-box;
-  ${setFlex({justify: "center"})};`
+  ${setFlex({justify: "center", align: "center"})};`
 
 export const HeaderLogoStyles = css`
   font-family: ${setFont.fontSecondaryBlack};
   font-size: 1.2rem;
-  color: ${setColor.brandSecondary[500]};
+  color: ${setColor.brandMonochrome[900]};
 `

@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { NavWrapperStyles, NavListGroupWrapperStyles, NavListItemWrapperStyles, NavListItemHasChildStyles } from "./NavStyles"
+import { NavWrapperStyles, NavListGroupWrapperStyles, NavListItemWrapperStyles, NavListItemHasChildStyles, BurgerButtonWrapperStyles, BurgerButtonSpanWrapperStyles } from "./NavStyles"
 import { NavContext } from "../../context/NavContext"
 
 const Nav = React.forwardRef((props, ref) => {
@@ -79,6 +79,7 @@ const Nav = React.forwardRef((props, ref) => {
 
   return (
     <NavWrapper ref={ref}>
+      <BurgerButton></BurgerButton>
       <NavListGroup>
         {navMenuItems.map((item, index) => (
           <NavListItem {...item} key={index} />
@@ -90,6 +91,30 @@ const Nav = React.forwardRef((props, ref) => {
 
 const NavWrapper = styled.nav`
   ${NavWrapperStyles};
+`
+
+const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
+  return (
+    <BurgerButtonWrapper
+      aria-expanded={isMenuExpanded}
+      onClick={() => setIsMenuExpanded(!isMenuExpanded)}
+      aria-label="Open Site Navigation Menu"
+    >
+      <BurgerButtonSpanWrapper>
+        <span></span>
+        <span></span>
+        <span></span>
+      </BurgerButtonSpanWrapper>
+     
+    </BurgerButtonWrapper>
+  )
+}
+
+const BurgerButtonWrapper = styled.button`
+${BurgerButtonWrapperStyles}`;
+
+const BurgerButtonSpanWrapper = styled.div`
+${BurgerButtonSpanWrapperStyles};
 `
 
 const NavListGroup = ({ hidden, children }) => {

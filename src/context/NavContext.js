@@ -17,8 +17,8 @@ let reducer = (state, action) => {
       return {
         ...state,
         isDropDownExpanded: {
-          3: false,
-          4: false
+          parentJL: false,
+          parentJT: false
         }
       };
     default:
