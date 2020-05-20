@@ -8,7 +8,7 @@ export const ButtonStyles = css`
   min-height: 44px;
   border-radius: ${setBorder.borderRadius};
   width: 160px;
-  border: 2px solid ${setColor.brandSecondary[400]};
+  border: ${setBorder.borderSmBlack};
   ${props =>
     props.alignCenter ? "margin-left: auto; margin-right: auto;" : null};
   ${setFlex({ align: "center", justify: "center" })};

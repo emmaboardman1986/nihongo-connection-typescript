@@ -88,6 +88,7 @@ export const BurgerButtonWrapperStyles = css`
   background-color: transparent;
   height: 70px;
   border: 0;
+  box-sizing: border-box;
   div {
       width: 60px;
   }
@@ -99,6 +100,10 @@ export const BurgerButtonWrapperStyles = css`
     border-radius: 9px;
     opacity: 1;
     transition: 0.25s ease-in-out;
+  }
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px ${setColor.brandPrimary[300]};
   }
   &[aria-expanded="true"] {
     div span {

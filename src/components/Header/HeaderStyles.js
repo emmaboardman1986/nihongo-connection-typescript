@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { setFont, setColor, setSpacing, setFlex } from '../../styles/styleHelpers'
+import { setFont, setColor, setSpacing, setFlex, breakpoint } from '../../styles/styleHelpers'
 
 
 export const HeaderStyles = css`
@@ -12,7 +12,11 @@ export const HeaderStyles = css`
   padding: ${setSpacing.loose};
   height: 70px;
   box-sizing: border-box;
-  ${setFlex({ align: "center", justify: "center" })};`
+  ${setFlex({ align: "center", justify: "center" })};
+  ${breakpoint.md`
+  background-color: ${setColor.brandMonochrome[0]};
+  ${setFlex({ justify: "flex-start" })};
+  `}`
 
 
 export const HeaderLogoStyles = css`
@@ -23,6 +27,10 @@ a {
   font-size: 1.2rem;
   color: ${setColor.brandMonochrome[0]};
   margin-left: ${setSpacing.loose};
+  ${breakpoint.md`
+  color: ${setColor.brandMonochrome[900]};
+  margin-left: 0;
+  `}
 }
   
 `

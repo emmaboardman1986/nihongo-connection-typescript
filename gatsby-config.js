@@ -29,5 +29,12 @@ module.exports = {
         path: `${__dirname}/static/fonts/`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "assets",
+        path: `${__dirname}/static/`,
+      },
+    },
   ],
 }

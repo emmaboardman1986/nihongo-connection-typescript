@@ -36,7 +36,7 @@ export const setSpacing = {
 // COLORS
 export const setColor = {
   brandPrimary: {
-    100: "hsl(220, 85%, 95%)",
+    100: "hsl(220, 85%, 98%)",
     200: "hsl(220, 94%, 85%)",
     300: "hsl(220, 100%, 65%)",
     400: "hsl(220, 85%, 54%)",

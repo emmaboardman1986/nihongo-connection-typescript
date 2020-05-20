@@ -7,9 +7,9 @@ import { breakpoints } from "../../styles/styleHelpers"
 //   imgObj: {}
 // }
 
-const SectionResponsiveImage = ({ imgObj }) => {
+const SectionResponsiveImage = ({ imgObj, applyFilter=false }) => {
   return (
-    <SectionResponsiveImageWrapper>
+    <SectionResponsiveImageWrapper applyFilter={applyFilter}>
       <picture>
         <source media={`min-width: ${breakpoints.md}`} srcSet={imgObj.url} />
         <img src={imgObj.thumbnails.Tablet.url} alt={imgObj.alt} />

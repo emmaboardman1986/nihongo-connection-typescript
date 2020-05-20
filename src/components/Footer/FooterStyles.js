@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { setColor, setFlex, setFlexDirection, setSpacing } from "../../styles/styleHelpers"
+import { setColor, setFlex, setSpacing } from "../../styles/styleHelpers"
 import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 
 export const FooterStyles = css`

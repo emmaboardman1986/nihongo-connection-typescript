@@ -184,16 +184,6 @@
         "label": "Class Booking Instructions"
       }
     },
-    "class_faqs": {
-      "type": "Link",
-      "config": {
-        "select": "document",
-        "customtypes": [
-          "faqs"
-        ],
-        "label": "Class FAQs"
-      }
-    },
     "class_images": {
       "type": "Group",
       "config": {
@@ -222,6 +212,29 @@
           }
         },
         "label": "Class Images"
+      }
+    },
+    "class_faqs": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "class_faq_question": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Class FAQ Question"
+            }
+          },
+          "class_faq_answer": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "Class FAQ Answer"
+            }
+          }
+        },
+        "label": "Class FAQs"
       }
     }
   }

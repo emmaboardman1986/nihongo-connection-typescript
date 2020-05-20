@@ -4,43 +4,68 @@ import Section from "../components/Section"
 import Heading from "../components/typography/Heading"
 import RichText from "../components/RichText"
 import BodyText from "../components/typography/BodyText"
+import Accordion from "../components/Accordion"
+import SectionResponsiveImage from "../components/SectionResponsiveImage"
+import Card from "../components/Card"
+import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import Emphasis from "../components/Emphasis"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
+  console.log(classInfo)
   return (
     <Layout>
       <Section>
         <Heading element="h1">{classInfo.class_title.text}</Heading>
-        <RichText content={classInfo.class_summary.html}></RichText>
+       
+          <RichText
+            content={classInfo.class_summary.html}
+            emphasiseText
+          ></RichText>
+        
         {classInfo.class_main_image.thumbnails.Tablet.url && (
-          <img
-            src={classInfo.class_main_image.thumbnails.Tablet.url}
-            alt=""
-          ></img>
+          <>
+          <VerticalSpacing size="large"></VerticalSpacing>
+          <SectionResponsiveImage
+            imgObj={classInfo.class_main_image}
+            applyFilter
+          ></SectionResponsiveImage>
+          </>
         )}
       </Section>
       {classInfo.class_discovery.html && (
         <Section>
-          <Heading element="h2">Would you like to discover...</Heading>
-          <RichText content={classInfo.class_discovery.html}></RichText>
+          <Card border="primary" bgColor="primaryLight">
+            <Heading element="h2">Would you like to discover...</Heading>
+            <RichText
+              content={classInfo.class_discovery.html}
+              emphasiseText
+            ></RichText>
+          </Card>
         </Section>
       )}
       {classInfo.class_details.html && (
         <Section>
-          {classInfo.class_discovery.html ? (
-            <Heading element="h2">
-              If YES, here are the {classInfo.class_title.text} details...
-            </Heading>
-          ) : (
-            <Heading element="h2">
-              Here are the {classInfo.class_title.text} details...
-            </Heading>
+          <Card bgColor="secondary">
+            {classInfo.class_discovery.html ? (
+              <Heading element="h2">
+                If YES, here are the {classInfo.class_title.text} details...
+              </Heading>
+            ) : (
+              <Heading element="h2">{classInfo.class_title.text} Details...</Heading>
+            )}
+            <RichText content={classInfo.class_details.html} starredList></RichText>
+
+          {classInfo.class_bonus_content.html && (
+            <>
+            <Emphasis color="secondary">
+             <Heading element="h3">Bonus Content!</Heading>
+            <RichText content={classInfo.class_bonus_content.html} starredList></RichText>
+            </Emphasis>
+            </>
           )}
-          <RichText content={classInfo.class_details.html}></RichText>
+          </Card>
         </Section>
-      )}
-      {classInfo.class_bonus_content.html && (
-        <RichText content={classInfo.class_bonus_content.html}></RichText>
       )}
       {classInfo.class_curriculum.html && (
         <Section>
@@ -49,6 +74,8 @@ export default function ClassPage({ data }) {
         </Section>
       )}
       <Section>
+        <>
+        <Card border="black">
         <Heading element="h2">Upcoming Dates</Heading>
         {classInfo.class_dates.length > 0 &&
         classInfo.class_dates[0].class_date != null ? (
@@ -62,9 +89,13 @@ export default function ClassPage({ data }) {
         ) : (
           <BodyText>No upcoming dates scheduled</BodyText>
         )}
+        </Card>
+        </>
       </Section>
       {classInfo.class_price_options.length > 0 && (
         <Section>
+          <>
+          <Card border="black">
           <Heading element="h2">Prices</Heading>
           <ul>
             {classInfo.class_price_options.map((priceOption, index) => (
@@ -80,23 +111,29 @@ export default function ClassPage({ data }) {
               </li>
             ))}
           </ul>
+          </Card>
+          </>
         </Section>
       )}
       {classInfo.class_booking_instructions.html && (
         <Section>
+          <>
+          <Card bgColor="primary">
           <Heading element="h2">How to book</Heading>
           <RichText
             content={classInfo.class_booking_instructions.html}
           ></RichText>
+          </Card>
+          </>
         </Section>
       )}
-      {/* {classInfo.class_images.length > 1 && (
+      {classInfo.class_faqs.length > 0 && (
         <Section>
-          {classInfo.class_images.map((classImage, index) => {
+          <Heading element="h2">FAQs</Heading>
 
-          })}
+          <Accordion>{classInfo.class_faqs}</Accordion>
         </Section>
-      )} */}
+      )}
     </Layout>
   )
 }
@@ -127,6 +164,14 @@ export const query = graphql`
           html
         }
         class_duration
+        class_faqs {
+          class_faq_answer {
+            html
+          }
+          class_faq_question {
+            text
+          }
+        }
         class_images {
           class_image {
             alt
