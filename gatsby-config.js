@@ -36,5 +36,11 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://nihongoscotland.us16.list-manage.com/subscribe/post?u=17e930ef2f11232d3ac0dca1e&amp;id=200df291c9',
+      },
+    },
   ],
 }

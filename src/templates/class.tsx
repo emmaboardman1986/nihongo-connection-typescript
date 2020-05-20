@@ -9,6 +9,9 @@ import SectionResponsiveImage from "../components/SectionResponsiveImage"
 import Card from "../components/Card"
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 import Emphasis from "../components/Emphasis"
+import MailChimp from "../components/MailChimp/MailChimp"
+import styled from "styled-components"
+import Button from "../components/Button"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
@@ -17,19 +20,30 @@ export default function ClassPage({ data }) {
     <Layout>
       <Section>
         <Heading element="h1">{classInfo.class_title.text}</Heading>
-       
-          <RichText
-            content={classInfo.class_summary.html}
-            emphasiseText
-          ></RichText>
+        <VerticalSpacing></VerticalSpacing>
+        <BodyText>
+          {classInfo.class_duration && (
+            <ClassQuickInfo><small>{classInfo.class_duration}</small></ClassQuickInfo>
+          )}
+          {classInfo.class_location && (
+            <ClassQuickInfo><small>{classInfo.class_location}</small></ClassQuickInfo>
+          )}
+        </BodyText>
+        <VerticalSpacing size="x-large"></VerticalSpacing>
+
+        <RichText
+          content={classInfo.class_summary.html}
+          emphasiseText
+        ></RichText>
         
+
         {classInfo.class_main_image.thumbnails.Tablet.url && (
           <>
-          <VerticalSpacing size="large"></VerticalSpacing>
-          <SectionResponsiveImage
-            imgObj={classInfo.class_main_image}
-            applyFilter
-          ></SectionResponsiveImage>
+            <VerticalSpacing size="large"></VerticalSpacing>
+            <SectionResponsiveImage
+              imgObj={classInfo.class_main_image}
+              applyFilter
+            ></SectionResponsiveImage>
           </>
         )}
       </Section>
@@ -52,95 +66,138 @@ export default function ClassPage({ data }) {
                 If YES, here are the {classInfo.class_title.text} details...
               </Heading>
             ) : (
-              <Heading element="h2">{classInfo.class_title.text} Details...</Heading>
+              <Heading element="h2">
+                {classInfo.class_title.text} Details...
+              </Heading>
             )}
-            <RichText content={classInfo.class_details.html} starredList></RichText>
+            <RichText
+              content={classInfo.class_details.html}
+              starredList
+            ></RichText>
 
-          {classInfo.class_bonus_content.html && (
-            <>
-            <Emphasis color="secondary">
-             <Heading element="h3">Bonus Content!</Heading>
-            <RichText content={classInfo.class_bonus_content.html} starredList></RichText>
-            </Emphasis>
-            </>
-          )}
+            {classInfo.class_bonus_content.html && (
+              <>
+                <Emphasis color="secondary">
+                  <Heading element="h3">Bonus Content!</Heading>
+                  <RichText
+                    content={classInfo.class_bonus_content.html}
+                    starredList
+                  ></RichText>
+                </Emphasis>
+              </>
+            )}
           </Card>
         </Section>
       )}
       {classInfo.class_curriculum.html && (
         <Section>
           <>
-          <Card bgColor="secondary">
-          <Heading element="h2">Curriculum</Heading>
-          <RichText content={classInfo.class_curriculum.html} starredList></RichText>
-          </Card>
+            <Card bgColor="secondary">
+              <Heading element="h2">Curriculum</Heading>
+              <RichText
+                content={classInfo.class_curriculum.html}
+                starredList
+              ></RichText>
+            </Card>
           </>
         </Section>
       )}
       <Section>
         <>
-        <Card border="black">
-        <Heading element="h2">Upcoming Dates</Heading>
-        {classInfo.class_dates.length > 0 &&
-        classInfo.class_dates[0].class_date != null ? (
-          <ul>
-            {classInfo.class_dates.map((classDate, index) => (
-              <li key={index}>
-                <BodyText>{classDate.class_date}</BodyText>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <BodyText>No upcoming dates scheduled</BodyText>
-        )}
-        </Card>
+          <Card border="black">
+            <Heading element="h2">Upcoming Dates</Heading>
+            {classInfo.class_dates.length > 0 &&
+            classInfo.class_dates[0].class_date != null ? (
+              <ul>
+                {classInfo.class_dates.map((classDate, index) => (
+                  <li key={index}>
+                    <BodyText>{classDate.class_date}</BodyText>
+                  </li>
+                ))}
+              </ul>
+            ) : classInfo.class_title.text === "Friday Study Club" ? (<BodyText>This Friday! (& every Friday after!)</BodyText>) :  
+            
+            classInfo.class_title.text === "1:1 Lessons" ? (<BodyText>Suit your own schedule - check availability <a href="https://www.meetingbird.com/m/B1T8nUh6S" target="_blank">here!</a></BodyText>) :  
+            
+            
+            (
+              <>
+                <BodyText>No upcoming dates scheduled.</BodyText>
+                <VerticalSpacing></VerticalSpacing>
+                <BodyText>
+                  Join our <a href="#mailing-list">mailing list</a> to be notified as soon as new classes
+                  are announced!
+                </BodyText>
+              </>
+            )}
+          </Card>
         </>
       </Section>
       {classInfo.class_price_options.length > 0 && (
         <Section>
           <>
-          <Card border="black">
-          <Heading element="h2">Prices</Heading>
-          <ul>
-            {classInfo.class_price_options.map((priceOption, index) => (
-              <li key={index}>
-                <BodyText>
-                  {priceOption.price_option_title.text}: £{priceOption.price}
-                </BodyText>
-                {priceOption.price_option_details && (
-                  <RichText
-                    content={priceOption.price_option_details.html}
-                  ></RichText>
-                )}
-              </li>
-            ))}
-          </ul>
-          </Card>
+            <Card border="black">
+              <Heading element="h2">Prices</Heading>
+              <ul>
+                {classInfo.class_price_options.map((priceOption, index) => (
+                  <li key={index}>
+                    <BodyText>
+                      {priceOption.price_option_title.text && (<strong>{priceOption.price_option_title.text}: </strong>)}
+                      £{priceOption.price}
+                    </BodyText>
+                    {priceOption.price_option_details && (
+                      <RichText
+                        content={priceOption.price_option_details.html}
+                      ></RichText>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </Card>
           </>
         </Section>
       )}
       {classInfo.class_booking_instructions.html && (
         <Section>
           <>
-          <Card bgColor="primary">
-          <Heading element="h2">How to book</Heading>
-          <RichText
-            content={classInfo.class_booking_instructions.html}
-          ></RichText>
-          </Card>
+            <Card bgColor="primary">
+              <Heading element="h2">How to book</Heading>
+              <RichText
+                content={classInfo.class_booking_instructions.html}
+              ></RichText>
+              <VerticalSpacing></VerticalSpacing>
+              <Button name="Book now!" alignCenter></Button>
+            </Card>
           </>
         </Section>
       )}
-      {classInfo.class_faqs.length > 0 && (
+      {classInfo.class_faqs.length > 1 && (
         <Section>
           <Heading element="h2">FAQs</Heading>
 
           <Accordion>{classInfo.class_faqs}</Accordion>
         </Section>
       )}
+      <span id="mailing-list"></span>
+      <Section>
+        <Heading element="h2">Interested but unsure?</Heading>
+        <BodyText>Join our mailing list to keep in touch!</BodyText>
+        <VerticalSpacing></VerticalSpacing>
+        <Card bgColor="primary">
+          <MailChimp emphasisColor="primary" />
+        </Card>
+      </Section>
     </Layout>
   )
 }
+
+const ClassQuickInfo = styled.span`
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+`
 
 export const query = graphql`
   query($uid: String!) {
@@ -159,7 +216,7 @@ export const query = graphql`
           html
         }
         class_dates {
-          class_date(locale: "en-GB")
+          class_date(formatString: "MMMM DD YYYY")
         }
         class_details {
           html

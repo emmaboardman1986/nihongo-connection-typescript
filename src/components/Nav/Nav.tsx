@@ -79,10 +79,10 @@ const Nav = React.forwardRef((props, ref) => {
       name: "Reviews",
       link: "/reviews",
     },
-    {
-      name: "Get in Touch",
-      link: "/contact",
-    },
+    // {
+    //   name: "Get in Touch",
+    //   link: "/contact",
+    // },
   ]
 
   return (

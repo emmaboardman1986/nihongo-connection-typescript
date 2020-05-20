@@ -38,6 +38,22 @@ const ClassCard = ({
       ref.current.click()
     }
   }
+
+  console.log(uid, start_date);
+  const generateDate = (uid: string) => {
+    let nextDate;
+    if (uid === "jlpt-bootcamp"){
+      nextDate = "Postponed"
+    }  else if (uid === "friday-study-club") {
+      nextDate = "this Friday!" 
+    } else if(uid === "nihongo-confidence-lite") {
+      nextDate = "this Monday"
+      // write method to find nearest Mon, Thurs, Fri
+    } else {
+      nextDate = "announced soon!"
+    }
+    return nextDate;
+  }
   return (
     <ClassCardWrapper onClick={handleCardClick}>
       <ClassCardImage>
@@ -61,7 +77,7 @@ const ClassCard = ({
           </li>
           <li>
             <small>
-              <strong>Next class: {start_date}</strong>
+              <strong>Next class: {start_date != null ? start_date : generateDate(uid)}</strong>
             </small>
           </li>
         </FlexContainer>

@@ -27,9 +27,9 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll }) => {
                     classData.class_main_image.thumbnails.thumbnail.alt
                   }
                   start_date={
-                    classData.class_dates.length > 0
+                    classData.class_dates.length > 0 && classData.class_dates[0] != null
                       ? classData.class_dates[0].class_date
-                      : "this Friday!"
+                      : null
                   }
                 ></ClassCard>
               </li>
