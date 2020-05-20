@@ -34,7 +34,7 @@ h3 {
 `
 
 export const BorderCardStyles = css`
-border: 6px solid ${setColor.brandPrimary[700]};
+border: 2px solid ${setColor.brandPrimary[700]};
 border-color: ${props => props.border === "black" ? setColor.brandMonochrome[900] : setColor.brandPrimary[700]};
 
 `

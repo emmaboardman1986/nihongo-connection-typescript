@@ -79,8 +79,10 @@ const FilterContainer = ({ classes }) => {
     return (
         <FilterContainerWrapper>
             <Heading element="h2" className="visually-hidden">Class Filters</Heading>
+
             <Filter filters={state}>
             </Filter>
+
             <FilterResults>
                 <VerticalSpacing></VerticalSpacing>
                 <Heading element="h2" className="visually-hidden">Class List</Heading>

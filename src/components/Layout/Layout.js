@@ -1,10 +1,12 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
 import Header from "../Header"
-import TitleFont from "../../../static/fonts/Poppins-Medium.woff2"
+import TitleFont from "../../../static/fonts/Axiforma-Black.woff2"
 import BodyFont from "../../../static/fonts/Poppins-Regular.woff2"
+import BodyFontMedium from "../../../static/fonts/Poppins-Medium.woff2"
 import Footer from "../../../src/components/Footer"
 import "../../../static/reboot.css"
+import "../../../static/fonts/fonts.css"
 
 
 const Layout = ({children}) => (
@@ -21,6 +23,13 @@ const Layout = ({children}) => (
         rel="preload"
         as="font"
         href={BodyFont}
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+       <link
+        rel="preload"
+        as="font"
+        href={BodyFontMedium}
         type="font/woff2"
         crossOrigin="anonymous"
       />

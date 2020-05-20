@@ -89,6 +89,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
           imgObj={data.prismicHomepa.data.homepage_5th_section_image}
         ></SectionResponsiveImage>
       </Section>
+      <VerticalSpacing></VerticalSpacing>
     </Layout>
   )
 }

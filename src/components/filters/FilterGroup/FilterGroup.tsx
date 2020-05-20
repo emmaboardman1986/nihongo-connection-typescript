@@ -44,7 +44,7 @@ const FilterGroup = ({ filter }) => {
           )
         })}
       </FilterGroupContents>
-      <VerticalSpacing size="large"></VerticalSpacing>
+      <VerticalSpacing></VerticalSpacing>
     </FilterGroupWrapper>
   )
 }
