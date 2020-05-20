@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { CardStyles, ColorCardStyles, BorderCardStyles} from "./CardStyles"
 
 export interface CardProps {
-  bgColor?: "primary" | "secondary" | "black",
+  bgColor?: "primary" | "primaryLight" | "secondary" | "secondaryLight" | "black",
   border?: string
   children: any
 }

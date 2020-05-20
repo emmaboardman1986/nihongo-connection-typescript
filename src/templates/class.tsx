@@ -69,8 +69,12 @@ export default function ClassPage({ data }) {
       )}
       {classInfo.class_curriculum.html && (
         <Section>
+          <>
+          <Card bgColor="secondary">
           <Heading element="h2">Curriculum</Heading>
-          <RichText content={classInfo.class_curriculum.html}></RichText>
+          <RichText content={classInfo.class_curriculum.html} starredList></RichText>
+          </Card>
+          </>
         </Section>
       )}
       <Section>

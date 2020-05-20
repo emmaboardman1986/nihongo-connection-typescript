@@ -8,6 +8,7 @@ import Button from "../components/Button"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 import CardContainer from "../components/cards/CardContainer"
 import SectionResponsiveImage from "../components/SectionResponsiveImage"
+import Hero from "../components/Hero"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 import { breakpoints } from "../styles/styleHelpers"
@@ -21,17 +22,19 @@ const HomePage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <Section>
-        <Heading element="h1">
-          {data.prismicHomepa.data.homepage_title.text}
-        </Heading>
-        <RichText
-          content={data.prismicHomepa.data.homepage_summary.html}
-        ></RichText>
-        <VerticalSpacing size="large" />
-        <Button
-          link="/explore"
-          name={data.prismicHomepa.data.homepage_cta_button_text.text}
-        ></Button>
+        <Hero>
+          <Heading element="h1">
+            {data.prismicHomepa.data.homepage_title.text}
+          </Heading>
+          <RichText
+            content={data.prismicHomepa.data.homepage_summary.html}
+          ></RichText>
+          <VerticalSpacing size="large" />
+          <Button
+            link="/explore"
+            name={data.prismicHomepa.data.homepage_cta_button_text.text}
+          ></Button>
+        </Hero>
       </Section>
       <Section>
         <Heading element="h2">
@@ -63,7 +66,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <SectionResponsiveImage
           imgObj={data.prismicHomepa.data.homepage_3rd_section_image}
         ></SectionResponsiveImage>
-         <VerticalSpacing />
+        <VerticalSpacing />
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_4th_section_title.text}
         </Heading>
@@ -74,7 +77,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <SectionResponsiveImage
           imgObj={data.prismicHomepa.data.homepage_4th_section_image}
         ></SectionResponsiveImage>
-      <VerticalSpacing />
+        <VerticalSpacing />
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_5th_section_title.text}
         </Heading>

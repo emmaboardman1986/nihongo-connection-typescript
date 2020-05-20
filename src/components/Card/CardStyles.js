@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { setColor, setBorder, setSpacing, setFont } from "../../styles/styleHelpers"
+import { setColor, setBorder, setSpacing } from "../../styles/styleHelpers"
 
 export const CardStyles = css`
 padding: ${setSpacing.loose};

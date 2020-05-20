@@ -80,6 +80,7 @@ export const setBorder = {
   borderSmTransparent: "2px solid transparent",
   borderSmBlack: `2px solid ${setColor.brandMonochrome[900]}`,
   borderSmPrimary: `2px solid ${setColor.brandPrimary[700]}`,
+  borderSmSecondary: `2px solid ${setColor.brandSecondary[700]}`,
 }
 
 
@@ -137,4 +138,10 @@ export const createMediaQueries = (propertyName, propObject) => {
   return css`
     ${mediaQueries}
   `
+}
+
+// NAV
+
+export const setHeight = {
+  navHeight: "65px"
 }

@@ -1,9 +1,9 @@
 import { css } from 'styled-components'
-import { setColor, setFont, setSpacing, breakpoint, setFlex, setFlexDirection, setBorder, setFontSize } from "../../styles/styleHelpers"
+import { setColor, setFont, setSpacing, breakpoint, setFlex, setFlexDirection, setBorder, setFontSize,setHeight } from "../../styles/styleHelpers"
 
 export const NavWrapperStyles = css`
 position: absolute;
-top: 70px;
+top: ${setHeight.navHeight};
 left: 0;
 width: 100%;
 
@@ -16,7 +16,7 @@ background-color: transparent;
 
 export const NavListGroupWrapperStyles = css`
 background-color: ${setColor.brandPrimary[900]};
-height: calc(100vh - 70px);
+height: calc(100vh - ${setHeight.navHeight});
 
 overflow-y: scroll;
 `
@@ -82,11 +82,11 @@ ul {
 
 export const BurgerButtonWrapperStyles = css`
   position: absolute;
-  top: -70px;
+  top: -${setHeight.navHeight};
   left: calc(${setSpacing.loose} - 10px);
   justify-self: flex-start;
   background-color: transparent;
-  height: 70px;
+  height: ${setHeight.navHeight};
   border: 0;
   box-sizing: border-box;
   div {

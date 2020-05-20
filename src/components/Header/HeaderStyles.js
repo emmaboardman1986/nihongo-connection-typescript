@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { setFont, setColor, setSpacing, setFlex, breakpoint } from '../../styles/styleHelpers'
+import { setFont, setColor, setSpacing, setFlex, breakpoint, setHeight } from '../../styles/styleHelpers'
 
 
 export const HeaderStyles = css`
@@ -7,10 +7,10 @@ export const HeaderStyles = css`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${setColor.brandPrimary[600]};
+  background-color: ${setColor.brandSecondary[400]};
   z-index: 10;
   padding: ${setSpacing.loose};
-  height: 70px;
+  height: ${setHeight.navHeight};
   box-sizing: border-box;
   ${setFlex({ align: "center", justify: "center" })};
   ${breakpoint.md`

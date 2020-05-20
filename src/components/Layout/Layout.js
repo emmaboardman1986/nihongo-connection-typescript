@@ -26,7 +26,7 @@ const Layout = ({children}) => (
       />
     </Helmet>
     <Header></Header>
-    <main style={{marginTop: "70px"}}className="content" role="main">
+    <main style={{marginTop: "65px"}}className="content" role="main">
       {children}
     </main>
    <Footer></Footer>

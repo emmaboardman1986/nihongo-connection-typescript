@@ -14,6 +14,10 @@ const Nav = React.forwardRef((props, ref) => {
   const [isMenuExpanded, setIsMenuExpanded] = useState(false)
   const navMenuItems = [
     {
+      name: "Home",
+      link: "/",
+    },
+    {
       name: "Explore Classes",
       link: "/explore",
     },
@@ -74,10 +78,6 @@ const Nav = React.forwardRef((props, ref) => {
     {
       name: "Reviews",
       link: "/reviews",
-    },
-    {
-      name: "FAQs",
-      link: "/faqs",
     },
     {
       name: "Get in Touch",

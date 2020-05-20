@@ -5,7 +5,6 @@ import {
   RichTextEmphasisStyles,
   RichTextStarredListStyles,
 } from "./RichTextStyles"
-import { setFont } from "../../styles/styleHelpers"
 
 export interface RichTextProps {
   content: string
