@@ -11,7 +11,7 @@ import VerticalSpacing from "../utilities/VerticalSpacing"
 const Hero = ({ children }) => {
   return (
     <HeroWrapper>
-       <VerticalSpacing size={{_: "tight"}}></VerticalSpacing>
+       <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
         <HeroImage>
         <img src={Logo}></img>
       </HeroImage>

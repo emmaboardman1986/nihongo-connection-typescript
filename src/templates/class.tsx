@@ -20,6 +20,7 @@ export default function ClassPage({ data }) {
   return (
     <Layout>
       <Section>
+        <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
         <FlexContainer flexDirection={{_: "column", sm: "row"}} justifyContent={{_: "space-between"}}>
           <div>
         <Heading element="h1">{classInfo.class_title.text}</Heading>
