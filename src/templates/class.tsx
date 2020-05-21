@@ -28,7 +28,7 @@ export default function ClassPage({ data }) {
         <BodyText>
           {classInfo.class_duration && (
             <ClassQuickInfo><small>{classInfo.class_duration}</small></ClassQuickInfo>
-          )}
+          )}{ " "}
           {classInfo.class_location && (
             <ClassQuickInfo><small>{classInfo.class_location}</small></ClassQuickInfo>
           )}
@@ -81,8 +81,9 @@ export default function ClassPage({ data }) {
 
             {classInfo.class_bonus_content.html && (
               <>
-                <Emphasis color="secondary">
+                <Emphasis color="secondary" noPaddingBottom>
                   <Heading element="h3">Bonus Content!</Heading>
+                  <VerticalSpacing size={{_: "tight"}}></VerticalSpacing>
                   <RichText
                     content={classInfo.class_bonus_content.html}
                     starredList
@@ -189,7 +190,7 @@ export default function ClassPage({ data }) {
       <Section>
         <Heading element="h2">Interested but unsure?</Heading>
         <BodyText>Join our mailing list to keep in touch!</BodyText>
-        <VerticalSpacing></VerticalSpacing>
+        <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
         <Card bgColor="primary">
           <MailChimp emphasisColor="primary" />
         </Card>
@@ -202,8 +203,10 @@ const ClassQuickInfo = styled.span`
   background-color: black;
   color: white;
   border-radius: 6px;
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
   padding: 0.5rem 1rem;
+  white-space: nowrap;
+
 `
 
 export const query = graphql`

@@ -1,6 +1,6 @@
 import { css } from "styled-components"
 import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
-import { setColor, setFlex, setBorder } from "../../styles/styleHelpers"
+import { setColor, setFlex, setFontSize, setFont, setBorder } from "../../styles/styleHelpers"
 import { BrandWarn } from "../../../static/brandwarn.svg"
 import { BrandTick } from "../../../static/brandtick.svg"
 
@@ -35,14 +35,16 @@ export const ActionButtonStyles = css`
     content: "${props => props.name}";
     margin-top: 3px;
   }
-  background-color: ${setColor.brandWhite};
-  border: 2px solid ${setColor.brandBlack};
+  font-family: ${setFont.fontSecondaryBlack};
+  font-size: ${setFontSize.medium};
+  background-color: ${setColor.brandMonochrome[0]};
+  border: ${setBorder.borderSmBlack};
   a, span {
-    color: ${setColor.brandBlack};
+    color: ${setColor.brandMonochrome[900]};
   }
   &:hover {
-    background-color: ${setColor.brandWhiteOffset};
-    border: 2px solid ${setColor.brandPrimary};
+    background-color: ${setColor.brandPrimary[100]};
+    border: ${setColor.borderSmBlack};
   }
   /* Remove Later */
   margin-left: auto;
@@ -54,7 +56,7 @@ export const ActionButtonStyles = css`
   &.on-click {
   width: 44px;
   border-radius: 50%;
-  border-left-color: ${setColor.brandPrimary};
+  border-left-color: ${setColor.brandPrimary[600]};
   animation: rotating 2s 0.25s linear infinite;
     &:after {
       content: "";

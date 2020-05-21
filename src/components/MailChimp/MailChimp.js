@@ -127,6 +127,7 @@ const MailChimp = ({ emphasisColor }) => {
             <MailChimpLegend>
               What would you like to hear about?
             </MailChimpLegend>
+            <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
             <FormList flex={true}>
               <li flex={true}>
                 <CheckBox
@@ -210,26 +211,27 @@ const MailChimp = ({ emphasisColor }) => {
                     <span>Contact me via Customized Online Advertising</span>{" "}
                   </Label> */}
           </MailChimpFieldset>
-          <VerticalSpacing size="small"></VerticalSpacing>
-          <BodyText size={setFontSize.muted} color={setColor.brandWhite}>
+          <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
+          <BodyText><small>
             We use Mailchimp as our marketing platform. By clicking below to
             subscribe, you acknowledge that your information will be transferred
             to Mailchimp for processing.{" "}
-            <BodyText
+            {/* <BodyText
               link=" https://mailchimp.com/legal/"
               isExternal
               isOnBrandBg
             >
               Learn more about Mailchimp's privacy practices here.
-            </BodyText>
+            </BodyText> */}
+            </small>
           </BodyText>
         </GDPR>
-
+        <VerticalSpacing size={{_: "baseLoose"}}></VerticalSpacing>
         {result && result.msg ? (
           <div role="status" aria-live="polite">
             <VerticalSpacing></VerticalSpacing>
-            <Emphasis padding="0rem" color={setColor.brandBlack}>
-              <Card bgColor={setColor.brandWhiteOffset} alignCenter>
+            <Emphasis color="black" bgColor="white" alignCenter>
+           
                 {result.result === "success" ? (
                   <img src={BrandSuccess} alt="Success" width="44px"></img>
                 ) : (
@@ -239,35 +241,37 @@ const MailChimp = ({ emphasisColor }) => {
                 <BodyText font={setFont.fontSecondary} align="center">
                   {result.msg}
                 </BodyText>
-              </Card>
+            
             </Emphasis>
-            <VerticalSpacing></VerticalSpacing>
+            <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
           </div>
         ) : (
           <Button
             ref={submitButtonEl}
             type="submit"
-            name="subscribe"
+            name="Subscribe"
             id="mc-embedded-subscribe"
             isAction
             isCentered
             onClick={handleSubmit}
           >
-            Subscribe
+            Subscribe to mailing list
           </Button>
         )}
-        <VerticalSpacing size="large"></VerticalSpacing>
-        <BodyText size={setFontSize.muted} color={setColor.brandWhite}>
+        <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
+        <BodyText>
+        <small>
           You can unsubscribe at any time by clicking the link in the footer of
           our emails. For information about our privacy practices, please visit
           the{" "}
-          <BodyText
+          {/* <BodyText
             link="https://www.nihongoconnection.com"
             isExternal
             isOnBrandBg
           >
             Nihongo Connection website
-          </BodyText>
+          </BodyText> */}
+          </small>
         </BodyText>
       </Form>
     </MailChimpWrapper>
@@ -277,7 +281,7 @@ const MailChimp = ({ emphasisColor }) => {
 const MailChimpWrapper = styled.div``
 
 const MailChimpLegend = styled.legend`
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: "Poppins-Regular";
   margin-bottom: 0.5rem;
 `

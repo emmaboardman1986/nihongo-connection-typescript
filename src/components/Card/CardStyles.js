@@ -28,7 +28,7 @@ background-color: ${props => props.bgColor === "primary" ? setColor.brandPrimary
 h2, h3 {
     color: ${props => props.bgColor === "primaryLight" ? setColor.brandPrimary[800] : setColor.brandMonochrome[0]};
 }
-p, li{
+p, li, form{
     color: ${props => props.bgColor === "primaryLight" ? setColor.brandPrimary[700] : setColor.brandMonochrome[0]};
 }
 h3 {

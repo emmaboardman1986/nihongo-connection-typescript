@@ -11,7 +11,7 @@ const Label = ({ children, htmlFor, display, className }) => {
 
 const LabelWrapper = styled.label`
   display: ${props => (props.display ? props.display : "block")};
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: "Poppins-Regular";
   padding-bottom: 1px;
 `
