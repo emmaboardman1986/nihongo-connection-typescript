@@ -11,7 +11,7 @@ background-color: transparent;
      color: ${setColor.brandMonochrome[0]};
      font-family: ${setFont.fontPrimaryMedium};
  }
- ${breakpoint.sm`
+ ${breakpoint.md`
  position: relative;
  top: initial;
  left: initial;
@@ -26,7 +26,7 @@ overflow-y: scroll;
  ul {
   display: none;
 }
-${breakpoint.sm`
+${breakpoint.md`
 display: flex;
 justify-content: flex-end;
 background-color: transparent;
@@ -44,7 +44,7 @@ a {
     font-size: ${setFontSize.large};
     color: ${setColor.brandPrimary[900]};
 }
-${breakpoint.sm`
+${breakpoint.md`
 margin: 0 ${setSpacing.baseTight};
 border-top: none;
 background-color: transparent;
@@ -65,11 +65,12 @@ a {
     position: absolute;
     top: calc(50% - 5px);
     content: "";
-    width: 0;
+    width: 1px;
+    border-radius: 3px;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 10px solid ${setColor.brandPrimary[900]};
+    border-top: 10px solid ${setColor.brandMonochrome[800]};
     margin-left: ${setSpacing.tight};
     transition: transform .1s;
     }
@@ -82,13 +83,14 @@ a {
 ul {
     display: ${props => props.isDropDownExpanded === false ? "none" : "flex"};
     flex-direction: column;
-    height: 100%;
+    height: auto;
     box-sizing: border-box;
-    overflow-y: initial;
+    overflow-y: visible;
     background-color: ${setColor.brandPrimary[100]};
     margin-left: ${setSpacing.loose};
     margin-top: ${setSpacing.tight};
     li {
+        display: ${props => props.isDropDownExpanded === false ? "none" : "inline-block"};
         padding: ${setSpacing.tight};
         border: 0;
         a {
@@ -100,7 +102,7 @@ ul {
         }
     }
 }
-${breakpoint.sm`
+${breakpoint.md`
 a {
   &:after {
     margin-left: ${setSpacing.xTight};
@@ -117,7 +119,8 @@ ul {
   top: 1.5rem;
   width: 100%;
   justify-content: flex-start;
-  height: 70vh;
+  height: auto;
+  border-radius: 3px;
     background-color: ${setColor.brandPrimary[600]};
     a {
       color: white;

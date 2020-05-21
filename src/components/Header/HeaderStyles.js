@@ -13,7 +13,7 @@ export const HeaderStyles = css`
   height: ${setHeight.navHeight};
   box-sizing: border-box;
   ${setFlex({ align: "center", justify: "center" })};
-  ${breakpoint.sm`
+  ${breakpoint.md`
   padding: ${setSpacing.baseLoose} ${setSpacing.xxLoose};
   position: relative;
   top: initial;
@@ -25,7 +25,7 @@ export const HeaderStyles = css`
 
 
 export const HeaderLogoStyles = css`
- ${breakpoint.sm`
+ ${breakpoint.md`
   width: 300px;
   `}
 a {
@@ -35,7 +35,7 @@ a {
   font-size: 1.2rem;
   color: ${setColor.brandMonochrome[0]};
   margin-left: ${setSpacing.loose};
-  ${breakpoint.sm`
+  ${breakpoint.md`
   color: ${setColor.brandMonochrome[900]};
   margin-left: 0;
   `}

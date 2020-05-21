@@ -45,7 +45,7 @@ const Layout = ({ children }) => (
 )
 
 const Container = styled.div`
-max-width: 1050px;
+max-width: 1100px;
 margin-left: auto;
 margin-right: auto;`
 

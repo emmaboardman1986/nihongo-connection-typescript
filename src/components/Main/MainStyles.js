@@ -3,6 +3,6 @@ import { setSpacing, breakpoint } from "../../styles/styleHelpers"
 
 export const MainStyles = css`
   margin-top: 65px;
-  ${breakpoint.sm`
+  ${breakpoint.md`
   margin-top: 0;`}
 `

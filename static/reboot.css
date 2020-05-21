@@ -13,6 +13,12 @@ button {
     margin: 0;
 }
 
+@media (min-width: 992px) {
+    body {
+        background: linear-gradient(to top, hsl(220, 85%, 5%) 60px, white 60px);
+    }
+}
+
 .visually-hidden {
     position: absolute; 
     overflow: hidden; 
