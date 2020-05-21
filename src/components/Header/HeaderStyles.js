@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { setFont, setColor, setSpacing, setFlex, breakpoint, setHeight } from '../../styles/styleHelpers'
+import { setFont, setColor, setSpacing, setFlex, setFlexDirection, breakpoint, setHeight } from '../../styles/styleHelpers'
 
 
 export const HeaderStyles = css`
@@ -13,13 +13,21 @@ export const HeaderStyles = css`
   height: ${setHeight.navHeight};
   box-sizing: border-box;
   ${setFlex({ align: "center", justify: "center" })};
-  ${breakpoint.md`
+  ${breakpoint.sm`
+  padding: ${setSpacing.baseLoose} ${setSpacing.xxLoose};
+  position: relative;
+  top: initial;
+  left: initial;
   background-color: ${setColor.brandMonochrome[0]};
+  ${setFlexDirection({ direction: "row-reverse" })};
   ${setFlex({ justify: "flex-start" })};
   `}`
 
 
 export const HeaderLogoStyles = css`
+ ${breakpoint.sm`
+  width: 300px;
+  `}
 a {
   z-index: 99;
   text-decoration: none;
@@ -27,7 +35,7 @@ a {
   font-size: 1.2rem;
   color: ${setColor.brandMonochrome[0]};
   margin-left: ${setSpacing.loose};
-  ${breakpoint.md`
+  ${breakpoint.sm`
   color: ${setColor.brandMonochrome[900]};
   margin-left: 0;
   `}

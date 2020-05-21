@@ -29,8 +29,10 @@ export const setSpacing = {
   tight: calcRem(8),
   baseTight: calcRem(12),
   base: calcRem(16),
-  loose: calcRem(20),
-  xLoose: calcRem(32)
+  baseLoose: calcRem(20),
+  loose: calcRem(24),
+  xLoose: calcRem(32),
+  xxLoose: calcRem(44),
 }
 
 // COLORS

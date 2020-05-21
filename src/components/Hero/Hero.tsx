@@ -6,13 +6,16 @@ import {
   HeroImageStyles,
 } from "./HeroStyles"
 import  Logo from "../../../static/logo.svg"
+import VerticalSpacing from "../utilities/VerticalSpacing"
 
 const Hero = ({ children }) => {
   return (
     <HeroWrapper>
+       <VerticalSpacing size={{_: "tight"}}></VerticalSpacing>
         <HeroImage>
         <img src={Logo}></img>
       </HeroImage>
+      <VerticalSpacing size={{_: "base", sm: "xLoose"}}></VerticalSpacing>
       <HeroContent>
       {children}
       </HeroContent>

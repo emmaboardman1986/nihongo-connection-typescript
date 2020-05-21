@@ -1,44 +1,64 @@
 import { css } from 'styled-components'
-import { setColor, setFont, setSpacing, breakpoint, setFlex, setFlexDirection, setBorder, setFontSize,setHeight } from "../../styles/styleHelpers"
+import { setColor, setFont, setSpacing, breakpoint, setFlex, setFlexDirection, setBorder, setFontSize, setHeight } from "../../styles/styleHelpers"
 
 export const NavWrapperStyles = css`
 position: absolute;
 top: ${setHeight.navHeight};
 left: 0;
 width: 100%;
-
 background-color: transparent;
  a {
      color: ${setColor.brandMonochrome[0]};
      font-family: ${setFont.fontPrimaryMedium};
  }
+ ${breakpoint.sm`
+ position: relative;
+ top: initial;
+ left: initial;
+ `}
 `
 
 export const NavListGroupWrapperStyles = css`
-background-color: ${setColor.brandPrimary[900]};
+display: ${props => props.isMenuExpanded === true ? "none" : null};
+background-color: ${setColor.brandMonochrome[0]};
 height: calc(100vh - ${setHeight.navHeight});
-
 overflow-y: scroll;
+ ul {
+  display: none;
+}
+${breakpoint.sm`
+display: flex;
+justify-content: flex-end;
+background-color: transparent;
+`}
 `
 
 export const NavListItemWrapperStyles = css`
 padding: ${setSpacing.loose};
 list-style: none;
-border-top: ${setBorder.borderSmPrimary};
-background-color: ${setColor.brandPrimary[100]};
+border-top: ${setBorder.borderSmBlack};
+background-color: ${setColor.brandMonochrome[0]};
 a {
     padding: ${setSpacing.base} 0;
     text-decoration: none;
     font-size: ${setFontSize.large};
     color: ${setColor.brandPrimary[900]};
 }
+${breakpoint.sm`
+margin: 0 ${setSpacing.baseTight};
+border-top: none;
+background-color: transparent;
+padding: 0;
+a {
+  font-size: ${setFontSize.medium};
+}
+`}
 `
 
 
 export const NavListItemHasChildStyles = css`
 position: relative;
 list-style: none;
-
 a {
     position:relative;
 &:after {
@@ -60,6 +80,8 @@ a {
     }
 }
 ul {
+    display: ${props => props.isDropDownExpanded === false ? "none" : "flex"};
+    flex-direction: column;
     height: 100%;
     box-sizing: border-box;
     overflow-y: initial;
@@ -78,6 +100,31 @@ ul {
         }
     }
 }
+${breakpoint.sm`
+a {
+  &:after {
+    margin-left: ${setSpacing.xTight};
+  }
+  &[aria-expanded="true"]{
+        &:after {
+            transform: rotate(180deg);
+        }
+    }
+}
+margin-right: ${setSpacing.xLoose};
+ul {
+  position: absolute;
+  top: 1.5rem;
+  width: 100%;
+  justify-content: flex-start;
+  height: 70vh;
+    background-color: ${setColor.brandPrimary[600]};
+    a {
+      color: white;
+    }
+  
+}
+`}
 `
 
 export const BurgerButtonWrapperStyles = css`

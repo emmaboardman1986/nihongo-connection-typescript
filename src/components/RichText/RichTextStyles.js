@@ -4,7 +4,9 @@ import { setFont, breakpoint, setColor } from "../../styles/styleHelpers"
 import starSVG from "../../../static/star.svg"
 
 export const RichTextWrapperStyles = css`
-${BodyTextStyles};`
+${BodyTextStyles};
+max-width: 500px;
+`
 
 export const RichTextEmphasisStyles = css`
 font-family: ${setFont.fontPrimaryMedium};

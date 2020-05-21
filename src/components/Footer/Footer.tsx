@@ -44,7 +44,7 @@ const Footer = () => {
   const socialLinks = data.allPrismicSocialLinks.nodes[0].data.social_link
   return (
     <FooterWrapper>
-          <VerticalSpacing size="small"></VerticalSpacing>
+          <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
    
      
       <FooterCopyright>

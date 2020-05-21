@@ -1,17 +1,23 @@
 import React from "react"
 import styled from "styled-components"
-import { VerticalSpacingStyles } from "./VerticalSpacingStyles"
+import { VerticalSpacingStyles, SizeStyles } from "./VerticalSpacingStyles"
 
 export interface VerticalSpacingProps {
-  size?: "small" | "medium" | "large" | "x-large"
+  size?: {
+    _: "none" | "xTight" | "tight" | "baseTight" | "base" | "loose" | "xLoose" | "xxLoose"
+  }
 }
 
-const VerticalSpacing = ({ size = "medium"}) => {
+
+
+const VerticalSpacing = ({ size = {_: "medium"}}) => {
   return <VerticalSpacingWrapper size={size}></VerticalSpacingWrapper>
 }
 
 const VerticalSpacingWrapper = styled.div`
   ${VerticalSpacingStyles};
+  ${props => props.size && SizeStyles(props.size)};
+  
 `
 
 export default VerticalSpacing

@@ -13,10 +13,10 @@ import { NavContext } from "../../context/NavContext"
 const Nav = React.forwardRef((props, ref) => {
   const [isMenuExpanded, setIsMenuExpanded] = useState(false)
   const navMenuItems = [
-    {
-      name: "Home",
-      link: "/",
-    },
+    // {
+    //   name: "Home",
+    //   link: "/",
+    // },
     {
       name: "Explore Classes",
       link: "/explore",
@@ -88,7 +88,7 @@ const Nav = React.forwardRef((props, ref) => {
   return (
     <NavWrapper ref={ref}>
       <BurgerButton isMenuExpanded={isMenuExpanded} setIsMenuExpanded={setIsMenuExpanded}></BurgerButton>
-      <NavListGroup hidden={!isMenuExpanded}>
+      <NavListGroup isMenuExpanded={!isMenuExpanded}>
         {navMenuItems.map((item, index) => (
           <NavListItem {...item} key={index} />
         ))}
@@ -125,8 +125,8 @@ const BurgerButtonSpanWrapper = styled.div`
   ${BurgerButtonSpanWrapperStyles};
 `
 
-const NavListGroup = ({ hidden, children }) => {
-  return <NavListGroupWrapper hidden={hidden}>{children}</NavListGroupWrapper>
+const NavListGroup = ({ isMenuExpanded, children }) => {
+  return <NavListGroupWrapper isMenuExpanded={isMenuExpanded}>{children}</NavListGroupWrapper>
 }
 
 const NavListGroupWrapper = styled.ul`
@@ -137,7 +137,7 @@ const NavListItem = ({ name, id, link, items = [] }) => {
   const hasSubGroup = items && items.length > 0
   const { state, dispatch } = useContext(NavContext)
   return (
-    <NavListItemWrapper hasSubGroup={hasSubGroup}>
+    <NavListItemWrapper hasSubGroup={hasSubGroup} isDropDownExpanded={state.isDropDownExpanded[id]}>
       {hasSubGroup ? (
         <>
           <a
@@ -149,7 +149,7 @@ const NavListItem = ({ name, id, link, items = [] }) => {
             {name}
           </a>
 
-          <NavListGroup hidden={!state.isDropDownExpanded[id]}>
+          <NavListGroup isMenuExpanded={state.isDropDownExpanded[id]}>
             {items.map((item, index) => (
               <NavListItem {...item} key={index} />
             ))}

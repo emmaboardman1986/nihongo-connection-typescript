@@ -9,6 +9,7 @@ import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSe
 import CardContainer from "../components/cards/CardContainer"
 import SectionResponsiveImage from "../components/SectionResponsiveImage"
 import Hero from "../components/Hero"
+import FlexContainer from "../components/utilities/FlexContainer"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 import { breakpoints } from "../styles/styleHelpers"
@@ -29,7 +30,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
           <RichText
             content={data.prismicHomepa.data.homepage_summary.html}
           ></RichText>
-          <VerticalSpacing size="large" />
+          <VerticalSpacing size={{_: "loose"}} />
           <Button
             link="/explore"
             name={data.prismicHomepa.data.homepage_cta_button_text.text}
@@ -40,13 +41,13 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_1st_section_title.text}
         </Heading>
-        <VerticalSpacing size="x-small" />
+ 
 
         <CardContainer
           cardContent={popularClasses}
           cardType="class"
         ></CardContainer>
-        <VerticalSpacing size="x-large" />
+        <VerticalSpacing size={{_: "loose"}} />
         <Button
           link="/explore"
           name="See all Classes"
@@ -56,40 +57,55 @@ const HomePage: React.FC<Props> = ({ data }) => {
       <ReviewCarouselSection></ReviewCarouselSection>
 
       <Section>
-        <Heading element="h2">
-          {data.prismicHomepa.data.homepage_3rd_section_title.text}
-        </Heading>
-        <RichText
-          content={data.prismicHomepa.data.homepage_3rd_section_content.html}
-        ></RichText>
-        <VerticalSpacing />
-        <SectionResponsiveImage
-          imgObj={data.prismicHomepa.data.homepage_3rd_section_image}
-        ></SectionResponsiveImage>
-        <VerticalSpacing />
+        <FlexContainer flexDirection={{ _: "column", sm: "row"}} justifyContent={{_: "space-around"}}>
+          <div>
+            <Heading element="h2">
+              {data.prismicHomepa.data.homepage_3rd_section_title.text}
+            </Heading>
+          
+            <RichText
+              content={
+                data.prismicHomepa.data.homepage_3rd_section_content.html
+              }
+            ></RichText>
+             <VerticalSpacing size={{_: "baseTight"}} />
+          </div>
+          <SectionResponsiveImage
+            imgObj={data.prismicHomepa.data.homepage_3rd_section_image}
+          ></SectionResponsiveImage>
+        </FlexContainer>
+        <VerticalSpacing size={{_: "loose"}} />
+        <FlexContainer flexDirection={{ _: "column", sm: "row-reverse"}} justifyContent={{_: "space-around"}}>
+        <div>
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_4th_section_title.text}
         </Heading>
         <RichText
           content={data.prismicHomepa.data.homepage_4th_section_content.html}
         ></RichText>
-        <VerticalSpacing />
+          <VerticalSpacing size={{_: "baseTight"}} />
+        </div>
         <SectionResponsiveImage
           imgObj={data.prismicHomepa.data.homepage_4th_section_image}
         ></SectionResponsiveImage>
-        <VerticalSpacing />
+        </FlexContainer>
+        <VerticalSpacing size={{_: "loose"}} />
+        <FlexContainer flexDirection={{ _: "column", sm: "row"}} justifyContent={{_: "space-around"}}>
+          <div>
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_5th_section_title.text}
         </Heading>
         <RichText
           content={data.prismicHomepa.data.homepage_5th_section_content.html}
         ></RichText>
-        <VerticalSpacing />
+         <VerticalSpacing size={{_: "baseTight"}} />
+        </div>
         <SectionResponsiveImage
           imgObj={data.prismicHomepa.data.homepage_5th_section_image}
         ></SectionResponsiveImage>
+        </FlexContainer>
       </Section>
-      <VerticalSpacing></VerticalSpacing>
+      {/* <VerticalSpacing size={{_: "baseT"}} /> */}
     </Layout>
   )
 }

@@ -4,7 +4,6 @@ import { setFont, setColor, setSpacing } from '../../../styles/styleHelpers'
 
 
 export const HeadingStyles = css`
-margin-top: ${setSpacing.loose};
 margin-bottom: ${setSpacing.loose};
 `
 
@@ -24,7 +23,7 @@ export const H2Styles = css`
 
 export const H3Styles = css`
   font-family: ${setFont.fontSecondaryBlack};
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.4rem;
   color: ${setColor.brandMonochrome[900]};
 `

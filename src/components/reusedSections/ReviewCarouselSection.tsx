@@ -44,11 +44,11 @@ const ReviewCarouselSection = () => {
       <Heading element="h2">
         {data.allPrismicGeneralReviews.edges[0].node.data.page_title[0].text}
       </Heading>
-      <VerticalSpacing size="x-small" />
+      <VerticalSpacing size={{_: "xTight"}} />
       <CardContainer cardContent={featuredReviews} cardType="review">
       </CardContainer>
 
-      <VerticalSpacing size="large" />
+      <VerticalSpacing size={{_: "loose"}} />
       <Button
         link="/reviews"
         name="See all Reviews"
