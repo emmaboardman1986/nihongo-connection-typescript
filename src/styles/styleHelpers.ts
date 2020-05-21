@@ -142,6 +142,23 @@ export const createMediaQueries = (propertyName, propObject) => {
   `
 }
 
+export const createMediaQueriesFromTokens = (propertyName, propObject, tokenObject) => {
+  let mediaQueries = []
+  Object.keys(propObject).forEach(key => {
+    if (key !== "_") {
+      mediaQueries.push(`
+        @media (min-width: ${breakpoints[key]}) {
+          ${propertyName}: ${tokenObject[propObject[key]]};
+        }
+      `)
+    }
+  })
+  console.log("QUERY", mediaQueries);
+  return css`
+    ${mediaQueries}
+  `
+}
+
 // NAV
 
 export const setHeight = {

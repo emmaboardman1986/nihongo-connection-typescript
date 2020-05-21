@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { PillStyles } from "./PillStyles"
+import VerticalSpacing from "../utilities/VerticalSpacing"
 
 export interface PillProps {
   name: string
@@ -17,6 +18,7 @@ const Pill = ({  text, onClick, ariaPressed = false }) => {
       >
         {text}
       </PillWrapper>
+      <VerticalSpacing size={{_: "baseLoose"}}></VerticalSpacing>
     </>
   )
 }

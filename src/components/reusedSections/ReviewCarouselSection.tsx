@@ -39,21 +39,21 @@ const ReviewCarouselSection = () => {
 
   const featuredReviews =
     data.allPrismicGeneralReviews.edges[0].node.data.general_reviews
-    return (
+  return (
     <Section>
       <Heading element="h2">
         {data.allPrismicGeneralReviews.edges[0].node.data.page_title[0].text}
       </Heading>
-      <VerticalSpacing size={{_: "xTight"}} />
-      <CardContainer cardContent={featuredReviews} cardType="review">
-      </CardContainer>
+      <VerticalSpacing size={{ _: "xTight" }} />
+      <CardContainer
+        cardContent={featuredReviews}
+        cardType="review"
+      ></CardContainer>
 
-      <VerticalSpacing size={{_: "loose"}} />
-      <Button
-        link="/reviews"
-        name="See all Reviews"
-        variant="secondary"
-      ></Button>
+      <VerticalSpacing size={{ _: "loose" }} />
+      <Button link="/reviews" variant="secondary">
+        See all reviews
+      </Button>
     </Section>
   )
 }

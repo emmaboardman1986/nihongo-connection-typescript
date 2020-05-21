@@ -12,6 +12,7 @@ import Emphasis from "../components/Emphasis"
 import MailChimp from "../components/MailChimp/MailChimp"
 import styled from "styled-components"
 import Button from "../components/Button"
+import FlexContainer from "../components/utilities/FlexContainer"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
@@ -19,8 +20,11 @@ export default function ClassPage({ data }) {
   return (
     <Layout>
       <Section>
+        <FlexContainer flexDirection={{_: "column", sm: "row"}} justifyContent={{_: "space-between"}}>
+          <div>
         <Heading element="h1">{classInfo.class_title.text}</Heading>
-        <VerticalSpacing></VerticalSpacing>
+        <VerticalSpacing size={{_: "tight"}}></VerticalSpacing>
+
         <BodyText>
           {classInfo.class_duration && (
             <ClassQuickInfo><small>{classInfo.class_duration}</small></ClassQuickInfo>
@@ -29,23 +33,23 @@ export default function ClassPage({ data }) {
             <ClassQuickInfo><small>{classInfo.class_location}</small></ClassQuickInfo>
           )}
         </BodyText>
-        <VerticalSpacing size="x-large"></VerticalSpacing>
-
-        <RichText
-          content={classInfo.class_summary.html}
-          emphasiseText
-        ></RichText>
-        
-
+        <VerticalSpacing size={{_: "xLoose"}}></VerticalSpacing>
+        </div>
         {classInfo.class_main_image.thumbnails.Tablet.url && (
           <>
-            <VerticalSpacing size="large"></VerticalSpacing>
+           
             <SectionResponsiveImage
               imgObj={classInfo.class_main_image}
               applyFilter
             ></SectionResponsiveImage>
           </>
         )}
+        </FlexContainer>
+         <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
+        <RichText
+          content={classInfo.class_summary.html}
+          emphasiseText
+        ></RichText> 
       </Section>
       {classInfo.class_discovery.html && (
         <Section>
@@ -165,8 +169,11 @@ export default function ClassPage({ data }) {
               <RichText
                 content={classInfo.class_booking_instructions.html}
               ></RichText>
-              <VerticalSpacing></VerticalSpacing>
-              <Button name="Book now!" alignCenter></Button>
+              <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
+              {classInfo.class_booking_link.url != null && (
+                <Button isCentered isExternal link={classInfo.class_booking_link.url}>Book now!</Button>
+              )}
+              
             </Card>
           </>
         </Section>
@@ -211,6 +218,9 @@ export const query = graphql`
         }
         class_booking_instructions {
           html
+        }
+        class_booking_link {
+          url
         }
         class_curriculum {
           html

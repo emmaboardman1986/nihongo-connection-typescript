@@ -28,7 +28,7 @@ const ReviewsPage: React.FC<Props> = ({ data }) => {
           to say!
         </BodyText>
 
-        <VerticalSpacing size="large"></VerticalSpacing>
+        <VerticalSpacing size={{_: "loose"}}></VerticalSpacing>
         <CardContainer
           cardType="review"
           cardContent={allReviews}

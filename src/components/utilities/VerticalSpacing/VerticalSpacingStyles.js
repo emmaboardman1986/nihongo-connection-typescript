@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { createMediaQueries, setSpacing } from "../../../styles/styleHelpers"
+import { createMediaQueriesFromTokens, setSpacing } from "../../../styles/styleHelpers"
 
 
 export const VerticalSpacingStyles = css`
@@ -13,8 +13,9 @@ export const SizeStyles = size => {
       `,
     ]
     if (Object.keys(size).length > 1) {
-
-        styles.push(createMediaQueries("height", size))
+        styles.push(createMediaQueriesFromTokens("height", size, setSpacing))
+        console.log("reslt", createMediaQueriesFromTokens("height", size, setSpacing))
     }
+    console.log("STYLES", styles)
     return styles
 }

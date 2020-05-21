@@ -184,6 +184,13 @@
         "label": "Class Booking Instructions"
       }
     },
+    "class_booking_link": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Class Booking Link"
+      }
+    },
     "class_images": {
       "type": "Group",
       "config": {

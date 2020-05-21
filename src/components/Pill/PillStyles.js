@@ -14,11 +14,13 @@ export const PillStyles = css`
   width: 144px;
   border: 2px solid ${setColor.brandPrimary[900]};
   margin-top: ${setSpacing.tight};
+  margin-bottom: ${setSpacing.xTight};
   margin-right: ${setSpacing.baseTight};
   ${setFlex({ align: "center", justify: "center" })};
   &[aria-pressed="true"] {
   color: ${setColor.brandMonochrome[0]};
   font-size: ${setFontSize.medium};
   background-color: ${setColor.brandSecondary[400]};
+
 }
 `

@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { setColor, setBorder, setSpacing } from "../../styles/styleHelpers"
+import { setColor, setBorder, setSpacing, breakpoint } from "../../styles/styleHelpers"
 
 export const CardStyles = css`
 padding: ${setSpacing.loose};
@@ -17,6 +17,10 @@ li {
         color: ${setColor.brandPrimary[800]};
         margin-bottom: ${setSpacing.base};
     }
+    ${breakpoint.sm`
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;`}
 `
 
 export const ColorCardStyles = css`

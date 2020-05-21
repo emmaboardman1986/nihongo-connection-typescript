@@ -9,7 +9,7 @@ margin-bottom: ${setSpacing.loose};
 
 export const H1Styles = css`
   font-family: ${setFont.fontPrimaryMedium};
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.9rem;
   color: ${setColor.brandMonochrome[800]};
 `

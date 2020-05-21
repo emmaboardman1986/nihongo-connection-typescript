@@ -84,10 +84,10 @@ const FilterContainer = ({ classes }) => {
             </Filter>
 
             <FilterResults>
-                <VerticalSpacing></VerticalSpacing>
+                <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
                 <Heading element="h2" className="visually-hidden">Class List</Heading>
                 <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> classes:</BodyText>
-                <VerticalSpacing></VerticalSpacing>
+                <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
                 <CardContainer
                     cardType="class"
                     cardContent={filteredClasses}

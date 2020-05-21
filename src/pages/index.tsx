@@ -30,11 +30,11 @@ const HomePage: React.FC<Props> = ({ data }) => {
           <RichText
             content={data.prismicHomepa.data.homepage_summary.html}
           ></RichText>
-          <VerticalSpacing size={{_: "loose"}} />
+          <VerticalSpacing size={{_: "loose", sm: "xLoose"}} />
           <Button
             link="/explore"
-            name={data.prismicHomepa.data.homepage_cta_button_text.text}
-          ></Button>
+           
+          >{data.prismicHomepa.data.homepage_cta_button_text.text}</Button>
         </Hero>
       </Section>
       <Section>
@@ -50,9 +50,9 @@ const HomePage: React.FC<Props> = ({ data }) => {
         <VerticalSpacing size={{_: "loose"}} />
         <Button
           link="/explore"
-          name="See all Classes"
+          
           variant="secondary"
-        ></Button>
+        >See all classes</Button>
       </Section>
       <ReviewCarouselSection></ReviewCarouselSection>
 

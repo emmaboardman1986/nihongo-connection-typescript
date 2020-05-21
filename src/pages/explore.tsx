@@ -26,10 +26,8 @@ const ExplorePage: React.FC<Props> = ({ data }) => {
         <RichText
           content={explorePageCopy.explore_page_introduction.html}
         ></RichText>
-        <VerticalSpacing size="large"></VerticalSpacing>
+        <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
         <FilterContainer classes={allClasses}></FilterContainer>
-
-        <VerticalSpacing size="x-large"></VerticalSpacing>
       </Section>
       <ReviewCarouselSection></ReviewCarouselSection>
     </Layout>
