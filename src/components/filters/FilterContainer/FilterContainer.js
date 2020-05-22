@@ -6,6 +6,7 @@ import BodyText from "../../typography/BodyText"
 import Heading from "../../typography/Heading"
 import VerticalSpacing from "../../utilities/VerticalSpacing"
 import HighlightPill from "../../HighlightPill"
+import Emphasis from "../../Emphasis"
 
 
 import { FilterContext } from "../../../context/FilterContext"
@@ -89,19 +90,34 @@ const FilterContainer = ({ classes }) => {
             <FilterResults >
                 <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
                 <Heading element="h2" className="visually-hidden">Class List</Heading>
-               
-                <FlexContainer justifyContent={{ _: "space-between" }} alignItems={{_: "flex-end"}}>
-                    <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> classes:</BodyText>
-                    {checkForFilters().length > 0 ? <HighlightPill isAction onClick={() => dispatch({ type: "reset" })}>Reset Filters</HighlightPill> : null}
+
+                <FlexContainer justifyContent={{ _: "space-between" }}>
+                    <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> class{filteredClasses.length !== 1 ? "es" : null}:</BodyText>
+                    {checkForFilters().length > 0 ? <div style={{ marginTop: "-0.75rem" }}><HighlightPill isAction onClick={() => dispatch({ type: "reset" })}>Reset Filters</HighlightPill></div> : null}
                 </FlexContainer>
-                
+
 
                 <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
-                <CardContainer
-                    cardType="class"
-                    cardContent={filteredClasses}
-                    noHorizontalScroll
-                ></CardContainer>
+                {filteredClasses.length > 0 ? (
+
+                    <CardContainer
+                        cardType="class"
+                        cardContent={filteredClasses}
+                        noHorizontalScroll
+                    ></CardContainer>
+                ) : (
+                        <>
+                            <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
+                            <Emphasis color="black">
+                                <BodyText>Unfortunately we don't currently have any classes that meet your needs</BodyText>
+                                <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
+                                <BodyText>Why not get in touch and let us know what you were looking for? We're always happy to help where we can!</BodyText>
+                                <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
+                                <p>** Contact us form here **</p>
+                            </Emphasis>
+                        </>
+                    )}
+
             </FilterResults>
         </FilterContainerWrapper>
     )
