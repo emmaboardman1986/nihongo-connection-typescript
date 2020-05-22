@@ -34,7 +34,7 @@ const SocialLinks = () => {
           </span>
           <Icon
             icon={socialLink.social_title[0].text.toLowerCase()}
-            fill="white"
+            fill="currentColor"
             stroke="none"
           ></Icon>
         </a>
