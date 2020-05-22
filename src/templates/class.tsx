@@ -13,6 +13,7 @@ import MailChimp from "../components/MailChimp/MailChimp"
 import Button from "../components/Button"
 import FlexContainer from "../components/utilities/FlexContainer"
 import HighlightPill from "../components/HighlightPill"
+import { graphql} from "gatsby"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data

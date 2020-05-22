@@ -1,0 +1,40 @@
+{
+    "Main": {
+      "about_us_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "about us title"
+        }
+      },
+      "about_us_intro": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "About us intro"
+        }
+      },
+      "about_us_timeline": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "about_us_timeline_year": {
+              "type": "StructuredText",
+              "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "about us timeline year"
+              }
+            },
+            "about_us_timeline_content": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "about us timeline content"
+              }
+            }
+          },
+          "label": "about us timeline"
+        }
+      }
+    }
+  }
