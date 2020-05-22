@@ -115,7 +115,6 @@ const FilterContainer = ({ classes }) => {
                                 <BodyText>Why not get in touch and let us know what you were looking for? We're always happy to help where we can!</BodyText>
                                 <FlexContainer flexDirection={{ _: "column" }} alignItems={{ _: "center" }}>
                                     <VerticalSpacing size={{ _: "baseLoose" }}></VerticalSpacing>
-
                                     <SocialLinks></SocialLinks>
                                     <VerticalSpacing size={{ _: "tight" }}></VerticalSpacing>
                                     <TextLink link="mailto:nihongoconnection@gmail.com">NihongoConnection@gmail.com</TextLink>
