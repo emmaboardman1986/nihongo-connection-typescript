@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
 import { ReviewCardStyles } from "./ReviewCardStyles"
 import { useTruncateText } from "../../../customHooks/useTruncateText"
@@ -11,23 +11,37 @@ export interface ReviewCardProps {
   date: string
   name?: string
   id?: string
+  displayFull?: boolean
 }
 
-const ReviewCard = ({ content, date, name, id }) => {
+const ReviewCard = ({ content, date, name, displayFull }) => {
   const [truncatedContent, setTruncatedContent] = useState("Loading Reviews")
   useEffect(() => {
     setTruncatedContent(useTruncateText(content, 25))
   }, [])
 
+  const ref = useRef()
+  const handleCardClick = e => {
+    if (ref !== e.target) {
+      ref.current.click()
+    }
+  }
+
   return (
-    <ReviewCardWrapper>
+    <ReviewCardWrapper onClick={handleCardClick}>
       <blockquote>
-        {truncatedContent}{" "}
-        <Link to={`/reviews/${id}`}>
-          <Ellipsis screenReaderText="Read full review"></Ellipsis>{" "}
+        {displayFull ? content : (
+          <>
+          {truncatedContent}{" "}
+        <Link to="/reviews" ref={ref}>
+          <Ellipsis screenReaderText="Read Full Reviews on our Reviews page"></Ellipsis>{" "}
         </Link>
+        </>
+
+        )}
+       
       </blockquote>
-      <VerticalSpacing></VerticalSpacing>
+      <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
       {date && <small>{date}</small>}
       <small>{name ? name : "Anonymous"}</small>
     </ReviewCardWrapper>

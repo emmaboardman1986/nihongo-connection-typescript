@@ -37,8 +37,6 @@ const Accordion = ({ children }) => {
     setExpandAll(!expandAll)
   }
 
-  console.log("check", children);
-
   return (
     <AccordionWrapper>
       <AccordionToggle

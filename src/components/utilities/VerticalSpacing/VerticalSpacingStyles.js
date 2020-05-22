@@ -14,8 +14,7 @@ export const SizeStyles = size => {
     ]
     if (Object.keys(size).length > 1) {
         styles.push(createMediaQueriesFromTokens("height", size, setSpacing))
-        console.log("reslt", createMediaQueriesFromTokens("height", size, setSpacing))
     }
-    console.log("STYLES", styles)
+
     return styles
 }

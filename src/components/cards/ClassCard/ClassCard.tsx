@@ -41,7 +41,6 @@ const ClassCard = ({
     }
   }
 
-  console.log(uid, start_date)
   const generateDate = (uid: string) => {
     let nextDate
     if (uid === "jlpt-bootcamp") {

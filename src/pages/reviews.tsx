@@ -27,12 +27,13 @@ const ReviewsPage: React.FC<Props> = ({ data }) => {
           Don't just take our word for it, see what our community members have
           to say!
         </BodyText>
-
+        
         <VerticalSpacing size={{_: "loose"}}></VerticalSpacing>
         <CardContainer
           cardType="review"
           cardContent={allReviews}
           noHorizontalScroll
+          displayFull
         ></CardContainer>
       </Section>
     </Layout>

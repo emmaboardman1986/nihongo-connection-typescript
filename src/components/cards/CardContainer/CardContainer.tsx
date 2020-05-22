@@ -3,8 +3,9 @@ import styled from "styled-components"
 import { CardContainerStyles } from "./CardContainerStyles"
 import ClassCard from "../ClassCard"
 import ReviewCard from "../ReviewCard"
+import AnchorSpan from "../../AnchorSpan"
 
-const CardContainer = ({ cardType, cardContent, noHorizontalScroll }) => {
+const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull }) => {
   return (
     <CardContainerWrapper noHorizontalScroll={noHorizontalScroll}>
       {/* CLASS CARDS */}
@@ -62,7 +63,9 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll }) => {
         cardContent.length > 1 ? (
           cardContent.map((review, index) => (
             <li key={index}>
+              <AnchorSpan id={index}></AnchorSpan>
               <ReviewCard
+              displayFull={displayFull}
                 key={review.id}
                 content={review.review_content[0].text}
                 date={review.review_date}
@@ -78,6 +81,7 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll }) => {
         ) : (
           <li key={cardContent[0].id}>
             <ReviewCard
+             displayFull={displayFull}
               content={cardContent[0].review_content[0].text}
               date={cardContent[0].review_date}
               name={

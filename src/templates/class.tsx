@@ -16,7 +16,6 @@ import FlexContainer from "../components/utilities/FlexContainer"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
-  console.log(classInfo)
   return (
     <Layout>
       <Section>

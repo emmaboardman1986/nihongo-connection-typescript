@@ -153,7 +153,6 @@ export const createMediaQueriesFromTokens = (propertyName, propObject, tokenObje
       `)
     }
   })
-  console.log("QUERY", mediaQueries);
   return css`
     ${mediaQueries}
   `
