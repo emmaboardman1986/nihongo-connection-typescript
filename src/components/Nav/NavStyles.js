@@ -117,7 +117,8 @@ margin-right: ${setSpacing.xLoose};
 ul {
   position: absolute;
   top: 1.5rem;
-  width: 100%;
+  width: auto;
+  margin-left: 0;
   justify-content: flex-start;
   height: auto;
   border-radius: 3px;

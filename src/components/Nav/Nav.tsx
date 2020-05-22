@@ -76,8 +76,23 @@ const Nav = React.forwardRef((props, ref) => {
       ],
     },
     {
-      name: "Reviews",
-      link: "/reviews",
+      name: "About Us",
+      id: "parentAU",
+      link: "#",
+      items: [
+        {
+          name: "Who we are",
+          link: "/about-us"
+        },
+        {
+          name: "Get in Touch",
+          link: "/contact-us"
+        },
+        {
+          name: "Reviews",
+          link: "/reviews"
+        },
+      ]
     },
     // {
     //   name: "Get in Touch",
