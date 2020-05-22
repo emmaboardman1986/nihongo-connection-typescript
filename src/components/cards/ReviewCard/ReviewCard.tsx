@@ -28,7 +28,7 @@ const ReviewCard = ({ content, date, name, displayFull }) => {
   }
 
   return (
-    <ReviewCardWrapper onClick={handleCardClick}>
+    <ReviewCardWrapper onClick={handleCardClick} displayFull={displayFull}>
       <blockquote>
         {displayFull ? content : (
           <>

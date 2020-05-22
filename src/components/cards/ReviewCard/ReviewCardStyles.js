@@ -23,4 +23,5 @@ export const ReviewCardStyles = css`
     flex: 1;
     text-align: center;
   }
+  ${props => props.displayFull && "box-shadow: none;"}
 `

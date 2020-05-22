@@ -7,7 +7,7 @@ import AnchorSpan from "../../AnchorSpan"
 
 const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull }) => {
   return (
-    <CardContainerWrapper noHorizontalScroll={noHorizontalScroll}>
+    <CardContainerWrapper noHorizontalScroll={noHorizontalScroll} displayFull={displayFull}>
       {/* CLASS CARDS */}
       {cardType && cardType === "class" ? (
         cardContent.length > 1 ? (
