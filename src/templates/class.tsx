@@ -10,9 +10,9 @@ import Card from "../components/Card"
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 import Emphasis from "../components/Emphasis"
 import MailChimp from "../components/MailChimp/MailChimp"
-import styled from "styled-components"
 import Button from "../components/Button"
 import FlexContainer from "../components/utilities/FlexContainer"
+import HighlightPill from "../components/HighlightPill"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
@@ -27,10 +27,10 @@ export default function ClassPage({ data }) {
 
         <BodyText>
           {classInfo.class_duration && (
-            <ClassQuickInfo><small>{classInfo.class_duration}</small></ClassQuickInfo>
+            <HighlightPill>{classInfo.class_duration}</HighlightPill>
           )}{ " "}
           {classInfo.class_location && (
-            <ClassQuickInfo><small>{classInfo.class_location}</small></ClassQuickInfo>
+            <HighlightPill>{classInfo.class_location}</HighlightPill>
           )}
         </BodyText>
         <VerticalSpacing size={{_: "xLoose"}}></VerticalSpacing>
@@ -199,15 +199,6 @@ export default function ClassPage({ data }) {
   )
 }
 
-const ClassQuickInfo = styled.span`
-  background-color: black;
-  color: white;
-  border-radius: 6px;
-  margin-right: 0.25rem;
-  padding: 0.5rem 1rem;
-  white-space: nowrap;
-
-`
 
 export const query = graphql`
   query($uid: String!) {

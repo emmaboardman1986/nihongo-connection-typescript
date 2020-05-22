@@ -1,18 +1,20 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import styled from "styled-components"
 import Filter from "../Filter"
 import CardContainer from "../../cards/CardContainer"
 import BodyText from "../../typography/BodyText"
 import Heading from "../../typography/Heading"
 import VerticalSpacing from "../../utilities/VerticalSpacing"
+import HighlightPill from "../../HighlightPill"
 
 
 import { FilterContext } from "../../../context/FilterContext"
+import FlexContainer from "../../utilities/FlexContainer"
 
 
 
 const FilterContainer = ({ classes }) => {
-    const { state } = useContext(FilterContext);
+    const { state, dispatch } = useContext(FilterContext);
 
     const collectTrueFilters = () => {
         let updatedFilter = {};
@@ -29,15 +31,15 @@ const FilterContainer = ({ classes }) => {
         return updatedFilter;
     };
 
-
-
+    const checkForFilters = () => {
+        let trueFilters = Object.values(collectTrueFilters()).filter(value => (
+            value.length > 0))
+        return trueFilters;
+    }
 
     const returnFilterMatches = (filter, filterGroup, classes) => {
         let filterGroupResults = [];
         if (filter[filterGroup].length > 0) {
-
-
-
             filter[filterGroup].map(value => {
                 classes.map(classItem => {
                     if (
@@ -53,6 +55,7 @@ const FilterContainer = ({ classes }) => {
         }
         return filterGroupResults;
     }
+
 
     const applyFilter = (classes, filter) => {
         var targetGroupResults = [];
@@ -73,21 +76,27 @@ const FilterContainer = ({ classes }) => {
         return formatGroupResults;
     };
 
-
     let filteredClasses = applyFilter(classes, collectTrueFilters());
 
     return (
-        <FilterContainerWrapper>
+        <FilterContainerWrapper activeFilters={checkForFilters()}>
             <Heading element="h2" className="visually-hidden">Class Filters</Heading>
 
             <Filter filters={state}>
+
             </Filter>
 
-            <FilterResults>
-                <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
+            <FilterResults >
+                <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
                 <Heading element="h2" className="visually-hidden">Class List</Heading>
-                <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> classes:</BodyText>
-                <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
+               
+                <FlexContainer justifyContent={{ _: "space-between" }} alignItems={{_: "flex-end"}}>
+                    <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> classes:</BodyText>
+                    {checkForFilters().length > 0 ? <HighlightPill isAction onClick={() => dispatch({ type: "reset" })}>Reset Filters</HighlightPill> : null}
+                </FlexContainer>
+                
+
+                <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
                 <CardContainer
                     cardType="class"
                     cardContent={filteredClasses}

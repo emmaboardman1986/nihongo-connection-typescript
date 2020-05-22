@@ -29,3 +29,15 @@ export const JustifyContentStyles = justifyContent => {
   }
   return styles
 }
+
+export const AlignItemsStyles = alignItems => {
+  const styles = [
+    css`
+      align-items: ${alignItems["_"]};
+    `,
+  ]
+  if (Object.keys(alignItems).length > 1) {
+    styles.push(createMediaQueries("align-items", alignItems))
+  }
+  return styles
+}
