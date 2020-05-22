@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { setSpacing, setFont, setFlex, breakpoint, setColor } from "../../styles/styleHelpers"
+import { setSpacing, setFlex, breakpoint, setColor } from "../../styles/styleHelpers"
 
 export const TimelineStyles = css`
   overflow: hidden;

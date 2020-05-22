@@ -17,8 +17,3 @@ box-sizing: border-box;
 `}
 `
 
-export const FooterSocialLinksStyles = css`
-a {
-margin-right: ${setSpacing.baseTight};
-}
-`

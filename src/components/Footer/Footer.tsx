@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { FooterStyles, FooterSocialLinksStyles } from "./FooterStyles"
+import { FooterStyles, } from "./FooterStyles"
 import { useStaticQuery, graphql } from "gatsby"
-import Icon from "../Icon"
-import VerticalSpacing from "../utilities/VerticalSpacing"
+import SocialLinks from "../SocialLinks"
 
 // export interface FooterProps {
 //   element?: "h1" | "h2" | "h3" | "h4"
@@ -23,44 +22,16 @@ const Footer = () => {
           }
         }
       }
-      allPrismicSocialLinks {
-        nodes {
-          data {
-            social_link {
-              social_link1 {
-                url
-              }
-              social_title {
-                text
-              }
-            }
-          }
-        }
-      }
     }
   `)
 
   const footerContent = data.allPrismicFooterContent.nodes[0].data
-  const socialLinks = data.allPrismicSocialLinks.nodes[0].data.social_link
   return (
     <FooterWrapper>
       <FooterCopyright>
         <small>{footerContent.footer_copyright[0].text}</small>
       </FooterCopyright>
-      <FooterSocialLinks>
-        {socialLinks.map((socialLink, index) => (
-          <a href={socialLink.social_link1.url} target="_blank" key={index}>
-            <span className="visually-hidden">
-              {socialLink.social_title[0].text}
-            </span>
-            <Icon
-              icon={socialLink.social_title[0].text.toLowerCase()}
-              fill="white"
-              stroke="none"
-            ></Icon>
-          </a>
-        ))}
-      </FooterSocialLinks>
+     <SocialLinks></SocialLinks>
     </FooterWrapper>
   )
 }
@@ -69,9 +40,5 @@ const FooterWrapper = styled.footer`
   ${FooterStyles};
 `
 const FooterCopyright = styled.div``
-
-const FooterSocialLinks = styled.div`
-  ${FooterSocialLinksStyles};
-`
 
 export default Footer
