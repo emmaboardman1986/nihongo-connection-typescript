@@ -46,7 +46,7 @@ flex-direction: row-reverse;
 `
 
 export const TimelineImageWrapperStyles = css`
-  ${setFlex({justify: "center", align: "baseline"})};
+  ${setFlex({ justify: "center", align: "baseline" })};
   flex-shrink: 0;
   z-index: 1;
   margin-left: -18px;
@@ -65,6 +65,11 @@ export const IconWrapperStyles = css`
 `
 
 export const TimelineContentWrapperStyles = css`
+ flex-grow: 1;
+  ${breakpoint.sm`
+  flex-grow: 0;
+  width: 45%;
+  `}
 div {
   padding-top: ${setSpacing.tight};
 }
