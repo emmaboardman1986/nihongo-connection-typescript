@@ -106,3 +106,25 @@ export const ClassCardTextStyles = css`
     margin-top: auto;
   }
 `
+
+export const GradientStyles = css`
+height: 100%;
+  box-sizing: border-box;
+  padding: 0.25rem;
+  background: linear-gradient(
+    to top,
+    #434599,
+    cyan,
+    green,
+    yellow,
+    orange,
+    #ed2530
+  );
+  border-radius: 8px;`
+
+  export const ClassCardInnerStyles = css`
+   background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  border: 2px solid black;
+  box-sizing: border-box;`

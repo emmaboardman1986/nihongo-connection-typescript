@@ -14,6 +14,7 @@ import BodyText from "../typography/BodyText"
 import VerticalSpacing from "../utilities/VerticalSpacing"
 import BrandSuccess from "../../../static/brandtick.svg"
 import BrandWarn from "../../../static/brandwarn.svg"
+import TextLink from "../TextLink"
 
 const MailChimp = ({ emphasisColor }) => {
   const [result, setResult] = useState(null)
@@ -215,13 +216,13 @@ const MailChimp = ({ emphasisColor }) => {
             We use Mailchimp as our marketing platform. By clicking below to
             subscribe, you acknowledge that your information will be transferred
             to Mailchimp for processing.{" "}
-            {/* <BodyText
+            <TextLink
               link=" https://mailchimp.com/legal/"
               isExternal
               isOnBrandBg
             >
               Learn more about Mailchimp's privacy practices here.
-            </BodyText> */}
+            </TextLink>
             </small>
           </BodyText>
         </GDPR>
@@ -263,13 +264,13 @@ const MailChimp = ({ emphasisColor }) => {
           You can unsubscribe at any time by clicking the link in the footer of
           our emails. For information about our privacy practices, please visit
           the{" "}
-          {/* <BodyText
+          <TextLink
             link="https://www.nihongoconnection.com"
             isExternal
             isOnBrandBg
           >
             Nihongo Connection website
-          </BodyText> */}
+          </TextLink>
           </small>
         </BodyText>
       </Form>

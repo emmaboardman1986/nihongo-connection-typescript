@@ -7,6 +7,8 @@ import {
   ClassCardImageStyles,
   ClassCardLabelStyles,
   ClassCardTextStyles,
+  GradientStyles,
+  ClassCardInnerStyles
 } from "./ClassCardStyles"
 import Heading from "../../typography/Heading"
 import FlexContainer from "../../utilities/FlexContainer"
@@ -98,27 +100,11 @@ const ClassCard = ({
 }
 
 const ClassCardInner = styled.div`
-  background-color: white;
-  border-radius: 10px;
-  height: 100%;
-  border: 2px solid black;
-  box-sizing: border-box;
+ ${ClassCardInnerStyles};
 `
 
 const Gradient = styled.div`
-height: 100%;
-  box-sizing: border-box;
-  padding: 0.25rem;
-  background: linear-gradient(
-    to right,
-    #434599,
-    cyan,
-    green,
-    yellow,
-    orange,
-    #ed2530
-  );
-  border-radius: 8px;
+${GradientStyles};
 `
 
 const ClassCardWrapper = styled.div`
