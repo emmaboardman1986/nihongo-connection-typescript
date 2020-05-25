@@ -96,15 +96,10 @@ export const ClassCardTextStyles = css`
     strong {
       color: ${setColor.brandPrimary[700]};
     }
-  }
-   p:nth-last-child(2) {
+   &:nth-last-child(2) {
     margin-bottom: ${setSpacing.tight};
    }
-   p:last-child {
-    ${'' /* margin-top: auto; */}
-   }
-  
-`
+  }`
 
 export const GradientStyles = css`
 height: 100%;

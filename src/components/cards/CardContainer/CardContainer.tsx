@@ -44,7 +44,7 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull 
               duration={cardContent[0].node.data.class_duration}
               location={cardContent[0].node.data.class_location}
               schedule={cardContent[0].node.data.class_schedule}
-              type={classData.class_type}
+              type={cardContent[0].node.data.class_type}
               thumbnailURL={
                 cardContent[0].node.data.class_main_image.thumbnails.thumbnail
                   .url
@@ -76,7 +76,6 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull 
                     ? review.reviewer_name[0].text
                     : null
                 }
-                id={review.id}
               ></ReviewCard>
             </li>
           ))
@@ -91,7 +90,6 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull 
                   ? cardContent[0].reviewer_name[0].text
                   : null
               }
-              id={cardContent[0].id}
             ></ReviewCard>
           </li>
         )

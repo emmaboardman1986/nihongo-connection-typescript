@@ -21,10 +21,10 @@ export const CardContainerStyles = css`
     justify-items: center;
     ${breakpoint.xs`
     grid-template-columns:  ${props =>
-      props.displayFull ? "repeat(auto-fill, 100%)" : "repeat(auto-fill, 15rem)"}`}
+      props.displayFull ? "repeat(auto-fill, 100%)" : "repeat(auto-fill, 16.5rem)"}`}
       ${breakpoint.sm`
     grid-template-columns:  ${props =>
-      props.displayFull ? "repeat(auto-fill, 45%)" : "repeat(auto-fill, 15rem)"}`}
+      props.displayFull ? "repeat(auto-fill, 45%)" : "repeat(auto-fill, 16.5rem)"}`}
   }
   li {
     width: 100%;
