@@ -44,6 +44,7 @@ interface ExplorePageQueryData {
             class_title: {
               text: string
             }
+            class_type: string
             class_main_image: {
               thumbnails: {
                 thumbnail: {
@@ -55,7 +56,7 @@ interface ExplorePageQueryData {
             class_duration: string
             class_location: string
             class_dates: {
-              class_date(locale: "en-GB"): string
+              class_date(formatString: "MMMM DD YYYY"): string
             }
             class_schedule: string
             class_learning_style: string
@@ -97,6 +98,7 @@ export const explorePageQuery = graphql`
             class_title {
               text
             }
+            class_type
             class_main_image {
               thumbnails {
                 thumbnail {
@@ -108,7 +110,7 @@ export const explorePageQuery = graphql`
             class_duration
             class_location
             class_dates {
-              class_date(locale: "en-GB")
+              class_date(formatString: "MMMM DD YYYY")
             }
             class_schedule
             class_learning_style

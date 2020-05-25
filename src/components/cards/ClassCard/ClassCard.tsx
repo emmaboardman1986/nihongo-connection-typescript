@@ -41,6 +41,7 @@ const ClassCard = ({
       ref.current.click()
     }
   }
+  console.log(title, type)
 
   return (
     <ClassCardWrapper onClick={handleCardClick}>
