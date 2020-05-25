@@ -21,6 +21,7 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull 
                   duration={classData.class_duration}
                   location={classData.class_location}
                   schedule={classData.class_schedule}
+                  type={classData.class_type}
                   thumbnailURL={
                     classData.class_main_image.thumbnails.thumbnail.url
                   }
@@ -43,6 +44,7 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull 
               duration={cardContent[0].node.data.class_duration}
               location={cardContent[0].node.data.class_location}
               schedule={cardContent[0].node.data.class_schedule}
+              type={classData.class_type}
               thumbnailURL={
                 cardContent[0].node.data.class_main_image.thumbnails.thumbnail
                   .url

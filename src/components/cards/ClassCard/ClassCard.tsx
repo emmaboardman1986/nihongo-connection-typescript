@@ -8,7 +8,7 @@ import {
   ClassCardLabelStyles,
   ClassCardTextStyles,
   GradientStyles,
-  ClassCardInnerStyles
+  ClassCardInnerStyles,
 } from "./ClassCardStyles"
 import Heading from "../../typography/Heading"
 import FlexContainer from "../../utilities/FlexContainer"
@@ -33,6 +33,7 @@ const ClassCard = ({
   schedule,
   start_date,
   uid,
+  type,
 }) => {
   const ref = useRef()
   const handleCardClick = e => {
@@ -41,20 +42,6 @@ const ClassCard = ({
     }
   }
 
-  const generateDate = (uid: string) => {
-    let nextDate
-    if (uid === "jlpt-bootcamp") {
-      nextDate = "Postponed"
-    } else if (uid === "friday-study-club") {
-      nextDate = "this Friday!"
-    } else if (uid === "nihongo-confidence-lite") {
-      nextDate = "this Monday"
-      // write method to find nearest Mon, Thurs, Fri
-    } else {
-      nextDate = "announced soon!"
-    }
-    return nextDate
-  }
   return (
     <ClassCardWrapper onClick={handleCardClick}>
       <Gradient>
@@ -72,24 +59,26 @@ const ClassCard = ({
               </Link>
             </Heading>
             <FlexContainer
-              element="ul"
               flexDirection={{ _: "column" }}
               justifyContent={{ _: "flex-end" }}
             >
-              <li>
+              <p>
                 <small>{duration}</small>
-              </li>
-              {/* <li>
-                <small>{schedule}</small>
-              </li> */}
-              <li>
+              </p>
+
+              <p>
                 <small>
                   <strong>
-                    Next class:{" "}
-                    {start_date != null ? start_date : generateDate(uid)}
+                    {start_date != null && type === "Membership"
+                      ? `Next enrollment: ${start_date}`
+                      : start_date != null
+                      ? `Next course: ${start_date}`
+                      : uid === "friday-conversation-club"
+                      ? "This Friday!"
+                      : "Applications currently open"}
                   </strong>
                 </small>
-              </li>
+              </p>
             </FlexContainer>
           </ClassCardText>
         </ClassCardInner>
@@ -99,11 +88,11 @@ const ClassCard = ({
 }
 
 const ClassCardInner = styled.div`
- ${ClassCardInnerStyles};
+  ${ClassCardInnerStyles};
 `
 
 const Gradient = styled.div`
-${GradientStyles};
+  ${GradientStyles};
 `
 
 const ClassCardWrapper = styled.div`

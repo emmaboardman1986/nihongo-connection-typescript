@@ -18,6 +18,8 @@ interface Props {
   readonly data: PageQueryData
 }
 
+
+
 const HomePage: React.FC<Props> = ({ data }) => {
   const popularClasses = data.allPrismicClass.edges
   return (
@@ -196,6 +198,7 @@ interface PageQueryData {
             class_title: {
               text: string
             }
+            class_type: string
             class_main_image: {
               thumbnails: {
                 thumbnail: {
@@ -301,6 +304,7 @@ export const pageQuery = graphql`
             class_title {
               text
             }
+            class_type
             class_main_image {
               thumbnails {
                 thumbnail {
@@ -312,7 +316,7 @@ export const pageQuery = graphql`
             class_duration
             class_location
             class_dates {
-              class_date(formatString: "MMMM DD")
+              class_date(formatString: "MMMM DD YYYY")
             }
             class_schedule
           }

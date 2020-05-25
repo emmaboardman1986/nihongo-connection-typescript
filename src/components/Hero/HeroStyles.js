@@ -17,6 +17,7 @@ export const HeroContentStyles = css``
 
 export const HeroImageStyles = css`
 img {
+    transform: rotate(-90deg);
     width: 110px;
     ${breakpoint.sm`
     width: 210px;

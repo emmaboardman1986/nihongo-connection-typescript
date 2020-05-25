@@ -87,10 +87,6 @@ export const ClassCardTextStyles = css`
     color: inherit};
     text-decoration: none;
   }
-  li {
-    padding: 0.25rem 0;
-    height: initial;
-  }
   small {
     color: ${setColor.brandPrimary[800]};
     display: block;
@@ -99,12 +95,16 @@ export const ClassCardTextStyles = css`
       color: ${setColor.brandPrimary[700]};
     }
   }
-  ul {
-    height: 100%;
+  * + * {
+    margin-top: ${setSpacing.xxTight};
   }
-  li:last-child {
+   p:nth-last-child(2) {
+    margin-bottom: ${setSpacing.tight};
+   }
+   p:last-child {
     margin-top: auto;
-  }
+   }
+  
 `
 
 export const GradientStyles = css`
@@ -112,7 +112,7 @@ height: 100%;
   box-sizing: border-box;
   padding: 0.25rem;
   background: linear-gradient(
-    to top,
+    to left,
     #434599,
     cyan,
     green,
@@ -122,7 +122,9 @@ height: 100%;
   );
   border-radius: 8px;`
 
-  export const ClassCardInnerStyles = css`
+export const ClassCardInnerStyles = css`
+  ${setFlex()};
+  ${setFlexDirection({ direction: "column" })};
    background-color: white;
   border-radius: 10px;
   height: 100%;

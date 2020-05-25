@@ -13,6 +13,19 @@
         "label": "Class Title"
       }
     },
+    "class_type": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Course",
+          "Bootcamp",
+          "By Application",
+          "Membership",
+          "Friday Conversation Club"
+        ],
+        "label": "Class type"
+      }
+    },
     "class_location": {
       "type": "Select",
       "config": {
@@ -83,7 +96,7 @@
           "8-week course",
           "Intensive weekend",
           "50-minute sessions",
-          "Drop-in sessions every week"
+          "Weekly drop-in sessions"
         ],
         "label": "Class Duration"
       }
