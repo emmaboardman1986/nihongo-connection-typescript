@@ -13,11 +13,11 @@ export const CardContainerStyles = css`
     grid-template-columns: ${props =>
       props.noHorizontalScroll
         ? "repeat(auto-fill, 100%)"
-        : "repeat(auto-fill, 15rem)"};
+        : "repeat(auto-fill, 16.5rem)"};
     ${'' /* grid-template-columns: repeat(auto-fill, 15rem); */}
     grid-gap: 1.5rem;
     grid-auto-flow: ${props => (props.noHorizontalScroll ? "row" : "column")};
-    grid-auto-columns: 15rem;
+    grid-auto-columns: 16.5rem;
     justify-items: center;
     ${breakpoint.xs`
     grid-template-columns:  ${props =>

@@ -63,11 +63,11 @@ const ClassCard = ({
               justifyContent={{ _: "flex-end" }}
             >
               <p>
-                <small>{duration}</small>
+                {duration}
               </p>
 
               <p>
-                <small>
+               
                   <strong>
                     {start_date != null && type === "Membership"
                       ? `Next enrollment: ${start_date}`
@@ -77,7 +77,7 @@ const ClassCard = ({
                       ? "This Friday!"
                       : "Applications currently open"}
                   </strong>
-                </small>
+                
               </p>
             </FlexContainer>
           </ClassCardText>

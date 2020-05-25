@@ -7,6 +7,7 @@ import {
   setFlexDirection,
   setColor,
   setSpacing,
+  setFontSize
 } from "../../../styles/styleHelpers"
 
 export const ClassCardStyles = css`
@@ -81,13 +82,14 @@ export const ClassCardTextStyles = css`
   flex-grow: 1;
   h3 {
     margin-top: ${setSpacing.xTight};
-    margin-bottom: ${setSpacing.tight};
+    margin-bottom: ${setSpacing.base};
   }
   a {
     color: inherit};
     text-decoration: none;
   }
-  small {
+  p {
+    font-size: ${setFontSize.small};
     color: ${setColor.brandPrimary[800]};
     display: block;
     line-height: 1.2rem;
@@ -95,14 +97,11 @@ export const ClassCardTextStyles = css`
       color: ${setColor.brandPrimary[700]};
     }
   }
-  * + * {
-    margin-top: ${setSpacing.xxTight};
-  }
    p:nth-last-child(2) {
     margin-bottom: ${setSpacing.tight};
    }
    p:last-child {
-    margin-top: auto;
+    ${'' /* margin-top: auto; */}
    }
   
 `
