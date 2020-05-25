@@ -7,8 +7,8 @@ import Heading from "../../typography/Heading"
 import VerticalSpacing from "../../utilities/VerticalSpacing"
 import HighlightPill from "../../HighlightPill"
 import Emphasis from "../../Emphasis"
-import SocialLinks from "../../SocialLinks"
-import TextLink from "../../TextLink"
+import MailChimp from "../../MailChimp/MailChimp"
+import Card from "../../Card"
 
 import { FilterContext } from "../../../context/FilterContext"
 import FlexContainer from "../../utilities/FlexContainer"
@@ -110,15 +110,13 @@ const FilterContainer = ({ classes }) => {
                         <>
                             <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
                             <Emphasis color="black">
-                                <BodyText>Unfortunately we don't currently have any classes that meet your needs</BodyText>
+                                <BodyText>We don't currently have classes that meet the filters you have selected.</BodyText>
+                                <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
+                                <BodyText>Sign up to our mailing list for an invitation to new classes, as they become available:</BodyText>
                                 <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
-                                <BodyText>Why not get in touch and let us know what you were looking for? We're always happy to help where we can!</BodyText>
-                                <FlexContainer flexDirection={{ _: "column" }} alignItems={{ _: "center" }}>
-                                    <VerticalSpacing size={{ _: "baseLoose" }}></VerticalSpacing>
-                                    <SocialLinks></SocialLinks>
-                                    <VerticalSpacing size={{ _: "tight" }}></VerticalSpacing>
-                                    <TextLink link="mailto:nihongoconnection@gmail.com">NihongoConnection@gmail.com</TextLink>
-                                </FlexContainer>
+                                <Card bgColor="secondary">
+                                    <MailChimp emphasisColor="secondary" />
+                                </Card>
                             </Emphasis>
                         </>
                     )}

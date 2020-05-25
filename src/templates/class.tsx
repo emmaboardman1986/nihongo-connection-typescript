@@ -189,8 +189,8 @@ export default function ClassPage({ data }) {
       )}
       <span id="mailing-list"></span>
       <Section>
-        <Heading element="h2">Interested but unsure?</Heading>
-        <BodyText>Join our mailing list to keep in touch!</BodyText>
+        <Heading element="h2">Mailing List</Heading>
+        <BodyText>Join the community to get access to our events + activities</BodyText>
         <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
         <Card bgColor="primary">
           <MailChimp emphasisColor="primary" />
