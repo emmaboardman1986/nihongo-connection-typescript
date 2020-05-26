@@ -11,7 +11,7 @@ color: ${setColor.brandMonochrome[0]};
 export const TextLinkWrapperStyles = css`
   display: inline;
   font-family: ${setFont.fontPrimaryMedium};
-  color: ${setColor.brandPrimary[600]};
+  color: inherit;
   &:hover {
     color: ${setColor.brandMonochrome[800]};
     background-color: ${setColor.brandPrimary[600]};

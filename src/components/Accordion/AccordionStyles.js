@@ -9,6 +9,7 @@ export const AccordionMainStyles = css`
   border-radius: ${setBorder.borderRadius};
   border: ${setBorder.borderSmPrimary};
   margin: ${setSpacing.base} 0;
+
 `
 
 export const AccordionToggleStyles = css`
@@ -49,7 +50,7 @@ export const AccordionTitleWrapperStyles = css`
   `
 
 export const AccordionTitleContentStyles = css`
-  ${H3Styles};
+    ${H3Styles};
     text-transform: none;
     ${setFlex({ align: "center", justify: "space-between" })};
     font-size: ${setFontSize.large};

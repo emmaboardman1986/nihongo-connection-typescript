@@ -4,7 +4,7 @@ import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 
 export const HighlightPillStyles = css`
   ${BodyTextStyles};
-  font-size: ${setFontSize.baseTight};
+  font-size: ${setFontSize.small};
   background-color: ${setColor.brandMonochrome[900]};
   color:  ${setColor.brandMonochrome[0]};
   border-radius: calc(${setBorder.borderRadius} / 2);

@@ -10,9 +10,10 @@ export interface RichTextProps {
   content: string
   emphasiseText?: boolean
   starredList?: boolean
+  isOnBrandBg?: boolean
 }
 
-const RichText = ({ content, emphasiseText = false, starredList = false }) => {
+const RichText = ({ content, emphasiseText = false, starredList = false, isOnBrandBg= false }) => {
   return (
     <RichTextWrapper
       emphasiseText={emphasiseText}

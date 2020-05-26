@@ -39,8 +39,8 @@ const Nav = React.forwardRef((props, ref) => {
           link: "/beginners-level-3",
         },
         {
-          name: "Friday Study Club",
-          link: "/friday-study-club",
+          name: "Friday Conversation Club",
+          link: "/friday-conversation-club",
         },
         {
           name: "1:1 Lessons",

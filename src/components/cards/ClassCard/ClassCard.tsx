@@ -63,22 +63,20 @@ const ClassCard = ({
               flexDirection={{ _: "column" }}
               justifyContent={{ _: "flex-end" }}
             >
-              <p>
-                {duration}
-              </p>
+              <p>{duration}</p>
 
               <p>
-               
-                  <strong>
-                    {start_date != null && type === "Membership"
-                      ? `Next enrollment: ${start_date}`
-                      : start_date != null
-                      ? `Next course: ${start_date}`
-                      : uid === "friday-conversation-club"
-                      ? "This Friday!"
-                      : "Applications currently open"}
-                  </strong>
-                
+                <strong>
+                  {start_date != null && type === "Membership"
+                    ? `Next enrollment: ${start_date}`
+                    : start_date != null
+                    ? `Next course: ${start_date}`
+                    : uid === "friday-conversation-club"
+                    ? "This Friday!"
+                    : uid === "one-to-one-lessons"
+                    ? "Limited Availability"
+                    : "Applications currently open"}
+                </strong>
               </p>
             </FlexContainer>
           </ClassCardText>

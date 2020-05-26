@@ -13,44 +13,48 @@ import MailChimp from "../components/MailChimp/MailChimp"
 import Button from "../components/Button"
 import FlexContainer from "../components/utilities/FlexContainer"
 import HighlightPill from "../components/HighlightPill"
-import { graphql} from "gatsby"
+import { graphql } from "gatsby"
+import TextLink from "../components/TextLink"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
+  console.log(classInfo)
   return (
     <Layout>
       <Section>
-        <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
-        <FlexContainer flexDirection={{_: "column", sm: "row"}} justifyContent={{_: "space-between"}}>
+        <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
+        <FlexContainer
+          flexDirection={{ _: "column", sm: "row" }}
+          justifyContent={{ _: "space-between" }}
+        >
           <div>
-        <Heading element="h1">{classInfo.class_title.text}</Heading>
-        <VerticalSpacing size={{_: "tight"}}></VerticalSpacing>
+            <Heading element="h1">{classInfo.class_title.text}</Heading>
+            <VerticalSpacing size={{ _: "tight" }}></VerticalSpacing>
 
-        <BodyText>
-          {classInfo.class_duration && (
-            <HighlightPill>{classInfo.class_duration}</HighlightPill>
-          )}{ " "}
-          {classInfo.class_location && (
-            <HighlightPill>{classInfo.class_location}</HighlightPill>
+            <BodyText>
+              {classInfo.class_duration && (
+                <HighlightPill>{classInfo.class_duration}</HighlightPill>
+              )}{" "}
+              {classInfo.class_location && (
+                <HighlightPill>{classInfo.class_location}</HighlightPill>
+              )}
+            </BodyText>
+            <VerticalSpacing size={{ _: "xLoose" }}></VerticalSpacing>
+          </div>
+          {classInfo.class_main_image.thumbnails.Tablet.url && (
+            <>
+              <SectionResponsiveImage
+                imgObj={classInfo.class_main_image}
+                applyFilter
+              ></SectionResponsiveImage>
+            </>
           )}
-        </BodyText>
-        <VerticalSpacing size={{_: "xLoose"}}></VerticalSpacing>
-        </div>
-        {classInfo.class_main_image.thumbnails.Tablet.url && (
-          <>
-           
-            <SectionResponsiveImage
-              imgObj={classInfo.class_main_image}
-              applyFilter
-            ></SectionResponsiveImage>
-          </>
-        )}
         </FlexContainer>
-         <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
+        <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
         <RichText
           content={classInfo.class_summary.html}
           emphasiseText
-        ></RichText> 
+        ></RichText>
       </Section>
       {classInfo.class_discovery.html && (
         <Section>
@@ -84,7 +88,7 @@ export default function ClassPage({ data }) {
               <>
                 <Emphasis color="secondary" noPaddingBottom>
                   <Heading element="h3">Bonus Content!</Heading>
-                  <VerticalSpacing size={{_: "tight"}}></VerticalSpacing>
+                  <VerticalSpacing size={{ _: "tight" }}></VerticalSpacing>
                   <RichText
                     content={classInfo.class_bonus_content.html}
                     starredList
@@ -108,78 +112,117 @@ export default function ClassPage({ data }) {
           </>
         </Section>
       )}
+      {classInfo.class_dates.length > 0 &&
+        classInfo.class_dates[0].class_date != null && (
+          <Section>
+            <>
+              <Card border="primary">
+                <Heading element="h2">Upcoming Dates</Heading>
+                <ul>
+                  {classInfo.class_dates.map((classDate, index) => (
+                    <li key={index}>
+                      <BodyText>{classDate.class_date}</BodyText>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </>
+          </Section>
+        )}
+      {classInfo.class_price_options.length > 0 &&
+        classInfo.class_price_options[0].price != null && (
+          <Section>
+            <>
+              <Card border="black">
+                <Heading element="h2">Prices</Heading>
+                <ul>
+                  {classInfo.class_price_options.map((priceOption, index) => (
+                    <li key={index}>
+                      <BodyText>
+                        {priceOption.price_option_title.text && (
+                          <strong>
+                            {priceOption.price_option_title.text}:{" "}
+                          </strong>
+                        )}
+                        £{priceOption.price}
+                      </BodyText>
+                      {priceOption.price_option_details && (
+                        <RichText
+                          content={priceOption.price_option_details.html}
+                        ></RichText>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </>
+          </Section>
+        )}
+      {}
       <Section>
         <>
-          <Card border="black">
-            <Heading element="h2">Upcoming Dates</Heading>
+          <Card bgColor="primary">
             {classInfo.class_dates.length > 0 &&
-            classInfo.class_dates[0].class_date != null ? (
-              <ul>
-                {classInfo.class_dates.map((classDate, index) => (
-                  <li key={index}>
-                    <BodyText>{classDate.class_date}</BodyText>
-                  </li>
-                ))}
-              </ul>
-            ) : classInfo.class_title.text === "Friday Study Club" ? (<BodyText>This Friday! (& every Friday after!)</BodyText>) :  
-            
-            classInfo.class_title.text === "1:1 Lessons" ? (<BodyText>Suit your own schedule - check availability <a href="https://www.meetingbird.com/m/B1T8nUh6S" target="_blank">here!</a></BodyText>) :  
-            
-            
-            (
+            classInfo.class_dates[0].class_date === null ? (
+              classInfo.class_type === "Friday Conversation Club" ? (
+                <>
+                  <Heading element="h2">
+                    {classInfo.class_booking_title.text}
+                  </Heading>
+                  <RichText
+                    content={classInfo.class_booking_instructions.html}
+                  ></RichText>
+                  <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
+                  <MailChimp />
+                </>
+              ) : classInfo.class_type === "By Application" ? (
+                <>
+                  <Heading element="h2">
+                    {classInfo.class_booking_title.text}
+                  </Heading>
+                  <RichText
+                    content={classInfo.class_booking_instructions.html}
+                  ></RichText>
+                  <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
+                  <p>
+                    <TextLink
+                      link="mailto:hello@nihongoconnection.com"
+                      isExternal
+                    >
+                      hello@nihongoconnection.com
+                    </TextLink>
+                  </p>
+                </>
+              ) : (
+                <>
+                  <Heading element="h2">Applications now open!</Heading>
+                  <RichText content="<p>We don't currently have any course dates scheduled. Join the mailing list to be notified of new dates!</p>"></RichText>
+                  <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
+
+                  <MailChimp />
+                </>
+              )
+            ) : (
               <>
-                <BodyText>No upcoming dates scheduled.</BodyText>
-                <VerticalSpacing></VerticalSpacing>
-                <BodyText>
-                  Join our <a href="#mailing-list">mailing list</a> to be notified as soon as new classes
-                  are announced!
-                </BodyText>
+                <Heading element="h2">
+                  {classInfo.class_booking_title.text}
+                </Heading>
+                <RichText
+                  content={classInfo.class_booking_instructions.html}
+                ></RichText>
+                <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
+                <Button
+                  isCentered
+                  isExternal
+                  link={classInfo.class_booking_link.url}
+                >
+                  Book now!
+                </Button>
               </>
             )}
           </Card>
         </>
       </Section>
-      {classInfo.class_price_options.length > 0 && (
-        <Section>
-          <>
-            <Card border="black">
-              <Heading element="h2">Prices</Heading>
-              <ul>
-                {classInfo.class_price_options.map((priceOption, index) => (
-                  <li key={index}>
-                    <BodyText>
-                      {priceOption.price_option_title.text && (<strong>{priceOption.price_option_title.text}: </strong>)}
-                      £{priceOption.price}
-                    </BodyText>
-                    {priceOption.price_option_details && (
-                      <RichText
-                        content={priceOption.price_option_details.html}
-                      ></RichText>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </>
-        </Section>
-      )}
-      {classInfo.class_booking_instructions.html && (
-        <Section>
-          <>
-            <Card bgColor="primary">
-              <Heading element="h2">How to book</Heading>
-              <RichText
-                content={classInfo.class_booking_instructions.html}
-              ></RichText>
-              <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
-              {classInfo.class_booking_link.url != null && (
-                <Button isCentered isExternal link={classInfo.class_booking_link.url}>Book now!</Button>
-              )}
-              
-            </Card>
-          </>
-        </Section>
-      )}
       {classInfo.class_faqs.length > 1 && (
         <Section>
           <Heading element="h2">FAQs</Heading>
@@ -187,19 +230,22 @@ export default function ClassPage({ data }) {
           <Accordion>{classInfo.class_faqs}</Accordion>
         </Section>
       )}
-      <span id="mailing-list"></span>
-      <Section>
-        <Heading element="h2">Mailing List</Heading>
-        <BodyText>Join the community to get access to our events + activities</BodyText>
-        <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
-        <Card bgColor="primary">
-          <MailChimp emphasisColor="primary" />
-        </Card>
-      </Section>
+      {classInfo.class_type != "Friday Conversation Club" && (
+        <Section>
+          <Heading element="h2">Mailing List</Heading>
+          <BodyText>
+            Join the community to get access to our events + activities
+          </BodyText>
+
+          <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
+          <Card bgColor="primary">
+            <MailChimp emphasisColor="primary" />
+          </Card>
+        </Section>
+      )}
     </Layout>
   )
 }
-
 
 export const query = graphql`
   query($uid: String!) {
@@ -211,8 +257,12 @@ export const query = graphql`
         class_title {
           text
         }
+        class_type
         class_booking_instructions {
           html
+        }
+        class_booking_title {
+          text
         }
         class_booking_link {
           url

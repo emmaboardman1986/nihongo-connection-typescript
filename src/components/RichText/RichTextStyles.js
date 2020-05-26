@@ -6,6 +6,7 @@ import starSVG from "../../../static/star.svg"
 export const RichTextWrapperStyles = css`
 ${BodyTextStyles};
 max-width: 500px;
+${props => props.isOnBrandBg && `color: ${setColor.brandMonochrome[0]}`};
 `
 
 export const RichTextEmphasisStyles = css`

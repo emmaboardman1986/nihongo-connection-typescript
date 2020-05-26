@@ -7,7 +7,7 @@ import Label from "../form/Label"
 import GDPR from "../form/GDPR"
 import CheckBox from "../form/CheckBox"
 import Emphasis from "../Emphasis"
-import {  setFont } from "../../styles/styleHelpers"
+import { setFont } from "../../styles/styleHelpers"
 import Button from "../../components/Button"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import BodyText from "../typography/BodyText"
@@ -118,6 +118,7 @@ const MailChimp = ({ emphasisColor }) => {
             onChange={onChange}
           />
         </div>
+        <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
         <Emphasis
           className="mc-field-group input-group"
           padding="1rem"
@@ -127,7 +128,7 @@ const MailChimp = ({ emphasisColor }) => {
             <MailChimpLegend>
               What would you like to hear about?
             </MailChimpLegend>
-            <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
+            <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
             <FormList flex={true}>
               <li flex={true}>
                 <CheckBox
@@ -211,7 +212,7 @@ const MailChimp = ({ emphasisColor }) => {
                     <span>Contact me via Customized Online Advertising</span>{" "}
                   </Label> */}
           </MailChimpFieldset>
-          <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
+          <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
           <BodyText><small>
             We use Mailchimp as our marketing platform. By clicking below to
             subscribe, you acknowledge that your information will be transferred
@@ -223,53 +224,53 @@ const MailChimp = ({ emphasisColor }) => {
             >
               Learn more about Mailchimp's privacy practices here.
             </TextLink>
-            </small>
+          </small>
           </BodyText>
         </GDPR>
-        <VerticalSpacing size={{_: "baseLoose"}}></VerticalSpacing>
+        <VerticalSpacing size={{ _: "baseLoose" }}></VerticalSpacing>
         {result && result.msg ? (
           <div role="status" aria-live="polite">
             <VerticalSpacing></VerticalSpacing>
             <Emphasis color="black" bgColor="white" alignCenter>
-           
-                {result.result === "success" ? (
-                  <img src={BrandSuccess} alt="Success" width="44px"></img>
-                ) : (
+
+              {result.result === "success" ? (
+                <img src={BrandSuccess} alt="Success" width="44px"></img>
+              ) : (
                   <img src={BrandWarn} alt="error" width="44px"></img>
                 )}
-                <VerticalSpacing></VerticalSpacing>
-                <BodyText font={setFont.fontSecondary} align="center">
-                  {result.msg}
-                </BodyText>
-            
+              <VerticalSpacing></VerticalSpacing>
+              <BodyText font={setFont.fontSecondary} align="center">
+                {result.msg}
+              </BodyText>
+
             </Emphasis>
-            <VerticalSpacing size={{_: "baseTight"}}></VerticalSpacing>
+            <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
           </div>
         ) : (
-          <Button
-            ref={submitButtonEl}
-            type="submit"
-            name="Subscribe"
-            id="mc-embedded-subscribe"
-            isAction
-            isCentered
-            onClick={handleSubmit}
-          >
-            Subscribe to mailing list
-          </Button>
-        )}
-        <VerticalSpacing size={{_: "base"}}></VerticalSpacing>
+            <Button
+              ref={submitButtonEl}
+              type="submit"
+              name="Subscribe"
+              id="mc-embedded-subscribe"
+              isAction
+              isCentered
+              onClick={handleSubmit}
+            >
+              Subscribe to mailing list
+            </Button>
+          )}
+        <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
         <BodyText>
-        <small>
-          You can unsubscribe at any time by clicking the link in the footer of
-          our emails. For information about our privacy practices, please visit
+          <small>
+            You can unsubscribe at any time by clicking the link in the footer of
+            our emails. For information about our privacy practices, please visit
           the{" "}
-          <TextLink
-            link="https://www.nihongoconnection.com"
-            isExternal
-            isOnBrandBg
-          >
-            Nihongo Connection website
+            <TextLink
+              link="https://www.nihongoconnection.com"
+              isExternal
+              isOnBrandBg
+            >
+              Nihongo Connection website
           </TextLink>
           </small>
         </BodyText>

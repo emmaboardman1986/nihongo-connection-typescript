@@ -17,7 +17,7 @@ const HighlightPill = ({ children, isAction, onClick }) => {
         </HighlightPillButton>
       ) : (
         <HighlightPillInfo>
-          <small>{children}</small>
+          {children}
         </HighlightPillInfo>
       )}
     </>
