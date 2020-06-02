@@ -5,14 +5,12 @@ import Heading from "../components/typography/Heading"
 import RichText from "../components/RichText"
 import BodyText from "../components/typography/BodyText"
 import Accordion from "../components/Accordion"
-import SectionResponsiveImage from "../components/SectionResponsiveImage"
+import ClassHero from "../components/ClassHero"
 import Card from "../components/Card"
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 import Emphasis from "../components/Emphasis"
 import MailChimp from "../components/MailChimp/MailChimp"
 import Button from "../components/Button"
-import FlexContainer from "../components/utilities/FlexContainer"
-import HighlightPill from "../components/HighlightPill"
 import { graphql } from "gatsby"
 import TextLink from "../components/TextLink"
 
@@ -23,38 +21,8 @@ export default function ClassPage({ data }) {
     <Layout>
       <Section>
         <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
-        <FlexContainer
-          flexDirection={{ _: "column", sm: "row" }}
-          justifyContent={{ _: "space-between" }}
-        >
-          <div>
-            <Heading element="h1">{classInfo.class_title.text}</Heading>
-            <VerticalSpacing size={{ _: "tight" }}></VerticalSpacing>
-
-            <BodyText>
-              {classInfo.class_duration && (
-                <HighlightPill>{classInfo.class_duration}</HighlightPill>
-              )}{" "}
-              {classInfo.class_location && (
-                <HighlightPill>{classInfo.class_location}</HighlightPill>
-              )}
-            </BodyText>
-            <VerticalSpacing size={{ _: "xLoose" }}></VerticalSpacing>
-          </div>
-          {classInfo.class_main_image.thumbnails.Tablet.url && (
-            <>
-              <SectionResponsiveImage
-                imgObj={classInfo.class_main_image}
-                applyFilter
-              ></SectionResponsiveImage>
-            </>
-          )}
-        </FlexContainer>
-        <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
-        <RichText
-          content={classInfo.class_summary.html}
-          emphasiseText
-        ></RichText>
+        <ClassHero title={classInfo.class_title.text} duration={classInfo.class_duration} location={classInfo.class_location} image={classInfo.class_main_image} summary={classInfo.class_summary.html}></ClassHero> 
+        
       </Section>
       {classInfo.class_discovery.html && (
         <Section>

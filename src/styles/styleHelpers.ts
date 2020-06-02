@@ -89,7 +89,7 @@ export const setBorder = {
 export const setShadow = {
   elevate: {
     0: `2px 2px 1px ${setColor.brandMonochrome[800]}`,
-    100: `4px 4px 1px  ${setColor.brandMonochrome[800]}`
+    100: `4px 4px 0px  ${setColor.brandMonochrome[800]}`
   },
   depress: {
     100: `2px 2px 1px ${setColor.brandMonochrome[800]}`

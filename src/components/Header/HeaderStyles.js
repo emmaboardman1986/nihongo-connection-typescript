@@ -14,7 +14,7 @@ export const HeaderStyles = css`
   box-sizing: border-box;
   ${setFlex({ align: "center", justify: "center" })};
   ${breakpoint.md`
-  padding: ${setSpacing.baseLoose} ${setSpacing.xxLoose};
+  padding: ${setSpacing.baseLoose};
   position: relative;
   top: initial;
   left: initial;

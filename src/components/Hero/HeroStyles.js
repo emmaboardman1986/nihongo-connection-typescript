@@ -6,7 +6,7 @@ ${setFlex()};
 ${setFlexDirection({ direction: "column" })};
 flex-wrap: wrap;
 ${breakpoint.sm`
-max-width: 900px;
+max-width: 950px;
 ${setFlex({ justify: "space-between" })};
 ${setFlexDirection({ direction: "row-reverse" })};
 margin-top: ${setSpacing.xLoose};

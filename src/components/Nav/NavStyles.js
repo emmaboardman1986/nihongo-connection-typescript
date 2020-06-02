@@ -34,10 +34,12 @@ background-color: transparent;
 `
 
 export const NavListItemWrapperStyles = css`
+min-width: 100px;
 padding: ${setSpacing.loose};
 list-style: none;
 border-top: ${setBorder.borderSmBlack};
 background-color: ${setColor.brandMonochrome[0]};
+height: 0;
 a {
     padding: ${setSpacing.base} 0;
     text-decoration: none;
@@ -93,6 +95,7 @@ ul {
         display: ${props => props.isDropDownExpanded === false ? "none" : "inline-block"};
         padding: ${setSpacing.tight};
         border: 0;
+        height:  ${props => props.isDropDownExpanded === false ? 0 : "auto"};
         a {
             font-family: ${setFont.fontPrimaryRegular};
             font-size: ${setFontSize.medium};

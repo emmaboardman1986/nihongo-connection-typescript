@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { HeaderStyles, HeaderLogoStyles } from "./HeaderStyles"
 import Nav from "../Nav"
 
+
 export interface HeaderProps {
   
 }

@@ -19,7 +19,6 @@ cursor: pointer;
 white-space: initial;
 height: 100%;
 &:hover {
-  border: ${setBorder.borderSmBlack};
     box-shadow: ${setShadow.depress[100]};
 }
 a {
