@@ -39,7 +39,6 @@ padding: ${setSpacing.loose};
 list-style: none;
 border-top: ${setBorder.borderSmBlack};
 background-color: ${setColor.brandMonochrome[0]};
-height: 0;
 a {
     padding: ${setSpacing.base} 0;
     text-decoration: none;
@@ -47,6 +46,7 @@ a {
     color: ${setColor.brandPrimary[900]};
 }
 ${breakpoint.md`
+height: 0;
 margin: 0 ${setSpacing.baseTight};
 border-top: none;
 background-color: transparent;
