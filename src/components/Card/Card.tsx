@@ -1,25 +1,21 @@
 import React from "react"
-import styled from "styled-components"
-import { CardStyles, ColorCardStyles, BorderCardStyles} from "./CardStyles"
+import { StyledCard } from "./CardStyles"
 
 export interface CardProps {
   bgColor?: "primary" | "primaryLight" | "secondary" | "secondaryLight" | "black",
   border?: string
   children: any
+  noPadding?: boolean
 }
 
-const Card = ({ bgColor, children, border }) => {
+const Card = ({ bgColor, children, border, noPadding }) => {
   return (
-    <CardWrapper bgColor={bgColor} border={border}>
+    <StyledCard bgColor={bgColor} border={border} noPadding={noPadding}>
       {children}
-    </CardWrapper>
+    </StyledCard>
   )
 }
 
-const CardWrapper = styled.div`
-  ${CardStyles};
-  ${props => props.bgColor && ColorCardStyles};
-  ${props => props.border && BorderCardStyles};
-`
+
 
 export default Card

@@ -61,7 +61,7 @@ export const setColor = {
   },
   brandMonochrome: {
     0: "#fff",
-    100: "hsl(0, 3%, 85%)",
+    100: "hsl(0, 3%, 98%)",
     200: "hsl(0, 2%, 75%)",
     300: "hsl(0, 2%, 65%)",
     400: "hsl(0, 2%, 55%)",

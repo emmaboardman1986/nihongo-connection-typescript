@@ -21,8 +21,13 @@ export default function ClassPage({ data }) {
     <Layout>
       <Section>
         <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
-        <ClassHero title={classInfo.class_title.text} duration={classInfo.class_duration} location={classInfo.class_location} image={classInfo.class_main_image} summary={classInfo.class_summary.html}></ClassHero> 
-        
+        <ClassHero
+          title={classInfo.class_title.text}
+          duration={classInfo.class_duration}
+          location={classInfo.class_location}
+          image={classInfo.class_main_image}
+          summary={classInfo.class_summary.html}
+        ></ClassHero>
       </Section>
       {classInfo.class_discovery.html && (
         <Section>
@@ -193,21 +198,25 @@ export default function ClassPage({ data }) {
       </Section>
       {classInfo.class_faqs.length > 1 && (
         <Section>
-          <Heading element="h2">FAQs</Heading>
+          <Card noPadding>
+            <Heading element="h2">FAQs</Heading>
 
-          <Accordion>{classInfo.class_faqs}</Accordion>
+            <Accordion>{classInfo.class_faqs}</Accordion>
+          </Card>
         </Section>
       )}
       {classInfo.class_type != "Friday Conversation Club" && (
         <Section>
+          <Card  bgColor="primary">
           <Heading element="h2">Mailing List</Heading>
           <BodyText>
             Join the community to get access to our events + activities
           </BodyText>
 
           <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
-          <Card bgColor="primary">
+         
             <MailChimp emphasisColor="primary" />
+          
           </Card>
         </Section>
       )}
