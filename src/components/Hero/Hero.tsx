@@ -14,7 +14,7 @@ const Hero = ({ children }) => {
         <HeroImage>
         <img src={Logo}></img>
       </HeroImage>
-      <VerticalSpacing size={{_: "base", sm: "xLoose"}}></VerticalSpacing>
+      <VerticalSpacing size={{_: "loose", sm: "xLoose"}}></VerticalSpacing>
       <HeroContent>
       {children}
       </HeroContent>

@@ -37,6 +37,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
             link="/explore"
            
           >{data.prismicHomepa.data.homepage_cta_button_text.text}</Button>
+            <VerticalSpacing size={{_: "loose", sm: "xLoose"}} />
         </Hero>
       </Section>
       <Section>
@@ -49,12 +50,13 @@ const HomePage: React.FC<Props> = ({ data }) => {
           cardContent={popularClasses}
           cardType="class"
         ></CardContainer>
-        <VerticalSpacing size={{_: "loose"}} />
+        <VerticalSpacing size={{_: "xLoose"}} />
         <Button
           link="/explore"
           
           variant="secondary"
         >See all classes</Button>
+          <VerticalSpacing size={{_: "loose", sm: "xLoose"}} />
       </Section>
       <ReviewCarouselSection></ReviewCarouselSection>
 

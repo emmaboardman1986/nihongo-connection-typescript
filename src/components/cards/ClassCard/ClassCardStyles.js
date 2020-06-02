@@ -15,7 +15,6 @@ ${BodyTextStyles};
 background-color: ${setColor.brandMonochrome[0]};
 border-radius: ${setBorder.borderRadius};
 box-shadow: ${setShadow.elevate[100]};
-border: ${setBorder.borderSmBlack};
 cursor: pointer;
 white-space: initial;
 height: 100%;
@@ -62,11 +61,9 @@ export const ClassCardLabelStyles = css`
 export const ClassCardImageStyles = css`
   height: 5rem;
   position: relative;
-  margin-top: -2px;
   img {
     border-top-right-radius: ${setBorder.borderRadius};
     border-top-left-radius: ${setBorder.borderRadius};
-    border-top: ${setBorder.borderSmBlack};
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -104,7 +101,7 @@ export const ClassCardTextStyles = css`
 export const GradientStyles = css`
 height: 100%;
   box-sizing: border-box;
-  padding: 0.25rem;
+  padding: ${setSpacing.tight};
   background: linear-gradient(
     to left,
     #434599,
@@ -114,13 +111,12 @@ height: 100%;
     orange,
     #ed2530
   );
-  border-radius: 8px;`
+  border-radius: ${setBorder.borderRadius};`
 
 export const ClassCardInnerStyles = css`
   ${setFlex()};
   ${setFlexDirection({ direction: "column" })};
-   background-color: white;
+  background-color: white;
   border-radius: 10px;
   height: 100%;
-  border: 2px solid black;
   box-sizing: border-box;`

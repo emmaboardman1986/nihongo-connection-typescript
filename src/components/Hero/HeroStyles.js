@@ -6,6 +6,7 @@ ${setFlex()};
 ${setFlexDirection({ direction: "column" })};
 flex-wrap: wrap;
 ${breakpoint.sm`
+max-width: 900px;
 ${setFlex({ justify: "space-between" })};
 ${setFlexDirection({ direction: "row-reverse" })};
 margin-top: ${setSpacing.xLoose};
@@ -13,7 +14,9 @@ margin-top: ${setSpacing.xLoose};
 `}
 `
 
-export const HeroContentStyles = css``
+export const HeroContentStyles = css`
+${breakpoint.sm`
+width: 60%`}`
 
 export const HeroImageStyles = css`
 img {

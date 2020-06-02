@@ -54,6 +54,7 @@ const ReviewCarouselSection = () => {
       <Button link="/reviews" variant="secondary">
         See all reviews
       </Button>
+      <VerticalSpacing size={{_: "loose", sm: "xLoose"}} />
     </Section>
   )
 }
