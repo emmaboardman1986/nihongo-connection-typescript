@@ -55,10 +55,6 @@ const Nav = React.forwardRef((props, ref) => {
           link: "/beginners-bootcamp",
         },
         {
-          name: "Nihongo Confidence",
-          link: "/nihongo-confidence",
-        },
-        {
           name: "Nihongo Confidence (Lite)",
           link: "/nihongo-confidence-lite",
         },
