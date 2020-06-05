@@ -1,4 +1,4 @@
-#Accordion
+# Accordion
 
 ## States
 
@@ -11,10 +11,10 @@
 
 
 **Expand All / Collapse All Toggle  Button**
-- Neutral (Collapsed)
-- Neutral (Expanded)
-- Hover (Collapsed & Expanded)
-- Focus (Collapsed & Expanded)
+
+| Neutral (Collapsed)        | Neutral (Expanded)          | Hover (Collapsed & Expanded)  |  Focus (Collapsed & Expanded) | 
+| ------------- |-------------| -----| --- |
+| ![alt text](https://i.ibb.co/NmMb15C/Screenshot-2020-06-05-at-13-36-08.png "Neutral (Collapsed)")     | ![alt text](https://i.ibb.co/GC3zfK4/Screenshot-2020-06-05-at-13-36-22.png "Neutral (Expanded)") |![alt text](https://i.ibb.co/K72dT3b/Screenshot-2020-06-05-at-13-30-17.png "Hover (Collapsed & Expanded)") | ![alt text](https://i.ibb.co/hmxzqx1/Screenshot-2020-06-05-at-13-30-35.png "Hover (Collapsed & Expanded)")
 
 
 ## Interactions
