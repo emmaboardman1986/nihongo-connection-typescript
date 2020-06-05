@@ -1,29 +1,33 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { ButtonStyles, SecondaryButtonStyles, ActionButtonStyles } from "./ButtonStyles"
+import {
+  StyledActionButton,
+  StyledLinkButton,
+} from "./ButtonStyles"
 
 export interface ButtonProps {
-  children: any
+  children: string
   link: string
   isCentered?: boolean
   variant?: "primary" | "secondary"
-  onClick?: any
   isExternal?: boolean
   isAction?: boolean
-  type: string
-  name: string
+  /** required for action buttons */
+  onClick?: any
+  type?: string //
+  name?: string
 }
 
-const Button = React.forwardRef((props, ref) => {
+const Button = React.forwardRef((props: ButtonProps, ref) => {
   const {
     children,
     link,
     isCentered,
+    variant = "primary",
     onClick,
     isExternal,
     isAction,
-    isCTA,
     type,
     name,
   } = props
@@ -31,17 +35,18 @@ const Button = React.forwardRef((props, ref) => {
   return (
     <>
       {isAction ? (
-        <ActionWrapper
+        <StyledActionButton
           onClick={onClick}
           isCentered={isCentered}
           type={type}
+          // used to apply class styling on click
           ref={ref}
           name={name}
         >
           <span className="visually-hidden">{name}</span>
-        </ActionWrapper>
+        </StyledActionButton>
       ) : (
-        <LinkWrapper isCentered={isCentered} isCTA={isCTA}>
+        <StyledLinkButton isCentered={isCentered} variant={variant}>
           {isExternal ? (
             <a href={link} target="_blank">
               {children}
@@ -49,22 +54,11 @@ const Button = React.forwardRef((props, ref) => {
           ) : (
             <Link to={link}>{children}</Link>
           )}
-        </LinkWrapper>
+        </StyledLinkButton>
       )}
     </>
   )
 })
 
-const ActionWrapper = styled.button`
-  ${ButtonStyles};
-  ${ActionButtonStyles};
-`
-
-const LinkWrapper = styled.div`
-  ${ButtonStyles};
-  ${props => props.variant === "secondary" && SecondaryButtonStyles};
-  margin-left: ${props => (props.isCentered ? "auto" : null)};
-  margin-right: ${props => (props.isCentered ? "auto" : null)};
-`
 
 export default Button

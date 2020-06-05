@@ -19,7 +19,7 @@ const AccordionHoverStyles = css`
 
 const AccordionFocusStyles = css`
  outline: 0;
-        box-shadow: 0 0 0 3px ${setColor.brandPrimary[300]};`
+ box-shadow: 0 0 0 4px ${setColor.brandPrimary[300]};`
 
 const AccordionToggleStyles = css`
 font-family: ${setFont.fontPrimaryMedium};

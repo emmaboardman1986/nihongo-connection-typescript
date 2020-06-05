@@ -1,17 +1,18 @@
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 import { setColor, setFlex, setFontSize, setFont, setBorder } from "../../styles/styleHelpers"
 import { BrandWarn } from "../../../static/brandwarn.svg"
 import { BrandTick } from "../../../static/brandtick.svg"
 
-export const ButtonStyles = css`
+const ButtonStyles = css`
   ${BodyTextStyles};
   font-family: ${setFont.fontPrimaryMedium};
   background-color: ${setColor.brandSecondary[500]};
   min-height: 44px;
   border-radius: ${setBorder.borderRadius};
   width: 160px;
-  border: ${setBorder.borderSmBlack};
+  border: 2px solid transparent;
+
   ${props =>
     props.alignCenter ? "margin-left: auto; margin-right: auto;" : null};
   ${setFlex({ align: "center", justify: "center" })};
@@ -19,17 +20,23 @@ export const ButtonStyles = css`
     text-decoration: none;
     color: ${setColor.brandMonochrome[0]};
   }
+  &:hover {
+      background-color: ${setColor.brandSecondary[600]};
+  }
 `
 
-export const SecondaryButtonStyles = css`
+const SecondaryButtonStyles = css`
   background-color: ${setColor.brandPrimary[600]};
   border: 2px solid ${setColor.brandPrimary[600]};
+  &:hover {
+      background-color: ${setColor.brandPrimary[700]};
+    }
   a {
     color: ${setColor.brandMonochrome[0]};
   }
 `
 
-export const ActionButtonStyles = css`
+const ActionButtonStyles = css`
   &:after {
     content: "${props => props.name}";
     margin-top: 3px;
@@ -44,6 +51,10 @@ export const ActionButtonStyles = css`
   &:hover {
     background-color: ${setColor.brandPrimary[100]};
     border: ${setColor.borderSmBlack};
+  }
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px ${setColor.brandPrimary[100]};
   }
   /* Remove Later */
   margin-left: auto;
@@ -88,4 +99,16 @@ export const ActionButtonStyles = css`
     transform: rotate(360deg);
   }
 }
+`
+
+export const StyledActionButton = styled.button`
+  ${ButtonStyles};
+  ${ActionButtonStyles};
+`
+
+export const StyledLinkButton = styled.div`
+  ${ButtonStyles};
+  ${props => props.variant === "secondary" && SecondaryButtonStyles};
+  margin-left: ${props => (props.isCentered ? "auto" : null)};
+  margin-right: ${props => (props.isCentered ? "auto" : null)}; 
 `

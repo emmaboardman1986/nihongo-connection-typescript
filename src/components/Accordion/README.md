@@ -1,7 +1,12 @@
 # Accordion
 
-## States
+## Usage
 
+Accordions should be used when it can be reasonably expected that the content contained will be of selective importance to the user. By hiding the content, and allowing the user to view it at their discretion, the user is able to focus more efficiently on the topics that most interest them. 
+
+Note: this accordion should not be used inside a form in its current state. If use inside a form is required, ```type='button'`` should be added to the toggle button. 
+
+## States
 
 **Individual Accordion Section & Button**
 
@@ -24,13 +29,6 @@
 - Multiple sections can be open at the same time. Interactions to expand an individual section will not automatically close any currently expanded sections.
 - When a user interacts with the "expand all" button above the accordion, all accordion content (irregardless of previous collapsed / expanded state) will slide into view. The text of the "expand all" button will be updated to "collapse all". Interactions that trigger this are those default to the HTML button element - click, space, enter. 
 - When a user interacts with the "collapse all" button above the accordion, all accordion content (irregardless of previous collapsed / expanded state) will slide into view. The text of the "expand all" button will be updated to "collapse all". Interactions that trigger this are those default to the HTML button element - click, space, enter. 
-
-
-## Context
-
-Accordions should be used when it can be reasonably expected that the content contained will be of selective importance to the user. By hiding the content, and allowing the user to view it at their discretion, the user is able to focus more efficiently on the topics that most interest them. 
-
-Note: this accordion should not be used inside a form in its current state. If use inside a form is required, ```type='button'`` should be added to the toggle button. 
 
 
 ## Content 

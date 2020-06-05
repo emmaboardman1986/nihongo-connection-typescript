@@ -26,8 +26,6 @@ const Accordion = ({ children }: AccordionProps) => {
   const [expandedSections, setExpandedSections] = useState({})
   const [expandAll, setExpandAll] = useState(false)
 
-  console.log(expandedSections);
-
   useEffect(() => {
     let mapSectionStates = (sectionStates, sectionItem) => {
       // sectionState is accumulator of reduced values, 
