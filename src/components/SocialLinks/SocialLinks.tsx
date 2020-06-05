@@ -1,6 +1,5 @@
 import React from "react"
-import styled from "styled-components"
-import { SocialLinksStyles } from "./SocialLinksStyles"
+import { StyledSocialLinks } from "./SocialLinksStyles"
 import { useStaticQuery, graphql } from "gatsby"
 import Icon from "../Icon"
 
@@ -26,7 +25,7 @@ const SocialLinks = () => {
 
   const socialLinks = data.allPrismicSocialLinks.nodes[0].data.social_link
   return (
-    <SocialLinksWrapper>
+    <StyledSocialLinks>
       {socialLinks.map((socialLink, index) => (
         <a href={socialLink.social_link1.url} target="_blank" key={index}>
           <span className="visually-hidden">
@@ -39,12 +38,8 @@ const SocialLinks = () => {
           ></Icon>
         </a>
       ))}
-    </SocialLinksWrapper>
+    </StyledSocialLinks>
   )
 }
-
-const SocialLinksWrapper = styled.div`
-  ${SocialLinksStyles};
-`
 
 export default SocialLinks

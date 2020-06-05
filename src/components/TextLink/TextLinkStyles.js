@@ -1,14 +1,15 @@
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
+import { Link } from "gatsby"
 import { setColor, setFont } from "../../styles/styleHelpers"
 
-export const TextLinkOnBrandBgStyles = css`
+const TextLinkOnBrandBgStyles = css`
 color: ${setColor.brandMonochrome[0]};
   &:hover {
     color: ${setColor.brandMonochrome[800]};
     background-color: ${setColor.brandMonochrome[0]};
   }`
 
-export const TextLinkWrapperStyles = css`
+const TextLinkWrapperStyles = css`
   display: inline;
   font-family: ${setFont.fontPrimaryMedium};
   color: inherit;
@@ -17,3 +18,10 @@ export const TextLinkWrapperStyles = css`
     background-color: ${setColor.brandPrimary[600]};
   }
   ${props => props.isOnBrandBg && TextLinkOnBrandBgStyles};`
+
+export const StyledExternalTextLink = styled.a`
+${TextLinkWrapperStyles};
+`
+export const StyledInternalTextLink = styled(Link)`
+${TextLinkWrapperStyles};
+`

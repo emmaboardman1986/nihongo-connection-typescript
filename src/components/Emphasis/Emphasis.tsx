@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledEmphasis} from "./EmphasisStyles"
 
 
-export interface CardProps {
+export interface EmphasisProps {
     color: "primary" | "secondary" | "black"
     children: any
     bgColor?: "white"
@@ -10,7 +10,7 @@ export interface CardProps {
     alignCenter?: boolean
   }
 
-const Emphasis= ({children, color, bgColor, noPaddingBottom = false, alignCenter = false}) => {
+const Emphasis= ({children, color, bgColor, noPaddingBottom = false, alignCenter = false}:EmphasisProps) => {
     return(
         <StyledEmphasis color={color} bgColor={bgColor} noPaddingBottom={noPaddingBottom} alignCenter={alignCenter}>
             {children}

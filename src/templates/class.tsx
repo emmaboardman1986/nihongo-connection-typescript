@@ -137,18 +137,7 @@ export default function ClassPage({ data }) {
           <Card bgColor="primary">
             {classInfo.class_dates.length > 0 &&
             classInfo.class_dates[0].class_date === null ? (
-              classInfo.class_type === "Friday Conversation Club" ? (
-                <>
-                  <Heading element="h2">
-                    {classInfo.class_booking_title.text}
-                  </Heading>
-                  <RichText
-                    content={classInfo.class_booking_instructions.html}
-                  ></RichText>
-                  <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
-                  <MailChimp />
-                </>
-              ) : classInfo.class_type === "By Application" ? (
+              classInfo.class_type === "By Application" ? (
                 <>
                   <Heading element="h2">
                     {classInfo.class_booking_title.text}
@@ -159,7 +148,7 @@ export default function ClassPage({ data }) {
                   <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
                   <p>
                     <TextLink
-                      link="mailto:hello@nihongoconnection.com"
+                      link="mailto:nihongoscotland@gmail.com"
                       isExternal
                     >
                       hello@nihongoconnection.com
@@ -175,6 +164,15 @@ export default function ClassPage({ data }) {
                   <MailChimp />
                 </>
               )
+            ) : classInfo.class_type === "Friday Conversation Club" ? (
+              <>
+                <Heading element="h2">
+                  {classInfo.class_booking_title.text}
+                </Heading>
+                <RichText content={classInfo.class_booking_instructions.html}></RichText>
+                <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
+                <MailChimp />
+              </>
             ) : (
               <>
                 <Heading element="h2">
@@ -199,24 +197,23 @@ export default function ClassPage({ data }) {
       {classInfo.class_faqs.length > 1 && (
         <Section>
           {/* <Card noPadding> */}
-            <Heading element="h2">FAQs</Heading>
+          <Heading element="h2">FAQs</Heading>
 
-            <Accordion>{classInfo.class_faqs}</Accordion>
+          <Accordion>{classInfo.class_faqs}</Accordion>
           {/* </Card> */}
         </Section>
       )}
       {classInfo.class_type != "Friday Conversation Club" && (
         <Section>
-          <Card  bgColor="primary">
-          <Heading element="h2">Mailing List</Heading>
-          <BodyText>
-            Join the community to get access to our events + activities
-          </BodyText>
+          <Card bgColor="primary">
+            <Heading element="h2">Mailing List</Heading>
+            <BodyText>
+              Join the community to get access to our events + activities
+            </BodyText>
 
-          <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
-         
+            <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
+
             <MailChimp emphasisColor="primary" />
-          
           </Card>
         </Section>
       )}
