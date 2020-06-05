@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { CardContainerStyles } from "./CardContainerStyles"
 import ClassCard from "../ClassCard"
 import ReviewCard from "../ReviewCard"
-import AnchorSpan from "../../AnchorSpan"
 
 const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull }) => {
   return (
@@ -65,7 +64,6 @@ const CardContainer = ({ cardType, cardContent, noHorizontalScroll, displayFull 
         cardContent.length > 1 ? (
           cardContent.map((review, index) => (
             <li key={index}>
-              <AnchorSpan id={index}></AnchorSpan>
               <ReviewCard
               displayFull={displayFull}
                 key={review.id}

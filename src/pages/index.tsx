@@ -12,16 +12,13 @@ import Hero from "../components/Hero"
 import FlexContainer from "../components/utilities/FlexContainer"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
-import { breakpoints } from "../styles/styleHelpers"
 
 interface Props {
   readonly data: PageQueryData
 }
 
-
-
 const HomePage: React.FC<Props> = ({ data }) => {
-  const popularClasses = data.allPrismicClass.edges
+  const popularClasses = data["allPrismicClass"].edges
   return (
     <Layout>
       <Section>
@@ -32,81 +29,90 @@ const HomePage: React.FC<Props> = ({ data }) => {
           <RichText
             content={data.prismicHomepa.data.homepage_summary.html}
           ></RichText>
-          <VerticalSpacing size={{_: "loose", sm: "xLoose"}} />
-          <Button
-            link="/explore"
-           
-          >{data.prismicHomepa.data.homepage_cta_button_text.text}</Button>
-            <VerticalSpacing size={{_: "loose", sm: "xLoose"}} />
+          <VerticalSpacing size={{ _: "loose", sm: "xLoose" }} />
+          <Button link="/explore">
+            {data.prismicHomepa.data.homepage_cta_button_text.text}
+          </Button>
+          <VerticalSpacing size={{ _: "loose", sm: "xLoose" }} />
         </Hero>
       </Section>
       <Section>
         <Heading element="h2">
           {data.prismicHomepa.data.homepage_1st_section_title.text}
         </Heading>
- 
 
         <CardContainer
           cardContent={popularClasses}
           cardType="class"
         ></CardContainer>
-        <VerticalSpacing size={{_: "xLoose"}} />
-        <Button
-          link="/explore"
-          
-          variant="secondary"
-        >See all classes</Button>
-          <VerticalSpacing size={{_: "loose", sm: "xLoose"}} />
+        <VerticalSpacing size={{ _: "xLoose" }} />
+        <Button link="/explore" variant="secondary">
+          See all classes
+        </Button>
+        <VerticalSpacing size={{ _: "loose", sm: "xLoose" }} />
       </Section>
       <ReviewCarouselSection></ReviewCarouselSection>
 
       <Section>
-        <FlexContainer flexDirection={{ _: "column", sm: "row"}} justifyContent={{_: "space-around"}}>
+        <FlexContainer
+          flexDirection={{ _: "column", sm: "row" }}
+          justifyContent={{ _: "space-around" }}
+        >
           <div>
             <Heading element="h2">
               {data.prismicHomepa.data.homepage_3rd_section_title.text}
             </Heading>
-          
+
             <RichText
               content={
                 data.prismicHomepa.data.homepage_3rd_section_content.html
               }
             ></RichText>
-             <VerticalSpacing size={{_: "baseTight"}} />
+            <VerticalSpacing size={{ _: "baseTight" }} />
           </div>
           <SectionResponsiveImage
             imgObj={data.prismicHomepa.data.homepage_3rd_section_image}
           ></SectionResponsiveImage>
         </FlexContainer>
-        <VerticalSpacing size={{_: "loose"}} />
-        <FlexContainer flexDirection={{ _: "column", sm: "row-reverse"}} justifyContent={{_: "space-around"}}>
-        <div>
-        <Heading element="h2">
-          {data.prismicHomepa.data.homepage_4th_section_title.text}
-        </Heading>
-        <RichText
-          content={data.prismicHomepa.data.homepage_4th_section_content.html}
-        ></RichText>
-          <VerticalSpacing size={{_: "baseTight"}} />
-        </div>
-        <SectionResponsiveImage
-          imgObj={data.prismicHomepa.data.homepage_4th_section_image}
-        ></SectionResponsiveImage>
-        </FlexContainer>
-        <VerticalSpacing size={{_: "loose"}} />
-        <FlexContainer flexDirection={{ _: "column", sm: "row"}} justifyContent={{_: "space-around"}}>
+        <VerticalSpacing size={{ _: "loose" }} />
+        <FlexContainer
+          flexDirection={{ _: "column", sm: "row-reverse" }}
+          justifyContent={{ _: "space-around" }}
+        >
           <div>
-        <Heading element="h2">
-          {data.prismicHomepa.data.homepage_5th_section_title.text}
-        </Heading>
-        <RichText
-          content={data.prismicHomepa.data.homepage_5th_section_content.html}
-        ></RichText>
-         <VerticalSpacing size={{_: "baseTight"}} />
-        </div>
-        <SectionResponsiveImage
-          imgObj={data.prismicHomepa.data.homepage_5th_section_image}
-        ></SectionResponsiveImage>
+            <Heading element="h2">
+              {data.prismicHomepa.data.homepage_4th_section_title.text}
+            </Heading>
+            <RichText
+              content={
+                data.prismicHomepa.data.homepage_4th_section_content.html
+              }
+            ></RichText>
+            <VerticalSpacing size={{ _: "baseTight" }} />
+          </div>
+          <SectionResponsiveImage
+            imgObj={data.prismicHomepa.data.homepage_4th_section_image}
+          ></SectionResponsiveImage>
+        </FlexContainer>
+        <VerticalSpacing size={{ _: "loose" }} />
+        <FlexContainer
+          flexDirection={{ _: "column", sm: "row" }}
+          justifyContent={{ _: "space-around" }}
+        >
+          <div>
+            <Heading element="h2">
+              {data.prismicHomepa.data.homepage_5th_section_title.text}
+            </Heading>
+            <RichText
+              content={
+                data.prismicHomepa.data.homepage_5th_section_content.html
+              }
+            ></RichText>
+            <VerticalSpacing size={{ _: "baseTight" }} />
+          </div>
+          <SectionResponsiveImage
+            imgObj={data.prismicHomepa.data.homepage_5th_section_image}
+          ></SectionResponsiveImage>
         </FlexContainer>
       </Section>
       {/* <VerticalSpacing size={{_: "baseT"}} /> */}
@@ -115,80 +121,80 @@ const HomePage: React.FC<Props> = ({ data }) => {
 }
 
 interface PageQueryData {
-  data: {
-    prismicHomepa: {
-      data: {
-        homepage_1st_section_title: {
-          text: string
-        }
-        homepage_2nd_section_title: {
-          text: string
-        }
-        homepage_3rd_section_content: {
-          html: string
-        }
-        homepage_3rd_section_title: {
-          text: string
-        }
-        homepage_3rd_section_image: {
-          alt: string
-          url: string
-          thumbnails: {
-            Tablet: {
-              url: string
-            }
-            thumbnail: {
-              url: string
-            }
+  // data: {
+  prismicHomepa: {
+    data: {
+      homepage_1st_section_title: {
+        text: string
+      }
+      homepage_2nd_section_title: {
+        text: string
+      }
+      homepage_3rd_section_content: {
+        html: string
+      }
+      homepage_3rd_section_title: {
+        text: string
+      }
+      homepage_3rd_section_image: {
+        alt: string
+        url: string
+        thumbnails: {
+          Tablet: {
+            url: string
           }
-        }
-        homepage_4th_section_content: {
-          html: string
-        }
-        homepage_4th_section_title: {
-          text: string
-        }
-        homepage_4th_section_image: {
-          alt: string
-          url: string
-          thumbnails: {
-            Tablet: {
-              url: string
-            }
-            thumbnail: {
-              url: string
-            }
+          thumbnail: {
+            url: string
           }
-        }
-        homepage_5th_section_content: {
-          html: string
-        }
-        homepage_5th_section_title: {
-          text: string
-        }
-        homepage_5th_section_image: {
-          alt: string
-          url: string
-          thumbnails: {
-            Tablet: {
-              url: string
-            }
-            thumbnail: {
-              url: string
-            }
-          }
-        }
-        homepage_cta_button_text: {
-          text: string
-        }
-        homepage_summary: {
-          html: string
-        }
-        homepage_title: {
-          text: string
         }
       }
+      homepage_4th_section_content: {
+        html: string
+      }
+      homepage_4th_section_title: {
+        text: string
+      }
+      homepage_4th_section_image: {
+        alt: string
+        url: string
+        thumbnails: {
+          Tablet: {
+            url: string
+          }
+          thumbnail: {
+            url: string
+          }
+        }
+      }
+      homepage_5th_section_content: {
+        html: string
+      }
+      homepage_5th_section_title: {
+        text: string
+      }
+      homepage_5th_section_image: {
+        alt: string
+        url: string
+        thumbnails: {
+          Tablet: {
+            url: string
+          }
+          thumbnail: {
+            url: string
+          }
+        }
+      }
+      homepage_cta_button_text: {
+        text: string
+      }
+      homepage_summary: {
+        html: string
+      }
+      homepage_title: {
+        text: string
+      }
     }
+    // }
 
     allPrismicClass(filter: {
       data: { class_popular: { eq: true } }
