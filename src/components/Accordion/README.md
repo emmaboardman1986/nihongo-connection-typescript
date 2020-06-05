@@ -6,7 +6,7 @@
 **Individual Accordion Section & Button**
 
 | Neutral (Collapsed)        | Neutral (Expanded)          | Hover (Collapsed)  | Hover (Expanded) | Focus (Collapsed) | Focus (Expanded) |
-| ------------- |:-------------:| -----:|
+| ------------- |-------------| -----| --- | --- | --- |
 | ![alt text](https://i.ibb.co/BNhW7bm/Screenshot-2020-06-05-at-13-35-54.png "Neutral (Collapsed)")     | ![alt text](https://i.ibb.co/m9C18KK/Screenshot-2020-06-05-at-13-36-01.png "Neutral (Expanded)") |![alt text](https://i.ibb.co/r3YvMpv/Screenshot-2020-06-05-at-13-35-20.png "Hover (Collapsed)") | ![alt text](https://i.ibb.co/0Gb3NWW/Screenshot-2020-06-05-at-13-35-13.png "Hover (Expanded)")| ![alt text](https://i.ibb.co/dfgnCqs/Screenshot-2020-06-05-at-13-35-33.png "Hover (Collapsed)") | ![alt text](https://i.ibb.co/THz2dpm/Screenshot-2020-06-05-at-13-35-39.png "Hover (Collapsed)") |
 
 
