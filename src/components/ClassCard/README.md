@@ -30,7 +30,7 @@ Class Cards contain class location, class title, class frequency, and the next c
 ## A11y 
 
 ### Assistive Affordance
-- Cards are <li> elements, within a <ul>. This provides assistive technologies with shortcuts, and feedback on the number of list items. 
+- Cards are ```<li>``` elements, within a ```<ul>```. This provides assistive technologies with shortcuts, and feedback on the number of list items. 
 - Each card has an ```<h2>``` heading 
 - The link to the card page is nested within the ```<h2>``` heading, so as to communicate meaningful link text to assistive technology users.
 - Images are considered decorative, and provided an empty ```alt``` attribute

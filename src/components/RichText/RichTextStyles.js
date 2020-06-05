@@ -1,19 +1,19 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 import { setFont, breakpoint, setColor } from "../../styles/styleHelpers"
 import starSVG from "../../../static/star.svg"
 
-export const RichTextWrapperStyles = css`
+const RichTextWrapperStyles = css`
 ${BodyTextStyles};
 max-width: 500px;
 ${props => props.isOnBrandBg && `color: ${setColor.brandMonochrome[0]}`};
 `
 
-export const RichTextEmphasisStyles = css`
+const RichTextEmphasisStyles = css`
 font-family: ${setFont.fontPrimaryMedium};
 `
 
-export const RichTextStarredListStyles = css`
+const RichTextStarredListStyles = css`
 li {
     margin-top: 5%;
   margin-bottom: 1%;
@@ -41,3 +41,9 @@ li {
     margin-left: -3rem;
   }`}
 }`
+
+export const StyledRichText = styled.div`
+  ${RichTextWrapperStyles};
+  ${props => props.emphasiseText && RichTextEmphasisStyles};
+  ${props => props.starredList && RichTextStarredListStyles};
+`

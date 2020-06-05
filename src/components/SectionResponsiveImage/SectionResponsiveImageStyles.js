@@ -1,7 +1,7 @@
-import { css } from "styled-components"
-import { setBorder, breakpoint, setSpacing } from "../../styles/styleHelpers"
+import styled, { css } from "styled-components"
+import { setBorder, breakpoint } from "../../styles/styleHelpers"
 
-export const SectionResponsiveImageStyles = css`
+const SectionResponsiveImageStyles = css`
 width: 100%;
 ${breakpoint.sm`
 width: ${props => props.desktopWidth ? props.desktopWidth : '40%'} `}
@@ -11,4 +11,8 @@ img {
     border: ${setBorder.borderSmPrimary};
     ${props => props.applyFilter && "filter: saturate(1) brightness(1) contrast(2)"};
 }
+`
+
+export const StyledSectionResponsiveImage = styled.div`
+  ${SectionResponsiveImageStyles};
 `

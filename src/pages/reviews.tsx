@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import Heading from "../components/typography/Heading"
 import Section from "../components/Section"
 import BodyText from "../components/typography/BodyText"
-import CardContainer from "../components/cards/CardContainer"
+import CardContainer from "../components/CardContainer"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
 
@@ -13,8 +13,8 @@ interface Props {
 }
 
 const ReviewsPage: React.FC<Props> = ({ data }) => {
-  const allReviews = data.allPrismicGeneralReviews.edges[0].node.data.general_reviews;
-  const reviewPageCopy = data.allPrismicGeneralReviews.edges[0].node.data
+  const allReviews = data["allPrismicGeneralReviews"].edges[0].node.data.general_reviews;
+  const reviewPageCopy = data["allPrismicGeneralReviews"].edges[0].node.data
 
   return (
     <Layout>

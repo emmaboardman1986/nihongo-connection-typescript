@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
-import { HighlightPillStyles } from "./HighlightPillStyles"
+import { StyledHighlightPillButton, StyledHighlightPillInfo } from "./HighlightPillStyles"
 
 export interface HighlightPillProps {
   children: string
@@ -8,28 +7,21 @@ export interface HighlightPillProps {
   onClick?: any
 }
 
-const HighlightPill = ({ children, isAction, onClick }) => {
+const HighlightPill = ({ children, isAction, onClick }:HighlightPillProps) => {
   return (
     <>
       {isAction ? (
-        <HighlightPillButton onClick={onClick}>
+        <StyledHighlightPillButton onClick={onClick}>
           {children}
-        </HighlightPillButton>
+        </StyledHighlightPillButton>
       ) : (
-        <HighlightPillInfo>
+        <StyledHighlightPillInfo>
           {children}
-        </HighlightPillInfo>
+        </StyledHighlightPillInfo>
       )}
     </>
   )
 }
 
-const HighlightPillButton = styled.button`
-  ${HighlightPillStyles};
-`
-
-const HighlightPillInfo = styled.span`
-  ${HighlightPillStyles};
-`
 
 export default HighlightPill

@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import Filter from "../Filter"
-import CardContainer from "../../cards/CardContainer"
+import CardContainer from "../../CardContainer"
 import BodyText from "../../typography/BodyText"
 import Heading from "../../typography/Heading"
 import VerticalSpacing from "../../utilities/VerticalSpacing"

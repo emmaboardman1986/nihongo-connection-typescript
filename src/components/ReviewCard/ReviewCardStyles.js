@@ -1,5 +1,5 @@
-import { css } from "styled-components"
-import { BodyTextStyles } from "../../typography/BodyText/BodyTextStyles"
+import styled, { css } from "styled-components"
+import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 import { ClassCardStyles } from "../ClassCard/ClassCardStyles"
 import {
   setFlex,
@@ -7,9 +7,9 @@ import {
   setFontSize,
   setSpacing,
   setBorder
-} from "../../../styles/styleHelpers"
+} from "../../styles/styleHelpers"
 
-export const ReviewCardStyles = css`
+const ReviewCardStyles = css`
   ${ClassCardStyles};
   ${BodyTextStyles};
   border: ${setBorder.borderSmBlack};
@@ -26,4 +26,8 @@ export const ReviewCardStyles = css`
     text-align: center;
   }
   ${props => props.displayFull && "box-shadow: none;"}
+`
+
+export const StyledReviewCard = styled.div`
+  ${ReviewCardStyles};
 `

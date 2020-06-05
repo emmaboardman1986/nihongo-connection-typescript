@@ -1,7 +1,7 @@
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 import { setSpacing, setFlex, setFlexDirection, breakpoint } from "../../styles/styleHelpers"
 
-export const HeroWrapperStyles = css`
+const HeroWrapperStyles = css`
 ${setFlex()};
 ${setFlexDirection({ direction: "column" })};
 flex-wrap: wrap;
@@ -14,11 +14,11 @@ margin-top: ${setSpacing.xLoose};
 `}
 `
 
-export const HeroContentStyles = css`
+const HeroContentStyles = css`
 ${breakpoint.sm`
 width: 60%`}`
 
-export const HeroImageStyles = css`
+const HeroImageStyles = css`
 img {
     transform: rotate(-90deg);
     width: 110px;
@@ -26,4 +26,16 @@ img {
     width: 210px;
     `}
 }
+`
+
+export const StyledHero = styled.div`
+  ${HeroWrapperStyles};
+`
+
+export const StyledHeroContent = styled.div`
+  ${HeroContentStyles};
+`
+
+export const StyledHeroImage = styled.div`
+  ${HeroImageStyles};
 `

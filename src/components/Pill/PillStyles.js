@@ -1,8 +1,8 @@
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 import { setColor, setFlex, setBorder, setFont, setFontSize, setShadow, setSpacing } from "../../styles/styleHelpers"
 
-export const PillStyles = css`
+const PillStyles = css`
   ${BodyTextStyles};
   font-family: ${setFont.fontSecondaryBlack};
   color: ${setColor.brandMonochrome[900]};
@@ -21,6 +21,10 @@ export const PillStyles = css`
   color: ${setColor.brandMonochrome[0]};
   font-size: ${setFontSize.medium};
   background-color: ${setColor.brandSecondary[400]};
-
 }
 `
+
+export const StyledPill = styled.button`
+  ${PillStyles}
+`
+

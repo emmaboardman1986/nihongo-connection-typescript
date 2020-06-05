@@ -1,14 +1,7 @@
 import React from "react"
-import styled from "styled-components"
-import { FooterStyles, } from "./FooterStyles"
+import { StyledFooter, StyledFooterCopyright } from "./FooterStyles"
 import { useStaticQuery, graphql } from "gatsby"
 import SocialLinks from "../SocialLinks"
-
-// export interface FooterProps {
-//   element?: "h1" | "h2" | "h3" | "h4"
-//   text: string,
-//   className?: string
-// }
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -27,18 +20,14 @@ const Footer = () => {
 
   const footerContent = data.allPrismicFooterContent.nodes[0].data
   return (
-    <FooterWrapper>
-      <FooterCopyright>
+    <StyledFooter>
+      <StyledFooterCopyright>
         <small>{footerContent.footer_copyright[0].text}</small>
-      </FooterCopyright>
-     <SocialLinks></SocialLinks>
-    </FooterWrapper>
+      </StyledFooterCopyright>
+      <SocialLinks></SocialLinks>
+    </StyledFooter>
   )
 }
 
-const FooterWrapper = styled.footer`
-  ${FooterStyles};
-`
-const FooterCopyright = styled.div``
 
 export default Footer

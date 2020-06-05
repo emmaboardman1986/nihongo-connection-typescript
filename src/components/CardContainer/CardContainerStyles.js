@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { breakpoint } from "../../../styles/styleHelpers"
+import { breakpoint } from "../../styles/styleHelpers"
 
 const CardContainerStyles = css`
   overflow-x: scroll;

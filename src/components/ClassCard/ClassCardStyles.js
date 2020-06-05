@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { BodyTextStyles } from "../../typography/BodyText/BodyTextStyles"
+import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 import {
   setBorder,
   setShadow,
@@ -8,7 +8,7 @@ import {
   setColor,
   setSpacing,
   setFontSize
-} from "../../../styles/styleHelpers"
+} from "../../styles/styleHelpers"
 
 export const ClassCardStyles = css`
 ${BodyTextStyles};

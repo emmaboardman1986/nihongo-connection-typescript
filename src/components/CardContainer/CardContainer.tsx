@@ -15,7 +15,7 @@ const CardContainer = ({
   cardContent,
   noHorizontalScroll,
   displayFull,
-}) => {
+}:CardContainerProps) => {
   return (
     <StyledCardContainer
       noHorizontalScroll={noHorizontalScroll}

@@ -1,7 +1,7 @@
-import { css} from "styled-components";
-import {setColor, setBorder, setSpacing} from "../../styles/styleHelpers"
+import styled, { css } from "styled-components";
+import { setColor, setBorder, setSpacing } from "../../styles/styleHelpers"
 
-export const EmphasisWrapperStyles = css`
+const EmphasisWrapperStyles = css`
 border-radius: ${setBorder.borderRadius};
 border: 1px dashed ${props => props.color === "primary" ? setColor.brandPrimary[400] : props.color === "secondary" ? setColor.brandSecondary[200] : setColor.brandMonochrome[900]};
 padding: ${setSpacing.loose};
@@ -11,4 +11,8 @@ background-color: ${props => props.bgColor === "white" ? setColor.brandMonochrom
 p {
     color: ${props => props.bgColor === "white" ? setColor.brandMonochrome[900] : "inherit"};  
 }
+`
+
+export const StyledEmphasis = styled.div`
+${EmphasisWrapperStyles};
 `

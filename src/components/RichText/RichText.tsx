@@ -1,9 +1,6 @@
 import React from "react"
-import styled from "styled-components"
 import {
-  RichTextWrapperStyles,
-  RichTextEmphasisStyles,
-  RichTextStarredListStyles,
+  StyledRichText
 } from "./RichTextStyles"
 
 export interface RichTextProps {
@@ -13,20 +10,14 @@ export interface RichTextProps {
   isOnBrandBg?: boolean
 }
 
-const RichText = ({ content, emphasiseText = false, starredList = false, isOnBrandBg= false }) => {
+const RichText = ({ content, emphasiseText = false, starredList = false, isOnBrandBg= false }:RichTextProps) => {
   return (
-    <RichTextWrapper
+    <StyledRichText
       emphasiseText={emphasiseText}
       starredList={starredList}
       dangerouslySetInnerHTML={{ __html: content }}
-    ></RichTextWrapper>
+    ></StyledRichText>
   )
 }
-
-const RichTextWrapper = styled.div`
-  ${RichTextWrapperStyles};
-  ${props => props.emphasiseText && RichTextEmphasisStyles};
-  ${props => props.starredList && RichTextStarredListStyles};
-`
 
 export default RichText

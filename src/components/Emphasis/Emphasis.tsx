@@ -1,6 +1,5 @@
-import styled from "styled-components"
 import React from 'react';
-import { EmphasisWrapperStyles} from "./EmphasisStyles"
+import { StyledEmphasis} from "./EmphasisStyles"
 
 
 export interface CardProps {
@@ -13,13 +12,10 @@ export interface CardProps {
 
 const Emphasis= ({children, color, bgColor, noPaddingBottom = false, alignCenter = false}) => {
     return(
-        <EmphasisWrapper color={color} bgColor={bgColor} noPaddingBottom={noPaddingBottom} alignCenter={alignCenter}>
+        <StyledEmphasis color={color} bgColor={bgColor} noPaddingBottom={noPaddingBottom} alignCenter={alignCenter}>
             {children}
-        </EmphasisWrapper>
+        </StyledEmphasis>
     )
 }
 
-const EmphasisWrapper = styled.div`
-${EmphasisWrapperStyles};
-`
 export default Emphasis

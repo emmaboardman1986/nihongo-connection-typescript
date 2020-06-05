@@ -1,14 +1,8 @@
 import React from "react"
-import styled from 'styled-components'
-import { MainStyles } from "./MainStyles"
-
+import { StyledMain } from "./MainStyles"
 
 const Main = ({ children }) => {
-  return <MainWrapper>{children}</MainWrapper>
+  return <StyledMain>{children}</StyledMain>
 }
-
-const MainWrapper = styled.main`
- ${MainStyles};
-`
 
 export default Main

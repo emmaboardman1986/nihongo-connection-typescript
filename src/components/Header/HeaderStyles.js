@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { setFont, setColor, setSpacing, setFlex, setFlexDirection, breakpoint, setHeight } from '../../styles/styleHelpers'
 
 
@@ -41,4 +41,12 @@ a {
   `}
 }
   
+`
+
+export const StyledHeader = styled.header`
+  ${HeaderStyles};
+`
+
+export const StyledHeaderLogo = styled.p`
+ ${HeaderLogoStyles};
 `
