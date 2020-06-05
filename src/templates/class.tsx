@@ -198,11 +198,11 @@ export default function ClassPage({ data }) {
       </Section>
       {classInfo.class_faqs.length > 1 && (
         <Section>
-          <Card noPadding>
+          {/* <Card noPadding> */}
             <Heading element="h2">FAQs</Heading>
 
             <Accordion>{classInfo.class_faqs}</Accordion>
-          </Card>
+          {/* </Card> */}
         </Section>
       )}
       {classInfo.class_type != "Friday Conversation Club" && (

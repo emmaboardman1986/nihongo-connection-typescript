@@ -38,7 +38,7 @@ export const setSpacing = {
 // COLORS
 export const setColor = {
   brandPrimary: {
-    100: "hsl(220, 85%, 98%)",
+    100: "hsl(220, 85%, 95%)",
     200: "hsl(220, 94%, 85%)",
     300: "hsl(220, 100%, 65%)",
     400: "hsl(220, 85%, 54%)",
@@ -49,11 +49,12 @@ export const setColor = {
     900: "hsl(220, 85%, 5%)"
   },
   brandSecondary: {
+    // 500 for normal text AA, large text & icon AAA against white
     100: "hsl(357, 85%, 95%)",
     200: "hsl(357, 94%, 85%)",
     300: "hsl(357, 100%, 65%)",
     400: "hsl(357, 85%, 54%)",
-    500: "hsl(357, 85%, 45%)",
+    500: "hsl(357, 85%, 49%)",
     600: "hsl(357, 95%, 35%)",
     700: "hsl(357, 84%, 25%)",
     800: "hsl(357, 84%, 15%)",

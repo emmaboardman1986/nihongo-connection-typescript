@@ -6,7 +6,8 @@ import { BrandTick } from "../../../static/brandtick.svg"
 
 export const ButtonStyles = css`
   ${BodyTextStyles};
-  background-color: ${setColor.brandSecondary[400]};
+  font-family: ${setFont.fontPrimaryMedium};
+  background-color: ${setColor.brandSecondary[500]};
   min-height: 44px;
   border-radius: ${setBorder.borderRadius};
   width: 160px;
@@ -15,8 +16,6 @@ export const ButtonStyles = css`
     props.alignCenter ? "margin-left: auto; margin-right: auto;" : null};
   ${setFlex({ align: "center", justify: "center" })};
   a {
-    margin-top: 3px;
-    ${'' /* // correct Poppins Y offset */}
     text-decoration: none;
     color: ${setColor.brandMonochrome[0]};
   }

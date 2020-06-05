@@ -1,22 +1,46 @@
 import React, { useState, useEffect } from "react"
-import styled from "styled-components"
 import RichText from "../RichText"
-import { AccordionMainStyles, AccordionToggleStyles, AccordionWrapperStyles, AccordionSectionWrapperStyles, AccordionContentWrapperStyles, AccordionTitleWrapperStyles, AccordionTitleContentStyles} from "./AccordionStyles"
+import {
+  StyledAccordion,
+  StyledAccordionToggle,
+  StyledAccordionMain,
+  StyledAccordionSection,
+  StyledAccordionContent,
+  StyledAccordionTitleWrapper,
+  StyledAccordionTitle,
+} from "./AccordionStyles"
 
-const Accordion = ({ children }) => {
+type FAQObject = {
+  class_faq_answer: {
+    html: string
+  }
+  class_faq_question: {
+    text: string
+  }
+}
+export interface AccordionProps {
+  children: [FAQObject]
+}
+
+const Accordion = ({ children }: AccordionProps) => {
   const [expandedSections, setExpandedSections] = useState({})
   const [expandAll, setExpandAll] = useState(false)
 
+  console.log(expandedSections);
+
   useEffect(() => {
-    let availableSections = {}
-    let reducer = (returnedObject, sectionIndex) => {
-      if (!returnedObject[sectionIndex.class_faq_question.text]) {
-        returnedObject[sectionIndex.class_faq_question.text] = false
+    let mapSectionStates = (sectionStates, sectionItem) => {
+      // sectionState is accumulator of reduced values, 
+      // section Item is the current value being processed
+      if (!sectionStates[sectionItem.class_faq_question.text]) {
+         // all sections collapsed by default
+        sectionStates[sectionItem.class_faq_question.text] = false
       }
-      return returnedObject
+      return sectionStates
     }
-    children.reduce(reducer, availableSections)
-    setExpandedSections(availableSections)
+    // turn array of objects into single true/false object {sectiontitle1: true, sectiontitle2: false, ... etc.}
+    let sectionStates = children.reduce(mapSectionStates)
+    setExpandedSections(sectionStates)
   }, [])
 
   const handleClick = index => {
@@ -28,9 +52,9 @@ const Accordion = ({ children }) => {
 
   const toggleAll = () => {
     let updatedSections = {}
-    let reducer = (returnedObject, sectionIndex) => {
-      returnedObject[sectionIndex.class_faq_question.text] = !expandAll
-      return returnedObject
+    let reducer = (sectionStates, sectionIndex) => {
+      sectionStates[sectionIndex.class_faq_question.text] = !expandAll
+      return sectionStates
     }
     children.reduce(reducer, updatedSections)
     setExpandedSections(updatedSections)
@@ -38,16 +62,14 @@ const Accordion = ({ children }) => {
   }
 
   return (
-    <AccordionWrapper>
-      <AccordionToggle
-        role="switch"
-        aria-pressed={expandAll}
+    <StyledAccordion>
+      <StyledAccordionToggle
         onClick={toggleAll}
         className={expandAll ? "pressed-in" : "popped-out"}
       >
         {expandAll === true ? "Collapse All" : "Expand All"}
-      </AccordionToggle>
-      <AccordionMain>
+      </StyledAccordionToggle>
+      <StyledAccordionMain>
         {children.map((child, index) => (
           <AccordionSection
             key={index}
@@ -58,71 +80,49 @@ const Accordion = ({ children }) => {
             {child.class_faq_answer.html}
           </AccordionSection>
         ))}
-      </AccordionMain>
-    </AccordionWrapper>
+      </StyledAccordionMain>
+    </StyledAccordion>
   )
 }
 
-const AccordionWrapper = styled.div`
-${AccordionWrapperStyles};`
-
 const AccordionSection = ({ title, children, expanded, onClick }) => {
-    return (
-      <AccordionSectionWrapper expanded={expanded}>
-        <AccordionTitle expanded={expanded} onClick={onClick} title={title} />
-        {expanded && <AccordionContent>{children}</AccordionContent>}
-      </AccordionSectionWrapper>
-    )
-  }
-  
-  const AccordionSectionWrapper = styled.div`
-  ${AccordionSectionWrapperStyles};
-  `
+  return (
+    <StyledAccordionSection expanded={expanded}>
+      <AccordionTitle expanded={expanded} onClick={onClick} title={title} />
+      {expanded && <AccordionContent>{children}</AccordionContent>}
+    </StyledAccordionSection>
+  )
+}
 
 const AccordionContent = ({ children }) => {
-    return <AccordionContentWrapper><RichText content={children}></RichText></AccordionContentWrapper>;
-  };
-  
-  export const AccordionContentWrapper = styled.div`
-  ${AccordionContentWrapperStyles};
-  `;
-  
-  const AccordionTitle = ({ expanded, onClick, title }) => {
-    return (
-      <AccordionTitleWrapper expanded={expanded}>
-        <AccordionTitleContent expanded={expanded}>
-          {title}{" "}
-          <button aria-expanded={expanded} onClick={onClick}>
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              width="20"
-              height="20"
-              viewBox="0 0 10 10"
-            >
-              {!expanded && <rect height="8" width="2" y="1" x="4" />}
-              <rect height="2" width="8" y="4" x="1" />
-            </svg>
-          </button>
-        </AccordionTitleContent>
-      </AccordionTitleWrapper>
-    )
-  }
-  
-  const AccordionTitleWrapper = styled.div`
-    ${AccordionTitleWrapperStyles};
-  `
-  
-  const AccordionTitleContent = styled.h3`
-   ${AccordionTitleContentStyles};
-  `
+  return (
+    <StyledAccordionContent>
+      <RichText content={children}></RichText>
+    </StyledAccordionContent>
+  )
+}
 
-const AccordionMain = styled.div`
-  ${AccordionMainStyles};
-`
-
-const AccordionToggle = styled.button`
-  ${AccordionToggleStyles};
-`
+const AccordionTitle = ({ expanded, onClick, title }) => {
+  return (
+    <StyledAccordionTitleWrapper expanded={expanded}>
+      <StyledAccordionTitle expanded={expanded}>
+        {title}{" "}
+        <button aria-expanded={expanded} onClick={onClick}>
+          <span className="visually-hidden">Expand Section Content</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="20"
+            height="20"
+            viewBox="0 0 10 10"
+          >
+            {!expanded && <rect height="8" width="2" y="1" x="4" />}
+            <rect height="2" width="8" y="4" x="1" />
+          </svg>
+        </button>
+      </StyledAccordionTitle>
+    </StyledAccordionTitleWrapper>
+  )
+}
 
 export default Accordion
