@@ -32,8 +32,8 @@ const ContactPage: React.FC<Props> = () => {
             <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
             <SocialLinks></SocialLinks>
             <VerticalSpacing size={{ _: "tight" }}></VerticalSpacing>
-            <TextLink link="mailto:nihongoconnection@gmail.com" isExternal>
-              NihongoConnection@gmail.com
+            <TextLink link="mailto:nihongoscotland@gmail.com" isExternal>
+              NihongoScotland@gmail.com
             </TextLink>
           </FlexContainer>
         </Emphasis>

@@ -151,7 +151,7 @@ export default function ClassPage({ data }) {
                       link="mailto:nihongoscotland@gmail.com"
                       isExternal
                     >
-                      hello@nihongoconnection.com
+                      NihongoScotland@gmail.com
                     </TextLink>
                   </p>
                 </>
@@ -169,7 +169,9 @@ export default function ClassPage({ data }) {
                 <Heading element="h2">
                   {classInfo.class_booking_title.text}
                 </Heading>
-                <RichText content={classInfo.class_booking_instructions.html}></RichText>
+                <RichText
+                  content={classInfo.class_booking_instructions.html}
+                ></RichText>
                 <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
                 <MailChimp />
               </>
