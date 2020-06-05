@@ -137,7 +137,8 @@ const BurgerButtonSpanWrapper = styled.div`
 `
 
 const NavListGroup = ({ isMenuExpanded, children }) => {
-  return <NavListGroupWrapper isMenuExpanded={isMenuExpanded}>{children}</NavListGroupWrapper>
+  const { state } = useContext(NavContext)
+  return <NavListGroupWrapper isMenuExpanded={isMenuExpanded} isDropDownExpanded={state.isDropDownExpanded["parentAU"] || state.isDropDownExpanded["parentJL"] || state.isDropDownExpanded["parentJT"]}>{children}</NavListGroupWrapper>
 }
 
 const NavListGroupWrapper = styled.ul`

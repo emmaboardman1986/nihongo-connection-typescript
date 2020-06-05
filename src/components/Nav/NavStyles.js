@@ -21,7 +21,7 @@ background-color: transparent;
 export const NavListGroupWrapperStyles = css`
 display: ${props => props.isMenuExpanded === true ? "none" : null};
 background-color: ${setColor.brandMonochrome[0]};
-height: calc(100vh - ${setHeight.navHeight});
+height: ${props => props.isDropDownExpanded ? '90vh' : setHeight.navHeight};
 overflow-y: scroll;
  ul {
   display: none;
