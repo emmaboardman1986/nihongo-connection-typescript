@@ -3,12 +3,12 @@ import styled from "styled-components"
 import { HeadingStyles, H1Styles, H2Styles, H3Styles } from "./HeadingStyles"
 
 export interface HeadingProps {
+  children: any
   element?: "h1" | "h2" | "h3" | "h4"
-  text: string,
   className?: string
 }
 
-const Heading = ({ element = "h1", children, className }) => {
+const Heading = ({ element = "h1", children, className }:HeadingProps) => {
   return <HeadingWrapper className={className} as={element}>{children}</HeadingWrapper>
 }
 

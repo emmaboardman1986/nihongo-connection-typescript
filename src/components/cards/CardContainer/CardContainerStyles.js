@@ -1,7 +1,7 @@
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { breakpoint } from "../../../styles/styleHelpers"
 
-export const CardContainerStyles = css`
+const CardContainerStyles = css`
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -31,4 +31,8 @@ export const CardContainerStyles = css`
     list-style: none;
     height: 100%;
   }
+`
+
+export const StyledCardContainer = styled.ul`
+  ${CardContainerStyles};
 `

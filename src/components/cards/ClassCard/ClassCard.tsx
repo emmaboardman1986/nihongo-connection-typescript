@@ -1,58 +1,49 @@
 import React, { useRef } from "react"
-import styled from "styled-components"
 import { Link } from "gatsby"
 import {
-  ClassCardStyles,
-  ClassCardWrapperStyles,
-  ClassCardImageStyles,
-  ClassCardLabelStyles,
-  ClassCardTextStyles,
-  GradientStyles,
-  ClassCardInnerStyles,
+  StyledClassCard, StyledClassCardImage, StyledClassCardInner, StyledClassCardLabel, StyledClassCardText, StyledGradient
 } from "./ClassCardStyles"
 import Heading from "../../typography/Heading"
 import FlexContainer from "../../utilities/FlexContainer"
 
-export interface ReviewCardProps {
-  location: string
+export interface ClassCardProps {
+  location: "Online" | "In Edinburgh"
   thumbnailURL?: string
-  thumbnailAlt?: string
-  duration: string
+  duration: "6-week course" | "8-week course" | "Intensive weekend" | "50-minute sessions" | "Weekly drop-in sessions"
   title: string
-  schedule: string
   start_date?: string
   uid: string
+  type: string
 }
 
 const ClassCard = ({
   location,
   thumbnailURL,
-  thumbnailAlt = "",
   duration,
   title,
-  schedule,
   start_date,
   uid,
   type,
-}) => {
+}:ClassCardProps) => {
   const ref = useRef()
   const handleCardClick = e => {
+    // prevent event firing twice if link is clicked
     if (ref !== e.target) {
       ref.current.click()
     }
   }
 
   return (
-    <ClassCardWrapper onClick={handleCardClick}>
-      <Gradient>
-        <ClassCardInner>
-          <ClassCardImage>
-            <ClassCardLabel>
+    <StyledClassCard onClick={handleCardClick}>
+      <StyledGradient>
+        <StyledClassCardInner>
+          <StyledClassCardImage>
+            <StyledClassCardLabel>
               <small>{location}</small>
-            </ClassCardLabel>
-            <img src={thumbnailURL} alt={thumbnailAlt}></img>
-          </ClassCardImage>
-          <ClassCardText>
+            </StyledClassCardLabel>
+            <img src={thumbnailURL} alt=""></img>
+          </StyledClassCardImage>
+          <StyledClassCardText>
             <Heading element="h3">
               <Link to={`/${uid}`} ref={ref}>
                 {title}
@@ -78,36 +69,13 @@ const ClassCard = ({
                 </strong>
               </p>
             </FlexContainer>
-          </ClassCardText>
-        </ClassCardInner>
-      </Gradient>
-    </ClassCardWrapper>
+          </StyledClassCardText>
+        </StyledClassCardInner>
+      </StyledGradient>
+    </StyledClassCard>
   )
 }
 
-const ClassCardInner = styled.div`
-  ${ClassCardInnerStyles};
-`
 
-const Gradient = styled.div`
-  ${GradientStyles};
-`
-
-const ClassCardWrapper = styled.div`
-  ${ClassCardStyles};
-  ${ClassCardWrapperStyles};
-`
-
-const ClassCardImage = styled.div`
-  ${ClassCardImageStyles};
-`
-
-const ClassCardLabel = styled.span`
-  ${ClassCardLabelStyles};
-`
-
-const ClassCardText = styled.div`
-  ${ClassCardTextStyles};
-`
 
 export default ClassCard

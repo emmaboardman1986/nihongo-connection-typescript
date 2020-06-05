@@ -8,7 +8,7 @@ export interface CardProps {
   noPadding?: boolean
 }
 
-const Card = ({ bgColor, children, border, noPadding }) => {
+const Card = ({ bgColor, children, border, noPadding }:CardProps) => {
   return (
     <StyledCard bgColor={bgColor} border={border} noPadding={noPadding}>
       {children}

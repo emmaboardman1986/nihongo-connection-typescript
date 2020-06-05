@@ -1,4 +1,4 @@
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { BodyTextStyles } from "../../typography/BodyText/BodyTextStyles"
 import {
   setBorder,
@@ -29,7 +29,6 @@ a {
   }
 }
 &:focus-within {
-  border:  ${setBorder.borderSmBlack};
     box-shadow: ${setShadow.depress[100]};
     a:focus {
         text-decoration: none;
@@ -38,12 +37,12 @@ a {
 
 `
 
-export const ClassCardWrapperStyles = css`
+const ClassCardWrapperStyles = css`
   ${setFlex()};
   ${setFlexDirection({ direction: "column" })};
 `
 
-export const ClassCardLabelStyles = css`
+const ClassCardLabelStyles = css`
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -57,7 +56,7 @@ export const ClassCardLabelStyles = css`
   }
 `
 
-export const ClassCardImageStyles = css`
+const ClassCardImageStyles = css`
   height: 5rem;
   position: relative;
   img {
@@ -69,7 +68,7 @@ export const ClassCardImageStyles = css`
     filter: saturate(1) brightness(1) contrast(2);
   }
 `
-export const ClassCardTextStyles = css`
+const ClassCardTextStyles = css`
   padding: ${setSpacing.base};
   box-sizing: border-box;
   ${setFlex()};
@@ -95,9 +94,10 @@ export const ClassCardTextStyles = css`
    &:nth-last-child(2) {
     margin-bottom: ${setSpacing.tight};
    }
-  }`
+  }
+  `
 
-export const GradientStyles = css`
+const GradientStyles = css`
 height: 100%;
   box-sizing: border-box;
   padding: ${setSpacing.tight};
@@ -112,10 +112,36 @@ height: 100%;
   );
   border-radius: ${setBorder.borderRadius};`
 
-export const ClassCardInnerStyles = css`
+const ClassCardInnerStyles = css`
   ${setFlex()};
   ${setFlexDirection({ direction: "column" })};
   background-color: white;
   border-radius: 10px;
   height: 100%;
   box-sizing: border-box;`
+
+
+export const StyledClassCard = styled.div`
+  ${ClassCardStyles};
+  ${ClassCardWrapperStyles};
+`
+
+export const StyledClassCardInner = styled.div`
+  ${ClassCardInnerStyles};
+`
+
+export const StyledGradient = styled.div`
+  ${GradientStyles};
+`
+
+export const StyledClassCardImage = styled.div`
+  ${ClassCardImageStyles};
+`
+
+export const StyledClassCardLabel = styled.span`
+  ${ClassCardLabelStyles};
+`
+
+export const StyledClassCardText = styled.div`
+  ${ClassCardTextStyles};
+`
