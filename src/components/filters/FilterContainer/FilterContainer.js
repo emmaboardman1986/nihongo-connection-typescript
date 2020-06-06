@@ -9,13 +9,14 @@ import HighlightPill from "../../HighlightPill"
 import Emphasis from "../../Emphasis"
 import MailChimp from "../../MailChimp/MailChimp"
 import Card from "../../Card"
-
-import { FilterContext } from "../../../context/FilterContext"
 import FlexContainer from "../../utilities/FlexContainer"
 
+import { FilterContext } from "../../../context/FilterContext"
+import filterData from "../../../data/filters.json"
 
 
 const FilterContainer = ({ classes }) => {
+
     const { state, dispatch } = useContext(FilterContext);
 
     const collectTrueFilters = () => {
@@ -84,7 +85,7 @@ const FilterContainer = ({ classes }) => {
         <FilterContainerWrapper activeFilters={checkForFilters()}>
             <Heading element="h2" className="visually-hidden">Class Filters</Heading>
 
-            <Filter filters={state}>
+            <Filter filters={filterData}>
 
             </Filter>
 

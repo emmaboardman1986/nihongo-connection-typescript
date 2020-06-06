@@ -15,7 +15,6 @@ const Filter = ({ filters }) => {
       {filtersArray.map((filter, index) => {
         return <FilterGroup key={index} filter={filter}></FilterGroup>
       })}
-     
     </FilterWrapper>
   )
 }

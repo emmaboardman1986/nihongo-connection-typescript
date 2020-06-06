@@ -10,9 +10,17 @@ import VerticalSpacing from "../../utilities/VerticalSpacing"
 
 import { FilterContext } from "../../../context/FilterContext"
 
+type FilterGroupObject = {
+  "data-name": string
+  displayName: string
+}
 export interface FilterGroupProps {
-  //   element?: "h1" | "h2" | "h3" | "h4"
-  //   text: string
+  filter: {
+    [key: string]: {
+      displayName: string
+      options: FilterGroupObject
+    }
+  }
 }
 
 const FilterGroup = ({ filter }) => {
@@ -25,10 +33,13 @@ const FilterGroup = ({ filter }) => {
       <FilterGroupTitle>{filterDetails.displayName}</FilterGroupTitle>
       <FilterGroupContents>
         {filterOptions.map((option, index) => {
+          // option key not required, but leaving in for readability
           let [optionKey, optionDetails] = option
+          console.log(optionDetails);
           return (
             <Pill
               key={index}
+              // dataName={optionDetails.}
               text={optionDetails.displayName}
               onClick={() =>
                 dispatch({
@@ -44,7 +55,7 @@ const FilterGroup = ({ filter }) => {
           )
         })}
       </FilterGroupContents>
-      <VerticalSpacing size={{_: "baseLoose"}}></VerticalSpacing>
+      <VerticalSpacing size={{ _: "baseLoose" }}></VerticalSpacing>
     </FilterGroupWrapper>
   )
 }
