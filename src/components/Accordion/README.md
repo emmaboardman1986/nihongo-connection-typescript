@@ -30,21 +30,6 @@ Note: this accordion should not be used inside a form in its current state. If u
 - When a user interacts with the "expand all" button above the accordion, all accordion content (irregardless of previous collapsed / expanded state) will slide into view. The text of the "expand all" button will be updated to "collapse all". Interactions that trigger this are those default to the HTML button element - click, space, enter. 
 - When a user interacts with the "collapse all" button above the accordion, all accordion content (irregardless of previous collapsed / expanded state) will slide into view. The text of the "expand all" button will be updated to "collapse all". Interactions that trigger this are those default to the HTML button element - click, space, enter. 
 
-
-## Content 
-
-The accordions rely on class-specific FAQs, entered into the Prismic Content Management System. The title for each accordion section is limited to one-line in the CMS, and received in the codebase as a string (the heading level is handled in the codebase). The content for each accordion section is entered as rich text, without type restrictions (i.e. it could include a list, an image, a link, etc.)
-
-## Customisation
-
-Colours and font faces can be customised. Heading levels should not be customised unless there is a convincingly good reason why the accordion would be deeply nested within other content. The expected levels would be H1 [Page title] > H2 [Overall Accordion Title - i.e. 'FAQs'] > H3 [Individual accordion-section titles].
-
-## Error Handling / Prop Validation
-
-## Browser / OS Compatibility 
-
-## Responsiveness 
-
 ## A11y 
 
 ### Assistive Affordance
@@ -61,6 +46,19 @@ Colours and font faces can be customised. Heading levels should not be customise
 
 - An SVG icon is added to indicate the interaction available on the button. Recognisable patterns are utilised to increase quality of visual distinction (plus icon to expand, minus icon to collapse). The SVG is labelled with ```aria=hidden='true'``` and ```focusable='false'``` , to prevent it being announced by screen-readers and causing confusion. The focus state is re-added to simulate focus on the SVG when the button is being focused. 
 
+## Content 
+
+The accordions rely on class-specific FAQs, entered into the Prismic Content Management System. The title for each accordion section is limited to one-line in the CMS, and received in the codebase as a string (the heading level is handled in the codebase). The content for each accordion section is entered as rich text, without type restrictions (i.e. it could include a list, an image, a link, etc.)
+
+## Customisation
+
+Colours and font faces can be customised. Heading levels should not be customised unless there is a convincingly good reason why the accordion would be deeply nested within other content. The expected levels would be H1 [Page title] > H2 [Overall Accordion Title - i.e. 'FAQs'] > H3 [Individual accordion-section titles].
+
+## Error Handling / Prop Validation
+
+## Browser / OS Compatibility 
+
+## Responsiveness 
 
 ## Future work
 - Visual affordance - would be nice if clicking anywhere in the title area triggered the interaction. 

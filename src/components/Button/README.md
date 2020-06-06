@@ -28,6 +28,12 @@
 
 ## Interactions
 
+## A11y 
+
+- Link text must be helpful (i.e. tells the user where they're going and why, avoiding "click here", "read more")
+
+- If telling people to do something, link text should start with a verb ("apply for a ...")
+
 ## Content 
 
 Button text is currently handled in the code-base, and is passed to the button as a string of text. 
@@ -39,12 +45,6 @@ Button text is currently handled in the code-base, and is passed to the button a
 ## Browser / OS Compatibility 
 
 ## Responsiveness 
-
-## A11y 
-
-- Link text must be helpful (i.e. tells the user where they're going and why, avoiding "click here", "read more")
-
-- If telling people to do something, link text should start with a verb ("apply for a ...")
 
 ### Assistive Affordance
 

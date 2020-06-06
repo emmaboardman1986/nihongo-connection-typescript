@@ -20,20 +20,6 @@
 
 Interacting with a pill will update how many class results are shown below.  Interactions are possible through touch, click, or space and enter. 
 
-## Content 
-
-Class Cards contain class location, class title, class frequency, and the next class date. This data is pulled in from the Prismic CMS. 
-
-Filter options are currently pulled in from /data/filters.json. This will eventually be moved to CMS. However, need to consider that new filters will also need to added to the filter context, as this stores the button state.
-
-## Customisation
-
-## Error Handling / Prop Validation
-
-## Browser / OS Compatibility 
-
-## Responsiveness 
-
 ## A11y 
 
 ### Assistive Affordance
@@ -50,3 +36,17 @@ Filter options are currently pulled in from /data/filters.json. This will eventu
 ## Future work
 - Provide visually-hidden ```<legend>`` text provides with a succinct & clarified description (i.e. "Student Type" vs "I am...")
 - Improve live region reading of plural class ("class" + "es")
+
+## Content 
+
+Class Cards contain class location, class title, class frequency, and the next class date. This data is pulled in from the Prismic CMS. 
+
+Filter options are currently pulled in from /data/filters.json. This will eventually be moved to CMS. However, need to consider that new filters will also need to added to the filter context, as this stores the button state.
+
+## Customisation
+
+## Error Handling / Prop Validation
+
+## Browser / OS Compatibility 
+
+## Responsiveness 
