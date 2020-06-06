@@ -11,46 +11,42 @@ import VerticalSpacing from "../../utilities/VerticalSpacing"
 import { FilterContext } from "../../../context/FilterContext"
 
 type FilterGroupObject = {
-  "data-name": string
+  dataName: string
   displayName: string
 }
 export interface FilterGroupProps {
-  filter: {
-    [key: string]: {
-      displayName: string
-      options: FilterGroupObject
-    }
+  filterDetails: {
+    categoryDisplayName: string
+    categoryOptions: [FilterGroupObject]
   }
+  filterState: {
+    [key: string]: boolean
+  }
+  filterCategoryKey: string
 }
 
-const FilterGroup = ({ filter }) => {
+const FilterGroup = ({ filterDetails, filterState, filterCategoryKey }:FilterGroupProps) => {
   const { dispatch } = useContext(FilterContext)
-  const [filterCategory, filterDetails] = filter
-  const filterOptions = Object.entries(filterDetails.options)
 
   return (
     <FilterGroupWrapper>
-      <FilterGroupTitle>{filterDetails.displayName}</FilterGroupTitle>
+      <FilterGroupTitle>{filterDetails.categoryDisplayName}</FilterGroupTitle>
       <FilterGroupContents>
-        {filterOptions.map((option, index) => {
-          // option key not required, but leaving in for readability
-          let [optionKey, optionDetails] = option
-          console.log(optionDetails);
+        {filterDetails.categoryOptions.map((option, index) => {
           return (
             <Pill
               key={index}
-              // dataName={optionDetails.}
-              text={optionDetails.displayName}
+              text={option.displayName}
               onClick={() =>
                 dispatch({
                   type: "toggle",
                   payload: {
                     option,
-                    filterCategory,
+                    filterCategoryKey,
                   },
                 })
               }
-              ariaPressed={optionDetails.value}
+              ariaPressed={filterState[option.dataName]}
             ></Pill>
           )
         })}
