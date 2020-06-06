@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
 import Filter from "../Filter"
 import CardContainer from "../../CardContainer"
 import BodyText from "../../typography/BodyText"
@@ -10,6 +9,7 @@ import Emphasis from "../../Emphasis"
 import MailChimp from "../../MailChimp/MailChimp"
 import Card from "../../Card"
 import FlexContainer from "../../utilities/FlexContainer"
+import { StyledFilterContainer, StyledFilterResults } from "./FilterContainerStyles"
 
 import { FilterContext } from "../../../context/FilterContext"
 import filterData from "../../../data/filters.json"
@@ -19,19 +19,27 @@ const FilterContainer = ({ classes }) => {
 
     const { state, dispatch } = useContext(FilterContext);
 
+    let dataNameDisplayNameMap = {
+        "teaching-japanese": "Teaching Japanese",
+        "learning-japanese": "Learning Japanese",
+        "show-online": "Online",
+        "show-in-edinburgh": "In Edinburgh",
+        "intensive-learning": "Intensive Learning",
+        "regular-classes": "Regular Classes",
+        "drop-in-sessions": "Drop-in Sessions"
+    }
+
     const collectTrueFilters = () => {
-        let updatedFilter = {};
-        for (var filterCategory in state) {
-            updatedFilter[filterCategory] = [];
-            for (var option in state[filterCategory].options) {
-                if (state[filterCategory].options[option]["value"]) {
-                    updatedFilter[filterCategory].push(
-                        state[filterCategory].options[option]["displayName"]
-                    );
+        let mappedTrueFilters = {}
+        for (let filterCategory in state) {
+            mappedTrueFilters[filterCategory] = [];
+            for (let filterOption in state[filterCategory]) {
+                if (state[filterCategory][filterOption]) {
+                    mappedTrueFilters[filterCategory].push(dataNameDisplayNameMap[filterOption])
                 }
             }
         }
-        return updatedFilter;
+        return mappedTrueFilters;
     };
 
     const checkForFilters = () => {
@@ -59,7 +67,6 @@ const FilterContainer = ({ classes }) => {
         return filterGroupResults;
     }
 
-
     const applyFilter = (classes, filter) => {
         var targetGroupResults = [];
         var locationGroupResults = [];
@@ -74,7 +81,6 @@ const FilterContainer = ({ classes }) => {
             if (filterGroup === "class_learning_style") {
                 formatGroupResults = returnFilterMatches(filter, filterGroup, locationGroupResults)
             }
-
         }
         return formatGroupResults;
     };
@@ -82,14 +88,14 @@ const FilterContainer = ({ classes }) => {
     let filteredClasses = applyFilter(classes, collectTrueFilters());
 
     return (
-        <FilterContainerWrapper activeFilters={checkForFilters()}>
+        <StyledFilterContainer activeFilters={checkForFilters()}>
             <Heading element="h2" className="visually-hidden">Class Filters</Heading>
 
             <Filter filters={filterData}>
 
             </Filter>
 
-            <FilterResults >
+            <StyledFilterResults >
                 <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
                 <Heading element="h2" className="visually-hidden">Class List</Heading>
 
@@ -122,13 +128,11 @@ const FilterContainer = ({ classes }) => {
                         </>
                     )}
 
-            </FilterResults>
-        </FilterContainerWrapper>
+            </StyledFilterResults>
+        </StyledFilterContainer>
     )
 }
 
-const FilterContainerWrapper = styled.div``
-const FilterResults = styled.div``
 
 
 export default FilterContainer

@@ -13,6 +13,11 @@ const reducer = (state = {}, action) => {
                     [dataName]: !state[filterCategoryKey][dataName]
                 }
             }
+        case "reset": {
+            return {
+              ...initialState
+            };
+        }
         default:
             return state
     }
@@ -21,7 +26,7 @@ const reducer = (state = {}, action) => {
 const initialState = {
     class_target: {
         "learning-japanese": false,
-        "teaching-japanese": true,
+        "teaching-japanese": false,
     },
     class_location: {
         "show-online": false,

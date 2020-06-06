@@ -1,19 +1,17 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
-import { FilterStyles } from "./FilterStyles"
+import { StyledFilter } from "./FilterStyles"
 import FilterGroup from "../FilterGroup"
 import { FilterContext } from "../../../context/FilterContext"
-  
+
 const Filter = ({ filters }) => {
   const { state } = useContext(FilterContext)
 
   const filterCategoryArray = Object.entries(filters)
 
   return (
-    <FilterWrapper>
+    <StyledFilter>
       {filterCategoryArray.map((filter, index) => {
-        let [filterCategoryKey, filterCategoryDetails] = filter;
-        console.log(filterCategoryDetails);
+        let [filterCategoryKey, filterCategoryDetails] = filter
         return (
           <FilterGroup
             key={index}
@@ -23,12 +21,8 @@ const Filter = ({ filters }) => {
           ></FilterGroup>
         )
       })}
-    </FilterWrapper>
+    </StyledFilter>
   )
 }
-
-const FilterWrapper = styled.form`
-  ${FilterStyles};
-`
 
 export default Filter

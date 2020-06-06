@@ -1,21 +1,32 @@
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { setFlex, setColor, setFontSize, setFont } from "../../../styles/styleHelpers"
 import { BodyTextStyles } from "../../typography/BodyText/BodyTextStyles"
 
 
-export const FilterGroupStyles = css`
+const FilterGroupStyles = css`
 border: 0;
 `
 
-export const FilterGroupContentStyles = css`
+const FilterGroupContentStyles = css`
 ${setFlex({justify: "flex-start"})};
 flex-wrap: wrap;
 `
 
-export const FilterGroupTitleStyles = css`
+const FilterGroupTitleStyles = css`
  ${BodyTextStyles};
  color: ${setColor.brandMonochrome[700]};
  font-size: ${setFontSize.small};
  font-family: ${setFont.fontPrimaryMedium};
 `
 
+export const StyledFilterGroup = styled.fieldset`
+  ${FilterGroupStyles};
+`
+
+export const StyledFilterGroupContents = styled.div`
+  ${FilterGroupContentStyles};
+`
+
+export const StyledFilterGroupTitle = styled.legend`
+  ${FilterGroupTitleStyles};
+`

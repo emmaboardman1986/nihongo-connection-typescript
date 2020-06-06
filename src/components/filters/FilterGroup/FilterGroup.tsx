@@ -1,10 +1,9 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
 import Pill from "../../Pill"
 import {
-  FilterGroupContentStyles,
-  FilterGroupStyles,
-  FilterGroupTitleStyles,
+  StyledFilterGroup,
+  StyledFilterGroupContents,
+  StyledFilterGroupTitle,
 } from "./FilterGroupStyles"
 import VerticalSpacing from "../../utilities/VerticalSpacing"
 
@@ -25,13 +24,17 @@ export interface FilterGroupProps {
   filterCategoryKey: string
 }
 
-const FilterGroup = ({ filterDetails, filterState, filterCategoryKey }:FilterGroupProps) => {
+const FilterGroup = ({
+  filterDetails,
+  filterState,
+  filterCategoryKey,
+}: FilterGroupProps) => {
   const { dispatch } = useContext(FilterContext)
 
   return (
-    <FilterGroupWrapper>
-      <FilterGroupTitle>{filterDetails.categoryDisplayName}</FilterGroupTitle>
-      <FilterGroupContents>
+    <StyledFilterGroup>
+      <StyledFilterGroupTitle>{filterDetails.categoryDisplayName}</StyledFilterGroupTitle>
+      <StyledFilterGroupContents>
         {filterDetails.categoryOptions.map((option, index) => {
           return (
             <Pill
@@ -50,22 +53,12 @@ const FilterGroup = ({ filterDetails, filterState, filterCategoryKey }:FilterGro
             ></Pill>
           )
         })}
-      </FilterGroupContents>
+      </StyledFilterGroupContents>
       <VerticalSpacing size={{ _: "baseLoose" }}></VerticalSpacing>
-    </FilterGroupWrapper>
+    </StyledFilterGroup>
   )
 }
 
-const FilterGroupWrapper = styled.fieldset`
-  ${FilterGroupStyles};
-`
 
-const FilterGroupContents = styled.div`
-  ${FilterGroupContentStyles};
-`
-
-const FilterGroupTitle = styled.legend`
-  ${FilterGroupTitleStyles};
-`
 
 export default FilterGroup
