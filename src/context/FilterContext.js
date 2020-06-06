@@ -2,120 +2,40 @@ import React, { useReducer } from "react"
 
 
 const reducer = (state = {}, action) => {
+
     switch (action.type) {
         case "toggle":
-            
-            let { filterCategory, option } = action.payload;
-            let [optionCategory, optionDetails] = option;
+            let { option: { dataName }, filterCategoryKey } = action.payload;
             return {
                 ...state,
-                [filterCategory]: {
-                    ...state[filterCategory],
-                    options: {
-                        ...state[filterCategory].options,
-                        [optionCategory]: {
-                            ...state[filterCategory].options[optionCategory],
-                            value: !optionDetails.value
-                        }
-
-                    }
+                [filterCategoryKey]: {
+                    ...state[filterCategoryKey],
+                    [dataName]: !state[filterCategoryKey][dataName]
                 }
             }
-            case "reset": 
+        case "reset": {
             return {
-                class_target: {
-                    displayName: "I am...",
-                    options: {
-                        showLearning: {
-                            value: false,
-                            displayName: "Learning Japanese"
-                        },
-                        showTeacher: {
-                            value: false,
-                            displayName: "Teaching Japanese"
-                        }
-                    }
-                },
-                class_location: {
-                    displayName: "I want to take classes...",
-                    options: {
-                        showOnline: {
-                            value: false,
-                            displayName: "Online"
-                        },
-                        showInEdinburgh: {
-                            value: false,
-                            displayName: "In Edinburgh"
-                        }
-                    }
-                },
-                class_learning_style: {
-                    displayName: "I would prefer..",
-                    options: {
-                        showIntensive: {
-                            value: false,
-                            displayName: "Intensive Learning"
-                        },
-                        showRegular: {
-                            value: false,
-                            displayName: "Regular Classes"
-                        },
-                        showDropIn: {
-                            value: false,
-                            displayName: "Drop-in Sessions"
-                        }
-                    }
-                }
+              ...initialState
             };
+        }
         default:
             return state
     }
-
 }
 
 const initialState = {
     class_target: {
-        displayName: "I am...",
-        options: {
-            showLearning: {
-                value: false,
-                displayName: "Learning Japanese"
-            },
-            showTeacher: {
-                value: false,
-                displayName: "Teaching Japanese"
-            }
-        }
+        "learning-japanese": false,
+        "teaching-japanese": false,
     },
     class_location: {
-        displayName: "I want to take classes...",
-        options: {
-            showOnline: {
-                value: false,
-                displayName: "Online"
-            },
-            showInEdinburgh: {
-                value: false,
-                displayName: "In Edinburgh"
-            }
-        }
+        "show-online": false,
+        "show-in-edinburgh": false,
     },
     class_learning_style: {
-        displayName: "I would prefer..",
-        options: {
-            showIntensive: {
-                value: false,
-                displayName: "Intensive Learning"
-            },
-            showRegular: {
-                value: false,
-                displayName: "Regular Classes"
-            },
-            showDropIn: {
-                value: false,
-                displayName: "Drop-in Sessions"
-            }
-        }
+        "intensive-learning": false,
+        "regular-classes": false,
+        "drop-in-sessions": false
     }
 };
 

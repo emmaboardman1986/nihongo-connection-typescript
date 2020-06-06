@@ -1,0 +1,45 @@
+{
+  "class_target": {
+    "categoryDisplayName": "I am...",
+    "categoryOptions": [
+      {
+        "dataName": "learning-japanese",
+        "displayName": "Learning Japanese"
+      },
+      {
+        "dataName": "teaching-japanese",
+        "displayName": "Teaching Japanese"
+      }
+    ]
+  },
+  "class_location": {
+    "categoryDisplayName": "I want to take classes...",
+    "categoryOptions": [
+      {
+        "dataName": "show-online",
+        "displayName": "Online"
+      },
+      {
+        "dataName": "show-in-edinburgh",
+        "displayName": "In Edinburgh"
+      }
+    ]
+  },
+  "class_learning_style": {
+    "categoryDisplayName": "I would prefer..",
+    "categoryOptions": [
+      {
+        "dataName": "intensive-learning",
+        "displayName": "Intensive Learning"
+      },
+      {
+        "dataName": "regular-classes",
+        "displayName": "Regular Classes"
+      },
+      {
+        "dataName": "drop-in-sessions",
+        "displayName": "Drop-in Sessions"
+      }
+    ]
+  }
+}
