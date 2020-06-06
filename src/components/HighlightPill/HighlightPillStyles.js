@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 import { setColor, setSpacing, setBorder, setFontSize } from "../../styles/styleHelpers"
 import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
+import {ActionButtonFocusStyles } from "../Button/ButtonStyles"
 
 const HighlightPillStyles = css`
   ${BodyTextStyles};
@@ -15,7 +16,15 @@ const HighlightPillStyles = css`
 `
 
 export const StyledHighlightPillButton = styled.button`
-  ${HighlightPillStyles};
+  ${HighlightPillStyles}
+  border: 0;
+  &:hover {
+    background-color: ${setColor.brandPrimary[700]};
+    cursor: pointer;
+  }
+   &:focus {
+      ${ActionButtonFocusStyles};
+  }
 `
 
 export const StyledHighlightPillInfo = styled.span`

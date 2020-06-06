@@ -23,7 +23,7 @@ export const StyledFilterGroup = styled.fieldset`
   ${FilterGroupStyles};
 `
 
-export const StyledFilterGroupContents = styled.div`
+export const StyledFilterGroupContents = styled.ul`
   ${FilterGroupContentStyles};
 `
 

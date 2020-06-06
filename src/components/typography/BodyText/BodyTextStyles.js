@@ -1,5 +1,5 @@
-import { css } from "styled-components"
-import { setFont, setFontSize, setColor, setSpacing} from "../../../styles/styleHelpers"
+import styled, { css } from "styled-components"
+import { setFont, setFontSize, setColor, setSpacing } from "../../../styles/styleHelpers"
 
 export const BodyTextStyles = css`
   font-family: ${setFont.fontPrimaryRegular};
@@ -12,3 +12,6 @@ export const BodyTextStyles = css`
   }
 `
 
+export const StyledBodyText = styled.p`
+  ${BodyTextStyles};
+`

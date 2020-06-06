@@ -8,6 +8,7 @@ import HighlightPill from "../../HighlightPill"
 import Emphasis from "../../Emphasis"
 import MailChimp from "../../MailChimp/MailChimp"
 import Card from "../../Card"
+import AriaLiveRegion from "../../AriaLiveRegion"
 import FlexContainer from "../../utilities/FlexContainer"
 import { StyledFilterContainer, StyledFilterResults } from "./FilterContainerStyles"
 
@@ -100,7 +101,9 @@ const FilterContainer = ({ classes }) => {
                 <Heading element="h2" className="visually-hidden">Class List</Heading>
 
                 <FlexContainer justifyContent={{ _: "space-between" }}>
-                    <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> class{filteredClasses.length !== 1 ? "es" : null}:</BodyText>
+                    <AriaLiveRegion role="status" ariaLive="polite">
+                        <BodyText>Showing <strong>{filteredClasses.length === classes.length ? "all" : filteredClasses.length}</strong> class{filteredClasses.length !== 1 ? "es" : null}:</BodyText>
+                    </AriaLiveRegion>
                     {checkForFilters().length > 0 ? <div style={{ marginTop: "-0.75rem" }}><HighlightPill isAction onClick={() => dispatch({ type: "reset" })}>Reset Filters</HighlightPill></div> : null}
                 </FlexContainer>
 

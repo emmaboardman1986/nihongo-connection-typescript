@@ -36,6 +36,11 @@ const SecondaryButtonStyles = css`
   }
 `
 
+export const ActionButtonFocusStyles = css`
+    outline: 0;
+    box-shadow: 0 0 0 3px ${setColor.brandPrimary[300]};
+`
+
 const ActionButtonStyles = css`
   &:after {
     content: "${props => props.name}";
@@ -49,12 +54,11 @@ const ActionButtonStyles = css`
     color: ${setColor.brandMonochrome[900]};
   }
   &:hover {
-    background-color: ${setColor.brandPrimary[100]};
+    background-color: ${setColor.brandPrimary[300]};
     border: ${setColor.borderSmBlack};
   }
   &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px ${setColor.brandPrimary[100]};
+    ${ActionButtonFocusStyles};
   }
   /* Remove Later */
   margin-left: auto;
