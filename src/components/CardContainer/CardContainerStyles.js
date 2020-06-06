@@ -2,6 +2,8 @@ import styled, { css } from "styled-components"
 import { breakpoint } from "../../styles/styleHelpers"
 
 const CardContainerStyles = css`
+${'' /* // required for safari to recognise overflow-y: hidden */}
+  position: relative;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
