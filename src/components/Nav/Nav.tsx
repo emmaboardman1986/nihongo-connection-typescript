@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import {
   StyledNav,
   StyledBurgerButton,
@@ -10,16 +10,16 @@ import { NavContext } from "../../context/NavContext"
 import navMenuData from "../../data/nav.json"
 
 const Nav = React.forwardRef((props, ref) => {
-  const { state, dispatch } = useContext(NavContext)
-  // const [isMenuExpanded, setIsMenuExpanded] = useState(false)
+  // mobile menu is full-width, so no need for global state to recognise outside clicks
+  const [isMenuExpanded, setIsMenuExpanded] = useState(false)
 
   return (
     <StyledNav ref={ref}>
       <BurgerButton
-        isMenuExpanded={state.isMenuExpanded}
-        setIsMenuExpanded={() => dispatch({ type: "menu" })}
+        isMenuExpanded={isMenuExpanded}
+        setIsMenuExpanded={setIsMenuExpanded}
       ></BurgerButton>
-      <NavListGroup isMenuExpanded={!state.isMenuExpanded}>
+      <NavListGroup isMenuExpanded={!isMenuExpanded}>
         {navMenuData.map((item, index) => (
           <NavListItem {...item} key={index} />
         ))}
@@ -45,18 +45,8 @@ const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
 }
 
 const NavListGroup = ({ isMenuExpanded, children }) => {
-  const { state } = useContext(NavContext)
   return (
-    <StyledNavListGroup
-      isMenuExpanded={isMenuExpanded}
-      // required to control height for parent nav when child nav is open
-      // TODO: refactor ul height - must be a better way?
-      isDropDownExpanded={
-        state.isDropDownExpanded["parentAU"] ||
-        state.isDropDownExpanded["parentJL"] ||
-        state.isDropDownExpanded["parentJT"]
-      }
-    >
+    <StyledNavListGroup isMenuExpanded={isMenuExpanded}>
       {children}
     </StyledNavListGroup>
   )

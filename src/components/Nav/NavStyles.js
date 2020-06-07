@@ -20,17 +20,18 @@ background-color: transparent;
 `
 
 const NavListGroupWrapperStyles = css`
-display: ${props => props.isMenuExpanded === true ? "none" : null};
+display: ${props => props.isMenuExpanded ? "none" : null};
 background-color: ${setColor.brandMonochrome[0]};
 height: calc(100vh - ${setHeight.navHeight});
 ${breakpoint.md`
-height: ${props => props.isDropDownExpanded ? '90vh' : setHeight.navHeight};
+height: auto;
 `}
 overflow-y: scroll;
  ul {
   display: none;
 }
 ${breakpoint.md`
+overflow: initial;
 display: flex;
 justify-content: flex-end;
 background-color: transparent;
@@ -55,7 +56,6 @@ a {
     }
 }
 ${breakpoint.md`
-height: 0;
 margin: 0 ${setSpacing.baseTight};
 &:not(:first-of-type){
   border-top: none;
@@ -70,8 +70,9 @@ a {
 
 
 const NavListItemHasChildStyles = css`
-position: relative;
 list-style: none;
+position: relative;
+overflow: visible;
 a {
     position:relative;
 &:after {
@@ -133,9 +134,10 @@ margin-right: ${setSpacing.xLoose};
 ul {
   position: absolute;
   top: 1.5rem;
+  right: -5px;
   width: auto;
   margin-left: 0;
-  justify-content: flex-start;
+  text-align: right;
   height: auto;
   border-radius: 3px;
     background-color: ${setColor.brandPrimary[600]};
