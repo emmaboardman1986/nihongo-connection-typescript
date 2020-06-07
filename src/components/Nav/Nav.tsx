@@ -29,7 +29,14 @@ const Nav = () => {
   )
 }
 
-const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
+export interface BurgerButtonProps {
+  isMenuExpanded: boolean
+  setIsMenuExpanded: Function
+}
+const BurgerButton = ({
+  isMenuExpanded,
+  setIsMenuExpanded,
+}: BurgerButtonProps) => {
   return (
     <StyledBurgerButton
       aria-expanded={isMenuExpanded}
@@ -45,19 +52,40 @@ const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
   )
 }
 
-const NavListGroup = React.forwardRef(({ isMenuExpanded, children }, ref) => {
-  return (
-    <StyledNavListGroup isMenuExpanded={isMenuExpanded} ref={ref}>
-      {children}
-    </StyledNavListGroup>
-  )
-})
+export interface NavListGroupProps {
+  isMenuExpanded: boolean
+  // TODO: dig into appropriate type
+  children: any
+}
+const NavListGroup = React.forwardRef(
+  ({ isMenuExpanded, children }: NavListGroupProps, ref) => {
+    console.log(children)
+    return (
+      <StyledNavListGroup isMenuExpanded={isMenuExpanded} ref={ref}>
+        {children}
+      </StyledNavListGroup>
+    )
+  }
+)
 
-const NavListItem = ({ name, id, link, items = [] }) => {
+export interface NavListItemProps {
+  name: string
+  link: string
+  id?: string
+  // TODO: deal with undefined items
+  items?: []
+  key?: number
+}
+
+const NavListItem = ({ name, id, link, items = [], key }: NavListItemProps) => {
   const hasSubGroup = items && items.length > 0
   const { state, dispatch } = useContext(NavContext)
   const ref = useRef()
-  useOnClickOutside(ref, () => dispatch({ type: "close" }), state.isDropDownExpanded[id])
+  useOnClickOutside(
+    ref,
+    () => dispatch({ type: "close" }),
+    state.isDropDownExpanded[id]
+  )
   return (
     <StyledNavListItem
       hasSubGroup={hasSubGroup}
