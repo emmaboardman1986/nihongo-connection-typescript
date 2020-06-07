@@ -24,7 +24,7 @@
 - Interacting with the burger menu will reveal or hide the menu. Interaction can be achieved via touch, click, enter or space.
 - Interacting with a link with no sub-menu will take the user to the associated page. Interaction can be achieved via touch, click, or enter.
 - Interacting with a link with a sub-menu will toggle open the associated sub-menu. Interaction can be achieved via touch, click, or space.
-- On desktop, interacting via click elsewhere on the page whilst a sub-menu is open will close the sub-menu. Multiple sub-menu's cannot be open at once, when interacting via click. This functionality is not yet implemented for keyboard interactions. 
+- On desktop, interacting via click elsewhere on the page whilst a sub-menu is open will close the sub-menu. Multiple sub-menu's cannot be open at once, when interacting via click. This functionality is not yet implemented for keyboard interactions.  // not implemented fully
 
 ## A11y 
 
