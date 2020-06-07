@@ -8,19 +8,19 @@
 
 ## States
 
-**Primary (CTA) Button**
+### Primary (CTA) Button
 
 | Neutral    |  Hover  | Focus |
 | ------------- |-------------| -----|
 | ![alt text](https://i.ibb.co/tb1qyt3/Screenshot-2020-06-05-at-16-01-04.png "Neutral")     | ![alt text](https://i.ibb.co/1JCK2Yt/Screenshot-2020-06-05-at-16-01-11.png "Hover") |![alt text](https://i.ibb.co/Y3sQ5Qr/Screenshot-2020-06-05-at-16-06-47.png "Focus") | 
 
-**Secondary Button**
+### Secondary Button
 
 | Neutral    |  Hover  | Focus |
 | ------------- |-------------| -----|
 | ![alt text](https://i.ibb.co/f0GrNm5/Screenshot-2020-06-05-at-16-13-19.png "Neutral")     | ![alt text](https://i.ibb.co/pwhSWHZ/Screenshot-2020-06-05-at-16-05-46.png "Hover") |![alt text](https://i.ibb.co/XSQZTn5/Screenshot-2020-06-05-at-16-07-05.png "Focus") | 
 
-**Action Button**
+### Action Button
 
 | Neutral    |  Hover  | Focus |
 | ------------- |-------------| -----|
