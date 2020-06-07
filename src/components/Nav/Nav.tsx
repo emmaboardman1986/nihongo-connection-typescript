@@ -1,155 +1,68 @@
-import React, { useContext, useState } from "react"
-import styled from "styled-components"
+import React, { useContext, useState, useRef } from "react"
 import {
-  NavWrapperStyles,
-  NavListGroupWrapperStyles,
-  NavListItemWrapperStyles,
-  NavListItemHasChildStyles,
-  BurgerButtonWrapperStyles,
-  BurgerButtonSpanWrapperStyles,
+  StyledNav,
+  StyledBurgerButton,
+  StyledBurgerButtonIcon,
+  StyledNavListGroup,
+  StyledNavListItem,
 } from "./NavStyles"
 import { NavContext } from "../../context/NavContext"
+import navMenuData from "../../data/nav.json"
+import { useOnClickOutside } from "../../customHooks/useOnClickOutside"
 
-const Nav = React.forwardRef((props, ref) => {
+const Nav = () => {
+  // mobile menu is full-width, so no need for global state to recognise outside clicks
   const [isMenuExpanded, setIsMenuExpanded] = useState(false)
-  const navMenuItems = [
-    // {
-    //   name: "Home",
-    //   link: "/",
-    // },
-    {
-      name: "Explore Classes",
-      link: "/explore",
-    },
-    {
-      name: "For Japanese Learners",
-      link: "#",
-      id: "parentJL",
-      items: [
-        {
-          name: "Beginner's Level 1",
-          link: "/beginners-level-1",
-        },
-        {
-          name: "Beginner's Level 2",
-          link: "/beginners-level-2",
-        },
-        {
-          name: "Beginner's Level 3",
-          link: "/beginners-level-3",
-        },
-        {
-          name: "Friday Conversation Club",
-          link: "/friday-conversation-club",
-        },
-        {
-          name: "1:1 Lessons",
-          link: "/one-to-one-lessons",
-        },
-        {
-          name: "JLPT Bootcamp",
-          link: "/jlpt-bootcamp",
-        },
-        {
-          name: "Beginner's Bootcamp",
-          link: "/beginners-bootcamp",
-        },
-        {
-          name: "Nihongo Confidence (Lite)",
-          link: "/nihongo-confidence-lite",
-        },
-      ],
-    },
-    {
-      name: "For Japanese Teachers",
-      id: "parentJT",
-      link: "#",
-      items: [
-        {
-          name: "Business Coaching",
-          link: "/teacher-coaching",
-        },
-      ],
-    },
-    {
-      name: "About Us",
-      id: "parentAU",
-      link: "#",
-      items: [
-        {
-          name: "Who we are",
-          link: "/about-us"
-        },
-        {
-          name: "Get in Touch",
-          link: "/contact-us"
-        },
-        {
-          name: "Reviews",
-          link: "/reviews"
-        },
-      ]
-    },
-    // {
-    //   name: "Get in Touch",
-    //   link: "/contact",
-    // },
-  ]
 
   return (
-    <NavWrapper ref={ref}>
-      <BurgerButton isMenuExpanded={isMenuExpanded} setIsMenuExpanded={setIsMenuExpanded}></BurgerButton>
+    <StyledNav>
+      <BurgerButton
+        isMenuExpanded={isMenuExpanded}
+        setIsMenuExpanded={setIsMenuExpanded}
+      ></BurgerButton>
       <NavListGroup isMenuExpanded={!isMenuExpanded}>
-        {navMenuItems.map((item, index) => (
+        {navMenuData.map((item, index) => (
           <NavListItem {...item} key={index} />
         ))}
       </NavListGroup>
-    </NavWrapper>
+    </StyledNav>
   )
-})
-
-const NavWrapper = styled.nav`
-  ${NavWrapperStyles};
-`
+}
 
 const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
   return (
-    <BurgerButtonWrapper
+    <StyledBurgerButton
       aria-expanded={isMenuExpanded}
       onClick={() => setIsMenuExpanded(!isMenuExpanded)}
-      aria-label="Open Site Navigation Menu"
     >
-      <BurgerButtonSpanWrapper>
+      <span className="visually-hidden">Site Navigation Menu</span>
+      <StyledBurgerButtonIcon>
         <span></span>
         <span></span>
         <span></span>
-      </BurgerButtonSpanWrapper>
-    </BurgerButtonWrapper>
+      </StyledBurgerButtonIcon>
+    </StyledBurgerButton>
   )
 }
 
-const BurgerButtonWrapper = styled.button`
-  ${BurgerButtonWrapperStyles}
-`
-
-const BurgerButtonSpanWrapper = styled.div`
-  ${BurgerButtonSpanWrapperStyles};
-`
-
-const NavListGroup = ({ isMenuExpanded, children }) => {
-  const { state } = useContext(NavContext)
-  return <NavListGroupWrapper isMenuExpanded={isMenuExpanded} isDropDownExpanded={state.isDropDownExpanded["parentAU"] || state.isDropDownExpanded["parentJL"] || state.isDropDownExpanded["parentJT"]}>{children}</NavListGroupWrapper>
-}
-
-const NavListGroupWrapper = styled.ul`
-  ${NavListGroupWrapperStyles};
-`
+const NavListGroup = React.forwardRef(({ isMenuExpanded, children }, ref) => {
+  return (
+    <StyledNavListGroup isMenuExpanded={isMenuExpanded} ref={ref}>
+      {children}
+    </StyledNavListGroup>
+  )
+})
 
 const NavListItem = ({ name, id, link, items = [] }) => {
   const hasSubGroup = items && items.length > 0
   const { state, dispatch } = useContext(NavContext)
+  const ref = useRef()
+  useOnClickOutside(ref, () => dispatch({ type: "close" }), state.isDropDownExpanded[id])
   return (
-    <NavListItemWrapper hasSubGroup={hasSubGroup} isDropDownExpanded={state.isDropDownExpanded[id]}>
+    <StyledNavListItem
+      hasSubGroup={hasSubGroup}
+      isDropDownExpanded={state.isDropDownExpanded[id]}
+    >
       {hasSubGroup ? (
         <>
           <a
@@ -161,7 +74,7 @@ const NavListItem = ({ name, id, link, items = [] }) => {
             {name}
           </a>
 
-          <NavListGroup isMenuExpanded={state.isDropDownExpanded[id]}>
+          <NavListGroup isMenuExpanded={state.isDropDownExpanded[id]} ref={ref}>
             {items.map((item, index) => (
               <NavListItem {...item} key={index} />
             ))}
@@ -170,13 +83,8 @@ const NavListItem = ({ name, id, link, items = [] }) => {
       ) : (
         <a href={link}>{name}</a>
       )}
-    </NavListItemWrapper>
+    </StyledNavListItem>
   )
 }
-
-const NavListItemWrapper = styled.li`
-  ${NavListItemWrapperStyles}
-  ${props => props.hasSubGroup && NavListItemHasChildStyles};
-`
 
 export default Nav

@@ -16,7 +16,6 @@ import TextLink from "../components/TextLink"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
-  console.log(classInfo)
   return (
     <Layout>
       <Section>
