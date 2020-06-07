@@ -19,12 +19,10 @@ export interface TimelineProps {
 }
 
 const Timeline = ({ timelineContent = [] }) => {
-  console.log(timelineContent)
   return (
     <TimelineWrapper>
       <TimelineContainer>
         {timelineContent.map((contentBlock, index) => {
-          console.log(contentBlock)
           return (
             <TimelineBlock
               year={contentBlock.about_us_timeline_year.text}
