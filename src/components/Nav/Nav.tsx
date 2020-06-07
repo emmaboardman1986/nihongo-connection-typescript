@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useRef } from "react"
 import {
   StyledNav,
   StyledBurgerButton,
@@ -8,13 +8,14 @@ import {
 } from "./NavStyles"
 import { NavContext } from "../../context/NavContext"
 import navMenuData from "../../data/nav.json"
+import { useOnClickOutside } from "../../customHooks/useOnClickOutside"
 
-const Nav = React.forwardRef((props, ref) => {
+const Nav = () => {
   // mobile menu is full-width, so no need for global state to recognise outside clicks
   const [isMenuExpanded, setIsMenuExpanded] = useState(false)
 
   return (
-    <StyledNav ref={ref}>
+    <StyledNav>
       <BurgerButton
         isMenuExpanded={isMenuExpanded}
         setIsMenuExpanded={setIsMenuExpanded}
@@ -26,7 +27,7 @@ const Nav = React.forwardRef((props, ref) => {
       </NavListGroup>
     </StyledNav>
   )
-})
+}
 
 const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
   return (
@@ -44,17 +45,19 @@ const BurgerButton = ({ isMenuExpanded, setIsMenuExpanded }) => {
   )
 }
 
-const NavListGroup = ({ isMenuExpanded, children }) => {
+const NavListGroup = React.forwardRef(({ isMenuExpanded, children }, ref) => {
   return (
-    <StyledNavListGroup isMenuExpanded={isMenuExpanded}>
+    <StyledNavListGroup isMenuExpanded={isMenuExpanded} ref={ref}>
       {children}
     </StyledNavListGroup>
   )
-}
+})
 
 const NavListItem = ({ name, id, link, items = [] }) => {
   const hasSubGroup = items && items.length > 0
   const { state, dispatch } = useContext(NavContext)
+  const ref = useRef()
+  useOnClickOutside(ref, () => dispatch({ type: "close" }), state)
   return (
     <StyledNavListItem
       hasSubGroup={hasSubGroup}
@@ -71,7 +74,7 @@ const NavListItem = ({ name, id, link, items = [] }) => {
             {name}
           </a>
 
-          <NavListGroup isMenuExpanded={state.isDropDownExpanded[id]}>
+          <NavListGroup isMenuExpanded={state.isDropDownExpanded[id]} ref={ref}>
             {items.map((item, index) => (
               <NavListItem {...item} key={index} />
             ))}

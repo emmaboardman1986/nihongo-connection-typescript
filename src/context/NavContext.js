@@ -11,11 +11,6 @@ let reducer = (state, action) => {
           [action.payload]: !state.isDropDownExpanded[action.payload]
         }
       };
-    case "menu":
-      return {
-        ...state,
-        isMenuExpanded: !state.isMenuExpanded
-      }
     case "close":
       return {
         ...state,
@@ -32,7 +27,6 @@ let reducer = (state, action) => {
 
 
 const initialState = {
-  isMenuExpanded: true,
   isDropDownExpanded: {
     parentJL: false,
     parentJT: false,
