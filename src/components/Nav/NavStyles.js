@@ -1,7 +1,8 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { setColor, setFont, setSpacing, breakpoint, setFlex, setFlexDirection, setBorder, setFontSize, setHeight } from "../../styles/styleHelpers"
+import { ActionButtonFocusStyles } from "../Button/ButtonStyles"
 
-export const NavWrapperStyles = css`
+const NavWrapperStyles = css`
 position: absolute;
 top: ${setHeight.navHeight};
 left: 0;
@@ -18,7 +19,7 @@ background-color: transparent;
  `}
 `
 
-export const NavListGroupWrapperStyles = css`
+const NavListGroupWrapperStyles = css`
 display: ${props => props.isMenuExpanded === true ? "none" : null};
 background-color: ${setColor.brandMonochrome[0]};
 height: calc(100vh - ${setHeight.navHeight});
@@ -36,22 +37,29 @@ background-color: transparent;
 `}
 `
 
-export const NavListItemWrapperStyles = css`
+const NavListItemWrapperStyles = css`
 min-width: 100px;
 padding: ${setSpacing.loose};
 list-style: none;
-border-top: ${setBorder.borderSmBlack};
+&:not(:first-of-type){
+  border-top: ${setBorder.borderSmBlack};
+}
 background-color: ${setColor.brandMonochrome[0]};
 a {
     padding: ${setSpacing.base} 0;
     text-decoration: none;
     font-size: ${setFontSize.large};
     color: ${setColor.brandPrimary[900]};
+    &:focus {
+      ${ActionButtonFocusStyles};
+    }
 }
 ${breakpoint.md`
 height: 0;
 margin: 0 ${setSpacing.baseTight};
-border-top: none;
+&:not(:first-of-type){
+  border-top: none;
+}
 background-color: transparent;
 padding: 0;
 a {
@@ -61,7 +69,7 @@ a {
 `
 
 
-export const NavListItemHasChildStyles = css`
+const NavListItemHasChildStyles = css`
 position: relative;
 list-style: none;
 a {
@@ -97,7 +105,9 @@ ul {
     li {
         display: ${props => props.isDropDownExpanded === false ? "none" : "inline-block"};
         padding: ${setSpacing.tight};
-        border: 0;
+        &:not(:first-of-type){
+          border-top:0;
+          }
         height:  ${props => props.isDropDownExpanded === false ? 0 : "auto"};
         a {
             font-family: ${setFont.fontPrimaryRegular};
@@ -137,14 +147,15 @@ ul {
 `}
 `
 
-export const BurgerButtonWrapperStyles = css`
+const BurgerButtonWrapperStyles = css`
   position: absolute;
-  top: -${setHeight.navHeight};
+  ${'' /* // account for hover box-shadow being 3px on all sides */}
+  height: calc(${setHeight.navHeight} - 6px);
+  top: calc(-${setHeight.navHeight} + 3px);
   left: calc(${setSpacing.loose} - 10px);
   justify-self: flex-start;
   background-color: transparent;
-  height: ${setHeight.navHeight};
-  border: 0;
+  border: 3px solid transparent;
   box-sizing: border-box;
   div {
       width: 60px;
@@ -165,14 +176,14 @@ export const BurgerButtonWrapperStyles = css`
   &[aria-expanded="true"] {
     div span {
       :nth-child(1) {
-        transform: rotate(-45deg) translateY(9px) translateX(-10px);
+        transform: rotate(-45deg) translateY(9px) translateX(-9px);
       }
       :nth-child(2) {
         opacity: 0;
       }
       :nth-child(3) {
      
-        transform: rotate(45deg) translateY(-9px) translateX(-10px);
+        transform: rotate(45deg) translateY(-9px) translateX(-9px);
       }
     }
   }
@@ -180,10 +191,30 @@ export const BurgerButtonWrapperStyles = css`
     display: none;`}
 `
 
-export const BurgerButtonSpanWrapperStyles = css`
+const BurgerButtonSpanWrapperStyles = css`
  ${setFlex({ align: "center", justify: "space-evenly" })};
   ${setFlexDirection({ direction: "column" })}
 height: 45px;
 `
 
 
+export const StyledNav = styled.nav`
+  ${NavWrapperStyles};
+`
+
+export const StyledBurgerButton = styled.button`
+  ${BurgerButtonWrapperStyles}
+`
+
+export const StyledBurgerButtonIcon = styled.div`
+  ${BurgerButtonSpanWrapperStyles};
+`
+
+export const StyledNavListGroup = styled.ul`
+  ${NavListGroupWrapperStyles};
+`
+
+export const StyledNavListItem = styled.li`
+  ${NavListItemWrapperStyles}
+  ${props => props.hasSubGroup && NavListItemHasChildStyles};
+`
