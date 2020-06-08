@@ -49,17 +49,13 @@ const FilterContainer = ({ classes }) => {
         return trueFilters;
     }
 
+
     const returnFilterMatches = (filter, filterGroup, classes) => {
         let filterGroupResults = [];
-        if (filter[filterGroup].length > 0) {
-            filter[filterGroup].map(value => {
-                classes.map(classItem => {
-                    if (
-                        classItem.node.data[filterGroup] === value
-                    ) {
-                        filterGroupResults.push(classItem);
-                    }
-                })
+        let filterGroupArray = filter[filterGroup];
+        if (filterGroupArray.length > 0) {
+            filterGroupResults = classes.filter(classItem => {
+                return filterGroupArray.includes(classItem.node.data[filterGroup])
             })
         }
         else {
@@ -68,6 +64,12 @@ const FilterContainer = ({ classes }) => {
         return filterGroupResults;
     }
 
+
+    // TODO: convert to typescript
+    // class_target: {
+    //     "learning-japanese": false,
+    //     "teaching-japanese": false,
+    // },
     const applyFilter = (classes, filter) => {
         var targetGroupResults = [];
         var locationGroupResults = [];
