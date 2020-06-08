@@ -22,6 +22,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <Section>
+        <VerticalSpacing size={{_: "xTight", sm: "base"}}></VerticalSpacing>
         <Hero>
           <Heading element="h1">
             {data.prismicHomepa.data.homepage_title.text}
