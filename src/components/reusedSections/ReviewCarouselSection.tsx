@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import CardContainer from "../CardContainer"
 import Section from "../Section"
 import Button from "../Button"
-import VerticalSpacing from "../utilities/VerticalSpacing"
+import VerticalSpacing from "../VerticalSpacing"
 import Heading from "../Heading"
 
 const ReviewCarouselSection = () => {

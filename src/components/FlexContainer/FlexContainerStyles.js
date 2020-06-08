@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { createResponsiveStyles } from "../../../styles/styleHelpers"
+import { createResponsiveStyles } from "../../styles/styleHelpers"
 
 export const FlexContainerStyles = css`
   display: flex;

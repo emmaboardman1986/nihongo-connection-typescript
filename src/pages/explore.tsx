@@ -6,7 +6,7 @@ import Section from "../components/Section"
 import RichText from "../components/RichText"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 
-import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import VerticalSpacing from "../components/VerticalSpacing"
 import FilterContainer from "../components/FilterContainer"
 
 interface Props {

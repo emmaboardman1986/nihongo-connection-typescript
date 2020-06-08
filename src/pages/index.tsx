@@ -9,9 +9,9 @@ import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSe
 import CardContainer from "../components/CardContainer"
 import SectionResponsiveImage from "../components/SectionResponsiveImage"
 import Hero from "../components/Hero"
-import FlexContainer from "../components/utilities/FlexContainer"
+import FlexContainer from "../components/FlexContainer"
 
-import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 interface Props {
   readonly data: PageQueryData

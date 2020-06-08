@@ -4,13 +4,13 @@ import Heading from "../components/Heading"
 import Section from "../components/Section"
 import BodyText from "../components/BodyText"
 import SocialLinks from "../components/SocialLinks"
-import FlexContainer from "../components/utilities/FlexContainer"
+import FlexContainer from "../components/FlexContainer"
 import TextLink from "../components/TextLink"
 import MailChimp from "../components/MailChimp/MailChimp"
 import Emphasis from "../components/Emphasis"
 import Card from "../components/Card"
 
-import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 interface Props {
   //   readonly data: ContactPageQueryData

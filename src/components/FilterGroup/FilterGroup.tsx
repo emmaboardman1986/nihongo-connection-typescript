@@ -5,7 +5,7 @@ import {
   StyledFilterGroupContents,
   StyledFilterGroupTitle,
 } from "./FilterGroupStyles"
-import VerticalSpacing from "../utilities/VerticalSpacing"
+import VerticalSpacing from "../VerticalSpacing"
 
 import { FilterContext } from "../../context/FilterContext"
 

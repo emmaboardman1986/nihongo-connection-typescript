@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { createMediaQueriesFromTokens, setSpacing } from "../../../styles/styleHelpers"
+import { createMediaQueriesFromTokens, setSpacing } from "../../styles/styleHelpers"
 
 
 const VerticalSpacingStyles = css`

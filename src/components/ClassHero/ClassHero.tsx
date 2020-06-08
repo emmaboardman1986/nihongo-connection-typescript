@@ -10,7 +10,7 @@ import SectionResponsiveImage from "../SectionResponsiveImage"
 import Heading from "../Heading"
 import BodyText from "../BodyText"
 import RichText from "../RichText"
-import VerticalSpacing from "../utilities/VerticalSpacing"
+import VerticalSpacing from "../VerticalSpacing"
 
 const ClassHero = ({ title, duration, location, image, summary }) => {
   return (
