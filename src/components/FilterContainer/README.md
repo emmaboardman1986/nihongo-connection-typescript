@@ -7,9 +7,14 @@
 ## States
 
 
-| Filter Group Pill (Neutral)    |  Filter Group Pill (Hover)  | Filter Group Pill (Focus) |
+| Filter Group Pill (Unpressed - Neutral)    |  Filter Group Pill (Unpressed - Hover)  | Filter Group Pill (Unpressed - Focus) |
 | ------------- |-------------| -----|
 | ![alt text](https://i.ibb.co/9pL3XPx/Screenshot-2020-06-06-at-13-34-10.png "Filter Group Pill, Neutral")     | ![alt text](https://i.ibb.co/tMfMVZp/Screenshot-2020-06-06-at-14-55-23.png "Filter Group Pill, Hover") |![alt text](https://i.ibb.co/sRMd0hQ/Screenshot-2020-06-06-at-14-56-42.png "Filter Group Pill, Focus") | 
+
+| Filter Group Pill (Pressed - Neutral)    |  Filter Group Pill (Pressed - Hover)  | Filter Group Pill (Pressed - Focus) |
+| ------------- |-------------| -----|
+| ![alt text](https://i.ibb.co/56ZDJf6/Screenshot-2020-06-06-at-14-56-54.png "Filter Group Pill, Unpressed, Neutral")     | ![alt text](https://i.ibb.co/c1fYPzb/Screenshot-2020-06-06-at-14-57-29.png "Filter Group Pill, Pressed, Hover") |![alt text](https://i.ibb.co/Z2rgpTH/Screenshot-2020-06-06-at-14-57-37.png "Filter Group Pill, Pressed, Focus") | 
+
 
 | Filter Results (Neutral)    |  Filter Results (Filtered)  | Filter Results (Filtered w/ reset hovered) | Filter Results (Filtered w/ reset focused) | Filter Results (empty state)
 | ------------- |-------------| -----| -----| -----|
