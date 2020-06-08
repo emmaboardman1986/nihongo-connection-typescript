@@ -4,7 +4,7 @@ import CardContainer from "../CardContainer"
 import Section from "../Section"
 import Button from "../Button"
 import VerticalSpacing from "../utilities/VerticalSpacing"
-import Heading from "../typography/Heading"
+import Heading from "../Heading"
 
 const ReviewCarouselSection = () => {
   const data = useStaticQuery(graphql`

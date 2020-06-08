@@ -11,7 +11,7 @@ import {
 import Icon from "../Icon"
 import RichText from "../RichText"
 import Card from "../Card"
-import Heading from "../typography/Heading"
+import Heading from "../Heading"
 
 type TimelineContentObject = {
   about_us_timeline_content: {

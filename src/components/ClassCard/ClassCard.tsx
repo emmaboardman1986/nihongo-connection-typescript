@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import {
   StyledClassCard, StyledClassCardImage, StyledClassCardInner, StyledClassCardLabel, StyledClassCardText, StyledGradient
 } from "./ClassCardStyles"
-import Heading from "../typography/Heading"
+import Heading from "../Heading"
 import FlexContainer from "../utilities/FlexContainer"
 
 export interface ClassCardProps {

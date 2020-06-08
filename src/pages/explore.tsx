@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import Heading from "../components/typography/Heading"
+import Heading from "../components/Heading"
 import Section from "../components/Section"
 import RichText from "../components/RichText"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"

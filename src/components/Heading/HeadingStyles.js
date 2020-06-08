@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { setFont, setColor, setSpacing } from '../../../styles/styleHelpers'
+import { setFont, setColor, setSpacing } from '../../styles/styleHelpers'
 
 export const HeadingStyles = css`
 margin-bottom: ${setSpacing.loose};

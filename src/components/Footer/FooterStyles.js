@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 import { setColor, setFlex, setSpacing, breakpoint } from "../../styles/styleHelpers"
-import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
+import { BodyTextStyles } from "../BodyText/BodyTextStyles"
 
 const FooterStyles = css`
 background-color: ${setColor.brandPrimary[900]};

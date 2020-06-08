@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
+import { BodyTextStyles } from "../BodyText/BodyTextStyles"
 import { setColor, setFlex, setBorder, setFont, setFontSize, setShadow, setSpacing } from "../../styles/styleHelpers"
 import {ActionButtonFocusStyles } from "../Button/ButtonStyles"
 
