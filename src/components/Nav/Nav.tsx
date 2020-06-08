@@ -81,11 +81,7 @@ const NavListItem = ({ name, id, link, items = [], key }: NavListItemProps) => {
   const hasSubGroup = items && items.length > 0
   const { state, dispatch } = useContext(NavContext)
   const ref = useRef()
-  useOnClickOutside(
-    ref,
-    () => dispatch({ type: "close" }),
-    state.isDropDownExpanded[id]
-  )
+  // useOnClickOutside(ref, () => dispatch({ type: "close" }), state.isDropDownExpanded[id])
   return (
     <StyledNavListItem
       hasSubGroup={hasSubGroup}
