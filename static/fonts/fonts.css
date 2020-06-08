@@ -4,6 +4,7 @@
         url('Poppins-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
         url('Poppins-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -20,4 +22,5 @@
         url('Axiforma-Black.woff') format('woff');
     font-weight: 800;
     font-style: normal;
+    font-display: swap;
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { StyledPill } from "./PillStyles"
-import VerticalSpacing from "../utilities/VerticalSpacing"
+import VerticalSpacing from "../VerticalSpacing"
 
 export interface PillProps {
   name: string

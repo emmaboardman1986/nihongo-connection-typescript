@@ -7,10 +7,10 @@ import {
 } from "./ClassHeroStyles"
 import HighlightPill from "../HighlightPill"
 import SectionResponsiveImage from "../SectionResponsiveImage"
-import Heading from "../typography/Heading"
-import BodyText from "../typography/BodyText"
+import Heading from "../Heading"
+import BodyText from "../BodyText"
 import RichText from "../RichText"
-import VerticalSpacing from "../utilities/VerticalSpacing"
+import VerticalSpacing from "../VerticalSpacing"
 
 const ClassHero = ({ title, duration, location, image, summary }) => {
   return (

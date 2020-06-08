@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 import { setColor, setBorder, setSpacing, setShadow, setFontSize, setFlex, setFont } from "../../styles/styleHelpers"
-import { H3Styles } from "../typography/Heading/HeadingStyles"
+import { H3Styles } from "../Heading/HeadingStyles"
 
 
 

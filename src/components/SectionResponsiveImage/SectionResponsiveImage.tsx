@@ -1,4 +1,5 @@
 import React from "react"
+import 'lazysizes';
 import { StyledSectionResponsiveImage } from "./SectionResponsiveImageStyles"
 import { breakpoints } from "../../styles/styleHelpers"
 
@@ -30,8 +31,8 @@ const SectionResponsiveImage = ({
       desktopWidth={desktopWidth}
     >
       <picture>
-        <source media={`min-width: ${breakpoints.md}`} srcSet={imgObj.url} />
-        <img src={imgObj.thumbnails.Tablet.url} alt={imgObj.alt} />
+        <source media={`min-width: ${breakpoints.md}`} srcSet={imgObj.url}/>
+        <img data-src={imgObj.thumbnails.Tablet.url} alt="" className="lazyload" />
       </picture>
     </StyledSectionResponsiveImage>
   )

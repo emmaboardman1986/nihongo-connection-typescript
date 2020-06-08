@@ -1,19 +1,19 @@
 import React, { useContext } from "react"
 import Filter from "../Filter"
-import CardContainer from "../../CardContainer"
-import BodyText from "../../typography/BodyText"
-import Heading from "../../typography/Heading"
-import VerticalSpacing from "../../utilities/VerticalSpacing"
-import HighlightPill from "../../HighlightPill"
-import Emphasis from "../../Emphasis"
-import MailChimp from "../../MailChimp/MailChimp"
-import Card from "../../Card"
-import AriaLiveRegion from "../../AriaLiveRegion"
-import FlexContainer from "../../utilities/FlexContainer"
+import CardContainer from "../CardContainer"
+import BodyText from "../BodyText"
+import Heading from "../Heading"
+import VerticalSpacing from "../VerticalSpacing"
+import HighlightPill from "../HighlightPill"
+import Emphasis from "../Emphasis"
+import MailChimp from "../MailChimp/MailChimp"
+import Card from "../Card"
+import AriaLiveRegion from "../AriaLiveRegion"
+import FlexContainer from "../FlexContainer"
 import { StyledFilterContainer, StyledFilterResults } from "./FilterContainerStyles"
 
-import { FilterContext } from "../../../context/FilterContext"
-import filterData from "../../../data/filters.json"
+import { FilterContext } from "../../context/FilterContext"
+import filterData from "../../data/filters.json"
 
 
 const FilterContainer = ({ classes }) => {
@@ -49,17 +49,13 @@ const FilterContainer = ({ classes }) => {
         return trueFilters;
     }
 
+
     const returnFilterMatches = (filter, filterGroup, classes) => {
         let filterGroupResults = [];
-        if (filter[filterGroup].length > 0) {
-            filter[filterGroup].map(value => {
-                classes.map(classItem => {
-                    if (
-                        classItem.node.data[filterGroup] === value
-                    ) {
-                        filterGroupResults.push(classItem);
-                    }
-                })
+        let filterGroupArray = filter[filterGroup];
+        if (filterGroupArray.length > 0) {
+            filterGroupResults = classes.filter(classItem => {
+                return filterGroupArray.includes(classItem.node.data[filterGroup])
             })
         }
         else {
@@ -68,6 +64,12 @@ const FilterContainer = ({ classes }) => {
         return filterGroupResults;
     }
 
+
+    // TODO: convert to typescript
+    // class_target: {
+    //     "learning-japanese": false,
+    //     "teaching-japanese": false,
+    // },
     const applyFilter = (classes, filter) => {
         var targetGroupResults = [];
         var locationGroupResults = [];

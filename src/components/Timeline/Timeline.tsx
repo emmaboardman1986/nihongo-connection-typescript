@@ -1,27 +1,36 @@
 import React from "react"
-import styled from "styled-components"
 import { setColor } from "../../styles/styleHelpers"
 import {
-  TimelineStyles,
-  TimelineContainerStyles,
-  TimelineBlockWrapperStyles,
-  TimelineImageWrapperStyles,
-  IconWrapperStyles,
-  TimelineContentWrapperStyles
+  StyledTimeline,
+  StyledTimelineContainer,
+  StyledTimelineBlock,
+  StyledTimelineImage,
+  StyledIcon,
+  StyledTimelineContent,
 } from "./TimelineStyles"
 import Icon from "../Icon"
 import RichText from "../RichText"
 import Card from "../Card"
-import Heading from "../typography/Heading"
+import Heading from "../Heading"
 
-export interface TimelineProps {
-  timelineContent: []
+type TimelineContentObject = {
+  about_us_timeline_content: {
+    html: string
+  }
+  about_us_timeline_year: {
+    text: string
+  }
 }
 
-const Timeline = ({ timelineContent = [] }) => {
+export interface TimelineProps {
+  timelineContent: [TimelineContentObject]
+}
+
+// TODO: address property key
+const Timeline = ({ timelineContent = [] }: TimelineProps) => {
   return (
-    <TimelineWrapper>
-      <TimelineContainer>
+    <StyledTimeline>
+      <StyledTimelineContainer>
         {timelineContent.map((contentBlock, index) => {
           return (
             <TimelineBlock
@@ -31,65 +40,58 @@ const Timeline = ({ timelineContent = [] }) => {
             />
           )
         })}
-      </TimelineContainer>
-    </TimelineWrapper>
+      </StyledTimelineContainer>
+    </StyledTimeline>
   )
 }
 
-const TimelineWrapper = styled.div`
-  ${TimelineStyles};
-`
-
-const TimelineContainer = styled.div`
-  ${TimelineContainerStyles}
-`
+export interface TimelineBlockProps {
+  year: string
+  content: string
+}
 
 const TimelineBlock = ({ year, content }) => {
   return (
-    <TimelineBlockWrapper>
+    <StyledTimelineBlock>
       <TimelineImage icon="star"></TimelineImage>
       <TimelineContent year={year} content={content}></TimelineContent>
-    </TimelineBlockWrapper>
+    </StyledTimelineBlock>
   )
 }
 
-const TimelineBlockWrapper = styled.div`
-  ${TimelineBlockWrapperStyles};
-`
+export interface TimelineImageProps {
+  icon: string
+}
 
 const TimelineImage = ({ icon }) => {
   return (
-    <TimelineImageWrapper className="timeline__img">
-      <IconWrapper data-icon>
+    <StyledTimelineImage className="timeline__img">
+      <StyledIcon>
         <Icon
           icon={icon}
           color={setColor.brandMonochrome[0]}
           fill={setColor.brandMonochrome[0]}
           stroke={setColor.brandMonochrome[0]}
         />
-      </IconWrapper>
-    </TimelineImageWrapper>
+      </StyledIcon>
+    </StyledTimelineImage>
   )
 }
 
-const TimelineImageWrapper = styled.div`
-  ${TimelineImageWrapperStyles};
-`
+export interface TimelineContentProps {
+  year: string
+  content: string
+}
 
-const IconWrapper = styled.div`
-  ${IconWrapperStyles};
-`
 const TimelineContent = ({ year, content }) => {
   return (
-    <TimelineContentWrapper>
+    <StyledTimelineContent>
       <Card>
         <Heading element="h2">{year}</Heading>
         <RichText content={content}></RichText>
       </Card>
-    </TimelineContentWrapper>
+    </StyledTimelineContent>
   )
 }
 
-const TimelineContentWrapper = styled.div`
-${TimelineContentWrapperStyles}`
 export default Timeline

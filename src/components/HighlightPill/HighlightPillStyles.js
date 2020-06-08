@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 import { setColor, setSpacing, setBorder, setFontSize } from "../../styles/styleHelpers"
-import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
+import { BodyTextStyles } from "../BodyText/BodyTextStyles"
 import {ActionButtonFocusStyles } from "../Button/ButtonStyles"
 
 const HighlightPillStyles = css`

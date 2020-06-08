@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
+import { BodyTextStyles } from "../BodyText/BodyTextStyles"
 import { setColor, setFlex, setFontSize, setFont, setBorder } from "../../styles/styleHelpers"
 import { BrandWarn } from "../../../static/brandwarn.svg"
 import { BrandTick } from "../../../static/brandtick.svg"

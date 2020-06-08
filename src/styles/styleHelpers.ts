@@ -75,8 +75,6 @@ export const setColor = {
 
 }
 
-
-
 // BORDERS & SHADOWS
 export const setBorder = {
   borderRadius: "10px",
@@ -157,6 +155,19 @@ export const createMediaQueriesFromTokens = (propertyName, propObject, tokenObje
   return css`
     ${mediaQueries}
   `
+}
+
+export const createResponsiveStyles = (cssProperty, responsiveStyleObject) => {
+  let cssString = `${cssProperty}: ${responsiveStyleObject["_"]};`
+  const styles = [
+    css`
+    ${cssString}
+  `
+  ]
+  if (Object.keys(responsiveStyleObject).length > 1) {
+    styles.push(createMediaQueries(cssProperty, responsiveStyleObject))
+  }
+  return styles
 }
 
 // NAV

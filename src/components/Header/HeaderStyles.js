@@ -7,7 +7,7 @@ export const HeaderStyles = css`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${setColor.brandSecondary[400]};
+  background-color: ${setColor.brandSecondary[500]};
   z-index: 10;
   padding: ${setSpacing.loose};
   height: ${setHeight.navHeight};

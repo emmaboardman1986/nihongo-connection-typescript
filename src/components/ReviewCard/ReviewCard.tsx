@@ -3,7 +3,7 @@ import { StyledReviewCard } from "./ReviewCardStyles"
 import { useTruncateText } from "../../customHooks/useTruncateText"
 import { Link } from "gatsby"
 import Ellipsis from "../Ellipsis"
-import VerticalSpacing from "../utilities/VerticalSpacing"
+import VerticalSpacing from "../VerticalSpacing"
 
 export interface ReviewCardProps {
   content: string

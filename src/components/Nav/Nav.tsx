@@ -59,7 +59,6 @@ export interface NavListGroupProps {
 }
 const NavListGroup = React.forwardRef(
   ({ isMenuExpanded, children }: NavListGroupProps, ref) => {
-    console.log(children)
     return (
       <StyledNavListGroup isMenuExpanded={isMenuExpanded} ref={ref}>
         {children}

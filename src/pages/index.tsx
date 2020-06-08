@@ -2,16 +2,16 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import RichText from "../components/RichText"
-import Heading from "../components/typography/Heading"
+import Heading from "../components/Heading"
 import Section from "../components/Section"
 import Button from "../components/Button"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 import CardContainer from "../components/CardContainer"
 import SectionResponsiveImage from "../components/SectionResponsiveImage"
 import Hero from "../components/Hero"
-import FlexContainer from "../components/utilities/FlexContainer"
+import FlexContainer from "../components/FlexContainer"
 
-import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 interface Props {
   readonly data: PageQueryData
@@ -22,6 +22,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <Section>
+        <VerticalSpacing size={{_: "xTight", sm: "base"}}></VerticalSpacing>
         <Hero>
           <Heading element="h1">
             {data.prismicHomepa.data.homepage_title.text}

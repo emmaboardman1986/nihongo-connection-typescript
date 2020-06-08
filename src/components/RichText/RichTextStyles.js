@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
+import { BodyTextStyles } from "../BodyText/BodyTextStyles"
 import { setFont, breakpoint, setColor } from "../../styles/styleHelpers"
 import starSVG from "../../../static/star.svg"
 

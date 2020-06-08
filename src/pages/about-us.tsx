@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import Heading from "../components/typography/Heading"
+import Heading from "../components/Heading"
 import Section from "../components/Section"
-import BodyText from "../components/typography/BodyText"
+import BodyText from "../components/BodyText"
 import Timeline from "../components/Timeline"
 
-import VerticalSpacing from "../components/utilities/VerticalSpacing"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 interface Props {
   readonly data: AboutPageQueryData
