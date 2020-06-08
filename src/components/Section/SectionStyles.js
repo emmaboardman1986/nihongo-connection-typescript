@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { setSpacing, breakpoint } from "../../styles/styleHelpers"
 
 export const StyledSection = styled.section`
