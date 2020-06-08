@@ -7,7 +7,7 @@ import RichText from "../components/RichText"
 import ReviewCarouselSection from "../components/reusedSections/ReviewCarouselSection"
 
 import VerticalSpacing from "../components/utilities/VerticalSpacing"
-import FilterContainer from "../components/filters/FilterContainer"
+import FilterContainer from "../components/FilterContainer"
 
 interface Props {
   readonly data: ExplorePageQueryData

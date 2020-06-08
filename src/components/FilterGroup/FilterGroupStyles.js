@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
-import { setFlex, setColor, setFontSize, setFont } from "../../../styles/styleHelpers"
-import { BodyTextStyles } from "../../typography/BodyText/BodyTextStyles"
+import { setFlex, setColor, setFontSize, setFont } from "../../styles/styleHelpers"
+import { BodyTextStyles } from "../typography/BodyText/BodyTextStyles"
 
 
 const FilterGroupStyles = css`

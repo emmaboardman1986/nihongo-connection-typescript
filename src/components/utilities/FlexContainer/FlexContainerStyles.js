@@ -1,43 +1,14 @@
-import { css } from "styled-components"
-import { createMediaQueries } from "../../../styles/styleHelpers"
+import styled, { css } from "styled-components"
+import { createResponsiveStyles } from "../../../styles/styleHelpers"
 
 export const FlexContainerStyles = css`
   display: flex;
   flex: 1;
 `
 
-export const DirectionStyles = direction => {
-  const styles = [
-    css`
-      flex-direction: ${direction["_"]};
-    `,
-  ]
-  if (Object.keys(direction).length > 1) {
-    styles.push(createMediaQueries("flex-direction", direction))
-  }
-  return styles
-}
-
-export const JustifyContentStyles = justifyContent => {
-  const styles = [
-    css`
-      justify-content: ${justifyContent["_"]};
-    `,
-  ]
-  if (Object.keys(justifyContent).length > 1) {
-    styles.push(createMediaQueries("justify-content", justifyContent))
-  }
-  return styles
-}
-
-export const AlignItemsStyles = alignItems => {
-  const styles = [
-    css`
-      align-items: ${alignItems["_"]};
-    `,
-  ]
-  if (Object.keys(alignItems).length > 1) {
-    styles.push(createMediaQueries("align-items", alignItems))
-  }
-  return styles
-}
+export const StyledFlexContainer = styled.div`
+  ${FlexContainerStyles};
+  ${props => props.flexDirection && createResponsiveStyles("flex-direction", props.flexDirection)};
+  ${props => props.justifyContent && createResponsiveStyles("justify-content", props.justifyContent)};
+  ${props => props.alignItems && createResponsiveStyles("align-items", props.alignItems)};
+`

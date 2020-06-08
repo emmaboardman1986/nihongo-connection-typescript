@@ -1,11 +1,5 @@
 import React from "react"
-import {
-  FlexContainerStyles,
-  JustifyContentStyles,
-  DirectionStyles,
-  AlignItemsStyles
-} from "./FlexContainerStyles"
-import styled from "styled-components"
+import { StyledFlexContainer } from "./FlexContainerStyles"
 
 export interface FlexContainerProps {
   flexDirection?: {
@@ -13,26 +7,34 @@ export interface FlexContainerProps {
   }
   justifyContent?: {
     _: "space-between" | "flex-start" | "flex-end"
-   }
-   alignItems?: {
+  }
+  alignItems?: {
     _: "flex-end" | "flex-start" | "center"
-   }
-   element?: "ul" | "div"
+  }
+  element?: "ul" | "div"
+  children: any
+  horizontalScroll?: boolean
 }
 
-const FlexContainer = ({ children, flexDirection = "row", justifyContent = "flex-start", alignItems = "flex-start", horizontalScroll, element="div" }) => {
+const FlexContainer = ({
+  children,
+  flexDirection = { _: "row" },
+  justifyContent = { _: "flex-start" },
+  alignItems = { _: "flex-start" },
+  horizontalScroll,
+  element = "div",
+}: FlexContainerProps) => {
   return (
-    <FlexContainerWrapper as={element} flexDirection={flexDirection} justifyContent={justifyContent} horizontalScroll={horizontalScroll} alignItems={alignItems}>
+    <StyledFlexContainer
+      as={element}
+      flexDirection={flexDirection}
+      justifyContent={justifyContent}
+      horizontalScroll={horizontalScroll}
+      alignItems={alignItems}
+    >
       {children}
-    </FlexContainerWrapper>
+    </StyledFlexContainer>
   )
 }
-
-const FlexContainerWrapper = styled.div`
-  ${FlexContainerStyles};
-  ${props => props.flexDirection && DirectionStyles(props.flexDirection)};
-  ${props => props.justifyContent && JustifyContentStyles(props.justifyContent)};
-  ${props => props.alignItems && AlignItemsStyles(props.alignItems)};
-`
 
 export default FlexContainer

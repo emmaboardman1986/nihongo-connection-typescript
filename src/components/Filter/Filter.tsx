@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { StyledFilter } from "./FilterStyles"
 import FilterGroup from "../FilterGroup"
-import { FilterContext } from "../../../context/FilterContext"
+import { FilterContext } from "../../context/FilterContext"
 
 const Filter = ({ filters }) => {
   const { state } = useContext(FilterContext)

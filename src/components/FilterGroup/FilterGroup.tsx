@@ -1,13 +1,13 @@
 import React, { useContext } from "react"
-import Pill from "../../Pill"
+import Pill from "../Pill"
 import {
   StyledFilterGroup,
   StyledFilterGroupContents,
   StyledFilterGroupTitle,
 } from "./FilterGroupStyles"
-import VerticalSpacing from "../../utilities/VerticalSpacing"
+import VerticalSpacing from "../utilities/VerticalSpacing"
 
-import { FilterContext } from "../../../context/FilterContext"
+import { FilterContext } from "../../context/FilterContext"
 
 type FilterGroupObject = {
   dataName: string
