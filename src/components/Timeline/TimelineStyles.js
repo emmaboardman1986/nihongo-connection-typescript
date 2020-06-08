@@ -1,12 +1,12 @@
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
 import { setSpacing, setFlex, breakpoint, setColor } from "../../styles/styleHelpers"
 
-export const TimelineStyles = css`
+const TimelineStyles = css`
   overflow: hidden;
   padding: ${setSpacing.base};
 `
 
-export const TimelineContainerStyles = css`
+const TimelineContainerStyles = css`
  a {
     color: ${setColor.brandPrimary[600]};
     &:hover {
@@ -30,7 +30,7 @@ export const TimelineContainerStyles = css`
       transform: translateX(-50%);`}
   }`
 
-export const TimelineBlockWrapperStyles = css`
+const TimelineBlockWrapperStyles = css`
 display: flex;
 padding: ${setSpacing.base} 0;
 &:nth-child(even) {
@@ -45,7 +45,7 @@ flex-direction: row-reverse;
 }
 `
 
-export const TimelineImageWrapperStyles = css`
+const TimelineImageWrapperStyles = css`
   ${setFlex({ justify: "center", align: "baseline" })};
   flex-shrink: 0;
   z-index: 1;
@@ -57,14 +57,14 @@ export const TimelineImageWrapperStyles = css`
     `}
 `
 
-export const IconWrapperStyles = css`
+const IconWrapperStyles = css`
   padding: ${setSpacing.tight};
   border-radius: 50%;
   border: 3px solid ${setColor.brandPrimary[300]};
   background-color: ${setColor.brandPrimary[600]};
 `
 
-export const TimelineContentWrapperStyles = css`
+const TimelineContentWrapperStyles = css`
  flex-grow: 1;
   ${breakpoint.sm`
   flex-grow: 0;
@@ -74,3 +74,24 @@ div {
   padding-top: ${setSpacing.tight};
 }
 `
+
+export const StyledTimeline = styled.div`
+  ${TimelineStyles};
+`
+
+export const StyledTimelineContainer = styled.div`
+  ${TimelineContainerStyles}
+`
+export const StyledTimelineBlock = styled.div`
+  ${TimelineBlockWrapperStyles};
+`
+
+export const StyledTimelineImage = styled.div`
+  ${TimelineImageWrapperStyles};
+`
+
+export const StyledIcon = styled.div`
+  ${IconWrapperStyles};
+`
+export const StyledTimelineContent = styled.div`
+${TimelineContentWrapperStyles}`
