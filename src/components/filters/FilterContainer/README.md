@@ -33,10 +33,6 @@ Interacting with a pill will update how many class results are shown below.  Int
 ### Visual Affordance
 - A drop shadow, is added to each filter group option to suggest it is clickable. Hover & focus states reinforce this. 
 
-## Future work
-- Provide visually-hidden ```<legend>`` text provides with a succinct & clarified description (i.e. "Student Type" vs "I am...")
-- Improve live region reading of plural class ("class" + "es")
-
 ## Content 
 
 Class Cards contain class location, class title, class frequency, and the next class date. This data is pulled in from the Prismic CMS. 
@@ -49,4 +45,11 @@ Filter options are currently pulled in from /data/filters.json. This will eventu
 
 ## Browser / OS Compatibility 
 
+.includes() not supported in IE. 
+
 ## Responsiveness 
+
+## Future work
+- Provide visually-hidden ```<legend>`` text provides with a succinct & clarified description (i.e. "Student Type" vs "I am...")
+- Improve live region reading of plural class ("class" + "es")
+- convert to typescript
