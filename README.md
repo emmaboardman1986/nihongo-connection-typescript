@@ -34,7 +34,7 @@ By leveraging Gatsby's built-in performance, SEO, and routing features, I was ab
 - #### Prismic
 Prismic allows for structured content (ensuring content integrity & strategy can be adhered too), and also has brilliant editing functionality. 
 
-- #### Netlify
+- #### Netlify 
 <3 love it. 
 
 ## Challenges
