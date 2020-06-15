@@ -15,7 +15,7 @@ ${'' /* // required for safari to recognise overflow-y: hidden */}
     grid-template-columns: ${props =>
       props.noHorizontalScroll
         ? "repeat(auto-fill, 100%)"
-        : "repeat(auto-fill, 16.5rem)"};
+        : "repeat(auto-fill, 85%)"};
     ${'' /* grid-template-columns: repeat(auto-fill, 15rem); */}
     grid-gap: 1.5rem;
     grid-auto-flow: ${props => (props.noHorizontalScroll ? "row" : "column")};

@@ -15,7 +15,7 @@ const CardContainer = ({
   cardContent,
   noHorizontalScroll,
   displayFull,
-}:CardContainerProps) => {
+}: CardContainerProps) => {
   return (
     <StyledCardContainer
       noHorizontalScroll={noHorizontalScroll}
@@ -43,6 +43,7 @@ const CardContainer = ({
                       ? classData.class_dates[0].class_date
                       : null
                   }
+                  preview={classData.class_1_bullet_preview.text}
                 ></ClassCard>
               </li>
             )
@@ -64,6 +65,7 @@ const CardContainer = ({
                   ? cardContent[0].node.data.class_dates[0].class_date
                   : "this Friday!"
               }
+              preview={cardContent[0].node.data.class_1_bullet_preview.text}
             ></ClassCard>
           </li>
         )
@@ -102,6 +104,5 @@ const CardContainer = ({
     </StyledCardContainer>
   )
 }
-
 
 export default CardContainer

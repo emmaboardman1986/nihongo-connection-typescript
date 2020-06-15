@@ -61,6 +61,9 @@ interface ExplorePageQueryData {
             class_schedule: string
             class_learning_style: string
             class_target: string
+            class_1_bullet_preview: {
+              text: string
+            }
           }
         }
       }
@@ -115,6 +118,9 @@ export const explorePageQuery = graphql`
             class_schedule
             class_learning_style
             class_target
+            class_1_bullet_preview {
+              text
+            }
           }
         }
       }

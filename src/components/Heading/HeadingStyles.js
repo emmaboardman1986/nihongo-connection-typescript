@@ -21,9 +21,9 @@ export const H2Styles = css`
 
 export const H3Styles = css`
   font-family: ${setFont.fontSecondaryBlack};
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-  color: ${setColor.brandMonochrome[900]};
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  color: ${setColor.brandPrimary[700]};
 `
 
 export const StyledHeading = styled.div`
