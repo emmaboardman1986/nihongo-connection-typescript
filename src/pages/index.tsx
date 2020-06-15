@@ -116,8 +116,8 @@ const HomePage: React.FC<Props> = ({ data }) => {
           ></SectionResponsiveImage>
         </FlexContainer>
       </Section>
-      {/* <VerticalSpacing size={{_: "baseT"}} /> */}
     </Layout>
+
   )
 }
 
@@ -222,6 +222,9 @@ interface PageQueryData {
               class_date(formatString: "MMMM DD YYYY"): string
             }
             class_schedule: string
+            class_1_bullet_preview: {
+              text: string
+            }
           }
         }
       }
@@ -328,6 +331,9 @@ export const pageQuery = graphql`
               class_date(formatString: "MMMM DD YYYY")
             }
             class_schedule
+            class_1_bullet_preview {
+              text
+            }
           }
         }
       }

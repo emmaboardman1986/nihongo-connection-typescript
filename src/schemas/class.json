@@ -13,6 +13,13 @@
         "label": "Class Title"
       }
     },
+    "class_1_bullet_preview": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Class 1 Bullet Preview"
+      }
+    },
     "class_type": {
       "type": "Select",
       "config": {

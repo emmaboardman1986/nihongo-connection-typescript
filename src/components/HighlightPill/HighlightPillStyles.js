@@ -6,8 +6,9 @@ import {ActionButtonFocusStyles } from "../Button/ButtonStyles"
 const HighlightPillStyles = css`
   ${BodyTextStyles};
   font-size: ${setFontSize.small};
-  background-color: ${setColor.brandMonochrome[900]};
-  color:  ${setColor.brandMonochrome[0]};
+  background-color: ${props => props.bgColor ? props.bgColor : setColor.brandMonochrome[900]};
+  border: ${props => props.color ? `1px ${props.color} solid` : null};
+  color:  ${props => props.color ? props.color : setColor.brandMonochrome[0]};
   border-radius: calc(${setBorder.borderRadius} / 2);
   margin-right: ${setSpacing.xTight};
   padding: ${setSpacing.tight} ${setSpacing.base};

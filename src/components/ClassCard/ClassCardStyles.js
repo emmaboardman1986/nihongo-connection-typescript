@@ -7,7 +7,8 @@ import {
   setFlexDirection,
   setColor,
   setSpacing,
-  setFontSize
+  setFontSize,
+  setFont
 } from "../../styles/styleHelpers"
 
 export const ClassCardStyles = css`
@@ -46,18 +47,19 @@ const ClassCardLabelStyles = css`
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: ${setColor.brandPrimary[600]};
+  background-color: ${setColor.brandPrimary[500]};
   border-radius: ${setBorder.borderRadius};
   padding: 0.25rem 0.5rem;
   border: 2px solid white;
   z-index: 1;
-  small {
+  strong {
+    font-family: ${setFont.fontPrimaryMedium};
     color: ${setColor.brandMonochrome[0]};
   }
 `
 
 const ClassCardImageStyles = css`
-  height: 5rem;
+  height: 6rem;
   position: relative;
   img {
     border-top-right-radius: ${setBorder.borderRadius};
@@ -71,7 +73,7 @@ const ClassCardImageStyles = css`
 const ClassCardTextStyles = css`
   padding: ${setSpacing.base};
   box-sizing: border-box;
-  ${setFlex()};
+  ${setFlex({align: 'flex-start'})};
   ${setFlexDirection({ direction: "column" })};
   max-width: 60ch;
   flex-grow: 1;
@@ -89,10 +91,13 @@ const ClassCardTextStyles = css`
     display: block;
     line-height: 1.2rem;
     strong {
-      color: ${setColor.brandPrimary[700]};
+      color: ${setColor.brandMonochrome[900]};
     }
    &:nth-last-child(2) {
     margin-bottom: ${setSpacing.tight};
+   }
+   &:last-of-type {
+     margin-top: auto;
    }
   }
   `
