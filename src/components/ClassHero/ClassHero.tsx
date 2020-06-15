@@ -11,6 +11,9 @@ import Heading from "../Heading"
 import BodyText from "../BodyText"
 import RichText from "../RichText"
 import VerticalSpacing from "../VerticalSpacing"
+import { setColor } from "../../styles/styleHelpers"
+import Gradient from "../Gradient"
+import Card from "../Card"
 
 const ClassHero = ({ title, duration, location, image, summary }) => {
   return (
@@ -20,8 +23,16 @@ const ClassHero = ({ title, duration, location, image, summary }) => {
         <VerticalSpacing size={{ _: "tight" }}></VerticalSpacing>
 
         <BodyText>
-          {duration && <HighlightPill>{duration}</HighlightPill>}{" "}
-          {location && <HighlightPill>{location}</HighlightPill>}
+          {duration && (
+            <HighlightPill bgColor={setColor.brandSecondary[500]}>
+              {duration}
+            </HighlightPill>
+          )}{" "}
+          {location && (
+            <HighlightPill bgColor={setColor.brandPrimary[600]}>
+              {location}
+            </HighlightPill>
+          )}
         </BodyText>
         <VerticalSpacing size={{ _: "xLoose" }}></VerticalSpacing>
       </StyledClassHeroTitle>
@@ -36,10 +47,13 @@ const ClassHero = ({ title, duration, location, image, summary }) => {
         </StyledClassHeroImage>
       )}
       <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
-
-      <StyledClassHeroSummary>
-        <RichText content={summary} emphasiseText></RichText>
-      </StyledClassHeroSummary>
+      <Gradient>
+        <Card bgColor="white" fullWidth>
+          <StyledClassHeroSummary>
+            <RichText content={summary} emphasiseText></RichText>
+          </StyledClassHeroSummary>
+        </Card>
+      </Gradient>
     </StyledClassHero>
   )
 }

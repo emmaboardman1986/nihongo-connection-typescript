@@ -13,6 +13,7 @@ import MailChimp from "../components/MailChimp/MailChimp"
 import Button from "../components/Button"
 import { graphql } from "gatsby"
 import TextLink from "../components/TextLink"
+import Gradient from "../components/Gradient"
 
 export default function ClassPage({ data }) {
   let classInfo = data.prismicClass.data
@@ -71,19 +72,20 @@ export default function ClassPage({ data }) {
           </Card>
         </Section>
       )}
-      {classInfo.class_curriculum.html && (
-        <Section>
-          <>
-            <Card bgColor="secondary">
-              <Heading element="h2">Curriculum</Heading>
-              <RichText
-                content={classInfo.class_curriculum.html}
-                starredList
-              ></RichText>
-            </Card>
-          </>
-        </Section>
-      )}
+      {classInfo.class_curriculum.html &&
+        classInfo.class_curriculum.html != null && (
+          <Section>
+            <>
+              <Card bgColor="secondary">
+                <Heading element="h2">Curriculum</Heading>
+                <RichText
+                  content={classInfo.class_curriculum.html}
+                  starredList
+                ></RichText>
+              </Card>
+            </>
+          </Section>
+        )}
       {classInfo.class_dates.length > 0 &&
         classInfo.class_dates[0].class_date != null && (
           <Section>
@@ -172,6 +174,7 @@ export default function ClassPage({ data }) {
                   content={classInfo.class_booking_instructions.html}
                 ></RichText>
                 <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
+
                 <MailChimp />
               </>
             ) : (
@@ -207,13 +210,12 @@ export default function ClassPage({ data }) {
       {classInfo.class_type != "Friday Conversation Club" && (
         <Section>
           <Card bgColor="primary">
+            {" "}
             <Heading element="h2">Mailing List</Heading>
             <BodyText>
               Join the community to get access to our events + activities
             </BodyText>
-
             <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
-
             <MailChimp emphasisColor="primary" />
           </Card>
         </Section>
