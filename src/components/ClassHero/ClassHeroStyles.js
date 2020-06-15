@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { setFlex, setFlexDirection, breakpoint } from "../../styles/styleHelpers"
+import { setFlex, setFlexDirection, breakpoint, setColor } from "../../styles/styleHelpers"
 
 export const StyledClassHero = styled.div`
 width: 100%;
@@ -11,6 +11,9 @@ position: relative;
 `
 
 export const StyledClassHeroTitle = styled.div`
+h1 {
+    color: ${setColor.brandPrimary[700]};
+}
 `
 
 export const StyledClassHeroImage = styled.div`

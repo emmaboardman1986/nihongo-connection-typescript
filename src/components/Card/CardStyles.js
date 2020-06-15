@@ -2,12 +2,12 @@ import styled, { css } from "styled-components"
 import { setColor, setBorder, setSpacing, breakpoint } from "../../styles/styleHelpers"
 
 const ColorCardStyles = css`
-background-color: ${props => props.bgColor === "primary" ? setColor.brandPrimary[600] : props.bgColor === "primaryLight" ? setColor.brandPrimary[100] : props.bgColor === "secondary" ? setColor.brandSecondary[500] : setColor.brandMonochrome[900]};
+background-color: ${props => props.bgColor === "primary" ? setColor.brandPrimary[600] : props.bgColor === "primaryLight" ? setColor.brandPrimary[100] : props.bgColor === "secondary" ? setColor.brandSecondary[500] : props.bgColor === "white" ? setColor.brandMonochrome[0] : setColor.brandMonochrome[900]};
 h2, h3 {
-    color: ${props => props.bgColor === "primaryLight" ? setColor.brandPrimary[800] : setColor.brandMonochrome[0]};
+    color: ${props => props.bgColor === "primaryLight" ?  setColor.brandPrimary[800] : setColor.brandMonochrome[0]};
 }
 p, li, form{
-    color: ${props => props.bgColor === "primaryLight" ? setColor.brandPrimary[700] : setColor.brandMonochrome[0]};
+    color: ${props => props.bgColor === "primaryLight" || props.bgColor === "white" ? setColor.brandPrimary[700] : setColor.brandMonochrome[0]};
 }
 h3 {
     margin-bottom: 0;
@@ -40,7 +40,7 @@ li {
 ${props => props.bgColor && ColorCardStyles};
 ${props => props.border && BorderCardStyles};
     ${breakpoint.sm`
-    width: 70%;
+    width: ${props => props.fullWidth ? '100%' : '70%'};
     margin-left: auto;
     margin-right: auto;`}
 `
