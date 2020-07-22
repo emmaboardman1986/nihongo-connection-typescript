@@ -9,7 +9,6 @@ import {
   StyledGradient
 } from "./ClassCardStyles"
 import Heading from "../Heading"
-import RichText from "../RichText"
 import HighlightPill from "../HighlightPill"
 import VerticalSpacing from "../VerticalSpacing"
 import Emphasis from "../Emphasis"
@@ -36,7 +35,6 @@ const ClassCard = ({
   thumbnailURL,
   duration,
   title,
-  start_date,
   uid,
   type,
   preview,
@@ -75,19 +73,6 @@ const ClassCard = ({
           </Emphasis>
         )}
         <VerticalSpacing></VerticalSpacing>
-        <p>
-          <strong>
-            {start_date != null && type === "Membership"
-              ? `Next enrollment: ${start_date}`
-              : start_date != null
-              ? `Next course: ${start_date}`
-              : uid === "friday-conversation-club"
-              ? "This Friday!"
-              : uid === "one-to-one-lessons"
-              ? "Limited Availability"
-              : "Applications currently open"}
-          </strong>
-        </p>
       </StyledClassCardText>
       </StyledClassCardInner>
       </StyledGradient>

@@ -37,12 +37,6 @@ const CardContainer = ({
                   thumbnailURL={
                     classData.class_main_image.thumbnails.thumbnail.url
                   }
-                  start_date={
-                    classData.class_dates.length > 0 &&
-                    classData.class_dates[0] != null
-                      ? classData.class_dates[0].class_date
-                      : null
-                  }
                   preview={classData.class_1_bullet_preview.text}
                 ></ClassCard>
               </li>
@@ -59,11 +53,6 @@ const CardContainer = ({
               thumbnailURL={
                 cardContent[0].node.data.class_main_image.thumbnails.thumbnail
                   .url
-              }
-              start_date={
-                cardContent[0].node.data.class_dates.length > 0
-                  ? cardContent[0].node.data.class_dates[0].class_date
-                  : "this Friday!"
               }
               preview={cardContent[0].node.data.class_1_bullet_preview.text}
             ></ClassCard>

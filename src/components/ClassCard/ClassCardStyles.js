@@ -8,34 +8,33 @@ import {
   setColor,
   setSpacing,
   setFontSize,
-  setFont
+  setFont,
 } from "../../styles/styleHelpers"
 
 export const ClassCardStyles = css`
-${BodyTextStyles};
-background-color: ${setColor.brandMonochrome[0]};
-border-radius: ${setBorder.borderRadius};
-box-shadow: ${setShadow.elevate[100]};
-cursor: pointer;
-white-space: initial;
-height: 100%;
-&:hover {
+  ${BodyTextStyles};
+  background-color: ${setColor.brandMonochrome[0]};
+  border-radius: ${setBorder.borderRadius};
+  box-shadow: ${setShadow.elevate[100]};
+  cursor: pointer;
+  white-space: initial;
+  height: 100%;
+  &:hover {
     box-shadow: ${setShadow.depress[100]};
-}
-a {
-  color: inherit;
-  text-decoration: none;
-  &:focus {
-      text-decoration: underline;
   }
-}
-&:focus-within {
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+  &:focus-within {
     box-shadow: ${setShadow.depress[100]};
     a:focus {
-        text-decoration: none;
+      text-decoration: none;
     }
-}
-
+  }
 `
 
 const ClassCardWrapperStyles = css`
@@ -73,7 +72,7 @@ const ClassCardImageStyles = css`
 const ClassCardTextStyles = css`
   padding: ${setSpacing.base};
   box-sizing: border-box;
-  ${setFlex({align: 'flex-start'})};
+  ${setFlex({ align: "flex-start" })};
   ${setFlexDirection({ direction: "column" })};
   max-width: 60ch;
   flex-grow: 1;
@@ -96,14 +95,15 @@ const ClassCardTextStyles = css`
    &:nth-last-child(2) {
     margin-bottom: ${setSpacing.tight};
    }
-   &:last-of-type {
-     margin-top: auto;
-   }
   }
+  span {
+    margin-top: auto;
+  }
+ 
   `
 
 const GradientStyles = css`
-height: 100%;
+  height: 100%;
   box-sizing: border-box;
   padding: ${setSpacing.tight};
   background: linear-gradient(
@@ -115,7 +115,8 @@ height: 100%;
     orange,
     #ed2530
   );
-  border-radius: ${setBorder.borderRadius};`
+  border-radius: ${setBorder.borderRadius};
+`
 
 const ClassCardInnerStyles = css`
   ${setFlex()};
@@ -123,8 +124,8 @@ const ClassCardInnerStyles = css`
   background-color: white;
   border-radius: 10px;
   height: 100%;
-  box-sizing: border-box;`
-
+  box-sizing: border-box;
+`
 
 export const StyledClassCard = styled.div`
   ${ClassCardStyles};

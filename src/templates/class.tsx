@@ -86,23 +86,6 @@ export default function ClassPage({ data }) {
             </>
           </Section>
         )}
-      {classInfo.class_dates.length > 0 &&
-        classInfo.class_dates[0].class_date != null && (
-          <Section>
-            <>
-              <Card border="primary">
-                <Heading element="h2">Upcoming Dates</Heading>
-                <ul>
-                  {classInfo.class_dates.map((classDate, index) => (
-                    <li key={index}>
-                      <BodyText>{classDate.class_date}</BodyText>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </>
-          </Section>
-        )}
       {classInfo.class_price_options.length > 0 &&
         classInfo.class_price_options[0].price != null && (
           <Section>
@@ -133,81 +116,17 @@ export default function ClassPage({ data }) {
           </Section>
         )}
       {}
-      <Section>
-        <>
-          <Card bgColor="primary">
-            {classInfo.class_dates.length > 0 &&
-            classInfo.class_dates[0].class_date === null ? (
-              classInfo.class_type === "By Application" ? (
-                <>
-                  <Heading element="h2">
-                    {classInfo.class_booking_title.text}
-                  </Heading>
-                  <RichText
-                    content={classInfo.class_booking_instructions.html}
-                  ></RichText>
-                  <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
-                  <p>
-                    <TextLink
-                      link="mailto:nihongoscotland@gmail.com"
-                      isExternal
-                    >
-                      NihongoScotland@gmail.com
-                    </TextLink>
-                  </p>
-                </>
-              ) : (
-                <>
-                  <Heading element="h2">Applications now open!</Heading>
-                  <RichText content="<p>We don't currently have any course dates scheduled. Join the mailing list to be notified of new dates!</p>"></RichText>
-                  <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
-
-                  <MailChimp />
-                </>
-              )
-            ) : classInfo.class_type === "Friday Conversation Club" ? (
-              <>
-                <Heading element="h2">
-                  {classInfo.class_booking_title.text}
-                </Heading>
-                <RichText
-                  content={classInfo.class_booking_instructions.html}
-                ></RichText>
-                <VerticalSpacing size={{ _: "loose" }}></VerticalSpacing>
-
-                <MailChimp />
-              </>
-            ) : (
-              <>
-                <Heading element="h2">
-                  {classInfo.class_booking_title.text}
-                </Heading>
-                <RichText
-                  content={classInfo.class_booking_instructions.html}
-                ></RichText>
-                <VerticalSpacing size={{ _: "base" }}></VerticalSpacing>
-                <Button
-                  isCentered
-                  isExternal
-                  link={classInfo.class_booking_link.url}
-                >
-                  Book now!
-                </Button>
-              </>
-            )}
-          </Card>
-        </>
-      </Section>
+     
       {classInfo.class_faqs.length > 1 && (
         <Section>
-          {/* <Card noPadding> */}
+          
           <Heading element="h2">FAQs</Heading>
 
           <Accordion>{classInfo.class_faqs}</Accordion>
-          {/* </Card> */}
+     
         </Section>
       )}
-      {classInfo.class_type != "Friday Conversation Club" && (
+    
         <Section>
           <Card bgColor="primary">
             {" "}
@@ -219,7 +138,7 @@ export default function ClassPage({ data }) {
             <MailChimp emphasisColor="primary" />
           </Card>
         </Section>
-      )}
+     
     </Layout>
   )
 }
@@ -246,9 +165,6 @@ export const query = graphql`
         }
         class_curriculum {
           html
-        }
-        class_dates {
-          class_date(formatString: "MMMM DD YYYY")
         }
         class_details {
           html
