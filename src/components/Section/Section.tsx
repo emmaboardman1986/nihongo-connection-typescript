@@ -2,11 +2,12 @@ import React from "react"
 import { StyledSection } from "./SectionStyles"
 
 export interface SectionProps {
-  children: any
+  children: any,
+  bgImg?: string
 }
 
-const Section = ({ children }:SectionProps) => {
-  return <StyledSection>{children}</StyledSection>
+const Section = ({ children, bgImg }:SectionProps) => {
+  return <StyledSection bgImg={bgImg}>{children}</StyledSection>
 }
 
 export default Section

@@ -16,7 +16,8 @@ const GradientStyles = css`
   );
   border-radius: ${setBorder.borderRadius};
   ${breakpoint.sm`
-  width: 50%;`}
+  width: calc(550px + 1rem);
+  ${props => props.center && `margin-left: auto; margin-right: auto;`}`}
 `
 
 export const StyledGradient = styled.div`

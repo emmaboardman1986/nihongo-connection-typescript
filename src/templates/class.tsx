@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
 import Heading from "../components/Heading"
@@ -9,13 +9,19 @@ import ClassHero from "../components/ClassHero"
 import Card from "../components/Card"
 import VerticalSpacing from "../components/VerticalSpacing"
 import Emphasis from "../components/Emphasis"
-import MailChimp from "../components/MailChimp/MailChimp"
-import Button from "../components/Button"
 import { graphql } from "gatsby"
-import TextLink from "../components/TextLink"
-import Gradient from "../components/Gradient"
+import Logo from "../../static/logo.svg"
 
 export default function ClassPage({ data }) {
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.setAttribute(
+      "src",
+      "https://nihongoconnection.activehosted.com/f/embed.php?id=3"
+    )
+    document.body.appendChild(script)
+  }, [])
+
   let classInfo = data.prismicClass.data
   return (
     <Layout>
@@ -40,6 +46,7 @@ export default function ClassPage({ data }) {
           </Card>
         </Section>
       )}
+
       {classInfo.class_details.html && (
         <Section>
           <Card bgColor="secondary">
@@ -116,29 +123,17 @@ export default function ClassPage({ data }) {
           </Section>
         )}
       {}
-     
+
+      <VerticalSpacing size={{ _: "baseLoose" }}></VerticalSpacing>
+      <Section bgImg={Logo}>
+        <div className="_form_3"></div>
+      </Section>
+
       {classInfo.class_faqs.length > 1 && (
         <Section>
-          
-          <Heading element="h2">FAQs</Heading>
-
           <Accordion>{classInfo.class_faqs}</Accordion>
-     
         </Section>
       )}
-    
-        <Section>
-          <Card bgColor="primary">
-            {" "}
-            <Heading element="h2">Mailing List</Heading>
-            <BodyText>
-              Join the community to get access to our events + activities
-            </BodyText>
-            <VerticalSpacing size={{ _: "baseTight" }}></VerticalSpacing>
-            <MailChimp emphasisColor="primary" />
-          </Card>
-        </Section>
-     
     </Layout>
   )
 }

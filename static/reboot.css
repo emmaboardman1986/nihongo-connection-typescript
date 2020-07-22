@@ -9,20 +9,46 @@ ol,
 blockquote,
 fieldset,
 button {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 @media (min-width: 992px) {
-    body {
-        background: linear-gradient(to top, hsl(220, 85%, 5%) 60px, white 60px);
-    }
+  body {
+    background: linear-gradient(to top, hsl(220, 85%, 5%) 60px, white 60px);
+  }
 }
 
 .visually-hidden {
-    position: absolute; 
-    overflow: hidden; 
-    clip: rect(0 0 0 0); 
-    height: 1px; width: 1px; 
-    margin: -1px; padding: 0; border: 0; 
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+/* // reset active campaign form styles */
+
+._form_3 {
+  font-family: Poppins-Regular !important;
+  border: 0.5rem solid black;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+@media all and (min-width: 768px) {
+  ._form_3 {
+    width: 550px;
+  }
+}
+._form_3 input:focus {
+  box-shadow: 0 0 0 3px hsl(220, 100%, 65%) !important;
+}
+
+._form-title {
+  font-family: Poppins-Medium !important;
 }

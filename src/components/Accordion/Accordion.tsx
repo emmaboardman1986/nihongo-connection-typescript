@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import RichText from "../RichText"
+import Heading from "../Heading"
 import {
   StyledAccordion,
   StyledAccordionToggle,
@@ -28,10 +29,10 @@ const Accordion = ({ children }: AccordionProps) => {
 
   useEffect(() => {
     let mapSectionStates = (sectionStates, sectionItem) => {
-      // sectionState is accumulator of reduced values, 
+      // sectionState is accumulator of reduced values,
       // section Item is the current value being processed
       if (!sectionStates[sectionItem.class_faq_question.text]) {
-         // all sections collapsed by default
+        // all sections collapsed by default
         sectionStates[sectionItem.class_faq_question.text] = false
       }
       return sectionStates
@@ -61,6 +62,7 @@ const Accordion = ({ children }: AccordionProps) => {
 
   return (
     <StyledAccordion>
+      <Heading element="h2">FAQs</Heading>
       <StyledAccordionToggle
         onClick={toggleAll}
         className={expandAll ? "pressed-in" : "popped-out"}
