@@ -7,7 +7,9 @@ let reducer = (state, action) => {
       return {
         ...state,
         isDropDownExpanded: {
-          ...state.isDropDownExpanded,
+          parentJL: false,
+          parentJT: false,
+          parentAU: false,
           [action.payload]: !state.isDropDownExpanded[action.payload]
         }
       };
