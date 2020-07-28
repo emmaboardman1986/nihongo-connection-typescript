@@ -7,7 +7,6 @@ import {
   setFontSize,
   setSpacing,
   setBorder,
-  setShadow
 } from "../../styles/styleHelpers"
 
 const ReviewCardStyles = css`

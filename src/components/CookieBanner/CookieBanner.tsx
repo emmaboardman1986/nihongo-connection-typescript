@@ -7,16 +7,13 @@ import { useSetCookies } from "../../customHooks/useSetCookie"
 import { useGetCookie } from "../../customHooks/useGetCookie"
 
 const CookieBanner = () => {
-  const essentialCookiesAccepted = useGetCookie("acceptEssentialCookies")
-  let isCookiePolicyPage = true;
-
-  const [hideCookieBanner, setHideCookieBanner] = useState(
-    essentialCookiesAccepted || isCookiePolicyPage
-  )
+  const [hideCookieBanner, setHideCookieBanner] = useState(true)
 
   useEffect(() => {
-    isCookiePolicyPage =
+    let isCookiePolicyPage =
       window.location.href.indexOf("cookie-policy") > -1 ? true : false
+    let essentialCookiesAccepted = useGetCookie("acceptEssentialCookies")
+    setHideCookieBanner(essentialCookiesAccepted || isCookiePolicyPage)
   }, [])
 
   return (
