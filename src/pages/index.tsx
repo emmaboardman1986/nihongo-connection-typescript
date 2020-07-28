@@ -27,10 +27,11 @@ const HomePage: React.FC<Props> = ({ data }) => {
           <Heading element="h1">
             {data.prismicHomepa.data.homepage_title.text}
           </Heading>
+          <VerticalSpacing size={{ _: "base"}} />
           <RichText
             content={data.prismicHomepa.data.homepage_summary.html}
           ></RichText>
-          <VerticalSpacing size={{ _: "loose", sm: "xTight" }} />
+          <VerticalSpacing size={{ _: "loose", sm: "xxLoose" }} />
           <Button link="/explore">
             {data.prismicHomepa.data.homepage_cta_button_text.text}
           </Button>
