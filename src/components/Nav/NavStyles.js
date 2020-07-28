@@ -113,6 +113,9 @@ ul {
         a {
             font-family: ${setFont.fontPrimaryRegular};
             font-size: ${setFontSize.medium};
+            ${breakpoint.sm`
+            font-size: 0.90rem;
+            `}
             &:after {
                 display: none;
             }
@@ -133,13 +136,14 @@ a {
 margin-right: ${setSpacing.xLoose};
 ul {
   position: absolute;
-  top: 1.5rem;
-  right: -5px;
+  padding: 0.5rem;
+  top: 1.75rem;
+  right: -20px;
   width: auto;
   margin-left: 0;
-  text-align: right;
+  text-align: left;
   height: auto;
-  border-radius: 3px;
+  border-radius: 1px;
     background-color: ${setColor.brandPrimary[600]};
     a {
       color: white;

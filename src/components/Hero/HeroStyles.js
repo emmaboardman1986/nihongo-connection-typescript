@@ -15,6 +15,12 @@ margin-top: ${setSpacing.xLoose};
 `
 
 const HeroContentStyles = css`
+${setFlex()};
+${setFlexDirection({ direction: "column" })};
+flex: 1;
+justify-content: space-between;
+height: 50vh;
+${'' /* background: yellow; */}
 ${breakpoint.sm`
 width: 60%`}`
 

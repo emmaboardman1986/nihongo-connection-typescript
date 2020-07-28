@@ -22,7 +22,7 @@ const HomePage: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
       <Section>
-        <VerticalSpacing size={{_: "xTight", sm: "base"}}></VerticalSpacing>
+        <VerticalSpacing size={{ _: "xTight", sm: "base" }}></VerticalSpacing>
         <Hero>
           <Heading element="h1">
             {data.prismicHomepa.data.homepage_title.text}
@@ -30,11 +30,10 @@ const HomePage: React.FC<Props> = ({ data }) => {
           <RichText
             content={data.prismicHomepa.data.homepage_summary.html}
           ></RichText>
-          <VerticalSpacing size={{ _: "loose", sm: "xLoose" }} />
+          <VerticalSpacing size={{ _: "loose", sm: "xTight" }} />
           <Button link="/explore">
             {data.prismicHomepa.data.homepage_cta_button_text.text}
           </Button>
-          <VerticalSpacing size={{ _: "loose", sm: "xLoose" }} />
         </Hero>
       </Section>
       <Section>
@@ -117,7 +116,6 @@ const HomePage: React.FC<Props> = ({ data }) => {
         </FlexContainer>
       </Section>
     </Layout>
-
   )
 }
 
