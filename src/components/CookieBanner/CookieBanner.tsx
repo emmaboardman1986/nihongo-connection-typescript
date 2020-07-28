@@ -8,7 +8,7 @@ import { useGetCookie } from "../../customHooks/useGetCookie"
 
 const CookieBanner = () => {
   const essentialCookiesAccepted = useGetCookie("acceptEssentialCookies")
-  let isCookiePolicyPage
+  let isCookiePolicyPage = true;
 
   const [hideCookieBanner, setHideCookieBanner] = useState(
     essentialCookiesAccepted || isCookiePolicyPage
