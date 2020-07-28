@@ -1,6 +1,12 @@
 import styled, { css } from "styled-components"
 import { BodyTextStyles } from "../BodyText/BodyTextStyles"
-import { setColor, setFlex, setFontSize, setFont, setBorder } from "../../styles/styleHelpers"
+import {
+  setColor,
+  setFlex,
+  setFontSize,
+  setFont,
+  setBorder,
+} from "../../styles/styleHelpers"
 import { BrandWarn } from "../../../static/brandwarn.svg"
 import { BrandTick } from "../../../static/brandtick.svg"
 
@@ -12,6 +18,10 @@ const ButtonStyles = css`
   border-radius: ${setBorder.borderRadius};
   width: 160px;
   border: 2px solid transparent;
+  margin-top: ${props => (props.margins && props.margins.top) || "0"};
+  margin-bottom: ${props => (props.margins && props.margins.bottom) || "0"};
+  margin-left: ${props => (props.margins && props.margins.left) || "0"};
+  margin-right: ${props => (props.margins && props.margins.right) || "0"};
 
   ${props =>
     props.alignCenter ? "margin-left: auto; margin-right: auto;" : null};
@@ -21,7 +31,7 @@ const ButtonStyles = css`
     color: ${setColor.brandMonochrome[0]};
   }
   &:hover {
-      background-color: ${setColor.brandSecondary[600]};
+    background-color: ${setColor.brandSecondary[600]};
   }
 `
 
@@ -29,16 +39,16 @@ const SecondaryButtonStyles = css`
   background-color: ${setColor.brandPrimary[600]};
   border: 2px solid ${setColor.brandPrimary[600]};
   &:hover {
-      background-color: ${setColor.brandPrimary[700]};
-    }
+    background-color: ${setColor.brandPrimary[700]};
+  }
   a {
     color: ${setColor.brandMonochrome[0]};
   }
 `
 
 export const ActionButtonFocusStyles = css`
-    outline: 0;
-    box-shadow: 0 0 0 3px ${setColor.brandPrimary[300]};
+  outline: 0;
+  box-shadow: 0 0 0 3px ${setColor.brandPrimary[300]};
 `
 
 const ActionButtonStyles = css`
@@ -54,29 +64,16 @@ const ActionButtonStyles = css`
     color: ${setColor.brandMonochrome[900]};
   }
   &:hover {
-    background-color: ${setColor.brandPrimary[300]};
+    background-color: ${setColor.brandPrimary[200]};
     border: ${setColor.borderSmBlack};
   }
   &:focus {
     ${ActionButtonFocusStyles};
   }
-  /* Remove Later */
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+ 
   transition: all 0.15s ease;
   position: relative;
-  &.on-click {
-  width: 44px;
-  border-radius: 50%;
-  border-left-color: ${setColor.brandPrimary[600]};
-  animation: rotating 2s 0.25s linear infinite;
-    &:after {
-      content: "";
-      
-    }
-  }
+
   &.success {
   &:after {
     content: " ";
@@ -95,14 +92,6 @@ const ActionButtonStyles = css`
     background-size: cover;
   }
   }
-  @keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 `
 
 export const StyledActionButton = styled.button`
@@ -114,5 +103,5 @@ export const StyledLinkButton = styled.div`
   ${ButtonStyles};
   ${props => props.variant === "secondary" && SecondaryButtonStyles};
   margin-left: ${props => (props.isCentered ? "auto" : null)};
-  margin-right: ${props => (props.isCentered ? "auto" : null)}; 
+  margin-right: ${props => (props.isCentered ? "auto" : null)};
 `

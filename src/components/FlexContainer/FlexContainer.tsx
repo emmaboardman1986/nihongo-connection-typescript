@@ -6,7 +6,7 @@ export interface FlexContainerProps {
     _: "column" | "row"
   }
   justifyContent?: {
-    _: "space-between" | "flex-start" | "flex-end"
+    _: "space-between" | "flex-start" | "flex-end" | "center"
   }
   alignItems?: {
     _: "flex-end" | "flex-start" | "center"
@@ -14,6 +14,7 @@ export interface FlexContainerProps {
   element?: "ul" | "div"
   children: any
   horizontalScroll?: boolean
+  flexWrap?: boolean
 }
 
 const FlexContainer = ({
@@ -23,6 +24,7 @@ const FlexContainer = ({
   alignItems = { _: "flex-start" },
   horizontalScroll,
   element = "div",
+  flexWrap
 }: FlexContainerProps) => {
   return (
     <StyledFlexContainer
@@ -31,6 +33,7 @@ const FlexContainer = ({
       justifyContent={justifyContent}
       horizontalScroll={horizontalScroll}
       alignItems={alignItems}
+      flexWrap={flexWrap}
     >
       {children}
     </StyledFlexContainer>

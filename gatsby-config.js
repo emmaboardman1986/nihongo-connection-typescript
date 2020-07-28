@@ -37,6 +37,7 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+   
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {

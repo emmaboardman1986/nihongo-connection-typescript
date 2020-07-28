@@ -4,6 +4,7 @@ import { createResponsiveStyles } from "../../styles/styleHelpers"
 export const FlexContainerStyles = css`
   display: flex;
   flex: 1;
+  ${props => props.flexWrap && `flex-wrap: wrap;`};
 `
 
 export const StyledFlexContainer = styled.div`

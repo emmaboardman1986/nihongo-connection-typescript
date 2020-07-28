@@ -73,10 +73,9 @@ export interface NavListItemProps {
   id?: string
   // TODO: deal with undefined items
   items?: []
-  key?: number
 }
 
-const NavListItem = ({ name, id, link, items = [], key }: NavListItemProps) => {
+const NavListItem = ({ name, id, link, items = [] }: NavListItemProps) => {
   const hasSubGroup = items && items.length > 0
   const { state, dispatch } = useContext(NavContext)
   const ref = useRef()

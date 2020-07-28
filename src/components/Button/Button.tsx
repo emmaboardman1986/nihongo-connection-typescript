@@ -1,14 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import {
-  StyledActionButton,
-  StyledLinkButton,
-} from "./ButtonStyles"
+import { StyledActionButton, StyledLinkButton } from "./ButtonStyles"
 
 export interface ButtonProps {
-  children: string
-  link: string
+  children?: string
+  link?: string
   isCentered?: boolean
   variant?: "primary" | "secondary"
   isExternal?: boolean
@@ -17,6 +14,7 @@ export interface ButtonProps {
   onClick?: any
   type?: string //
   name?: string
+  margins?: object
 }
 
 const Button = React.forwardRef((props: ButtonProps, ref) => {
@@ -28,25 +26,15 @@ const Button = React.forwardRef((props: ButtonProps, ref) => {
     onClick,
     isExternal,
     isAction,
-    type,
-    name,
+    margins
   } = props
 
   return (
     <>
       {isAction ? (
-        <StyledActionButton
-          onClick={onClick}
-          isCentered={isCentered}
-          type={type}
-          // used to apply class styling on click
-          ref={ref}
-          name={name}
-        >
-          <span className="visually-hidden">{name}</span>
-        </StyledActionButton>
+        <StyledActionButton onClick={onClick} margins={margins}>{children}</StyledActionButton>
       ) : (
-        <StyledLinkButton isCentered={isCentered} variant={variant}>
+        <StyledLinkButton isCentered={isCentered} variant={variant} margins={margins}>
           {isExternal ? (
             <a href={link} target="_blank">
               {children}
@@ -59,6 +47,5 @@ const Button = React.forwardRef((props: ButtonProps, ref) => {
     </>
   )
 })
-
 
 export default Button

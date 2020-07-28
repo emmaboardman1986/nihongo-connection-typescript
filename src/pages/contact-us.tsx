@@ -6,8 +6,6 @@ import BodyText from "../components/BodyText"
 import SocialLinks from "../components/SocialLinks"
 import FlexContainer from "../components/FlexContainer"
 import TextLink from "../components/TextLink"
-
-import Emphasis from "../components/Emphasis"
 import Gradient from "../components/Gradient"
 import Card from "../components/Card"
 

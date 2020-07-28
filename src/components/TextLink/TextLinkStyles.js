@@ -14,7 +14,7 @@ const TextLinkWrapperStyles = css`
   font-family: ${setFont.fontPrimaryMedium};
   color: inherit;
   &:hover {
-    color: ${setColor.brandMonochrome[800]};
+    color: ${setColor.brandMonochrome[0]};
     background-color: ${setColor.brandPrimary[600]};
   }
   ${props => props.isOnBrandBg && TextLinkOnBrandBgStyles};`
