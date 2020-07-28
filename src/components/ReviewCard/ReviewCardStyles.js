@@ -6,7 +6,8 @@ import {
   setFlexDirection,
   setFontSize,
   setSpacing,
-  setBorder
+  setBorder,
+  setShadow
 } from "../../styles/styleHelpers"
 
 const ReviewCardStyles = css`
@@ -25,7 +26,11 @@ const ReviewCardStyles = css`
     flex: 1;
     text-align: center;
   }
-  ${props => props.displayFull && "box-shadow: none;"}
+  ${props => props.displayFull && `box-shadow: none;`}
+  &:hover, &:focus-within {
+    ${props => props.displayFull && `box-shadow: none; cursor: default;`}
+  }
+  
 `
 
 export const StyledReviewCard = styled.div`
